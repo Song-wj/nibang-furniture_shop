@@ -1,0 +1,164 @@
+/**
+	index
+*/
+	div.content {
+		width: 70%;
+		margin: auto;
+	}
+	
+	section {
+		width: 1263px;
+		margin: auto;
+	}
+	.section2 .label {
+		margin-bottom: 20px;
+		text-align: center;
+		font-size: 13px;
+		font-weight: 600;
+		color: #333;
+	}
+	
+	.section2 .recomand_img {
+		width: 175px;
+		height: 180px;
+		padding: 10px 10px;
+	}
+	
+	.section2 .recomand>div {
+		display: inline-block;
+	}
+	
+	.section3>div {
+		padding: 50px 0px;
+	}
+	
+	.section3 .simple {
+		display: inline-block;
+	}
+	
+	.section3 .simple .simple_img {
+		width: 355px;
+		height: 450px;
+		padding: 10px 8px;
+	}
+	
+	.section4>div {
+		padding-top: 50px;
+		padding-bottom: 70px;
+	}
+	
+	.section2>div {
+		text-align: center;
+		margin: 40px 60px;
+	}
+	
+	.section3 {
+		text-align: center;
+		border-top: 1px solid lightgray;
+	}
+	
+	.section4 {
+		text-align: center;
+	}
+	
+	.section4 .quick {
+		display: inline-block;
+		padding: 50px;
+	}
+	
+	.section4 .effect1 {
+		display: inline-block;
+		width: 200px;
+		height: 200px;
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_3.png')
+	}
+	
+	.section4 .effect2 {
+		display: inline-block;
+		width: 200px;
+		height: 200px;
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_4.png')
+	}
+	
+	.section4 .effect3 {
+		display: inline-block;
+		width: 200px;
+		height: 200px;
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_2.png')
+	}
+	
+	.section4 .effect1:hover {
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_33.png')
+	}
+	
+	.section4 .effect2:hover {
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_44.png')
+	}
+	
+	.section4 .effect3:hover {
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_22.png')
+	}
+	
+	div.carousel-slide h5 {
+		color: black;
+		float: left;
+	}
+/**
+	header
+*/
+	header nav ul {
+		font-size: 10px;
+	}
+	/* 	span.menubar {
+					padding: 0 20px 5px 0;
+				} */
+	header nav button {
+		padding: 0 20px 5px 0;
+	}
+	
+	header nav div.logo {
+		position: relative;
+		margin-left: 20%;
+		padding-bottom: 5px;
+	}
+	.modal-dialog {
+        display: inline-block;
+        width: 700px;
+        padding-top: 30px;
+        text-align: left;
+        vertical-align: middle;
+    } 
+    .menu-list {
+    	margin: 0;
+    	list-style: none;
+    }
+/**
+	footer
+*/
+	footer {
+		background-color: rgb(253, 252, 240)
+	}
+	
+	footer>div.info {
+		width: 1000px;
+		margin: auto;
+	}
+	
+	footer .info>.f_logo {
+		float: left;
+		padding: 30px 70px 50px 10px;
+	}
+	
+	footer .info>.a {
+		display: inline-block;
+		font-size: 12px;
+		padding: 5px 5px;
+	}
+	
+	footer .sns {
+		display: inline-block;
+		float: right;
+		width: 100px;
+		height: 100px;
+		margin-top: -75px;
+	}
