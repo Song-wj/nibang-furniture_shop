@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <title>Insert title here</title>
 <style>
-/* 	footer {
+	 footer {
 		background-color: rgb(253, 252, 240)
 	}
 	
@@ -34,7 +34,7 @@
 		width: 100px;
 		height: 100px;
 		margin-top: -75px;
-	} */
+	} 
 </style>
 </head>
 <body>

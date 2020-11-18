@@ -30,7 +30,8 @@
 					 height:100%;
 					 border-radius:7px;		
 					 border:3px solid #ccc;
-					 background:#fff;}	 
+					 background:#fff;
+					 }	 
 			header div.fg>nav>ul>li {list-style-type:none;
 							         padding:10px;
 							        }
@@ -60,28 +61,29 @@
             						   
             						   display:inline-block;
             						   float:left;
-            						   margin:20px 15px 0 30px;
+            						   margin:23px 15px 0 30px;
             						   width:20px; height:20px;
             						   }
-            header div.icons input[type="text"]{
-            							      						 
+            header div.icons input[type="text"]{            							      						 
 		            							 width:300px;
 		            							 height:40px;
-		            							 background-color:lightgray;
-		            							 border:1px solid lightgray;
 		            							 text-indent:30px;
-		            							
-		            							 } 	
+		            							 background-color:white;
+		            							 border: none;
+		            							 background: transparent;
+		            							 float:left;
+		            							 
+		            						 } 	
             header .icons img{
-                             width:40px; height50px;
-                             float:left;
+                             width:20px; height:20px;                            
                              margin-top:5px;
+                             margin-left:40px;
             			}
             header .icons{ display:inline-block;
-            				border:1px solid red;
-            				width:400px; height:50px;
+            				border:3px solid red;
+            				width:400px; height:40px;
             				padding-left:10px;
-            				background-color:lightgray;
+            			 
             				border-radius:15px;
             				margin-top:15px;}
             			 
@@ -134,8 +136,9 @@
 					</div>
 					
 						<div class="icons"> 
-							<img src="http://localhost:9000/sist_project_2/images/gnb_search.png">
+
 		     				<input type="text" name="se" >
+		     				<img src="http://localhost:9000/sist_project_2/images/search.png">
 		     			</div>
 							
 					    
