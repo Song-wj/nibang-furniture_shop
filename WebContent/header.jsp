@@ -29,7 +29,7 @@
 	<body>
 	<header>
 		<nav class="navbar navbar-expand-sm bg-light navbar-light ">			
-			<button type="button" class="btn pb-2" data-toggle="modal" data-target="#myModal"><img src="http://localhost:9000/iloom/images/icon_gnb_menu.png"></button>
+			<button type="button" class="btn pb-2" data-toggle="modal" data-target="#myModal"><img src="http://localhost:9000/sist_project_2/images/icon_gnb_menu.png"></button>
 			
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 				<div class="modal-dialog" role="document">
@@ -52,9 +52,9 @@
 			<form class="form-inline ml-3" action="/action_page.php">
 				<input class="form-control mr-sm-2" type="text" placeholder="검색">
 			</form>
-				<a href="#"><button type="button" class=btn><img src="http://localhost:9000/iloom/images/gnb_search.png"></button></a>
+				<a href="#"><button type="button" class=btn><img src="http://localhost:9000/sist_project_2/images/gnb_search.png"></button></a>
 			<div class="logo">
-				<a href="#"><img src="http://localhost:9000/iloom/images/gnb_logo.png"></a>
+				<a href="#"><img src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></a>
 			</div>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">

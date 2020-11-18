@@ -4,6 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Insert title here</title>
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
@@ -71,37 +72,37 @@
 				                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 									  <div class="carousel-inner">
 									    <div class="carousel-item active">
-									      <img src="http://localhost:9000/iloom/images/1.jpg" class="d-block w-100" alt="...">
+									      <img src="http://localhost:9000/sist_project_2/images/1.jpg" class="d-block w-100" alt="...">
 									     <div class="carousel-caption d-none d-md-block">
        									 <h5>1 of 6</h5>
        									 </div>
 									    </div>
 									    <div class="carousel-item">
-									      <img src="http://localhost:9000/iloom/images/2.jpg" class="d-block w-100" alt="...">
+									      <img src="http://localhost:9000/sist_project_2/images/2.jpg" class="d-block w-100" alt="...">
 									      <div class="carousel-caption d-none d-md-block">
        									 <h5>2 of 6</h5>
        									 </div>
 									    </div>
 									    <div class="carousel-item">
-									      <img src="http://localhost:9000/iloom/images/3.jpg" class="d-block w-100" alt="...">
+									      <img src="http://localhost:9000/sist_project_2/images/3.jpg" class="d-block w-100" alt="...">
 									      <div class="carousel-caption d-none d-md-block">
        									 <h5>3 of 6</h5>
        									 </div>
 									    </div>
 									     <div class="carousel-item">
-									      <img src="http://localhost:9000/iloom/images/4.jpg" class="d-block w-100" alt="...">
+									      <img src="http://localhost:9000/sist_project_2/images/4.jpg" class="d-block w-100" alt="...">
 									      <div class="carousel-caption d-none d-md-block">
        									 <h5>4 of 6</h5>
        									 </div>
 									    </div>
 									     <div class="carousel-item">
-									      <img src="http://localhost:9000/iloom/images/5.jpg" class="d-block w-100" alt="...">
+									      <img src="http://localhost:9000/sist_project_2/images/5.jpg" class="d-block w-100" alt="...">
 									      <div class="carousel-caption d-none d-md-block">
        									 <h5>5 of 6</h5>
        									 </div>
 									    </div>
 									     <div class="carousel-item">
-									      <img src="http://localhost:9000/iloom/images/6.jpg" class="d-block w-100" alt="...">
+									      <img src="http://localhost:9000/sist_project_2/images/6.jpg" class="d-block w-100" alt="...">
 									      <div class="carousel-caption d-none d-md-block">
        									 <h5>6 of 6</h5>
        									 </div>
