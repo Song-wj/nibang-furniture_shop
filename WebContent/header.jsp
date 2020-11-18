@@ -19,32 +19,6 @@
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
 <style>
-/* 	header nav ul {
-		font-size: 10px;
-	}
-	/* 	span.menubar {
-					padding: 0 20px 5px 0;
-				} 
-	header nav button {
-		padding: 0 20px 5px 0;
-	}
-	
-	header nav div.logo {
-		position: relative;
-		margin-left: 20%;
-		padding-bottom: 5px;
-	}
-	.modal-dialog {
-        display: inline-block;
-        width: 700px;
-        padding-top: 30px;
-        text-align: left;
-        vertical-align: middle;
-    } 
-    .menu-list {
-    	margin: 0;
-    	list-style: none;
-    } */
 </style>
 </head>
 <body>

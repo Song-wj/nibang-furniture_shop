@@ -8,33 +8,6 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <title>Insert title here</title>
 <style>
-/* 	footer {
-		background-color: rgb(253, 252, 240)
-	}
-	
-	footer>div.info {
-		width: 1000px;
-		margin: auto;
-	}
-	
-	footer .info>.f_logo {
-		float: left;
-		padding: 30px 70px 50px 10px;
-	}
-	
-	footer .info>.a {
-		display: inline-block;
-		font-size: 12px;
-		padding: 5px 5px;
-	}
-	
-	footer .sns {
-		display: inline-block;
-		float: right;
-		width: 100px;
-		height: 100px;
-		margin-top: -75px;
-	} */
 </style>
 </head>
 <body>
