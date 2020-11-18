@@ -112,14 +112,14 @@
 		<header>	
 		     <div>
 		     	<div>			     
-			     	<img src="http://localhost:9000/iloom/images/icon_gnb_menu.png" onClick="document.getElementById('mw_temp').style.display='block'" class="menu_bar">
+			     	<img src="http://localhost:9000/sist_project_2/images/icon_gnb_menu.png" onClick="document.getElementById('mw_temp').style.display='block'" class="menu_bar">
 					<div id="mw_temp" class="mw">
 					<div class="bg"><!--이란에는 내용을 넣지 마십시오.--></div>
 						   <div class="fg">		               
-		              			 <button onclick="document.getElementById('mw_temp').style.display='none'" type="button" class="close_btn"><img src="http://localhost:9000/iloom/images/option_delete.png"></button>
+		              			 <button onclick="document.getElementById('mw_temp').style.display='none'" type="button" class="close_btn"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></button>
 		               				<nav class="first">
 		               					<ul>
-						               	    <li><img src="http://localhost:9000/iloom/images/gnb_logo.png"></li>
+						               	    <li><img src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></li>
 							               	<li>모든제품</li>
 							               	<li>신제품</li>
 						               		<li>이벤트</li>
@@ -134,12 +134,12 @@
 					</div>
 					
 						<div class="icons"> 
-							<img src="http://localhost:9000/sist_project_2/images/search.png">
+							<img src="http://localhost:9000/sist_project_2/images/gnb_search.png">
 		     				<input type="text" name="se" >
 		     			</div>
 							
 					    
-			     	<a href="http://localhost:9000/iloom/header2.jsp"><img id="logo" src ="http://localhost:9000/iloom/images/gnb_logo.png"></a>
+			     	<a href="http://localhost:9000/sist_project_2/header2.jsp"><img id="logo" src ="http://localhost:9000/sist_project_2/images/gnb_logo.png"></a>
 				 <nav class="second">  
 				    <ul>			            			
 				     	<li ><a href="">로그인</a><div></div></li>
