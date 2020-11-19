@@ -56,10 +56,84 @@
 		color: rgb(144, 144, 144);
 	}
 	ul li a.h_side:hover {
-		color: tomato;
+		color: rgb(200,10,30);
 	}
 	.section1 {
 		margin-top: 15%;
+		padding-left: 29%;
+	}
+	.section1 h2 {
+		padding-left: 23%; 
+	}
+	.section1 h5 {
+		padding-left: 19%;
+		color: #333;
+		font-weight: 400;
+	}
+	.section1 h5.reason {
+		padding-left: 23%;
+	}
+	.section1 h6.reason1 {
+		padding-left: 10%;
+	}
+	.section1 h6.reason2 {
+		padding-left: 9%;
+	}
+	.section1 div:first-child {
+		background-color: rgb(231,231,231);
+		width: 59%;
+	}
+	.section1 div > div {
+		width: 96%;
+		margin: 0 10px;
+		line-height: 30px;
+		padding: 112px 40px;
+		font-size: 13px;
+	}
+	.content .section1 form.wcheckbox1 {
+		margin-left: 30px;
+		float: left;
+	}
+	.content .section1 form.wcheckbox2 {
+		margin-top: 47px;
+		margin-left: 65px;
+		display: inline-block;
+	}
+	.content .section1 form.wtextarea {
+		margin-top: 10%;
+		margin-left: -25px;
+		clear: both;
+	}
+	.content .section1 form.wtextarea textarea {
+		border: 1px solid gray;
+		width: 620px;
+		height: 220px;
+		padding: 40px;
+		resize: none;
+		font-size: 13px;
+	}
+	.content .section1 form > span.wchk{
+		font-size: 15px;
+		padding-left: 5px;
+	}
+	.buttonarea {
+		margin-top: 35px;
+		padding-left: 70px;
+	}
+	.buttonarea button{
+		width: 205px;
+		height: 50px;
+		font-size: 16px;
+		color: white
+	}
+	.buttonarea button.btn_cancel{
+		background-color: #c80a1e;
+		border: none;
+		margin-right: 3px;
+	}
+	.buttonarea button.btn_withdrawal{
+		background-color: #63666A;
+		border: none;
 	}
 </style>
 </head>
@@ -83,7 +157,42 @@
 			</nav>
 		</aside>
 		<section class="section1">
-				<h2>회원 탈퇴</h2>
+				<h2>회원 탈퇴</h2><br><br>
+				<h5>회원탈퇴 및 재가입 정책</h5><br>
+				<div>
+					<div>
+						회원탈퇴 시 개인정보는 즉시 파기되어 복구가 불가능합니다. 단, 회원으로 활동 시 작성하셨던 게시물
+						및 댓글은 자동으로 삭제되지 않습니다. 또한, 이용자에게 개인정보 보관기간에 대해 별도의 동의를 얻은 경우 또는 법령에서
+						일정기간 정보보관 의무를 부과하는 경우에는 해당 기간 동안 개인정보를 안전하게 보관합니다.<br>
+						주문이나 배송 진행중인 거래내역이 있을 경우, 거래 종료 후 탈퇴가 가능합니다.
+					</div>
+				</div>
+				<br><br><br>
+				<h5 class="reason">회원 탈퇴 이유</h5><br>
+				<h6 class="reason1">일룸몰을 이용하시면서 가장 불편했던 점을 알려주세요.</h6>
+				<h6 class="reason2">보다 나은 서비스를 위해 소중한 의견으로 활용하겠습니다.</h6>
+				<form class="wcheckbox1"><br><br>
+					<input type="checkbox"><span class="wchk">상품 다양성(디자인 불만족)</span><div></div><br>
+					<input type="checkbox"><span class="wchk">이용빈도 낮음</span><div></div><br>
+					<input type="checkbox"><span class="wchk">쇼핑몰 속도 불안</span><div></div><br>
+					<input type="checkbox"><span class="wchk">가격품질 불만</span><div></div><br>
+					<input type="checkbox"><span class="wchk">개인정보 유출 우려</span><div></div><br>
+					<input type="checkbox"><span class="wchk">아이디 변경을 위해 탈퇴 후 재가입</span><br>
+				</form>
+				<form class="wcheckbox2">
+					<input type="checkbox"><span class="wchk">교환/품질 불만</span><div></div><br>
+					<input type="checkbox"><span class="wchk">회원특혜/쇼핑혜택 부족</span><div></div><br>
+					<input type="checkbox"><span class="wchk">배송지연</span><div></div><br>
+					<input type="checkbox"><span class="wchk">A/S불만족</span><div></div><br>
+					<input type="checkbox"><span class="wchk">기타</span><br>
+				</form>
+				<form class="wtextarea">
+					<textarea placeholder="기타의견 (100글자 이내)"></textarea>
+				</form>
+				<div class="buttonarea">
+					<button type="button" class="btn_cancel">취소</button>
+					<button type="button" class="btn_withdrawal">탈퇴하기</button>
+				</div>
 		</section>
 	</div>
 	
