@@ -1,4 +1,161 @@
 /**
+	header
+*/
+     header {
+		width: 100%;
+		margin: auto;
+		position: fixed;
+		clear: both;
+		z-index: 5;
+	}
+	
+	*:focus {
+		outline: none;
+	}	
+	header .mw {
+		position: fixed;
+		_position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: none;
+	}	
+	header .mw .bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: .5;
+		filter: alpha(opacity = 50)
+	}	
+	header .mw .fg {
+		float: left;
+		position: absolute;
+		width: 400px;
+		height: 100%;
+		border-radius: 7px;
+		border: 3px solid #ccc;
+		background: #fff;
+	}	
+	header div.fg>nav>ul>li {
+		list-style-type: none;
+		padding: 10px;
+	}	
+	header div.fg button.close_btn {
+		display: inline-block;
+		float: right;
+		margin: 30px 30px 0 0;
+		border: 1px solid white;
+		width: 50px;
+		heigth: 50px;
+		background-color: white;
+	}	
+	header div.fg>nav.first>ul {
+		margin-top: 100px;
+		margin-right: 130px;
+	}	
+	header div.fg>nav>ul>li:nth-child(2), div.fg>nav>ul>li:nth-child(3), div.fg>nav>ul>li:nth-child(4)
+		{
+		font-size: 30px;
+		font-weight: 2000px;
+	}	
+	header div.fg>nav>ul>li:nth-child(5), header div.fg>nav>ul>li:nth-child(6),
+	header div.fg>nav>ul>li:nth-child(7), header div.fg>nav>ul>li:nth-child(8),
+	header div.fg>nav>ul>li:nth-child(9) {
+		font-size: 15px;
+		font-weight: 2000px;
+	}	
+	header div.fg>nav>ul>li:nth-child(4) {
+		padding-bottom: 50px;
+	}	
+	header div img.menu_bar {
+		display: inline-block;
+		float: left;
+		margin: 23px 15px 0 30px;
+		width: 20px;
+		height: 20px;
+	}	
+	header div.icons input[type="text"] {
+		width: 300px;
+		height: 40px;
+		text-indent: 30px;
+		background-color: white;
+		border: none;
+		background: transparent;
+		float: left;
+	}	
+	header .icons img {
+		width: 20px;
+		height: 20px;
+		margin-top: 5px;
+		margin-left: 40px;
+	}	
+	header .icons {
+		display: inline-block;
+		border: 3px solid red;
+		width: 400px;
+		height: 40px;
+		padding-left: 10px;
+		border-radius: 15px;
+		margin-top: 15px;
+	}	
+	header #logo {
+		position: absolute;
+		left: 47.5%;
+		margin-top: 20px;
+	}	
+	header div nav.second>ul>li {
+		display: inline;
+		font-size: 12px;
+	}	
+	header div nav.second ul li a {
+		text-decoration: none;
+		color: black;
+	}	
+	header div nav.second ul {
+		float: right;
+		margin-top: -50px;
+		margin-right: 10px;
+	}	
+	header div nav.second ul li div {
+		background-color: gray;
+		width: 1px;
+		height: 7px;
+		display: inline-block;
+		margin: 0 7px 0 7px;
+	}
+/**
+	footer
+*/
+
+ 	footer {
+		background-color: rgb(253, 252, 240)
+	}	
+	footer>div.info {
+		width: 1000px;
+		margin: auto;
+	}	
+	footer .info>.f_logo {
+		float: left;
+		padding: 30px 70px 50px 10px;
+	}	
+	footer .info>.a {
+		display: inline-block;
+		font-size: 12px;
+		padding: 5px 5px;
+	}	
+	footer .sns {
+		display: inline-block;
+		float: right;
+		width: 100px;
+		height: 100px;
+		margin-top: -75px;
+	} 
+	
+/**
 	index
 */
 	div.content {
@@ -104,178 +261,149 @@
 		text-align:center;
 	}
 /**
-	header
+	join
 */
-	header {
-		width: 100%;
-		margin: auto;
-		position: fixed;
-		z-index: 5;
-	}
-	
-	*:focus {
-		outline: none;
-	}
-	
-	header .mw {
-		position: fixed;
-		_position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		display: none;
-	}
-	
-	header .mw .bg {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background: #000;
-		opacity: .5;
-		filter: alpha(opacity = 50)
-	}
-	
-	header .mw .fg {
-		float: left;
-		position: absolute;
-		width: 400px;
-		height: 100%;
-		border-radius: 7px;
-		border: 3px solid #ccc;
-		background: #fff;
-	}
-	
-	header div.fg>nav>ul>li {
-		list-style-type: none;
-		padding: 10px;
-	}
-	
-	header div.fg button.close_btn {
-		display: inline-block;
-		float: right;
-		margin: 30px 30px 0 0;
+    .section1 {
 		border: 1px solid white;
-		width: 50px;
-		heigth: 50px;
-		background-color: white;
-	}
-	
-	header div.fg>nav.first>ul {
-		margin-top: 100px;
-		margin-right: 130px;
-	}
-	
-	header div.fg>nav>ul>li:nth-child(2), div.fg>nav>ul>li:nth-child(3), div.fg>nav>ul>li:nth-child(4)
-		{
-		font-size: 30px;
-		font-weight: 2000px;
-	}
-	
-	header div.fg>nav>ul>li:nth-child(5), header div.fg>nav>ul>li:nth-child(6),
-		header div.fg>nav>ul>li:nth-child(7), header div.fg>nav>ul>li:nth-child(8),
-		header div.fg>nav>ul>li:nth-child(9) {
-		font-size: 15px;
-		font-weight: 2000px;
-	}
-	
-	header div.fg>nav>ul>li:nth-child(4) {
+	}	
+	section.section1 div.join {
+		width: 52%;
+		margin: auto;
+		text-align: center;
+		margin-top: 13%;
+		margin-bottom: 14%;
+	}	
+	section.section1 div.join h1 {
 		padding-bottom: 50px;
+		border-bottom: 1px solid lightgray;
+		margin-bottom: 50px;
+	}	
+	section.section1 div.join form>ul>li {
+		list-style-type: none;
+	}	
+	section.section1 div.join form>ul>li input[type="text"] {
+		text-indent: 10px;
+	}	
+	section.section1 div.join form>ul>li:first-child input[type="text"] {
+		width: 190px;
+		height: 29px;
+	}	
+	section.section1 div.join form>ul>li:first-child>div, section.section1 div.join form>ul>li:nth-child(5)>div{
+		color: rgb(200, 10, 30);
+		text-align: right;
+		padding-right: 50px;
+		text-decoration: underline;
+		font-size: 13px;
+		font-weight: bold;
+		margin: 10px 0;
+		text-underline-position: under;
+	}	
+	section.section1 div.join form>ul>li:first-child>select {
+		width: 100px;
+		height: 32px;
+	}	
+	section.section1 div.join form>ul>li:nth-child(2)>input[type="text"],
+		section.section1 div.join form>ul>li:nth-child(3)>input[type="text"] {
+		width: 500px;
+		height: 37px;
+		margin-bottom: 10px;
+	}	
+	section.section1 div.join form>ul>li:nth-child(2)>div {
+		text-align: right;
+		padding-right: 60px;
+		font-size: 13px;
+		font-weight: bold;
+		margin: 10px 0;
+	}	
+	section.section1 div.join form>ul>li:nth-child(4)>input[type="text"] {
+		width: 130px;
+		height: 39px;
+		margin: 10px 0;
+	}	
+	section.section1 div.join form>ul>li:nth-child(5)>input[type="text"] {
+		width: 159px;
+		height: 39px;
+		margin: 10px 0;
 	}
-	
-	header div img.menu_bar {
-		display: inline-block;
-		float: left;
-		margin: 20px 15px 0 30px;
-		width: 20px;
-		height: 20px;
-	}
-	
-	header div.icons input[type="text"] {
-		width: 300px;
-		height: 40px;
-		background-color: lightgray;
-		border: 1px solid lightgray;
-		text-indent: 30px;
-	}
-	
-	header .icons img {
-		width: 40px; height50px;
-		float: left;
-		margin-top: 5px;
-	}
-	
-	header .icons {
-		display: inline-block;
-		border: 1px solid red;
-		width: 400px;
+	section.section1 div.join form>ul>li:nth-child(6)>input[type="text"] {
+		width: 230px;
+		height: 39px;
+		margin-right: 20px;
+	}	
+	section.section1 div.join form>ul>li:nth-child(6)>input[type="text"]:first-child{		
+		width: 420px;
+		height: 39px;
+		margin-right: 20px;
+	}	
+	section.section1 div.join form>ul>li:nth-child(6)>input[type="text"].a {
+		width: 260px;
+		margin-left: 25px;
+	}	
+	section.section1 div.join form>ul>li:nth-child(6)>input[type="text"]:last-child
+		{
+		width: 222px;
+	}	
+	section.section1 div.join form>ul>li:nth-child(6)>button {
+		width: 60px;
+		height: 30px;
+	}	
+	.btn_style {
+		background-color: rgb(200, 10, 30);
+		border: 1px solid rgb(200, 10, 30);
+		width: 200px;
 		height: 50px;
-		padding-left: 10px;
-		background-color: lightgray;
-		border-radius: 15px;
-		margin-top: 15px;
-	}
-	
-	header #logo {
-		position: absolute;
-		left: 48%;
-		margin-top: 20px;
-	}
-	
-	header div nav.second>ul>li {
-		display: inline;
-		font-size: 12px;
-	}
-	
-	header div nav.second ul li a {
-		text-decoration: none;
-		color: black;
-	}
-	
-	header div nav.second ul {
-		float: right;
-		margin-top: -50px;
-		margin-right: 10px;
-	}
-	
-	header div nav.second ul li div {
-		background-color: gray;
-		width: 1px;
-		height: 7px;
-		display: inline-block;
-		margin: 0 7px 0 7px;
+		margin-top: 35px;
+		color: white;
+		font-size: 15px;
 	}
 /**
-	footer
-*/
-	footer {
-		background-color: rgb(253, 252, 240);
-		margin-top: 14.5%;
-		clear: both;
+	withdrawal
+*/	
+    .content {
+		padding-left: 10%; 
+		display: inline-block;
+		
 	}
-	
-	footer>div.info {
-		width: 1000px;
-		margin: auto;
-	}
-	
-	footer .info>.f_logo {
+	.content .sideMenuBar {
+		margin-top: 15%;
+		border: 1px solid rgb(144, 144, 144);
+		display: inline-block;
+		width: 160px;
+		height: 280px;
+		padding: 30px 10px 20px 10px;
 		float: left;
-		padding: 30px 70px 50px 10px;
 	}
-	
-	footer .info>.a {
-		display: inline-block;
+	.sideMenuBar ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+	.sideMenuBar ul li {
+		font-size: 15px;
+	}
+	.sideMenuBar ul li:first-child {
+		padding: 8px 0 20px 0;
+	}
+	.sideMenuBar ul li:nth-child(4) {
+		padding-bottom: 20px;
+	}
+	.sideMenuBar ul li a {
+		text-decoration: none;
+		color: #333;
+	}
+	.sideMenuBar ul li:nth-child(3) a,
+	.sideMenuBar ul li:nth-child(4) a,
+	.sideMenuBar ul li:nth-child(6) a,
+	.sideMenuBar ul li:nth-child(7) a {
 		font-size: 12px;
-		padding: 5px 5px;
+		color: rgb(144, 144, 144);
+	}
+	ul li a.h_side:hover {
+		color: tomato;
+	}
+	div.content section.section1.section1 {
+		margin-top: 15%;
+	}
+	div.content section.section1.section1 h2{
+		margin-left:30%;
 	}
 	
-	footer .sns {
-		display: inline-block;
-		float: right;
-		width: 100px;
-		height: 100px;
-		margin-top: -75px;
-	}

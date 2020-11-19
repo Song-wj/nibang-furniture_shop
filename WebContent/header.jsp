@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <style>
-	header {
+	/* header {
 		width: 100%;
 		margin: auto;
 		position: fixed;
@@ -123,7 +124,7 @@
 	
 	header #logo {
 		position: absolute;
-		left: 48%;
+		left: 47.5%;
 		margin-top: 20px;
 	}
 	
@@ -149,7 +150,7 @@
 		height: 7px;
 		display: inline-block;
 		margin: 0 7px 0 7px;
-	}
+	} */
 </style>
 </head>
 <body>
@@ -194,13 +195,13 @@
 				</div>
 
 
-				<a href="http://localhost:9000/sist_project_2/header2.jsp"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></a>
 				<nav class="second">
 					<ul>
 						<li><a href="">로그인</a>
 						<div></div></li>
-						<li><a href="">회원가입</a>
+						<li><a href="http://localhost:9000/sist_project_2/join/join.jsp">회원가입</a>
 						<div></div></li>
 						<li><a href="">마이페이지</a>
 						<div></div></li>
