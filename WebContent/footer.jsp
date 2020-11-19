@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <title>Insert title here</title>
 <style>
+<<<<<<< HEAD
 	 footer {
 		background-color: rgb(253, 252, 240)
 	}
@@ -35,11 +36,12 @@
 		height: 100px;
 		margin-top: -75px;
 	} 
+=======
+>>>>>>> minseok
 </style>
 </head>
 <body>
 	<footer>
-
 		<div class="info">
 			<img
 				src="http://localhost:9000/sist_project_2/images/footer_logo.png"

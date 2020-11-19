@@ -130,7 +130,6 @@
 	<jsp:include page="header.jsp"></jsp:include>
 	<!-- carousel -->
 	<div class="carousel-slide">
-
 		<div id="carouselExampleControls" class="carousel slide"
 			data-ride="carousel">
 			<div class="carousel-inner">
@@ -256,7 +255,6 @@
 			</div>
 		</div>
 	</section>
-
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
