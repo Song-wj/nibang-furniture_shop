@@ -18,127 +18,7 @@
 	crossorigin="anonymous"></script>
 <title>Insert title here</title>
 <style>
-	/* .content {
-		padding-left: 10%; 
-		display: inline-block;
-		
-	}
-	.content .sideMenuBar {
-		margin-top: 15%;
-		border: 1px solid rgb(144, 144, 144);
-		display: inline-block;
-		width: 160px;
-		height: 280px;
-		padding: 30px 10px 20px 10px;
-		float: left;
-	}
-	.sideMenuBar ul {
-		list-style-type: none;
-		padding-left: 0;
-	}
-	.sideMenuBar ul li {
-		font-size: 15px;
-	}
-	.sideMenuBar ul li:first-child {
-		padding: 8px 0 20px 0;
-	}
-	.sideMenuBar ul li:nth-child(4) {
-		padding-bottom: 20px;
-	}
-	.sideMenuBar ul li a {
-		text-decoration: none;
-		color: #333;
-	}
-	.sideMenuBar ul li:nth-child(3) a,
-	.sideMenuBar ul li:nth-child(4) a,
-	.sideMenuBar ul li:nth-child(6) a,
-	.sideMenuBar ul li:nth-child(7) a {
-		font-size: 12px;
-		color: rgb(144, 144, 144);
-	}
-	ul li a.h_side:hover {
-		color: rgb(200,10,30);
-	}
-	div.content section.section1 {
-		margin-top: 15%;
-		padding-left: 29%;
-	}
-	.section1 h2 {
-		padding-left: 23%; 
-	}
-	.section1 h5 {
-		padding-left: 19%;
-		color: #333;
-		font-weight: 400;
-	}
-	.section1 h5.reason {
-		padding-left: 23%;
-	}
-	.section1 h6.reason1 {
-		padding-left: 10%;
-	}
-	.section1 h6.reason2 {
-		padding-left: 9%;
-	}
-	.section1 div:first-child {
-		background-color: rgb(231,231,231);
-		width: 59%;
-	}
-	.section1 div > div {
-		width: 96%;
-		margin: 0 10px;
-		line-height: 30px;
-		padding: 112px 40px;
-		font-size: 13px;
-	}
-	.content .section1 form.wcheckbox1 {
-		margin-left: 30px;
-		float: left;
-	}
-	.content .section1 form.wcheckbox2 {
-		margin-top: 47px;
-		margin-left: 65px;
-		display: inline-block;
-	}
-	.content .section1 form.wtextarea {
-		margin-top: 10%;
-		margin-left: -25px;
-		clear: both;
-	}
-	.content .section1 form.wtextarea textarea {
-		border: 1px solid gray;
-		width: 620px;
-		height: 220px;
-		padding: 40px;
-		resize: none;
-		font-size: 13px;
-	}
-	.content .section1 form > span.wchk{
-		font-size: 15px;
-		padding-left: 5px;
-	}
-	.buttonarea {
-		margin-top: 35px;
-		padding-left: 70px;
-	}
-	.buttonarea button{
-		width: 205px;
-		height: 50px;
-		font-size: 16px;
-		color: white
-	}
-	.buttonarea button.btn_cancel{
-		background-color: #c80a1e;
-		border: none;
-		margin-right: 3px;
-	}
-	.buttonarea button.btn_withdrawal{
-		background-color: #63666A;
-		border: none;
-	}
-	div.content section.section1 h2{
-		margin-left:30%;
-	}  */
+ 
 </style>
 </head>
 <body>
@@ -161,9 +41,9 @@
 			</nav>
 		</aside>
 		<section class="section1">
-				<h2>회원 탈퇴</h2><br><br>
+				<div class="whead">회원 탈퇴</div><br><br>
 				<h5>회원탈퇴 및 재가입 정책</h5><br>
-				<div>
+				<div class="wbody">
 					<div>
 						회원탈퇴 시 개인정보는 즉시 파기되어 복구가 불가능합니다. 단, 회원으로 활동 시 작성하셨던 게시물
 						및 댓글은 자동으로 삭제되지 않습니다. 또한, 이용자에게 개인정보 보관기간에 대해 별도의 동의를 얻은 경우 또는 법령에서
