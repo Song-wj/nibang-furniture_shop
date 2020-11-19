@@ -12,7 +12,6 @@
 </head>
 <body>
 	<footer>
-
 		<div class="info">
 			<img
 				src="http://localhost:9000/sist_project_2/images/footer_logo.png"
