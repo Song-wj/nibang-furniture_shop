@@ -10,6 +10,7 @@
 		width: 100%;
 		margin: auto;
 		position: fixed;
+		clear: both;
 		z-index: 5;
 	}
 	

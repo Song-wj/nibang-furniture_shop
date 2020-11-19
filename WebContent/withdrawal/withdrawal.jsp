@@ -18,24 +18,18 @@
 	crossorigin="anonymous"></script>
 <title>Insert title here</title>
 <style>
-	.section1 {
-		border: 1px solid red;
-		width: 90%;
-		margin: auto;
+	.content {
+		padding-left: 10%; 
+		display: inline-block;
 	}
-	.section1 h2 {
-		border: 1px solid green;
-		display: inline;
-		text-align: center;
-		margin-left: 32%;
-	}
-	.sideMenuBar {
-		margin-top: 10%;
+	.content .sideMenuBar {
+		margin-top: 15%;
 		border: 1px solid rgb(144, 144, 144);
 		display: inline-block;
 		width: 160px;
 		height: 280px;
 		padding: 30px 10px 20px 10px;
+		float: left;
 	}
 	.sideMenuBar ul {
 		list-style-type: none;
@@ -64,20 +58,21 @@
 	ul li a.h_side:hover {
 		color: tomato;
 	}
-	.container .section1 h2{
-		border: 1px solid red;
-		display: inline-block;
+	.section1 {
+		margin-top: 15%;
 	}
 </style>
 </head>
 <body>
 	<!-- header -->
-	<jsp:include page="../header.jsp"></jsp:include>
+	<jsp:include page="../header.jsp" />
 	
-	<section class="section1">
-			<div class="sideMenuBar">
+	<!-- content -->
+	<div class="content">
+		<aside class="sideMenuBar">
+			<nav>
 				<ul>
-					<li><a href="#" class="h_side" >마이페이지</a></li>
+					<li><a href="#">마이페이지</a></li>
 					<li><a href="#">나의 게시글 답변</a></li>
 					<li><a href="#" class="h_side">1:1문의</a></li>
 					<li><a href="#" class="h_side">상품평 관리</a></li>
@@ -85,10 +80,14 @@
 					<li><a href="#" class="h_side">회원정보수정</a></li>
 					<li><a href="#" class="h_side">회원탈퇴</a></li>
 				</ul>
-			</div>
-			<h2>회원 탈퇴</h2>
-	</section>
+			</nav>
+		</aside>
+		<section class="section1">
+				<h2>회원 탈퇴</h2>
+		</section>
+	</div>
+	
 	<!-- footer -->
-	<jsp:include page="../footer.jsp"></jsp:include>
+	<jsp:include page="../footer.jsp" />
 </body>
 </html>
