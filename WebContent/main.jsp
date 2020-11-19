@@ -12,7 +12,6 @@
 		
 		
 		<style>
-			
 			div.content { width:70%;
 			              margin:auto; }    
 			section {width:1800px; margin:auto;}
