@@ -18,9 +18,10 @@
 	crossorigin="anonymous"></script>
 <title>Insert title here</title>
 <style>
-	.content {
+	/* .content {
 		padding-left: 10%; 
 		display: inline-block;
+		
 	}
 	.content .sideMenuBar {
 		margin-top: 15%;
@@ -58,9 +59,12 @@
 	ul li a.h_side:hover {
 		color: tomato;
 	}
-	.section1 {
+	div.content section.section1 {
 		margin-top: 15%;
 	}
+	div.content section.section1 h2{
+		margin-left:30%;
+	}  */
 </style>
 </head>
 <body>
