@@ -61,7 +61,6 @@
 	}
 	
 	#section1_event .eventTable {
-		border: 2px solid blue;
 		width: 97%;
 		margin-left: 30px;
 		margin-top: 30px;
@@ -76,7 +75,6 @@
 		margin-left: 10px;
 		margin-right: 15px;
 		margin-top: 10px;
-		border: 2px solid tomato;
 		vertical-align: top;
 	}
 	#section1_event .eventTable .eventBox img{
@@ -92,7 +90,6 @@
 		line-height: 20px;
 	}
 	#section1_event .eventTable .eventBox .eventBoxTitle {
-		border: 1px solid blue;
 		font-size: 16px;
 		color: #333333;
 		margin-top: 40px;
