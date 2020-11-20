@@ -192,6 +192,8 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/join/join.jsp">회원가입</a>
 						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/event/event.jsp">이벤트</a>
+						<div></div></li>
 						<li><a href="">마이페이지</a>
 						<div></div></li>
 						<li><a href="">고객센터</a>
