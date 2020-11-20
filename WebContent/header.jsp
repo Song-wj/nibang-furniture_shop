@@ -182,7 +182,7 @@
 					src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></a>
 				<nav class="second">
 					<ul>
-						<li><a href="">로그인</a>
+						<li><a href="http://localhost:9000/sist_project_2/login/login.jsp">로그인</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/join/join.jsp">회원가입</a>
 						<div></div></li>
