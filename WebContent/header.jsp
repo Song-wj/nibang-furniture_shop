@@ -40,7 +40,7 @@
 	header .mw .fg {
 		float: left;
 		position: absolute;
-		width: 400px;
+		width: 300px;
 		height: 100%;
 		border-radius: 7px;
 		border: 3px solid #ccc;
@@ -59,23 +59,29 @@
 		heigth: 50px;
 		background-color: white;
 	}	
+	header div.fg button.close_btn:focus {
+		outline: 0 !important;
+	}	
+	header div.fg button.close_btn:active {
+		opacity: 0.7;
+	}	
 	header div.fg>nav.first>ul {
-		margin-top: 100px;
-		margin-right: 130px;
+		margin-top: 80px;
+		margin-right: 150px;
 	}	
 	header div.fg>nav>ul>li:nth-child(2), div.fg>nav>ul>li:nth-child(3), div.fg>nav>ul>li:nth-child(4)
 		{
-		font-size: 30px;
+		font-size: 20px;
 		font-weight: 2000px;
 	}	
 	header div.fg>nav>ul>li:nth-child(5), header div.fg>nav>ul>li:nth-child(6),
 	header div.fg>nav>ul>li:nth-child(7), header div.fg>nav>ul>li:nth-child(8),
 	header div.fg>nav>ul>li:nth-child(9) {
-		font-size: 15px;
+		font-size: 13px;
 		font-weight: 2000px;
 	}	
 	header div.fg>nav>ul>li:nth-child(4) {
-		padding-bottom: 50px;
+		padding-bottom: 30px;
 	}	
 	header div img.menu_bar {
 		display: inline-block;
@@ -101,7 +107,7 @@
 	}	
 	header .icons {
 		display: inline-block;
-		border: 3px solid red;
+		border: 2px solid #c80a1e;
 		width: 400px;
 		height: 40px;
 		padding-left: 10px;
@@ -182,9 +188,11 @@
 					src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></a>
 				<nav class="second">
 					<ul>
-						<li><a href="">로그인</a>
+						<li><a href="http://localhost:9000/sist_project_2/login/login.jsp">로그인</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/join/join.jsp">회원가입</a>
+						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/event/event.jsp">이벤트</a>
 						<div></div></li>
 						<li><a href="">마이페이지</a>
 						<div></div></li>
