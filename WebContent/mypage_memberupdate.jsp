@@ -156,7 +156,7 @@
 				</ul>
 			</nav>
 		</aside>
-		<section class="section1">
+		<section class="section1" id="section1_memberupdate">
 				<h2>회원정보 수정</h2>
 				<form class="mypage">
 					<ul>
