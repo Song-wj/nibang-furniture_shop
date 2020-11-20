@@ -140,7 +140,7 @@
 	
 </style>
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="../header.jsp"></jsp:include>
 	
 	<div class="content">
 		<aside class="sideMenuBar">
@@ -151,8 +151,8 @@
 					<li><a href="#" class="h_side">1:1문의</a></li>
 					<li><a href="#" class="h_side">상품평 관리</a></li>
 					<li><a href="#">회원정보</a></li>
-					<li><a href="mypage_memberupdate.jsp" class="h_side">회원정보수정</a></li>
-					<li><a href="#" class="h_side">회원탈퇴</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/mypage/member_update.jsp" class="h_side">회원정보수정</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/mypage/member_withdrawal.jsp" class="h_side">회원탈퇴</a></li>
 				</ul>
 			</nav>
 		</aside>
@@ -200,6 +200,6 @@
 		</section>
 	</div>
 	
-	<jsp:include page="footer.jsp"></jsp:include>
+	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
