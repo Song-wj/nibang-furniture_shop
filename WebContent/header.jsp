@@ -113,6 +113,9 @@
 		left: 47.5%;
 		margin-top: 20px;
 	}	
+	header div nav.second ul{
+		padding-top: 18px;
+	}
 	header div nav.second>ul>li {
 		display: inline;
 		font-size: 12px;
@@ -171,12 +174,10 @@
 				</div>
 
 				<div class="icons">
-
 					<input type="text" name="se"> <img
 						src="http://localhost:9000/sist_project_2/images/search.png">
 				</div>
-
-
+				
 				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></a>
 				<nav class="second">

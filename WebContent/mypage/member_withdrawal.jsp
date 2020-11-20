@@ -64,7 +64,7 @@
 	}
 	
 	div.content #section1_withdrawal {
-		margin-top: 15%;
+		margin-top: 14%;
 		padding-left: 22%;
 	}
 	.section1 div.whead {
