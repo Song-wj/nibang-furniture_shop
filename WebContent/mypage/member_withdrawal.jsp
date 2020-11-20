@@ -35,8 +35,8 @@
 					<li><a href="#" class="h_side">1:1문의</a></li>
 					<li><a href="#" class="h_side">상품평 관리</a></li>
 					<li><a href="#">회원정보</a></li>
-					<li><a href="#" class="h_side">회원정보수정</a></li>
-					<li><a href="#" class="h_side">회원탈퇴</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/mypage/member_update.jsp" class="h_side">회원정보수정</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/mypage/member_withdrawal.jsp" class="h_side">회원탈퇴</a></li>
 				</ul>
 			</nav>
 		</aside>
