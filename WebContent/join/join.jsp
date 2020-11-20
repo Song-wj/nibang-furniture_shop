@@ -5,9 +5,8 @@
 
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <link rel="stylesheet"
-	href="http//:localhost:9000/sist_project_2/css/illum.css">
-	<link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 	crossorigin="anonymous">
@@ -43,13 +42,14 @@
 		text-indent: 10px;
 	}	
 	section.section1 div.join form>ul>li:first-child input[type="text"] {
-		width: 190px;
-		height: 29px;
+		width: 195px;
+		height: 33px;
 	}	
-	section.section1 div.join form>ul>li:first-child>div, section.section1 div.join form>ul>li:nth-child(5)>div{
+	section.section1 div.join form>ul>li:first-child>div, 
+	section.section1 div.join form>ul>li:nth-child(5)>div{
 		color: rgb(200, 10, 30);
 		text-align: right;
-		padding-right: 50px;
+		padding-right: 63px;
 		text-decoration: underline;
 		font-size: 13px;
 		font-weight: bold;
@@ -61,7 +61,7 @@
 		height: 32px;
 	}	
 	section.section1 div.join form>ul>li:nth-child(2)>input[type="text"],
-		section.section1 div.join form>ul>li:nth-child(3)>input[type="text"] {
+	section.section1 div.join form>ul>li:nth-child(3)>input[type="text"] {
 		width: 500px;
 		height: 37px;
 		margin-bottom: 10px;
@@ -74,12 +74,12 @@
 		margin: 10px 0;
 	}	
 	section.section1 div.join form>ul>li:nth-child(4)>input[type="text"] {
-		width: 130px;
+		width: 142px;
 		height: 39px;
 		margin: 10px 0;
 	}	
 	section.section1 div.join form>ul>li:nth-child(5)>input[type="text"] {
-		width: 159px;
+		width: 164px;
 		height: 39px;
 		margin: 10px 0;
 	}
@@ -97,9 +97,8 @@
 		width: 260px;
 		margin-left: 25px;
 	}	
-	section.section1 div.join form>ul>li:nth-child(6)>input[type="text"]:last-child
-		{
-		width: 222px;
+	section.section1 div.join form>ul>li:nth-child(6)>input[type="text"]:last-child{
+		width: 225px;
 	}	
 	section.section1 div.join form>ul>li:nth-child(6)>button {
 		width: 60px;
