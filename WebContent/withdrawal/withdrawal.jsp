@@ -16,6 +16,132 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
+	<style>
+		.content {
+		padding-left: 10%; 
+		display: inline-block;
+	}
+	.content .sideMenuBar {
+		margin-top: 15%;
+		border: 1px solid rgb(144, 144, 144);
+		display: inline-block;
+		width: 160px;
+		height: 280px;
+		padding: 30px 10px 20px 10px;
+		float: left;
+	}
+	.sideMenuBar ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+	.sideMenuBar ul li {
+		font-size: 15px;
+	}
+	.sideMenuBar ul li:first-child {
+		padding: 8px 0 20px 0;
+	}
+	.sideMenuBar ul li:nth-child(4) {
+		padding-bottom: 20px;
+	}
+	.sideMenuBar ul li a {
+		text-decoration: none;
+		color: #333;
+	}
+	.sideMenuBar ul li:nth-child(3) a,
+	.sideMenuBar ul li:nth-child(4) a,
+	.sideMenuBar ul li:nth-child(6) a,
+	.sideMenuBar ul li:nth-child(7) a {
+		font-size: 12px;
+		color: rgb(144, 144, 144);
+	}
+	ul li a.h_side:hover {
+		color: rgb(200,10,30);
+	}
+	
+	div.content section.section1 {
+		margin-top: 15%;
+		padding-left: 29%;
+	}
+	.section1 div.whead {
+		font-size: 30px;
+		padding-left: 23%;
+	}
+	.section1 h5 {
+		padding-left: 19%;
+		color: #333;
+		font-weight: 400;
+	}
+	.section1 h5.reason {
+		padding-left: 23%;
+	}
+	.section1 h6.reason1 {
+		padding-left: 10%;
+	}
+	.section1 h6.reason2 {
+		padding-left: 9%;
+	}
+	.section1 div.wbody {
+		background-color: rgb(231,231,231);
+		width: 59%;
+	}
+	.section1 div > div {
+		width: 96%;
+		margin: 0 10px;
+		line-height: 30px;
+		padding: 112px 40px;
+		font-size: 13px;
+	}
+	.content .section1 form.wcheckbox1 {
+		margin-left: 30px;
+		float: left;
+	}
+	.content .section1 form.wcheckbox2 {
+		margin-top: 47px;
+		margin-left: 65px;
+		display: inline-block;
+	}
+	.content .section1 form.wtextarea {
+		margin-top: 10%;
+		margin-left: -25px;
+		clear: both;
+	}
+	.content .section1 form.wtextarea textarea {
+		border: 1px solid gray;
+		width: 620px;
+		height: 220px;
+		padding: 40px;
+		resize: none;
+		font-size: 13px;
+	}
+	.content .section1 form > span.wchk{
+		font-size: 15px;
+		padding-left: 5px;
+	}
+	.buttonarea {
+		margin-top: 35px;
+		padding-left: 70px;
+		padding-bottom: 30px;
+	}
+	.buttonarea button{
+		width: 205px;
+		height: 50px;
+		font-size: 16px;
+		color: white
+	}
+	.buttonarea button.btn_cancel{
+		background-color: #c80a1e;
+		border: none;
+		margin-right: 3px;
+	}
+	.buttonarea button.btn_withdrawal{
+		background-color: #63666A;
+		border: none;
+	}
+	div.content section.section1 h2{
+		margin-left:30%;
+	} 
+	
+	</style>
 <title>Insert title here</title>
 <style>
  
