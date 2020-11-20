@@ -138,6 +138,12 @@
 		background-color: #63666A;
 		border: none;
 	}
+	.buttonarea button.btn_cancel:hover{
+		opacity: 0.7;
+	}
+	.buttonarea button.btn_withdrawal:hover{
+		opacity: 0.7;
+	}
 	div.content section.section1 h2{
 		margin-left:30%;
 	} 
