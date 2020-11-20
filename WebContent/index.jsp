@@ -18,27 +18,27 @@
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
 <style>
-	/* div.content {
+	div.content {
 		width: 70%;
 		margin: auto;
 	}
 	
 	section {
-		width: 1800px;
+		width: 1263px;
 		margin: auto;
 	}
-	
 	.section2 .label {
+		margin-bottom: 20px;
 		text-align: center;
-		font-size: 17px;
-		font-weight: bold;
+		font-size: 13px;
+		font-weight: 600;
 		color: #333;
 	}
 	
 	.section2 .recomand_img {
-		width: 200px;
-		height: 200px;
-		padding: 30px 30px 0px 30px;
+		width: 175px;
+		height: 180px;
+		padding: 10px 10px;
 	}
 	
 	.section2 .recomand>div {
@@ -54,9 +54,9 @@
 	}
 	
 	.section3 .simple .simple_img {
-		width: 450px;
-		height: 550px;
-		padding: 50px 30px 15px 10px;
+		width: 355px;
+		height: 450px;
+		padding: 10px 8px;
 	}
 	
 	.section4>div {
@@ -66,7 +66,7 @@
 	
 	.section2>div {
 		text-align: center;
-		margin: 50px;
+		margin: 40px 60px;
 	}
 	
 	.section3 {
@@ -87,44 +87,39 @@
 		display: inline-block;
 		width: 200px;
 		height: 200px;
-		background: url('images/quick_menu_3.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_3.png')
 	}
 	
 	.section4 .effect2 {
 		display: inline-block;
 		width: 200px;
 		height: 200px;
-		background: url('images/quick_menu_4.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_4.png')
 	}
 	
 	.section4 .effect3 {
 		display: inline-block;
 		width: 200px;
 		height: 200px;
-		background: url('images/quick_menu_2.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_2.png')
 	}
 	
 	.section4 .effect1:hover {
-		background: url('images/quick_menu_33.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_33.png')
 	}
 	
 	.section4 .effect2:hover {
-		background: url('images/quick_menu_44.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_44.png')
 	}
 	
 	.section4 .effect3:hover {
-		background: url('images/quick_menu_22.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_22.png')
 	}
 	
 	div.carousel-slide h5 {
-		display: inline-block;
-		position: absolute;
-		left: 70%;
-		width: 500px;
-		height: 500px;
-		padding-left: 300px;
-		margin-top: -100px;
-	} */
+		color: black;
+		text-align:center;
+	}
 </style>
 </head>
 <body>
