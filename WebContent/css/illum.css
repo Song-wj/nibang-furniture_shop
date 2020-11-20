@@ -107,6 +107,9 @@
 		left: 47.5%;
 		margin-top: 20px;
 	}	
+	header div nav.second {
+		border: 2px solid red;
+	}
 	header div nav.second>ul>li {
 		display: inline;
 		font-size: 12px;
