@@ -120,7 +120,7 @@
 		margin-top: 20px;
 	}	
 	header div nav.second ul{
-		padding-top: 18px;
+		padding-top: 15px;
 	}
 	header div nav.second>ul>li {
 		display: inline;
