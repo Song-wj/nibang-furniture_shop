@@ -1,0 +1,203 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+section.section1 {
+	width: 100%;
+	display: inline-block;
+	height: 80%;
+	margin-top: 55px;
+	margin-bottom: 55px;
+}
+
+h1 {
+	text-align: center;
+}
+
+table.notice_table th {
+	text-align: center;
+}
+
+table.notice_table td:first-child, table.notice_table td:nth-child(3),
+	table.notice_table td:nth-child(4) {
+	text-align: center;
+}
+
+.section1 div div:nth-child(3)>table {
+	border-collaspe: collaspe;
+	border: 1px solid rgb(170, 170, 170);
+	width: 650px;
+	margin-left: 15px;
+}
+
+.section1 div div:nth-child(3)>table td {
+	padding: 5px 10px;
+	font-size: 13px;
+	color: rgb(144, 144, 144);
+}
+
+table.faq_table {
+	width: 750px;
+	margin-left: 150px;
+	margin-top: 30px;
+}
+
+table.notice_table, table.notice_table th, table.notice_table td {
+	border-collaspe: collaspe;
+	border: 1px solid #333;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
+}
+
+table.notice_table th, table.notice_table td {
+	font-size: 15px;
+}
+
+table.notice_table tr:nth-child(2) th {
+	text-align: center;
+	color: rgb(144, 144, 144);
+	font-size: 13px;
+}
+
+table.notice_table tr td {
+	padding: 20px 0;
+}
+
+table.notice_table tr:nth-child(2) th, table.notice_table tr:nth-child(3) td,
+	table.notice_table tr:nth-child(4) td, table.notice_table tr:nth-child(5) td,
+	table.notice_table tr:nth-child(6) td, table.notice_table tr:nth-child(7) td,
+	table.notice_table tr:nth-child(8) td, table.notice_table tr:nth-child(9) td,
+	table.notice_table tr:nth-child(10) td, table.notice_table tr:nth-child(11) td,
+	table.notice_table tr:nth-child(12) td {
+	border-bottom: 1px solid lightgray;
+}
+
+table.notice_table tr:nth-child(13) td {
+	border-bottom: 1px solid white;
+}
+
+table.notice_table tr td:first-child {
+	text-align: center;
+}
+
+table.notice_table tr:first-child td {
+	color: black;
+	border-top: 1px solid white;
+	border-bottom: 1px solid rgb(144, 144, 144);
+	font-size: 12px;
+	text-align: right;
+}
+
+table.notice_table tr td:nth-child(2) {
+	padding-left: 100px;
+}
+
+table.notice_table tr td:nth-child(1) {
+	width: 100px;
+}
+
+table.notice_table tr td:nth-child(3) {
+	padding-left: 50px;
+}
+
+table.notice_table tr td:nth-child(4) {
+	width: 70px;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+	<jsp:include page="../header.jsp" />
+	<div>
+		<section class="section1">
+			<jsp:include page="./sidebar.jsp">
+				<jsp:param name="name" value="notice" />
+			</jsp:include>
+			<div>
+				<div style="width: 100%; display: flex; justify-content: center;">
+					<div class="content">
+						<h1 style="padding: 40px 0 40px 0">공지사항</h1>
+						<div class="list_body">
+							<table class="notice_table">
+								<tr>
+									<th>NO</th>
+									<th>제목</th>
+									<th>등록일</th>
+									<th>조회수</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>일룸 이용약관 및 개인정보 처리방침 개정 사전안내</td>
+									<td>2020.09.18</td>
+									<td>417</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>일룸 소식을 구독하는 방법 A to Z</td>
+									<td>2020.06.05</td>
+									<td>397</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>일룸 사칭 피싱 문자 메세지를 주의해주세요.</td>
+									<td>2020.05.08</td>
+									<td>207</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>2020년 11월 무이자 할부 안내</td>
+									<td>2020.11.02</td>
+									<td>163</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td>2020년 9월 무이자 할부 안내</td>
+									<td>2020.09.01</td>
+									<td>426</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td>2020년 8월 무이자할부 안내</td>
+									<td>2020.08.03</td>
+									<td>353</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td>2020년 7월 무이자할부 안내</td>
+									<td>2020.07.02</td>
+									<td>356</td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td>개인정보 처리방침 변경에 대한 사전안내</td>
+									<td>2020.06.11</td>
+									<td>255</td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td>6월 무이자할부 안내</td>
+									<td>2020.06.01</td>
+									<td>517</td>
+								</tr>
+								<tr>
+									<td>10</td>
+									<td>5월 무이자할부 안내</td>
+									<td>2020.05.15</td>
+									<td>355</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<jsp:include page="../footer.jsp" />
+</body>
+</html>
