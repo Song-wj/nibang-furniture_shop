@@ -17,6 +17,10 @@ p a {
 	color: #909090;
 	font-size: 14px;
 }
+
+p a:hover {
+	color: rgb(200, 10, 30);
+}
 </style>
 <div style="position: relative; top: 40px; left: 14px;">
 	<div class="navi">

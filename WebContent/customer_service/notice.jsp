@@ -14,8 +14,9 @@ section.section1 {
 	margin-bottom: 55px;
 }
 
-h1 {
+.title {
 	text-align: center;
+	font-size: 35px;
 }
 
 table.notice_table th {
@@ -48,13 +49,9 @@ table.faq_table {
 
 table.notice_table, table.notice_table th, table.notice_table td {
 	border-collaspe: collaspe;
-	border: 1px solid #333;
-	border-left: 1px solid white;
+/* 	border: 1px solid #333;
+ */	border-left: 1px solid white;
 	border-right: 1px solid white;
-}
-
-table.notice_table th, table.notice_table td {
-	font-size: 15px;
 }
 
 table.notice_table tr:nth-child(2) th {
@@ -67,28 +64,13 @@ table.notice_table tr td {
 	padding: 20px 0;
 }
 
-table.notice_table tr:nth-child(2) th, table.notice_table tr:nth-child(3) td,
-	table.notice_table tr:nth-child(4) td, table.notice_table tr:nth-child(5) td,
-	table.notice_table tr:nth-child(6) td, table.notice_table tr:nth-child(7) td,
-	table.notice_table tr:nth-child(8) td, table.notice_table tr:nth-child(9) td,
-	table.notice_table tr:nth-child(10) td, table.notice_table tr:nth-child(11) td,
-	table.notice_table tr:nth-child(12) td {
-	border-bottom: 1px solid lightgray;
-}
-
-table.notice_table tr:nth-child(13) td {
-	border-bottom: 1px solid white;
-}
-
 table.notice_table tr td:first-child {
 	text-align: center;
 }
 
 table.notice_table tr:first-child td {
 	color: black;
-	border-top: 1px solid white;
-	border-bottom: 1px solid rgb(144, 144, 144);
-	font-size: 12px;
+ 	font-size: 12px;
 	text-align: right;
 }
 
@@ -101,13 +83,36 @@ table.notice_table tr td:nth-child(1) {
 }
 
 table.notice_table tr td:nth-child(3) {
-	padding-left: 50px;
+	padding: 0 50px 0 50px;
 }
 
 table.notice_table tr td:nth-child(4) {
 	width: 70px;
 	text-align: center;
 }
+table.notice_table tr {
+border: 1px solid #f0f0f0;
+	cursor: pointer;
+
+}
+table.notice_table tr:hover {
+	color: rgb(200, 10, 30);
+}
+table.notice_table tr:first-child {
+	color: #aaa;
+	pointer-events: none;
+	border-top: 1px #aaa solid;
+	font-size: 13px;
+	height: 25px;
+}
+table.notice_table td {
+	font-size: 15px;
+}
+
+table.notice_table th {
+	font-size: 13px;
+}
+
 </style>
 </head>
 
@@ -121,10 +126,10 @@ table.notice_table tr td:nth-child(4) {
 			<div>
 				<div style="width: 100%; display: flex; justify-content: center;">
 					<div class="content">
-						<h1 style="padding: 40px 0 40px 0">공지사항</h1>
+						<div class="title" style="padding: 40px 0 40px 0">공지사항</div>
 						<div class="list_body">
 							<table class="notice_table">
-								<tr>
+								<tr class="table_header">
 									<th>NO</th>
 									<th>제목</th>
 									<th>등록일</th>
