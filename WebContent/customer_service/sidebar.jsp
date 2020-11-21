@@ -9,6 +9,8 @@
 	position: absolute;
 	padding: 30px 50px 30px 20px;
 	text-align: left;
+	top: 40px;
+	left: 14px;
 }
 
 p a {
@@ -18,11 +20,11 @@ p a {
 	font-size: 14px;
 }
 
-p a:hover {
+ a:hover {
 	color: rgb(200, 10, 30);
 }
 </style>
-<div style="position: relative; top: 40px; left: 14px;">
+<div style="position: relative;">
 	<div class="navi">
 		<p style="margin-bottom: 30px; font-size: 17px">고객센터</p>
 		<p>
