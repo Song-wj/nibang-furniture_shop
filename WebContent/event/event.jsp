@@ -16,7 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
-<title>Insert title here</title>
+<title>EVENT</title>
 <style>
 	#section1_event {
 		border: 1px solid white;
@@ -123,8 +123,8 @@
 		<section class="section1" id="section1_event">
 			<div>
 				<h4>EVENT</h4>
-				<button type="button">진행중 이벤트</button>
-				<button type="button">당첨자발표</button>
+				<button type="button" class="btn_event" onclick="location.href='http://localhost:9000/sist_project_2/event/event.jsp'">진행중 이벤트</button>
+				<button type="button" class="btn_event" onclick="location.href='http://localhost:9000/sist_project_2/event/event_winner.jsp'">당첨자발표</button>
 			</div>
 			<div class="eventTable">
 				<div class="eventBox">

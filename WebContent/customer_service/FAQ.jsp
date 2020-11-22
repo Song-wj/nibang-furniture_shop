@@ -30,7 +30,7 @@
 		 		float:left;
 		 		margin-right:100px;
 		 		margin-left:50px;
-		 		height:350px;	
+		 		height:300px;	
 		 		padding-right:50px;	
 		 		margin-top:20px;		 		
 		 	}
@@ -131,13 +131,14 @@
 		 	.section1 div div:nth-child(3)>table td{
 		 		padding:5px 10px;
 		 		font-size:13px;		 
-		 		color:rgb(144, 144, 144);		
+		 		color:rgb(144, 144, 144);
+		 		text-align:center;		 				
 		 	}
 		 	.section1 div div:nth-child(4)>table.faq_table{
-		 		width:750px;
-		 		margin-left:150px;
+		 		width:660px;
+		 		margin-left:210px;
 		 		margin-top:30px ;	 		
-		 	}		 	
+		 	}			 			 	
 		 	.section1 div div:nth-child(4)>table.faq_table,
 		 	.section1 div div:nth-child(4)>table.faq_table th,
 		 	.section1 div div:nth-child(4)>table.faq_table td{		 		
@@ -148,7 +149,8 @@
 		 	}
 		 	.section1 div div:nth-child(4)>table.faq_table th,
 		 	.section1 div div:nth-child(4)>table.faq_table td{
-		 		font-size:15px;
+		 		font-size:13.5px;
+		 		font-weight:550;
 		 	}
 		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(2) th{
 		 		text-align:center;
@@ -189,14 +191,13 @@
 	
 		 	}
 		    .section1 div div:nth-child(4)>table.faq_table tr td:nth-child(2){
-				padding-left:100px;
+				padding-left:20px;
+				padding-right:10px;
+			
 			}	
 			.section1 div div:nth-child(4)>table.faq_table tr td:nth-child(1){
 				width:100px;
-			}	
-			.section1 div div:nth-child(4)>table.faq_table tr td:nth-child(3){
-				padding-left:50px;
-			}	 	
+			}					
 		 	.section1 div div:nth-child(4)>table.faq_table tr td:nth-child(4){
 		 		width:70px;
 		 		text-align:center;
@@ -242,12 +243,11 @@
 			<aside class="sideMenuBar2">
 			<nav>
 				<ul>
-				    <li><a href="#">고객센터</a></li>
-					<li><a href="#">고객센터 안내</a></li>
+				    <li>고객센터</li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터 안내</a></li>
 					<li><a href="#">공지사항</a></li>
-					<li><a href="#">FAQ</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp">FAQ</a></li>
 					<li><a href="#">회원정보</a></li>
-					<li><a href="#">AS신청</a></li>
 					<li><a href="#">1:1문의</a></li>
 				</ul>	
 			</nav>
@@ -305,7 +305,7 @@
 		    			<td>100</td>
 		    		</tr>
 		    		<tr>
-		    			<td>AS</td>
+		    			<td>주문결제/취소</td>
 		    			<td>오래 전 구입한 제품인데, 하자가 나서 A/S를 신청하니 단종된 제품이라고 합니다.</td>
 		    			<td>2018.03.13</td>
 		    			<td>100</td>

@@ -118,7 +118,7 @@
 	
 	div.carousel-slide h5 {
 		color: black;
-		text-align:center;
+		text-align:right;
 	}
 </style>
 </head>
@@ -141,35 +141,35 @@
 					<img src="http://localhost:9000/sist_project_2/images/2.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>1 of 6</h5>
+						<h5>2 of 6</h5>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/3.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>1 of 6</h5>
+						<h5>3 of 6</h5>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/4.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>1 of 6</h5>
+						<h5>4 of 6</h5>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/5.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>1 of 6</h5>
+						<h5>5 of 6</h5>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/6.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>1 of 6</h5>
+						<h5>6 of 6</h5>
 					</div>
 				</div>
 			</div>

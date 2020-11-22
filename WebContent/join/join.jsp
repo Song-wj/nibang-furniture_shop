@@ -48,13 +48,12 @@
 	section.section1 div.join form>ul>li:first-child>div, 
 	section.section1 div.join form>ul>li:nth-child(5)>div{
 		color: rgb(200, 10, 30);
-		text-align: right;
-		padding-right: 63px;
 		text-decoration: underline;
 		font-size: 13px;
 		font-weight: bold;
-		margin: 10px 0;
-		text-underline-position: under;
+		margin: 10px 0 10px 50px;
+		width:500px;
+		text-align:right;
 	}	
 	section.section1 div.join form>ul>li:first-child>select {
 		width: 100px;
@@ -68,10 +67,10 @@
 	}	
 	section.section1 div.join form>ul>li:nth-child(2)>div {
 		text-align: right;
-		padding-right: 60px;
 		font-size: 13px;
 		font-weight: bold;
-		margin: 10px 0;
+		margin: 10px 0 10px 50px;
+		width:500px;
 	}	
 	section.section1 div.join form>ul>li:nth-child(4)>input[type="text"] {
 		width: 142px;

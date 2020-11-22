@@ -120,7 +120,7 @@
 		margin-top: 20px;
 	}	
 	header div nav.second ul{
-		padding-top: 18px;
+		padding-top: 15px;
 	}
 	header div nav.second>ul>li {
 		display: inline;
@@ -196,7 +196,7 @@
 						<div></div></li>
 						<li><a href="">마이페이지</a>
 						<div></div></li>
-						<li><a href="">고객센터</a>
+						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터</a>
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="">매장안내</a></li>
 					</ul>
