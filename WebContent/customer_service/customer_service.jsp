@@ -80,7 +80,12 @@
 		 		width:25px;
 		 		heigth:25px;
 		 		margin-top:60px;
-		 		margin-bottom:10px;
+		 		margin-bottom:10px; 
+		 		/* width: 32px;
+    			height: 32px;
+    			margin: 52px 0 0 0;
+    			background-size: 32px; */
+
 		 	}
 		 	.section1 div>div#third_div{
 		 		display:inline-block;
@@ -195,7 +200,9 @@
 		 		color:rgb(200,10,30);
 		 	}		
 		 	
-		 	.section1 div div:nth-child(2) img:hover{
+		 	.section1 div div:nth-child(2) div img:hover,
+		 	.section1 div div:nth-child(2) div img:focus {
+				/* background: url('http://localhost:9000/sist_project_2/images/icnKakaoOn.svg') */
 		 	}
 		 	.section1 div div:nth-child(5) button:hover{
 		 		background-color:rgb(160,14,43);
@@ -226,7 +233,7 @@
 				<label>서비스 신청 및 다양한 문의를 실시간으로 편리하게 해결하실 수 있습니다.</label>
 			</div>
 			<div>
-				<div class="kakao"><a href="" ><img src="../images/kakao_icon.png"></a> <br>카톡문의</div>
+				<div class="kakao"><a href="" ><img src="http://localhost:9000/sist_project_2/images/kakao_icon.png"></a> <br>카톡문의</div>
 				<div class="message"><a href=""><img src="../images/message_icon.png"></a><br>쪽지문의</div>
 			</div>
 			<div id="third_div">
