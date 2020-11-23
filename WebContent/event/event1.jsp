@@ -33,7 +33,8 @@
    		font-size: 29px;
 	}
 	
-	#section1_event1 div.eventDetailTitle {
+	#section1_event1 div.eventDetailTitle,
+	#section2_event1 div.eventDetailTitle {
 	    font-family: NotoSansKR;
 	    font-size: 32px;
 	    text-align: center;
