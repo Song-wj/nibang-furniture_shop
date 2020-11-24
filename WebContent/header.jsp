@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>header</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <style>
      header {

@@ -17,51 +17,57 @@
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
 	
-<title>Insert title here</title>
-<<<<<<< HEAD:WebContent/withdrawal/withdrawal.jsp
+<title>회원탈퇴</title>
 
-
-=======
 <style>
  	.content {
 		padding-left: 10%; 
 		display: inline-block;
 	}
-	.content .sideMenuBar {
-		margin-top: 15%;
-		border: 1px solid rgb(170, 170, 170);
-		display: inline-block;
-		width: 160px;
-		height: 280px;
-		padding: 30px 10px 20px 10px;
-		float: left;
+	div.content aside.sideMenuBar{
+		border:1px solid rgb(170, 170, 170);
+		margin-top:9%;
+		width:165px;	
+		float:left;			
 	}
-	.sideMenuBar ul {
-		list-style-type: none;
-		padding-left: 0;
+    div.content aside.sideMenuBar ul{
+		padding-left:20px;
 	}
-	.sideMenuBar ul li {
-		font-size: 15px;
+	div.content aside.sideMenuBar ul li{
+		list-style-type:none;
+		margin-top:30px;
+		font-size:14.5px;
+		font-weight:540;
 	}
-	.sideMenuBar ul li:first-child {
-		padding: 8px 0 20px 0;
+	div.content aside.sideMenuBar ul li:nth-child(3) ,
+	div.content aside.sideMenuBar ul li:nth-child(4) ,
+	div.content aside.sideMenuBar ul li:nth-child(5) ,
+	div.content aside.sideMenuBar ul li:nth-child(7) ,
+	div.content aside.sideMenuBar ul li:nth-child(8) ,
+	div.content aside.sideMenuBar ul li:nth-child(10) ,
+	div.content aside.sideMenuBar ul li:nth-child(11)  {
+		margin-top:15px;
 	}
-	.sideMenuBar ul li:nth-child(4) {
-		padding-bottom: 20px;
+	div.content aside.sideMenuBar ul li:nth-child(3) a,
+	div.content aside.sideMenuBar ul li:nth-child(4) a,
+	div.content aside.sideMenuBar ul li:nth-child(5) a,
+	div.content aside.sideMenuBar ul li:nth-child(7) a ,
+	div.content aside.sideMenuBar ul li:nth-child(8) a ,
+	div.content aside.sideMenuBar ul li:nth-child(10) a,
+	div.content aside.sideMenuBar ul li:nth-child(11) a{
+		font-size:12px;				
+		color:rgb(144, 144, 144);
+		text-decoration:none;
+		font-weight:0;
 	}
-	.sideMenuBar ul li a {
-		text-decoration: none;
-		color: #333;
-	}
-	.sideMenuBar ul li:nth-child(3) a,
-	.sideMenuBar ul li:nth-child(4) a,
-	.sideMenuBar ul li:nth-child(6) a,
-	.sideMenuBar ul li:nth-child(7) a {
-		font-size: 12px;
-		color: rgb(144, 144, 144);
-	}
-	ul li a.h_side:hover {
-		color: rgb(200,10,30);
+	div.content aside.sideMenuBar ul li:nth-child(3) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(4) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(5) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(7) a:hover ,
+	div.content aside.sideMenuBar ul li:nth-child(8) a:hover ,
+	div.content aside.sideMenuBar ul li:nth-child(10) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(11) a:hover{
+		color:rgb(200,10,30);
 	}
 	
 	div.content #section1_withdrawal {
@@ -153,7 +159,6 @@
 		margin-left:30%;
 	} 
 </style>
->>>>>>> fbfbb7776dd2ee45704c22da53fbfcb9b75c9b09:WebContent/mypage/member_withdrawal.jsp
 </head>
 <body>
 	<!-- header -->
@@ -164,11 +169,15 @@
 		<aside class="sideMenuBar">
 			<nav>
 				<ul>
-					<li><a href="#">마이페이지</a></li>
-					<li><a href="#">나의 게시글 답변</a></li>
-					<li><a href="#" class="h_side">1:1문의</a></li>
-					<li><a href="#" class="h_side">상품평 관리</a></li>
-					<li><a href="#">회원정보</a></li>
+					<li>마이페이지</li>
+					<li>나의 쇼핑내역</li>
+					<li><a href="#">주문/배송 조회</a></li>
+					<li><a href="#">주문/취소 조회</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/mypage/cancel_refund_info.jsp">교환/반품/환불 안내</a></li>
+					<li>나의 게시글 답변</li>
+					<li><a href="#" >1:1문의</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/mypage/myReview.jsp">상품평 관리</a></li>
+					<li>회원정보</li>
 					<li><a href="http://localhost:9000/sist_project_2/mypage/member_update.jsp" class="h_side">회원정보수정</a></li>
 					<li><a href="http://localhost:9000/sist_project_2/mypage/member_withdrawal.jsp" class="h_side">회원탈퇴</a></li>
 				</ul>
