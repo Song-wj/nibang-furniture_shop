@@ -5,6 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+	crossorigin="anonymous"></script>
 <style>
 section.section1 {
 	width: 100%;
@@ -49,8 +60,9 @@ table.faq_table {
 
 table.notice_table, table.notice_table th, table.notice_table td {
 	border-collaspe: collaspe;
-/* 	border: 1px solid #333;
- */	border-left: 1px solid white;
+	/* 	border: 1px solid #333;
+ */
+	border-left: 1px solid white;
 	border-right: 1px solid white;
 }
 
@@ -70,7 +82,7 @@ table.notice_table tr td:first-child {
 
 table.notice_table tr:first-child td {
 	color: black;
- 	font-size: 12px;
+	font-size: 12px;
 	text-align: right;
 }
 
@@ -90,14 +102,16 @@ table.notice_table tr td:nth-child(4) {
 	width: 70px;
 	text-align: center;
 }
-table.notice_table tr {
-border: 1px solid #f0f0f0;
-	cursor: pointer;
 
+table.notice_table tr {
+	border: 1px solid #f0f0f0;
+	cursor: pointer;
 }
+
 table.notice_table tr:hover {
 	color: rgb(200, 10, 30);
 }
+
 table.notice_table tr:first-child {
 	color: #aaa;
 	pointer-events: none;
@@ -105,6 +119,7 @@ table.notice_table tr:first-child {
 	font-size: 13px;
 	height: 25px;
 }
+
 table.notice_table td {
 	font-size: 15px;
 }
@@ -112,7 +127,12 @@ table.notice_table td {
 table.notice_table th {
 	font-size: 13px;
 }
-
+div.title {
+padding: 40px 0 40px 0;
+}
+div.content {
+	margin:50px;
+}
 </style>
 </head>
 
@@ -126,7 +146,7 @@ table.notice_table th {
 			<div>
 				<div style="width: 100%; display: flex; justify-content: center;">
 					<div class="content">
-						<div class="title" style="padding: 40px 0 40px 0">공지사항</div>
+						<div class="title">공지사항</div>
 						<div class="list_body">
 							<table class="notice_table">
 								<tr class="table_header">
