@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>교환/반품/환불안내</title>
 		<style>
 			div.content{
 				border:1px solid white;
