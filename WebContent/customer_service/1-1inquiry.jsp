@@ -54,6 +54,14 @@
 		 margin-bottom:10px;
 	}
 	
+	.content aside.sideMenuBar2 ul li:nth-child(2) a:hover,
+	.content aside.sideMenuBar2 ul li:nth-child(3) a:hover,
+	.content aside.sideMenuBar2 ul li:nth-child(4) a:hover,
+	.content aside.sideMenuBar2 ul li:nth-child(5) a:hover,
+	.content aside.sideMenuBar2 ul li:nth-child(6) a:hover,
+	.content aside.sideMenuBar2 ul li:nth-child(7) a:hover{
+		color:rgb(200,10,30);
+	}		 	
 	section.section1#section1_inquiry h1{
 		display:inline-block;
 		margin:20px 0 0 250px
