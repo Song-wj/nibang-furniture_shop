@@ -37,11 +37,13 @@
 		      			  margin:60px;} 
 		   .section3{text-align:center; border-top:1px solid lightgray;}	  
 		   .section4{text-align:center; }
-		   .section4 .quick {display:inline-block; padding:50px;}
+		   .section4 .quick {display:inline-block; padding:50px;
+		   border:1px solid red;}
 		   .section4 .effect1 {
 		     display:inline-block;
 		     width:200px; height:200px;
-		     background:url('images/quick_menu_3.png')}
+		     background:url('images/quick_menu_3.png');
+		     }		   
 		   .section4 .effect2 {
 		     display:inline-block;
 		     width:200px; height:200px;
@@ -53,6 +55,8 @@
 		    .section4 .effect1:hover{background:url('images/quick_menu_33.png')}
 		    .section4 .effect2:hover{background:url('images/quick_menu_44.png')}
 		    .section4 .effect3:hover{background:url('images/quick_menu_22.png')}
+		     
+		     
 		     
 		    div.carousel-slide h5 {color:black;
 		    						float:left;}
@@ -150,19 +154,12 @@
 				<img src="images/quick_menu.png" style=margin:30px;>
 				<div>
 					<div class="quick">
-					  	<a href="" class="effect1"></a>
-					  	<br>Store <br>
-					  	매장안내
+					  	<a href="" class="effect1"><br><span>Store</span><br><span>매장안내</span></a>
+					</div>
+					<div class="quick"> <a href="" class="effect2">	<br><span>Notice</span> <br><span>공지사항</span></a>
 					</div>
 					<div class="quick">
-					  <a href="" class="effect2"></a>
-					  	<br>Notice <br>
-					  	공지사항
-					</div>
-					<div class="quick">
-					  	<a href="" class="effect3"></a>
-					  	<br>Refurb <br> 
-					  	전시품판매
+					  	<a href="" class="effect3"><br><span>Refurb</span> <br> <span>전시품판매</span></a>
 					</div>
 				</div>
 				</div>

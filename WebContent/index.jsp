@@ -103,17 +103,34 @@
 		height: 200px;
 		background: url('http://localhost:9000/sist_project_2/images/quick_menu_2.png')
 	}
+	.section4 .effect1 span:nth-child(2),
+	.section4 .effect2 span:nth-child(2),
+	.section4 .effect3 span:nth-child(2){
+		display:inline-block;
+		margin-top:180px;
+	}
 	
+	.section4 .effect1 span,
+	.section4 .effect2 span,
+	.section4 .effect3 span{
+		
+	}
 	.section4 .effect1:hover {
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_33.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_33.png');
+		color:rgb(200,10,30);
+		text-decoration:none;
 	}
 	
 	.section4 .effect2:hover {
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_44.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_44.png');
+		color:rgb(200,10,30);
+		text-decoration:none;
 	}
 	
 	.section4 .effect3:hover {
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_22.png')
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_22.png');
+		color:rgb(200,10,30);
+		text-decoration:none;
 	}
 	
 	div.carousel-slide h5 {
@@ -241,13 +258,13 @@
 			<img src="images/quick_menu.png" style="margin: 30px;">
 			<div>
 				<div class="quick">
-					<a href="" class="effect1"></a> <br>Store <br> 매장안내
+					<a href="" class="effect1"> <br><span>Store</span> <br> <span>매장안내</span> </a>
 				</div>
 				<div class="quick">
-					<a href="" class="effect2"></a> <br>Notice <br> 공지사항
+					<a href="" class="effect2"> <br><span>Notice</span><br><span>공지사항</span></a>
 				</div>
 				<div class="quick">
-					<a href="" class="effect3"></a> <br>Refurb <br> 전시품판매
+					<a href="" class="effect3"> <br><span>Refurb</span><br><span>전시품판매</span></a>
 				</div>
 			</div>
 		</div>
