@@ -21,8 +21,9 @@
 
 <style>
  	.content {
-		padding-left: 10%; 
-		display: inline-block;
+		border:1px solid white;
+		width:95%;
+		margin:auto;
 	}
 	div.content aside.sideMenuBar{
 		border:1px solid rgb(170, 170, 170);
@@ -71,20 +72,20 @@
 	}
 	
 	div.content #section1_withdrawal {
-		margin-top: 14%;
-		padding-left: 22%;
+		margin-top: 9%;
+		padding-left: 28%;
 	}
 	.section1 div.whead {
 		font-size: 30px;
-		padding-left: 23%;
+		padding-left: 25%;
 	}
 	.section1 h5 {
-		padding-left: 19%;
+		padding-left: 21%;
 		color: #333;
 		font-weight: 400;
 	}
 	.section1 h5.reason {
-		padding-left: 24%;
+		padding-left: 25%;
 	}
 	.section1 h6.reason1 {
 		padding-left: 11%;
@@ -95,7 +96,7 @@
 	.section1 div.wbody {
 		background-color: rgb(231,231,231);
 		width: 59%;
-		margin-left: 8px;
+		margin-left: 40px;
 	}
 	.section1 div > div {
 		width: 96%;
@@ -115,6 +116,7 @@
 	}
 	.content .section1 form.wtextarea {
 		margin-top: 10%;
+		margin-right: 60px;
 		clear: both;
 	}
 	.content .section1 form.wtextarea textarea {
@@ -172,7 +174,7 @@
 					<li>마이페이지</li>
 					<li>나의 쇼핑내역</li>
 					<li><a href="#">주문/배송 조회</a></li>
-					<li><a href="#">주문/취소 조회</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/mypage/search_order_cancel.jsp">주문/취소 조회</a></li>
 					<li><a href="http://localhost:9000/sist_project_2/mypage/cancel_refund_info.jsp">교환/반품/환불 안내</a></li>
 					<li>나의 게시글 답변</li>
 					<li><a href="#" >1:1문의</a></li>
