@@ -200,10 +200,9 @@
 		 		color:rgb(200,10,30);
 		 	}		
 		 	
-		 	.section1 div div:nth-child(2) div img:hover,
-		 	.section1 div div:nth-child(2) div img:focus {
-				/* background: url('http://localhost:9000/sist_project_2/images/icnKakaoOn.svg') */
-		 	}
+		 	/* .section1 div div:nth-child(2) div img:after{
+				background-image: url('http://localhost:9000/sist_project_2/images/icnKakaoOn.svg') 
+		 	} */
 		 	.section1 div div:nth-child(5) button:hover{
 		 		background-color:rgb(160,14,43);
 		 	}
@@ -234,6 +233,7 @@
 			</div>
 			<div>
 				<div class="kakao"><a href="" ><img src="http://localhost:9000/sist_project_2/images/kakao_icon.png"></a> <br>카톡문의</div>
+				<!-- <div class="kakao"><a href="" ><img src="http://localhost:9000/sist_project_2/images/icnKakaoBlck.svg"></a> <br>카톡문의</div> -->
 				<div class="message"><a href=""><img src="../images/message_icon.png"></a><br>쪽지문의</div>
 			</div>
 			<div id="third_div">
