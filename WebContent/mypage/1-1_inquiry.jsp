@@ -16,7 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
-<title>주문/배송조회</title>
+<title>1:1문의</title>
 <style>
 	section.section1 {
 		width: 100%;
@@ -25,9 +25,6 @@
 		margin-top: 55px;
 		margin-bottom: 55px;
 	}
-	/* div.left_content {
-		position: absolute;
-	} */
 	div.right_content {
 		position: relative;
 	}
@@ -73,53 +70,39 @@
 	div.content aside.sideMenuBar ul li:nth-child(11) a:hover {
 		color: rgb(200, 10, 30);
 	}
-	div.title {
-    	color: #333;
-   		padding: 50px;
-		text-align: center;
-		font-size: 35px;
-	}
-	div.order_status_div {
-		background-color: #f0f0f0;
-	    padding: 23px;
-	    margin-bottom: 45px;
-	    overflow: hidden;
-	}
-	div.status_item {
-	    float: left;
-	    width: 100px;
-	    height: 100px;
-	    position: relative;
-	}
-
-	div.bar_item {
-		float: left;
-	    width: 8px;
-	    height: 2px;
-	    margin: 51px 19px 47px;
-	    background-color: #63666a;
-	}
-	div.right_content ul {
-	    display: inline-block;
-	    float: left;
-	    width: 100%;
-	}
-	div.right_content ul>li {
-		margin: 0 0 5px 0;
-   		text-align: left;
-	}
-	div .duration_item {
-	    display: inline-block;
-	    background-color: #fff;
-	    width: 182px;
-	    height: 50px;
-	    font-weight: 300;
-	    color: #333;
-	    border: none;
-	    position: relative;
-	    outline: 1px solid #aaa;
-	}
 	
+	div.title {
+	    text-align: center;
+	    font-size: 35px;
+	    margin-bottom: 40px;
+	}
+	button.inquiry_btn {
+		width: 110px;
+	    height: 30px;
+	    font-size: 13px;
+	    border: none;
+	    background-color: #63666A;
+	    color: #FFF;
+	}
+	span.cNum {
+	    vertical-align: middle;
+	    text-align: center;
+	    display: inline-block;
+	    top: 0px;
+	    right: 0px;
+	    width: 23px;
+	    height: 20px;
+	    background-color: #f0f0f0;
+	    color: #aaa;
+	    border-radius: 50%;
+	}
+	div.head tr {
+	    height: 50px;
+	}
+	head td {
+	    font-size: 15px;
+	    cursor: pointer;
+	}
 	div.duration_btn button {
 				display: inline-block;
     			background-color: #fff;
@@ -132,36 +115,31 @@
     			z-index: 0;
     			outline: 1px solid #aaa;
 				margin-right: -3px;    			
-			}
-	button.duration_btn1 {
-		color: #c80a1e;
-		outline: 1px solid #c80a1e;
 	}
-			
-	table.order_table {
-		border-top: 1px solid #aaa;
-		border-bottom: 1px solid #aaa;
-		width: 100%;
-		margin: 40px auto 200px;
-		border-collapse: collapse;
-	}
-	table.order_table tr td{
-		font-size: 20px;
-		color: #aaa;
-		height: 24px;
-		border-bottom: none;
-		font-weight: 300;
-		padding: 180px 0 200px;
-		text-align:center;
-	}
+	div.head {
+		border-top: 1px solid #e0e0e0;
+	    border-bottom: 1px solid #e0e0e0;
+	    padding: 40px 0 40px 0;
+    }
+	div.body1 {
+		padding: 40px 0 35px 0;
+	}	
 	
+	tr.noto td{
+		border-top: 1px #aaa solid;
+	    border-bottom: 1px solid #f0f0f0;
+	    height: 25px;
+	    font-size: 13px;
+	    color: #aaa;
+	    text-align: center;
+	}
 </style>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 	<div class="content">
 		<section class="section1">
-			<aside class="sideMenuBar">
+		<aside class="sideMenuBar">
 				<nav>
 					<ul>
 						<li>마이페이지</li>
@@ -178,54 +156,95 @@
 					</ul>
 				</nav>
 			</aside>
-		
 		<div style="width: 100%; display: flex; justify-content: center;">
-			<div class="right_content">
-				<div class="title">주문/배송 조회</div>
-				<div class="order_status_div" style="margin-bottom:20px">
-					<div class="status_item">
-						<img src="http://localhost:9000/sist_project_2/images/orderStatus1.png" class="status_img">
+			<div class="right_content" style="margin-top: 55px;">
+				<div class="title">1:1문의</div>
+				<div class="head">
+					<table>
+						<tbody>
+							<tr>
+								<td rowspan="3" style="width:110px; text-align:center;">
+									<img 
+									src="http://localhost:9000/sist_project_2/images/1on1.png"
+									style="padding-bottom: 20px;">
+									
+									<span>
+										<button type="button" class="inquiry_btn"
+											onclick="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp">1:1문의하기</button>
+									</span>
+								</td>
+								<td rowspan="3" style="width:110px;"></td>
+								<td class="all" onclick="">전체내역</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+								<td class="">상품문의</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+								<td class="">주문/결제/취소</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="">배송/시공</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+								<td class="">교환/반품/환불</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+								<td class="">A/S</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="">회원정보</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+								<td class="">사이트이용</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+								</td>
+								<td class="">기타</td>
+								<td style="width:53px">
+									<span class="cNum">0</span>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="body1">
+					<div class="duration_btn" style="margin-top: 30px;">
+						<button type="button" class="duration_btn1">1개월</button>
+						<button type="button" class="duration_btn2">3개월</button>
+						<button type="button" class="duration_btn3">6개월</button>
+						<button type="button" class="duration_btn4">전체</button>
 					</div>
-					<div class="bar_item"></div>
-					<div class="status_item">
-						<img src="http://localhost:9000/sist_project_2/images/orderStatus2.png" class="status_img">
+					<p style="text-align:center; color: #aaaaaa;
+							 margin:15px;	font-size: 15px;">
+						최대 3년 이내 주문내역만 조회하실 수 있습니다.</p>
+				</div>
+				<div class="body2">
+					<div>
+						<table  style="width:100%">
+							<tbody>
+								<tr class="noto">
+									<td style="width:150px">구분</td>
+									<td style="width:440px">문의내용</td>
+									<td>처리상태</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
-					<div class="bar_item"></div>
-					<div class="status_item">
-						<img src="http://localhost:9000/sist_project_2/images/orderStatus3.png" class="status_img">
-					</div>
-					<div class="bar_item"></div>
-					<div class="status_item">
-						<img src="http://localhost:9000/sist_project_2/images/orderStatus4.png" class="status_img">
-					</div>
-					<div class="bar_item"></div>
-					<div class="status_item">
-						<img src="http://localhost:9000/sist_project_2/images/orderStatus5.png" class="status_img">
+					<div class="noList" style="padding:170px 0; text-align:center;">
+						<p style="color:#aaa; font-size:18px;" class="noto">조회 결과가 없습니다.</p>
 					</div>
 				</div>
-				<div>
-						<ul>
-							<li>‘택배&시공’건의 경우 ‘배송중’ 상태로 표시되어도 품목별로 배송일이 다를 수 있습니다.</li>
-							<li>주문 후 일룸에서 발송해 드리는 알림문자의 배송예정일이 실제 배송일입니다.</li>
-						</ul>
-				</div>
-				<div class="duration_btn">
-					<button type="button" class="duration_btn1">1개월</button>
-					<button type="button" class="duration_btn2">3개월</button>
-					<button type="button" class="duration_btn3">6개월</button>
-					<button type="button" class="duration_btn4">전체</button>
-				</div>
-				<div style="margin:40px; text-align:center;">
-						<span style="color:#aaa; font-size: 16px; ">최대 3년 이내 주문내역만 조회하실 수 있습니다.</span>
-				</div>
-				<table class="order_table">
-					<tbody>
-						<tr>
-							<td class="nolist">주문내역이 없습니다.</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>  
+			</div>
 		</div>
 		</section>
 	</div>
