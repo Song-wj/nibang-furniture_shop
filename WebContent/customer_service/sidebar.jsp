@@ -42,7 +42,7 @@ p a {
 			<a href="">회원정보</a>
 		</p>
 		<p>
-			<a href="">1:1문의</a>
+			<a href="./1-1inquiry.jsp">1:1문의</a>
 		</p>
 	</div>
 </div>

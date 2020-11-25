@@ -18,24 +18,25 @@
 	crossorigin="anonymous"></script>
 <title>주문/배송조회</title>
 <style>
-	div.content {
+	section.section1 {
 		width: 100%;
-		display: flex;
+		display: inline-block;
 		height: 80%;
 		margin-top: 55px;
 		margin-bottom: 55px;
 	}
-	div.left_content {
+	/* div.left_content {
 		position: absolute;
-	}
+	} */
 	div.right_content {
 		position: relative;
 	}
 	div.content aside.sideMenuBar {
 		border: 1px solid rgb(170, 170, 170);
-		margin-top: 9%;
 		width: 165px;
-		float: left;
+		position: absolute;
+		margin-left: 40px;
+    	margin-top: 5%;
 	}
 
 	div.content aside.sideMenuBar ul {
@@ -74,7 +75,7 @@
 	}
 	div.title {
     	color: #333;
-   		padding: 40px 0;
+   		padding: 50px;
 		text-align: center;
 		font-size: 35px;
 	}
@@ -90,17 +91,7 @@
 	    height: 100px;
 	    position: relative;
 	}
-	div.status_count {
-	    position: absolute;
-	  /*   top: 0px; */
-	    right: 0px;
-	    width: 22px;
-	    height: 17px;
-	    background-color: #fff;
-	    color: #aaa;
-	    padding-top: 5px;
-	    border-radius: 50%;
-	}
+
 	div.bar_item {
 		float: left;
 	    width: 8px;
@@ -128,11 +119,40 @@
 	    position: relative;
 	    outline: 1px solid #aaa;
 	}
-	.order_table {
-	    border-top: 1px solid #aaa;
-	    border-bottom: 1px solid #aaa;
-	    width: 100%;
-	    margin: 0px auto 80px;
+	
+	div.duration_btn button {
+				display: inline-block;
+    			background-color: #fff;
+   				width: 182px;
+    			height: 50px;
+    			font-weight: 300;
+    			color: #333;
+    			border: none;
+    			position: relative;
+    			z-index: 0;
+    			outline: 1px solid #aaa;
+				margin-right: -3px;    			
+			}
+	button.duration_btn1 {
+		color: #c80a1e;
+		outline: 1px solid #c80a1e;
+	}
+			
+	table.order_table {
+		border-top: 1px solid #aaa;
+		border-bottom: 1px solid #aaa;
+		width: 100%;
+		margin: 40px auto 200px;
+		border-collapse: collapse;
+	}
+	table.order_table tr td{
+		font-size: 20px;
+		color: #aaa;
+		height: 24px;
+		border-bottom: none;
+		font-weight: 300;
+		padding: 180px 0 200px;
+		text-align:center;
 	}
 	
 </style>
@@ -140,14 +160,14 @@
 <body>
 	<jsp:include page="../header.jsp" />
 	<div class="content">
-		<div class="left_content">
+		<section class="section1">
 			<aside class="sideMenuBar">
 				<nav>
 					<ul>
 						<li>마이페이지</li>
 						<li>나의 쇼핑내역</li>
 						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">주문/배송 조회</a></li>
-						<li><a href="#">주문/취소 조회</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/search_order_cancel.jsp">주문/취소 조회</a></li>
 						<li><a href="http://localhost:9000/sist_project_2/mypage/cancel_refund_info.jsp">교환/반품/환불 안내</a></li>
 						<li>나의 게시글 답변</li>
 						<li><a href="#" >1:1문의</a></li>
@@ -158,50 +178,45 @@
 					</ul>
 				</nav>
 			</aside>
-		</div>
+		
 		<div style="width: 100%; display: flex; justify-content: center;">
 			<div class="right_content">
 				<div class="title">주문/배송 조회</div>
 				<div class="order_status_div" style="margin-bottom:20px">
 					<div class="status_item">
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus1.png" class="status_img">
-						<span class="status_count f13 arial">0</span>
 					</div>
 					<div class="bar_item"></div>
 					<div class="status_item">
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus2.png" class="status_img">
-						<span class="status_count">0</span>
 					</div>
 					<div class="bar_item"></div>
 					<div class="status_item">
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus3.png" class="status_img">
-						<span class="status_count">0</span>
 					</div>
 					<div class="bar_item"></div>
 					<div class="status_item">
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus4.png" class="status_img">
-						<span class="status_count">0</span>
 					</div>
 					<div class="bar_item"></div>
 					<div class="status_item">
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus5.png" class="status_img">
-						 <span class="status_count">0</span>
 					</div>
 				</div>
-				<div style="display:inline-block; float:left; margin-bottom:15px;">
+				<div>
 						<ul>
 							<li>‘택배&시공’건의 경우 ‘배송중’ 상태로 표시되어도 품목별로 배송일이 다를 수 있습니다.</li>
 							<li>주문 후 일룸에서 발송해 드리는 알림문자의 배송예정일이 실제 배송일입니다.</li>
 						</ul>
 				</div>
-				<div class="duration_div" style="margin-bottom: 35px;">
-						<input type="button" value="1개월" class="duration_item">
-						<input type="button" value="3개월" class="duration_item">
-						<input type="button" value="6개월" class="duration_item">
-						<input type="button" value="전체" class="duration_item">
+				<div class="duration_btn">
+					<button type="button" class="duration_btn1">1개월</button>
+					<button type="button" class="duration_btn2">3개월</button>
+					<button type="button" class="duration_btn3">6개월</button>
+					<button type="button" class="duration_btn4">전체</button>
 				</div>
-				<div style="margin: 40px auto;">
-						<span style="color:#aaa; font-size: 14px;">최대 3년 이내 주문내역만 조회하실 수 있습니다.</span>
+				<div style="margin:40px; text-align:center;">
+						<span style="color:#aaa; font-size: 16px; ">최대 3년 이내 주문내역만 조회하실 수 있습니다.</span>
 				</div>
 				<table class="order_table">
 					<tbody>
@@ -212,6 +227,7 @@
 				</table>
 			</div>  
 		</div>
+		</section>
 	</div>
 	<jsp:include page="../footer.jsp" />
 </body>

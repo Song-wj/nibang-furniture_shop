@@ -248,7 +248,7 @@
 					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp">공지사항</a></li>
 					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp">FAQ</a></li>
 					<li><a href="#">회원정보</a></li>
-					<li><a href="#">1:1문의</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp">1:1문의</a></li>
 				</ul>	
 			</nav>
 		   </aside>
