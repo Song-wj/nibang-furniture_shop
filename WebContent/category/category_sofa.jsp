@@ -60,53 +60,33 @@
 		margin: 0 1.3% 40px 0;
 		/* vertical-align: top; */
 	}
-	
-	#section1_category_bed ul li.product_list a {		
+	#section1_category_bed ul li.product_list a{
 		text-decoration:none;
 	}
+	#section1_category_bed ul li.product_list p {
+		margin: 0;
+	}
 	
-	#section1_category_bed ul li.product_list p.product_img img{
+	#section1_category_bed ul li.product_list img{
 		width: 274px;
 		height: 274px;
 	}
-	/* ----- hover image ----- */	
-	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child {
+	/* ----- hover image ----- */
+	#section1_category_bed ul li.product_list  a span:first-child {
 		display: inline-block;
 		width: 274px;
 		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형2(Q)-579000.jpg');
+		margin-bottom:-5px;
+		background-image: url('http://localhost:9000/sist_project_2/images/루오바 2540000.jpg');
+		background-size:274px;
 		background-repeat: no-repeat;
 	}
-	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형(SS)-480000.jpg');
+	#section1_category_bed ul li.product_list a span:first-child:hover {
+		background-image: url('http://localhost:9000/sist_project_2/images/루오바2.jpg');
+		background-size:274px;
 	}
 	
-	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드.jpg');
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드2.jpg');
-	}
 	
-	#section1_category_bed ul li.product_list:last-child a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리2.jpg');
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:last-child a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리.jpg');
-	}
-	
-	/* --------------- */
 	
 	#section1_category_bed ul li.product_list span.title{
 		font-size: 14px;
@@ -158,83 +138,83 @@
 				</div>
 				<ul class="category_bed_list1">
 					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/다나-2090000.jpg">					
-						<span class="title">다나</span>
+					<a href ="">						
+						<img src="http://localhost:9000/sist_project_2/images/캐스터네츠 1099000.jpg">						
+						<span class="title">캐스터네츠</span>
 						<br>
-						<span class="explain">모션베드 캐주얼(라텍스,책상형)</span>
+						<span class="explain">펫 3인 SET(패브릭)(온라인 전용)</span>
 						<br>
-						<span class="price">2,090,000 원</span>
-						</a>
+						<span class="price">1,099,000 원</span>
+					</a>
 					</li>
 					<li class="product_list">
 						<a href="">
-						<span></span>
-						<span class="title">쿠시노</span>
+						<span></span>			
+						<span class="title">루오바</span>
 						<br>
-						<span class="explain">저상형 패밀리침대(인조가죽)</span>
+						<span class="explain">코너(가죽)</span>
 						<br>
-						<span class="price">1,009,000 원</span>
+						<span class="price">2,540,000 원</span>
 						</a>
 					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/쿠시노(SS)-505000.jpg">						
-						<span class="title">쿠시노</span>
+					<li class="product_list">		
+						<a href="">				
+						<img src="http://localhost:9000/sist_project_2/images/보스턴 2690000.jpg">
+						<span class="title">보스턴</span>
 						<br>
-						<span class="explain">쿠시노 침대(인조가죽,SS)</span>
+						<span class="explain">카우치 우(가죽)</span>
 						<br>
 						<span class="price">505,000 원</span>
 						</a>
 					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/다나2.jpg">						
-						<span class="title">다나</span>
+					<li class="product_list">	
+						<a href="">				
+						<img src="http://localhost:9000/sist_project_2/images/스노우 970000.jpg">
+						<span class="title">스노우</span>
 						<br>
-						<span class="explain">모션베드 캐주얼(폼,책상형)</span>
+						<span class="explain">1인 소파(가죽)</span>
 						<br>
-						<span class="price">1,990,000 원</span>
+						<span class="price">970,000 원</span>
 						</a>
 					</li>
 					<li class="product_list">
 						<a href="">
-						<span></span>							
-						<span class="title">아르지안</span>
+				     	<img src="http://localhost:9000/sist_project_2/images/디즈니 120000.jpg">					
+						<span class="title">디즈니</span>
 						<br>
-						<span class="explain">트윈모션베드 1800폭(복합,USB형,K)</span>
+						<span class="explain">설리_아코(온라인전용))</span>
 						<br>
-						<span class="price">3,080,000 원</span>
+						<span class="price">120,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">	
+						<a href="">			
+     					<img src="http://localhost:9000/sist_project_2/images/아코 99000.jpg">
+						<span class="title">아코</span>
+						<br>
+						<span class="explain">플리아코</span>
+						<br>
+						<span class="price">99,000 원</span>
 						</a>
 					</li>
 					<li class="product_list">
 						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/메이.jpg">
-						<span class="title">메이</span>
+						<img src="http://localhost:9000/sist_project_2/images/카이로 3290000.jpg">
+						<span class="title">카이로</span>
 						<br>
-						<span class="explain">소프트 침대Q</span>
+						<span class="explain">4인 리클라이너 소파(가죽,전동2)</span>
 						<br>
-						<span class="price">849,000 원</span>
+						<span class="price">3,290,000 원</span>
 						</a>
 					</li>
-					<li class="product_list">
-						<a href="">
-	            		<img src="http://localhost:9000/sist_project_2/images/어바니.jpg">				
-						<span class="title">어바니</span>
+					<li class="product_list">	
+						<a href="">					
+						<img src="http://localhost:9000/sist_project_2/images/코모 980000.jpg">
+						<span class="title">코모</span>
 						<br>
-						<span class="explain">트윈모션베드 2200폭(인조가죽)</span>
+						<span class="explain">3인(패브릭)</span>
 						<br>
-						<span class="price">3,538,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<span></span>
-						<span class="title">미엘갤러리</span>
-						<br>
-						<span class="explain">쿠션침대K</span>
-						<br>
-						<span class="price">798,000 원</span>
+						<span class="price">980,000 원</span>
 						</a>
 					</li>
 				</ul>
