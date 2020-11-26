@@ -221,7 +221,7 @@
 
 			}			
 			.inquiry_content form.inquiryform1 ul li select{
-				width:305px;
+				width:307px;
 				height:40px;
 				margin-bottom:10px;
 			}
