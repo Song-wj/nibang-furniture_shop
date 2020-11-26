@@ -124,8 +124,9 @@
 	}
 	section.section1 li button {
 		border: 1px solid lightgray;
-		padding:0 3px;
+		padding:0 4px;
 		height:30px;
+		font-size: 13px;
 	}
 	section.section1 li button.info1:hover, 
 	section.section1 li button.info2:hover,
@@ -135,13 +136,13 @@
 		background-color:rgb(99,102,106);
 	}
 	section.section1 li button.info1{
-		margin: 0 5px 3px 80px;
+		margin: 0 5px 3px 90px;
 	} 
 	section.section1 li button.info2{
-		margin: 0 5px 3px 45px;
+		margin: 0 5px 3px 55px;
 	} 
 	section.section1 li button.info3 {
-		margin: 0 5px 3px 25px;
+		margin: 0 5px 3px 43px;
 	}
 	section.section1 li button.cancel,
 	section.section1 li button.OK{
