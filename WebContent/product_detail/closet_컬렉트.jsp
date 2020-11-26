@@ -1,0 +1,444 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+	crossorigin="anonymous"></script>
+<title>옷장- 컬렉트(아이템별 맞춤수납-부띠끄형PKG)</title>
+</head>
+<style>
+	.product_detail {
+		width:1260px;
+		height:18000px;
+		padding-top:90px;
+	}
+	.product_detail aside {
+		width: 600px;
+		height:650px;
+		margin-left:50px;
+		float:left;
+	}
+	.product_detail section.section1 div#product_payInfo{
+		border: 2px solid red;
+		width: 550px;
+		height: 650px;
+		float:right;
+		margin-right:40px;
+	}
+	
+	.product_detail section.section1 div#productmain_img img{
+		width: 500px;
+		height: 500px;
+		margin-left: 50px;
+	}
+	.product_detail div#productmini_img hr,
+	.product_detail div#product_detail_info hr { 						
+		width: 1150px;
+		margin: 50px 20px;
+		border:1px solid lightgray;
+		background-color:lightgray;
+	}
+	.product_detail section.section1 div#productmini_img img{
+		width:100px;
+		height:100px;
+		margin: 30px 0 0 50px;
+	}
+	.product_detail section.section1 div#productmini_img img:nth-child(2),
+	.product_detail section.section1 div#productmini_img img:nth-child(3){
+		margin-left: 7px;
+	}
+	
+	.product_detail div#product_payInfo ul,
+	.product_detail div#product_detail_info ul{
+		list-style-type:none;
+	}
+	.product_detail div#product_payInfo hr{
+		width:470px;
+		margin: 20px 3px 20px 0;
+		border:1px solid lightgray;
+		background-color:lightgray;
+	}
+	
+	.product_detail div#product_payInfo ul li.pname{
+		font-size: 20px;
+		margin-top:15px;
+	}
+	.product_detail div#product_payInfo ul li.pexplain{
+		font-size: 22px;
+		font-weight:500;
+		margin-top:7px;
+	}
+	.product_detail div#product_payInfo ul li.pprice{
+		font-size:22px;
+		font-weight:500;
+		color:rgb(200,10,30);
+		margin-top:10px;
+	}	
+	.product_detail div#product_payInfo ul li.pcode{
+		font-size:13px;
+		font-weight: 600;
+	}
+	.product_detail div#product_payInfo ul li.pcode span{
+		font-weight: 400;
+		margin-right:10px;		
+	}
+	.product_detail div#product_payInfo ul li select{
+		width: 470px;
+		height:40px;
+	}
+	.product_detail div#product_payInfo ul li.total_price{
+		font-size:16px;
+		font-weight:600;
+		margin-bottom: 40px;
+	}
+	.product_detail div#product_payInfo ul li.total_price span{
+		margin-left:350px;
+		color:rgb(200,10,30);
+	}
+	.product_detail div#product_payInfo ul li.btn_productPay button{
+		width:200px;
+		height:50px;
+		color:white;	
+		display:inline-block;
+		float:left;
+		margin-right: 5px;
+	}
+	.product_detail div#product_payInfo ul li.btn_productPay button:first-child{
+		background-color:rgb(200,10,30);
+		border:1px solid rgb(200,10,30);
+	}
+	.product_detail div#product_payInfo ul li.btn_productPay button:first-child:hover{		
+		background-color:rgb(160,14,43);
+		border:1px solid rgb(160,14,43);
+	}
+	.product_detail div#product_payInfo ul li.btn_productPay button:nth-child(2){
+		background-color:rgb(99,102,106);
+		border:1px solid rgb(99,102,106);
+	}
+	.product_detail div#product_payInfo ul li.btn_productPay button:nth-child(2):hover{
+		background-color:rgb(79,82,86);
+		border:1px solid rgb(79,82,86);
+	}
+	.product_detail div#product_payInfo ul li.btn_productPay a.wish{
+		display:inline-block;
+		width:50px;
+		height:50px;
+		background-image: url('http://localhost:9000/sist_project_2/images/btn_wish.png');
+		background-size:49px;
+		background-repeat:no-repeat;
+		background-position:0.4px 1px;
+	}
+	.product_detail div#product_payInfo ul li.btn_productPay a.wish:hover{
+		display:inline-block;
+		width:50px;
+		height:50px;
+		background-image: url('http://localhost:9000/sist_project_2/images/btn_wish.png');
+		background-size:50px;
+		background-repeat:no-repeat;
+		background-position:0.2px -50px;
+	}
+	.product_detail div#product_payInfo li#btn_Events img{
+		width: 455px;
+		height:55px;
+		margin: 3px 1px;
+	}
+	.product_detail div.product_recommend label,
+	.product_detail div.product_detail_info label{
+		font-size:18px;
+		margin: 50px 0 30px 70px;
+	}
+	
+ 	.product_detail div#product_detail_info div.detail_info1 {
+		padding-left: 80px;
+	}
+	.product_detail div#product_detail_info div.detail_info1 ul,
+	.product_detail div#product_detail_info div.detail_info3 ul{
+		width:220px;
+		height:250px;
+		margin-left:20px;
+		float:left;
+	}
+	.product_detail div#product_detail_info div.detail_info2 ul,
+	.product_detail div#product_detail_info div.detail_info4 ul{
+		width:285px;
+		height:250px;
+		margin-right:35px;
+		float:left;
+	}
+	.product_detail div#product_detail_info div.detail_info1 ul li,
+	.product_detail div#product_detail_info div.detail_info2 ul li,
+	.product_detail div#product_detail_info div.detail_info3 ul li,
+	.product_detail div#product_detail_info div.detail_info4 ul li{
+		font-size:12px;
+		font-weight:500;
+		margin: 10px -18px;	
+	}
+	
+	
+	
+	.product_detail div#product_closet_img label{
+		font-size: 12px;
+		display:inline-block;
+		margin: 30px 450px 0 450px;
+	}
+	.product_detail div#product_closet_img p.explain_title {
+		font-size: 30px;
+		font-weight: 500;
+	}
+	.product_detail div#product_closet_img p.interiorTIP {
+		font-size: 44px;
+		margin-bottom: 80px; 
+	}
+	.product_detail div#product_closet_img p {
+		font-size: 20px;
+		text-align:center;
+		margin-top: 50px;
+		margin-bottom: 50px; 
+		border:1px solid green;
+		
+	}
+	.product_detail div#product_closet_img p span {
+		font-size:15px;
+		font-weight:500;
+	}
+	.product_detail div#product_closet_img p span.red {
+		font-size:15px;
+		color:rgb(200,10,30);
+	}
+	
+</style>
+<body>
+	<!-- header -->
+	<jsp:include page="../header.jsp" />
+	
+	<div class="product_detail">
+		<section class="section1" id="section1_pd">
+			<aside class="product_img">
+				<div class="productmain_img" id="productmain_img">
+					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형메인.jpg">
+		<!--돋보기 	<a href ="#"><img src = "http://localhost:9000/sist_project_2/images/magnify_grey.png"></a> -->
+				</div>
+				<div class="productmini_img" id="productmini_img">
+					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형1.jpg">
+					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형2.jpg">
+					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형3.jpg">
+					<hr>
+				</div>
+			</aside>
+			<div class="product_payInfo" id="product_payInfo">
+				<ul>
+<!--제품명 고치기--><li class="pname">컬렉트</li>
+<!--고치기-->			<li class="pexplain">아이템별 맞춤수납-부띠끄형PKG</li>
+<!--고치기-->			<li class="pprice">2,087,000원</li> 				
+					<hr>					
+					<li class="pcode">
+						배송기간 <span>약 10일</span> 배송비<span>무료배송</span>
+<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span>HXXZ002015</span> 
+					</li>
+					<br>
+					<li>
+<!--고치기-->				<select name="product_colors" id="product_colors">
+					  		<option value="선택">[필수] 색상을 선택해주세요</option>
+					  		<option value="CGYA">CGYA 2,087,000원</option>
+					  		<option value="GYA">GYA 2,087,000원</option>
+					  	</select>
+				  	</li>
+				  	<hr>
+				  	<li class=total_price>총 구매가 <span> 0 원</span></li>
+				  	<li class="btn_productPay">
+				  		<button type="button">결제하기</button>
+				  		<button type="button">장바구니</button>
+				  		<a href="" class="wish"></a>
+				  	</li>
+					<li class="btn_Events" id="btn_Events">
+						<a href=""><img src="http://localhost:9000/sist_project_2/images/pd_myilloomlifebtn.jpg"></a> 
+						<a href=""><img src="http://localhost:9000/sist_project_2/images/pd_eventbtn.jpg"></a> 
+						<a href=""><img src="http://localhost:9000/sist_project_2/images/pd_promotionbtn.jpg"></a> 			
+					</li>
+				</ul>
+			</div>
+		</section> 
+		<section class="section2" id="section2_pd">
+			<!-- <div class="product_recommend" id="product_recommend">    우선은 생략,,,,,,,,,,,,, 힘들ㄷㅏ,,,
+				<label>함께 본 제품 추천</label>
+랜덤			<a href=""><img src=""></a>
+					<a href=""><img src=""></a>
+					<a href=""><img src=""></a>
+					<a href=""><img src=""></a>
+					<a href=""><img src=""></a>
+			</div>
+			<hr> -->
+			<div class="product_detail_info" id="product_detail_info">
+				<label>상품필수정보</label>
+				<div class="detail_info1">
+					<ul>
+						<li>제품명</li>
+						<li>모델명</li>
+						<li>크기(mm)/중량(kg)</li>
+						<li>색상</li>
+						<li>구성품</li>
+						<li>주요 소재/재질</li>
+						<li>사용연령 또는 체중범위</li>
+						<li>동일모델의 출시년월</li>
+					</ul>
+				</div>
+				<div class="detail_info2">
+					<ul>
+						<li>가구</li>
+						<li>아이템별 맞춤수납-부띠끄형PKG</li>
+						<li>*상세페이지 참조</li>
+						<li>CGYA/GYA</li>
+						<li>*상세페이지 참조</li>
+						<li>*상세페이지 참조</li>
+						<li>해당사항없음</li>
+						<li>해당사항없음</li>
+					</ul>
+				</div>
+				<div class="detail_info3">
+					<ul>
+						<li>제조자/제조국</li>
+						<li>판매자/수입자</li>
+						<li>취급방법 및 취급시 주의사항/<br>안전표시(주의,경고 등)</li>  
+						<li>배송/설치비용</li>  
+						<li><br>품질보증기준<br></li>  
+						<li>AS/책임자와 전화번호</li>  
+						<li>KC인증</li>  
+					</ul>
+				</div>
+				<div class="detail_info4">
+					<ul>
+						<li>일룸OEM/대한민국</li>
+						<li>(주)일룸/(주)일룸></li>
+						<li>*상세페이지 참조<br><br></li>
+						<li>무료배송(단,도서산간지역 제외)</li>
+						<li>소비자분쟁해결기준에 따라 1년 무상A/S<br>(단,보증기간 내라도 고객 귀책 사유일 경우 제외)</li>
+						<li>일룸 고객센터 1577-5670</li>
+						<li><img src="http://localhost:9000/sist_project_2/images/KC.png"></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section class="section3_product_img" id="section3_product_img">
+			<div class="product_closet_img" id="product_closet_img">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트1.jpg">
+				<label>*상기 이미지는 슬라이딩 도어 사양으로 매장에서 구매 가능합니다.<br><br><br></label>
+				<p>	 
+					이벤트 기간 동안 옷장 2700폭 이상(도어 포함) 구매 시 <br>
+					옷장 조명 3개 + 패브릭 박스 2개(156,000원 상당) 증정 
+				</p>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트2.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트3.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트4.jpg">
+				<p class="explain_title">컬렉트 시리즈</p>
+				<p>
+					고급스러우면서도 견고한 느낌의 프리미엄 옷장, 컬렉트 시리즈입니다. <br>
+					컬렉트 옷장 시스템으로 차별화된 사용성을 경험해보세요. 
+				</p>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트5.jpg">
+				<p class="explain_title">다양한 내부 구성</p>
+				<p>
+					다양한 내부 구획 및 옵션을 갖추고 있어 옷장 사용 패턴에 맞는 수납 구성이 가능합니다.  
+				</p>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트6.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트7.jpg">
+				<hr>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트8.jpg">
+				<p class="explain_title">아이템별 맞춤 수납 - 부띠끄형 PKG</p>
+				<p>
+					의류 및 패션아이템 특성에 맞춰 다양하게 수납할 수 있는 구성입니다.
+				</p>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트9.jpg">
+				<br><br><br>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트10.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트11.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트12.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트13.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트14.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트15.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트16.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트17.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트18.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트19.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트20-1.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트20-2.jpg">
+				<hr>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트21.jpg">
+				<hr>
+				
+				<p class="explain_title">Color</p>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트22.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트23.jpg">
+				
+				<p class="explain_title">Size & Mataterial</p>
+				<p><span class="red">Size</span></p>
+				<p><span>1000*590*2176</span></p>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트24.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트25.jpg">
+				<p><span class="red">Material</span></p>
+				<p><span>몸통 15T,22T PB+LPM+ABS엣지<br>뒤판/속서랍밑판 4.5t MDF+FF<br>서랍앞판 18t PB+LPM+ABS엣지<br>
+					   서랍손잡이 알루미늄+분체도장<br>옷걸이봉 알루미늄 압출(아노다이징)<br>도어 18T PB+ASA/LPM(STONE질감)<br>
+					손잡이 알루미늄 압출(XX:아노다이징, GY:분체도장)
+				</span></p>
+				<hr>
+				
+				<p class="interiorTIP">INTERIOR TIP</p>
+				<p class="explain_title">컬렉트 시리즈 구성 둘러보기</p>				
+				<p>
+					900/1000폭, 450/500폭까지, 필요한 사이즈에 맞게 구성할 수 있습니다. 
+				</p>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트26.jpg">
+				<hr>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트27.jpg">
+				<br><br>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트28.jpg">
+				<hr>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트29-1.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트29-2.jpg">
+				<br><br>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트30.jpg">
+				<hr>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트31.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트32.jpg">
+				<br><br>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트33.jpg">
+				<hr>
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트34.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트35.jpg">
+				
+				<p class="explain_title">다양한 도어와 매칭 가능</p>				
+				<p>
+					일룸의 다양한 옷장 도어와 매칭하여 <br>우리집 스타일에 딱 맞는 옷장 구성을 만들어 보세요. 
+				</p>
+				
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트36.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트37.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트38.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트39.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트40.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트41.jpg">
+				<br><br><br>
+				<p>
+					매장에서 나에게 맞는 옷장 구성을 상담받아 보세요.
+				</p>
+			</div>
+			
+		</section>
+	</div>
+	
+	
+	<!-- footer -->
+	<jsp:include page="../footer.jsp" />		
+</body>
+</html>
