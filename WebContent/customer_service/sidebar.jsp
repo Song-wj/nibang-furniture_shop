@@ -7,6 +7,8 @@
 	background-color: white;
 	border: 1px solid #AAA;
 	position: absolute;
+	margin-top: 50px;
+	margin-left: 50px;
 	padding: 30px 50px 30px 20px;
 	text-align: left;
 	top: 40px;
@@ -28,7 +30,7 @@ p a {
 	<div class="navi">
 		<p style="margin-bottom: 30px; font-size: 17px">고객센터</p>
 		<p>
-			<a href="">고객센터 안내</a>
+			<a href="./customer_service.jsp">고객센터 안내</a>
 		</p>
 		<p>
 			<a href="./notice.jsp" id="notice">공지사항</a>
@@ -37,13 +39,10 @@ p a {
 			<a href="./FAQ.jsp" id="faq">FAQ</a>
 		</p>
 		<p>
-			<a href="">A/S신청</a>
+			<a href="">회원정보</a>
 		</p>
 		<p>
-			<a href="">분해/설치 신청</a>
-		</p>
-		<p>
-			<a href="">1:1문의</a>
+			<a href="./1-1inquiry.jsp">1:1문의</a>
 		</p>
 	</div>
 </div>
