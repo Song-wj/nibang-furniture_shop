@@ -292,15 +292,14 @@
 			.inquiry_content form.inquiryform1 ul li{
 				list-style-type:none;
 				font-size:14px;
+				margin-bottom:10px;
 			}
 			.inquiry_content form.inquiryform1 ul li:nth-child(2){
-				margin-bottom:0;
-				border:1px solid red;
+				
 			}
 			.inquiry_content form.inquiryform1 ul li select{
 				width:307px;
 				height:40px;
-				margin-bottom:10px;
 			}
 			.inquiry_content form.inquiryform1 input[type="text"]{
 				width:400px;
