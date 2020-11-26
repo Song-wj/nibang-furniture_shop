@@ -52,6 +52,15 @@
 		 		color:black;
 		 		margin-bottom:10px;
 		 	}
+		 	
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(2) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(3) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(4) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(5) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(6) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(7) a:hover{
+		 		color:rgb(200,10,30);
+		 	}		 	
 		 	.section1 div {
 		 		margin-left:50px;
 		 	}
@@ -224,14 +233,7 @@
 		 	.section1 div div:nth-child(4)>table.faq_table tr:hover{
 		 		color:rgb(200,10,30);
 		 	}
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(2) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(3) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(4) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(5) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(6) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(7) a:hover{
-		 		color:rgb(200,10,30);
-		 	}		 	
+		 	
 		 	.section1 div div:nth-child(2)>button:focus{
 		 		outline:none;
 		 	}
