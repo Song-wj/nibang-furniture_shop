@@ -137,6 +137,74 @@
 		color: black;
 		text-align:right;
 	}
+	
+	/* 왼쪽 배너 */
+	
+	div.chatbot_banner_kakao {
+		background-color: #222222;
+		border-radius: 50px;
+		position: fixed;
+		width: 104px;
+		height: 42px;
+		bottom: 171px;
+		right: 24px;
+		z-index: 900;
+		background-image: url('http://localhost:9000/sist_project_2/images/talk2.png');
+	 	background-size: 20px;
+		background-repeat:no-repeat;
+		background-position: 13px 12px;
+		text-align: right;
+	}
+	div.chatbot_banner_kakao span{
+		display: inline-block;
+		font-size: 13px;
+		font-weight: bold;
+		width: 100%;
+		color: #fff;
+		letter-spacing: -1.5px;
+		line-height: 41px;
+		padding-right: 14px;
+	}
+	div.chatbot_banner_kakao:hover {
+		background-color: rgb(245,225,75);
+		background-image: url('http://localhost:9000/sist_project_2/images/talk1.png');
+	}
+	div.chatbot_banner_kakao span:hover {
+		color: black;
+	}
+	
+	div.chatbot_banner_message {
+		background-color: #222222;
+		border-radius: 50px;
+		position: fixed;
+		width: 104px;
+		height: 42px;
+		bottom: 122px;
+		right: 24px;
+		z-index: 900;
+		background-image: url('http://localhost:9000/sist_project_2/images/talk3.png');
+	 	background-size: 20px;
+		background-repeat:no-repeat;
+		background-position: 13px 10px;
+		text-align: right;
+	}
+	div.chatbot_banner_message span{
+		display: inline-block;
+		font-size: 13px;
+		font-weight: bold;
+		width: 100%;
+		color: #fff;
+		letter-spacing: -1.5px;
+		line-height: 41px;
+		padding-right: 14px;
+	}
+	div.chatbot_banner_message:hover {
+		background-color: rgb(35,197,69);
+		background-image: url('http://localhost:9000/sist_project_2/images/talk4.png');
+	}
+	div.chatbot_banner_message span:hover {
+		color: black;
+	}
 </style>
 </head>
 <body>
@@ -269,6 +337,12 @@
 			</div>
 		</div>
 	</section>
+	<div class="chatbot_banner_kakao" onclick="location.href='#'">
+		<span >카톡문의</span>
+	</div>
+	<div class="chatbot_banner_message" onclick="location.href='#'">
+		<span >쪽지문의</span>
+	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
