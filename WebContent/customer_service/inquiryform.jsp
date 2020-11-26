@@ -20,8 +20,8 @@
 </head>
 <style>
 	.content#inquiryform{
-		width: 500px;
-		height: 700px;
+		width: 400px;
+		height: 600px;
 		border:1px solid red;
 		margin: 5% 30%;
 	}
@@ -58,7 +58,7 @@
 	.content#inquiryform button{
 		width:200px;
 		height:50px;
-		margin:25px 110px;
+		margin:25px 110px 25px 150px;
 		background-color:rgb(200,10,30);
 		border:1px solid rgb(200,10,30);
 		color:white;
@@ -98,9 +98,9 @@
 				</li>
 				<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 				<li>최대 5개 파일 업로드 가능</li>
-				<button type="button">신청하기</button>
 					
 			</ul>
+				<button type="button">신청하기</button>
 		</form>
 	</div>
 </body>

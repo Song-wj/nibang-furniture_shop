@@ -190,9 +190,9 @@
 				<div><a href="" class="message"><br><span>쪽지문의</span></a></div>
 			</div><hr>
 			<ul>
-				<li>채팅 상담 운영시간</li><br> 
-				<li><span>평일</span> 9:30 ~ 17:30 ( 점심시간 12:30 ~ 13:30 )</li><br> 
-				<li><span>토요일</span> 9:30 ~ 12:30 ( 쇼핑몰 구매상담 제외 )</li><br> 
+				<li>채팅 상담 운영시간</li><br>
+				<li><span>평일</span> 9:30 ~ 17:30 ( 점심시간 12:30 ~ 13:30 )</li><br>
+				<li><span>토요일</span> 9:30 ~ 12:30 ( 쇼핑몰 구매상담 제외 )</li><br>
 				<li>일요일 및 법정 공휴일 휴무</li>	
 			</ul>	
 		</section>	
