@@ -263,9 +263,10 @@
 					<label>서비스 신청 및 다양한 문의를 실시간으로 편리하게 해결하실 수 있습니다.</label>
 				</div>
 				<div>
-					<div ><a href="" class="kakao"> <br><span>카톡문의</span></a></div>
+					<div><a href="" class="kakao"> <br><span>카톡문의</span></a></div>
 					<div ><a href="" class="message"><br><span>쪽지문의</span></a></div>
 				</div>
+
 				<div id="third_div">
 					<label>고객센터 운영시간</label>
 					<div><span>평일</span> 9:30 ~ 17:30  ( 점심시간 12:30 ~ 13:30 ) </div>

@@ -83,7 +83,8 @@
 		width:270px;
 		height:170px;
 		border:1px solid black;
-		margin-top:30px;		 		
+		margin-top:30px;		
+		margin-right:-12px; 		
 	}			
 	a.kakao{
 		display:inline-block;
@@ -183,17 +184,18 @@
 		   </aside>
 		<section class="section1" id="section1_inquiry">
 			<h1> 1 : 1 문의</h1>
-			<h4>궁금하신 사항을 남겨주세요 </h4>
-				<div>
-					<div><a href="" class="kakao"> <br><span>카톡문의</span></a></div>
-					<div><a href="" class="message"><br><span>쪽지문의</span></a></div>
-				</div><hr>
+			<h4>궁금하신 사항을 남겨주세요.</h4>
+			<div>
+				<div><a href="" class="kakao"> <br><span>카톡문의</span></a></div>
+				<div><a href="" class="message"><br><span>쪽지문의</span></a></div>
+			</div><hr>
 			<ul>
 				<li>채팅 상담 운영시간</li><br> 
 				<li><span>평일</span> 9:30 ~ 17:30 ( 점심시간 12:30 ~ 13:30 )</li><br> 
 				<li><span>토요일</span> 9:30 ~ 12:30 ( 쇼핑몰 구매상담 제외 )</li><br> 
 				<li>일요일 및 법정 공휴일 휴무</li>	
 			</ul>	
-		</section>		
+		</section>	
+	</div>	
 </body>
 </html>
