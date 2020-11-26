@@ -271,15 +271,21 @@
 				background-color: white;
 				overflow: auto;	
 			}
-		
+			
+			form.inquiryform1{
+				color:rgb(51,51,51);
+				font-weight:450;
+			}
 	
 			.inquiry_content h3{
 				margin-left:170px;
 				padding:40px 0 30px 0 ;
+				color:rgb(51,51,51);
 			}
 			.inquiry_content form.inquiryform1 ul li:first-child label{
 				font-size:15px; 
-				color:black;
+				color:rgb(51,51,51);
+				font-weight:450;
 				display:inline-block;
 				width:90px;
 			}
@@ -287,15 +293,19 @@
 				list-style-type:none;
 				font-size:14px;
 			}
+			.inquiry_content form.inquiryform1 ul li:nth-child(2){
+				margin-bottom:0;
+				border:1px solid red;
+			}
 			.inquiry_content form.inquiryform1 ul li select{
-				width:270px;
+				width:307px;
 				height:40px;
-				margin:0 0 25px 35px;
+				margin-bottom:10px;
 			}
 			.inquiry_content form.inquiryform1 input[type="text"]{
 				width:400px;
 				height:40px;
-				margin:10px 1px;
+				
 			}
 			.inquiry_content form.inquiryform1 textarea {
 				width:400px;

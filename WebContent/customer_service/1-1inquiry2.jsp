@@ -196,27 +196,34 @@
 				overflow: auto;	
 			}
 		
+			form.inquiryform1{
+				color:rgb(51,51,51);
+				font-weight:450;
+			}
 	
 			.inquiry_content h3{
 				margin-left:170px;
 				padding:40px 0 30px 0 ;
-
+				color:rgb(51,51,51);
 			}
 			.inquiry_content form.inquiryform1 ul li:first-child label{
-				display:inline-block;
 				font-size:15px; 
-				color:black;
-				width:80px;
-				margin-left:0px;
+				color:rgb(51,51,51);
+				font-weight:450;
+				display:inline-block;
+				width:90px;
+				margin-left:0;
+				margin-bottom:7px;
 			}
 			.inquiry_content form.inquiryform1 ul li{
 				list-style-type:none;
 				font-size:14px;
-			}
+
+			}			
 			.inquiry_content form.inquiryform1 ul li select{
-				width:275px;
+				width:305px;
 				height:40px;
-				margin:0 0 25px 35px;
+				margin-bottom:10px;
 			}
 			.inquiry_content form.inquiryform1 input[type="text"]{
 				width:400px;
