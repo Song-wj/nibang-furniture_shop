@@ -392,6 +392,7 @@
 						</div>        
 					</div>
 				</div>
+
 				<div id="third_div">
 					<label>고객센터 운영시간</label>
 					<div><span>평일</span> 9:30 ~ 17:30  ( 점심시간 12:30 ~ 13:30 ) </div>
