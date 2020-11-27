@@ -128,7 +128,7 @@
 	<div class="content">
 		<section class="section1" id="section1_category_bed">
 			<div>
-				<p>침대</p>
+				<p>소파</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
 					<a href="#">인기순</a>
