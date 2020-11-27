@@ -181,7 +181,7 @@
 								<li><a href="http://localhost:9000/sist_project_2/category/category_bed.jsp">침대</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_chair.jsp">의자</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_sofa.jsp">소파</a></li>
-								<li><a href="#">수납장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_storage_closet.jsp">수납장</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_closet.jsp">옷장</a></li>
 							</ul>
 						</nav>
