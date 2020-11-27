@@ -136,6 +136,43 @@
 				font-size:12px;
 			}
 		</style>
+		<script>
+		function r_change1(){
+			
+			var str="";
+			str+="<tr>";
+			str+="<td>주문번호/주문일</td>";
+			str+="<td>상품정보</td>";
+			str+="<td>상품평작성</td>";
+			str+="</tr>";
+			str+="<tr>";
+			str+="<td colspan='3' rowspan='3'>구매 내역이 없습니다.</td>";
+			str+="</tr>";
+			
+			document.getElementById("review_table").innerHTML=str;
+			
+			document.getElementById("btn1").style.border ="1px solid rgb(200,10,30)";
+			document.getElementById("btn2").style.border="1px solid black"; 
+		}
+		
+		function r_change2(){
+				
+			var str="";
+			str+="<tr>";
+			str+="<td colspan='3' style='padding-right:140px;'>상품정보</td>";			
+			str+="</tr>";
+			str+="<tr>";
+			str+="<td colspan='3' rowspan='3'>리뷰 내역이 없습니다.</td>";
+			str+="</tr>";
+			
+			document.getElementById("review_table").innerHTML=str;
+			document.getElementById("btn1").style.border ="1px solid black";
+			document.getElementById("btn2").style.border ="1px solid rgb(200,10,30)";
+			document.getElementById("btn1").style.borderRight ="1px solid rgb(200,10,30)";
+			
+			
+			}
+		</script>
 	</head>
 	<body>
 		<jsp:include page="../header.jsp" />
@@ -161,22 +198,24 @@
 			<div>상품평 관리</div>
 			<table class="r_btn" >
 				<tr>
-					<td><button type="button" onclick="r_change1()" >작성 가능한 상품평</button></td>
-					<td><button type="button" onclick="r_change2()">작성한 상품평</button></td>
+					<td id="btn1"><button type="button" onclick="r_change1()" >작성 가능한 상품평</button></td>
+					<td id="btn2"><button type="button" onclick="r_change2()" >작성한 상품평</button></td>
 				</tr>
 			</table>
 			<div>*상품과 무관하거나 오해의 소지가 있는 내용의 상품평은 통보 없이 삭제될 수 있습니다.</div>
 			<div>게시물에 대한 상업적/비상업적 권리는 일룸에 귀속됩니다.</div>	
+			<div id="change_table">
 			<table	class="review_table" id="review_table">
 				<tr>
-					<td>주문번호/주문일</td>
-					<td>상품정보</td>
-					<td>상품평작성</td>
+					<td >주문번호/주문일</td>
+					<td >상품정보</td>
+					<td >상품평작성</td>
 				</tr>
 				<tr>
 					<td colspan="3" rowspan="4">구매 내역이 없습니다.</td>
 				</tr>
 			</table>
+			</div>
 		</div>
 		
 		

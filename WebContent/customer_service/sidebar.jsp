@@ -38,9 +38,7 @@ p a {
 		<p>
 			<a href="./FAQ.jsp" id="faq">FAQ</a>
 		</p>
-		<p>
-			<a href="">회원정보</a>
-		</p>
+
 		<p>
 			<a href="./1-1inquiry.jsp">1:1문의</a>
 		</p>

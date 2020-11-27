@@ -194,7 +194,7 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a>
 						<div></div></li>
-						<li><a href="">마이페이지</a>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">마이페이지</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터</a>
 						<div></div></li>
