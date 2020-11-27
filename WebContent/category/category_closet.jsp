@@ -60,33 +60,53 @@
 		margin: 0 1.3% 40px 0;
 		/* vertical-align: top; */
 	}
-	#section1_category_bed ul li.product_list a{
+	
+	#section1_category_bed ul li.product_list a {		
 		text-decoration:none;
 	}
-	#section1_category_bed ul li.product_list p {
-		margin: 0;
-	}
 	
-	#section1_category_bed ul li.product_list img{
+	#section1_category_bed ul li.product_list p.product_img img{
 		width: 274px;
 		height: 274px;
 	}
-	/* ----- hover image ----- */
-	#section1_category_bed ul li.product_list  a span:first-child {
+	/* ----- hover image ----- */	
+	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child {
 		display: inline-block;
 		width: 274px;
 		height: 274px;
-		margin-bottom:-5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/루오바 2540000.jpg');
-		background-size:274px;
+		margin-bottom: -5px;
+		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형2(Q)-579000.jpg');
 		background-repeat: no-repeat;
 	}
-	#section1_category_bed ul li.product_list a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/루오바2.jpg');
-		background-size:274px;
+	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child:hover {
+		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형(SS)-480000.jpg');
 	}
 	
+	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child {
+		display: inline-block;
+		width: 274px;
+		height: 274px;
+		margin-bottom: -5px;
+		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드.jpg');
+		background-repeat: no-repeat;
+	}
+	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child:hover {
+		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드2.jpg');
+	}
 	
+	#section1_category_bed ul li.product_list:last-child a span:first-child {
+		display: inline-block;
+		width: 274px;
+		height: 274px;
+		margin-bottom: -5px;
+		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리2.jpg');
+		background-repeat: no-repeat;
+	}
+	#section1_category_bed ul li.product_list:last-child a span:first-child:hover {
+		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리.jpg');
+	}
+	
+	/* --------------- */
 	
 	#section1_category_bed ul li.product_list span.title{
 		font-size: 14px;
@@ -128,7 +148,7 @@
 	<div class="content">
 		<section class="section1" id="section1_category_bed">
 			<div>
-				<p>침대</p>
+				<p>옷장</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
 					<a href="#">인기순</a>
@@ -138,83 +158,83 @@
 				</div>
 				<ul class="category_bed_list1">
 					<li class="product_list">
-					<a href ="">						
-						<img src="http://localhost:9000/sist_project_2/images/캐스터네츠 1099000.jpg">						
-						<span class="title">캐스터네츠</span>
-						<br>
-						<span class="explain">펫 3인 SET(패브릭)(온라인 전용)</span>
-						<br>
-						<span class="price">1,099,000 원</span>
-					</a>
-					</li>
-					<li class="product_list">
 						<a href="">
-						<span></span>			
-						<span class="title">루오바</span>
+						<img src="http://localhost:9000/sist_project_2/images/컬렉트.png">					
+						<span class="title">컬렉트</span>
 						<br>
-						<span class="explain">코너(가죽)</span>
+						<span class="explain">서랍마다 꼼꼼수납-멀티수납형 PKG</span>
 						<br>
-						<span class="price">2,540,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">		
-						<a href="">				
-						<img src="http://localhost:9000/sist_project_2/images/보스턴 2690000.jpg">
-						<span class="title">보스턴</span>
-						<br>
-						<span class="explain">카우치 우(가죽)</span>
-						<br>
-						<span class="price">505,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">	
-						<a href="">				
-						<img src="http://localhost:9000/sist_project_2/images/스노우 970000.jpg">
-						<span class="title">스노우</span>
-						<br>
-						<span class="explain">1인 소파(가죽)</span>
-						<br>
-						<span class="price">970,000 원</span>
+						<span class="price">2,235,000 원</span>
 						</a>
 					</li>
 					<li class="product_list">
 						<a href="">
-				     	<img src="http://localhost:9000/sist_project_2/images/디즈니 120000.jpg">					
-						<span class="title">디즈니</span>
+						<img src="http://localhost:9000/sist_project_2/images/컬렉트2.png">					
+						<span class="title">컬렉트</span>
 						<br>
-						<span class="explain">설리_아코(온라인전용))</span>
+						<span class="explain">자유로운 수납-실속형PKG</span>
 						<br>
-						<span class="price">120,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">	
-						<a href="">			
-     					<img src="http://localhost:9000/sist_project_2/images/아코 99000.jpg">
-						<span class="title">아코</span>
-						<br>
-						<span class="explain">플리아코</span>
-						<br>
-						<span class="price">99,000 원</span>
+						<span class="price">1,832,000 원</span>
 						</a>
 					</li>
 					<li class="product_list">
 						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/카이로 3290000.jpg">
-						<span class="title">카이로</span>
+						<img src="http://localhost:9000/sist_project_2/images/미엘 미니옷장.jpg">						
+						<span class="title">미엘</span>
 						<br>
-						<span class="explain">4인 리클라이너 소파(가죽,전동2)</span>
+						<span class="explain">미니옷장 800폭</span>
 						<br>
-						<span class="price">3,290,000 원</span>
+						<span class="price">387,000 원</span>
 						</a>
 					</li>
-					<li class="product_list">	
-						<a href="">					
-						<img src="http://localhost:9000/sist_project_2/images/코모 980000.jpg">
-						<span class="title">코모</span>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/테일러 테일러코너형드레스룸세트.jpg">						
+						<span class="title">테일러</span>
 						<br>
-						<span class="explain">3인(패브릭)</span>
+						<span class="explain">테일러 코너형 드레스룸 세트 2400폭</span>
 						<br>
-						<span class="price">980,000 원</span>
+						<span class="price">892,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/에디키즈 서랍형옷장.png">						
+						<span class="title">에디키즈</span>
+						<br>
+						<span class="explain">서랍형 옷장 800폭</span>
+						<br>
+						<span class="price">449,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/테일러2.jpg">
+						<span class="title">테일러</span>
+						<br>
+						<span class="explain">옷장 800폭(기본장)</span>
+						<br>
+						<span class="price">199,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+	            		<img src="http://localhost:9000/sist_project_2/images/테일러 코너장.jpg">				
+						<span class="title">테일러</span>
+						<br>
+						<span class="explain">코너장 800폭(포인트수납형)</span>
+						<br>
+						<span class="price">327,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+	            		<img src="http://localhost:9000/sist_project_2/images/테일러.jpg">				
+						<span class="title">테일러</span>
+						<br>
+						<span class="explain">800폭 옵션장(3단서랍형)</span>
+						<br>
+						<span class="price">386,000 원</span>
 						</a>
 					</li>
 				</ul>

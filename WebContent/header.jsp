@@ -50,6 +50,14 @@
 		list-style-type: none;
 		padding: 10px;
 	}	
+	header div.fg>nav>ul>li a{
+		color: #333333;
+		text-decoration: none;
+	}	
+	header div.fg>nav>ul>li a:hover{
+		color: rgb(200, 10, 30);
+	}	
+	
 	header div.fg button.close_btn {
 		display: inline-block;
 		float: right;
@@ -76,7 +84,7 @@
 	}	
 	header div.fg>nav>ul>li:nth-child(5), header div.fg>nav>ul>li:nth-child(6),
 	header div.fg>nav>ul>li:nth-child(7), header div.fg>nav>ul>li:nth-child(8),
-	header div.fg>nav>ul>li:nth-child(9) {
+	header div.fg>nav>ul>li:nth-child(9), header div.fg>nav>ul>li:nth-child(10) {
 		font-size: 13px;
 		font-weight: 2000px;
 	}	
@@ -166,14 +174,15 @@
 							<ul>
 								<li><img
 									src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></li>
-								<li>모든제품</li>
-								<li>신제품</li>
-								<li>이벤트</li>
-								<li>의자</li>
-								<li>식탁</li>
-								<li>책상</li>
-								<li>수납장</li>
-								<li>옷장</li>
+								<li><a href="#">모든제품</a></li>
+								<li><a href="#">신제품</a></li>
+								<li><a href="#">이벤트</a></li>
+								<li><a href="#">책상/식탁</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_bed.jsp">침대</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_chair.jsp">의자</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_sofa.jsp">소파</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_storage_closet.jsp">수납장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_closet.jsp">옷장</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -194,7 +203,7 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a>
 						<div></div></li>
-						<li><a href="">마이페이지</a>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">마이페이지</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터</a>
 						<div></div></li>
