@@ -177,7 +177,7 @@
 								<li><a href="#">모든제품</a></li>
 								<li><a href="#">신제품</a></li>
 								<li><a href="#">이벤트</a></li>
-								<li><a href="#">책상/식탁</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_table_desk.jsp">책상/식탁</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_bed.jsp">침대</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_chair.jsp">의자</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_sofa.jsp">소파</a></li>
