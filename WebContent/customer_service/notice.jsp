@@ -18,16 +18,53 @@
 	crossorigin="anonymous"></script>
 <style>
 section.section1 {
-	width: 100%;
-	display: inline-block;
-	height: 80%;
-	margin-top: 55px;
-	margin-bottom: 55px;
+	width: 1100px;
+    display: inline-block;
+    height: 80%;
+    padding-top: 10%;
+    margin-bottom: 100px;
 }
+			.section1 aside.sideMenuBar2{
+		 		border:1px solid rgb(144, 144, 144);		 		
+		 		float:left;
+		 		margin-right:100px;
+		 		margin-left:50px;
+		 		height:250px;	
+		 		padding-right:50px;	
+		 		margin-top:20px;		 		
+		 	}
+	 		.section1 aside.sideMenuBar2 ul{
+		 		list-style-type: none;	
+		 		padding-left:20px;		 	    
+		 	}
+		 	.section1 aside.sideMenuBar2 ul>li{
+		 		font-size:15px;	
+		 		margin-top:20px; 			 			 	    
+		 	}
+		 	.section1 aside.sideMenuBar2 ul>li>a{
+		 		text-decoration:none;
+		 		color:rgb(144, 144, 144);	 		 
+		 	}
+		 	.section1 aside.sideMenuBar2 ul>li:first-child>a{
+		 		font-size:20px;	
+		 		font-weight:10000px;
+		 		color:black;
+		 		margin-bottom:10px;
+		 	}
+		 	
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(2) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(3) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(4) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(5) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(6) a:hover,
+		 	.section1 aside.sideMenuBar2 ul li:nth-child(7) a:hover{
+		 		color:rgb(200,10,30);
+		 	}
 
-.title {
-	text-align: center;
-	font-size: 35px;
+div.content h1 {
+	margin-top: 20px;
+    margin-bottom: 40px;
+   	padding-left:51%;
 }
 
 table.notice_table th {
@@ -52,16 +89,8 @@ table.notice_table td:first-child, table.notice_table td:nth-child(3),
 	color: rgb(144, 144, 144);
 }
 
-table.faq_table {
-	width: 750px;
-	margin-left: 150px;
-	margin-top: 30px;
-}
-
 table.notice_table, table.notice_table th, table.notice_table td {
 	border-collaspe: collaspe;
-	/* 	border: 1px solid #333;
- */
 	border-left: 1px solid white;
 	border-right: 1px solid white;
 }
@@ -87,7 +116,7 @@ table.notice_table tr:first-child td {
 }
 
 table.notice_table tr td:nth-child(2) {
-	padding-left: 100px;
+	padding-left: 25px;
 }
 
 table.notice_table tr td:nth-child(1) {
@@ -121,18 +150,13 @@ table.notice_table tr:first-child {
 }
 
 table.notice_table td {
-	font-size: 15px;
+	font-size: 13px;
 }
 
 table.notice_table th {
 	font-size: 13px;
 }
-div.title {
-padding: 40px 0 40px 0;
-}
-div.content {
-	margin:50px;
-}
+
 </style>
 </head>
 
@@ -140,13 +164,20 @@ div.content {
 	<jsp:include page="../header.jsp" />
 	<div>
 		<section class="section1">
-			<jsp:include page="./sidebar.jsp">
-				<jsp:param name="name" value="notice" />
-			</jsp:include>
+		<aside class="sideMenuBar2">
+			<nav>
+				<ul>
+				    <li>고객센터</li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터 안내</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp">공지사항</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp">FAQ</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp">1:1문의</a></li>
+				</ul>	
+			</nav>
+		   </aside>
 			<div>
-				<div style="width: 100%; display: flex; justify-content: center;">
 					<div class="content">
-						<div class="title">공지사항</div>
+						<div><h1>공지사항</h1></div>
 						<div class="list_body">
 							<table class="notice_table">
 								<tr class="table_header">
@@ -218,7 +249,6 @@ div.content {
 							</table>
 						</div>
 					</div>
-				</div>
 			</div>
 		</section>
 	</div>
