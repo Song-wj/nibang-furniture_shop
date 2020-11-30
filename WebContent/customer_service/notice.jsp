@@ -64,8 +64,7 @@ section.section1 {
 div.content h1 {
 	margin-top: 20px;
     margin-bottom: 40px;
-    padding-left: 120px;
-    text-align: center;
+   	padding-left:51%;
 }
 
 table.notice_table th {
@@ -117,7 +116,7 @@ table.notice_table tr:first-child td {
 }
 
 table.notice_table tr td:nth-child(2) {
-	padding-left: 100px;
+	padding-left: 25px;
 }
 
 table.notice_table tr td:nth-child(1) {
