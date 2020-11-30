@@ -18,22 +18,16 @@
 	crossorigin="anonymous"></script>
 <title>1:1문의</title>
 <style>
-	section.section1 {
-		width: 100%;
-		display: inline-block;
-		height: 80%;
-		margin-top: 55px;
-		margin-bottom: 55px;
-	}
-	div.right_content {
-		position: relative;
-	}
+	div.content {
+	    border: 1px solid white;
+   		width: 95%;
+    	margin: auto;
+    }
 	div.content aside.sideMenuBar {
 		border: 1px solid rgb(170, 170, 170);
-		width: 165px;
-		position: absolute;
-		margin-left: 40px;
-    	margin-top: 5%;
+	    margin-top: 9%;
+	    width: 165px;
+	    float: left;
 	}
 
 	div.content aside.sideMenuBar ul {
@@ -71,10 +65,19 @@
 		color: rgb(200, 10, 30);
 	}
 	
-	div.title {
+	div.right_content{
+		position: relative;
+	    min-height: 600px;
+	    width: 800px;
+	    margin-left: 18%;
+	    margin-top: 107px;
 	    text-align: center;
-	    font-size: 35px;
-	    margin-bottom: 40px;
+	}
+	
+	div.title {
+		font-size: 35px;
+		color: #333;
+		margin-bottom: 44px;
 	}
 	button.inquiry_btn {
 		width: 110px;
@@ -138,7 +141,6 @@
 <body>
 	<jsp:include page="../header.jsp" />
 	<div class="content">
-		<section class="section1">
 		<aside class="sideMenuBar">
 				<nav>
 					<ul>
@@ -156,8 +158,8 @@
 					</ul>
 				</nav>
 			</aside>
-		<div style="width: 100%; display: flex; justify-content: center;">
-			<div class="right_content" style="margin-top: 55px;">
+		<div>
+			<div class="right_content">
 				<div class="title">1:1문의</div>
 				<div class="head">
 					<table>
@@ -166,11 +168,10 @@
 								<td rowspan="3" style="width:110px; text-align:center;">
 									<img 
 									src="http://localhost:9000/sist_project_2/images/1on1.png"
-									style="padding-bottom: 20px;">
+									style="padding-bottom: 20px; padding-left: 80px;">
 									
-									<span>
-										<button type="button" class="inquiry_btn"
-											onclick="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp">1:1문의하기</button>
+									<span style="padding-left: 80px;">
+										<button type="button" class="inquiry_btn">1:1문의하기</button>
 									</span>
 								</td>
 								<td rowspan="3" style="width:110px;"></td>
@@ -225,10 +226,10 @@
 						<button type="button" class="duration_btn4">전체</button>
 					</div>
 					<p style="text-align:center; color: #aaaaaa;
-							 margin:15px;	font-size: 15px;">
+							 margin:40px;	font-size: 15px;">
 						최대 3년 이내 주문내역만 조회하실 수 있습니다.</p>
 				</div>
-				<div class="body2">
+				<div class="body2" style="margin-bottom: 100px;">
 					<div>
 						<table  style="width:100%">
 							<tbody>
@@ -246,7 +247,6 @@
 				</div>
 			</div>
 		</div>
-		</section>
 	</div>
 	<jsp:include page="../footer.jsp" />
 </body>

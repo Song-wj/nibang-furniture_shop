@@ -18,25 +18,16 @@
 	crossorigin="anonymous"></script>
 <title>주문/배송조회</title>
 <style>
-	section.section1 {
-		width: 100%;
-		display: inline-block;
-		height: 80%;
-		margin-top: 55px;
-		margin-bottom: 55px;
-	}
-	/* div.left_content {
-		position: absolute;
-	} */
-	div.right_content {
-		position: relative;
-	}
+	div.content {
+	    border: 1px solid white;
+   		width: 95%;
+    	margin: auto;
+    }
 	div.content aside.sideMenuBar {
 		border: 1px solid rgb(170, 170, 170);
-		width: 165px;
-		position: absolute;
-		margin-left: 40px;
-    	margin-top: 5%;
+	    margin-top: 9%;
+	    width: 165px;
+	    float: left;
 	}
 
 	div.content aside.sideMenuBar ul {
@@ -73,12 +64,21 @@
 	div.content aside.sideMenuBar ul li:nth-child(11) a:hover {
 		color: rgb(200, 10, 30);
 	}
-	div.title {
-    	color: #333;
-   		padding: 50px;
-		text-align: center;
-		font-size: 35px;
+	div.search_order {
+		position: relative;
+	    min-height: 600px;
+	    width: 800px;
+	    margin-left: 18%;
+	    margin-top: 107px;
+	    text-align: center;
 	}
+	
+	 div.search_order div.title {
+				font-size: 35px;
+				color: #333;
+				margin-bottom: 44px;
+			} 
+	
 	div.order_status_div {
 		background-color: #f0f0f0;
 	    padding: 23px;
@@ -99,15 +99,7 @@
 	    margin: 51px 19px 47px;
 	    background-color: #63666a;
 	}
-	div.right_content ul {
-	    display: inline-block;
-	    float: left;
-	    width: 100%;
-	}
-	div.right_content ul>li {
-		margin: 0 0 5px 0;
-   		text-align: left;
-	}
+	
 	div .duration_item {
 	    display: inline-block;
 	    background-color: #fff;
@@ -160,7 +152,6 @@
 <body>
 	<jsp:include page="../header.jsp" />
 	<div class="content">
-		<section class="section1">
 			<aside class="sideMenuBar">
 				<nav>
 					<ul>
@@ -178,11 +169,9 @@
 					</ul>
 				</nav>
 			</aside>
-		
-		<div style="width: 100%; display: flex; justify-content: center;">
-			<div class="right_content">
+			<div class="search_order">
 				<div class="title">주문/배송 조회</div>
-				<div class="order_status_div" style="margin-bottom:20px">
+				<div class="order_status_div" style="margin-bottom:20px;  padding: 23px 53px;">
 					<div class="status_item">
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus1.png" class="status_img">
 					</div>
@@ -203,7 +192,7 @@
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus5.png" class="status_img">
 					</div>
 				</div>
-				<div>
+				<div style="text-align:left; margin: 30px 0;">
 						<ul>
 							<li>‘택배&시공’건의 경우 ‘배송중’ 상태로 표시되어도 품목별로 배송일이 다를 수 있습니다.</li>
 							<li>주문 후 일룸에서 발송해 드리는 알림문자의 배송예정일이 실제 배송일입니다.</li>
@@ -227,8 +216,6 @@
 				</table>
 			</div>  
 		</div>
-		</section>
-	</div>
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
