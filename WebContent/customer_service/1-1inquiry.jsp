@@ -31,7 +31,7 @@
 		 		float:left;
 		 		margin-right:100px;
 		 		margin-left:50px;
-		 		height:300px;	
+		 		height:250px;	
 		 		padding-right:50px;	
 		 		margin-top:20px;		 		
 		 	}
