@@ -21,8 +21,9 @@
 <style>
 	.product_detail {
 		width:1260px;
-		height:18000px;
+		height:20500px;
 		padding-top:90px;
+		padding-left:30px;
 	}
 	.product_detail aside {
 		width: 600px;
@@ -31,8 +32,7 @@
 		float:left;
 	}
 	.product_detail section.section1 div#product_payInfo{
-		border: 2px solid red;
-		width: 550px;
+		width: 530px;
 		height: 650px;
 		float:right;
 		margin-right:40px;
@@ -205,9 +205,7 @@
 		font-size: 20px;
 		text-align:center;
 		margin-top: 50px;
-		margin-bottom: 50px; 
-		border:1px solid green;
-		
+		margin-bottom: 50px; 		
 	}
 	.product_detail div#product_closet_img p span {
 		font-size:15px;
@@ -216,6 +214,90 @@
 	.product_detail div#product_closet_img p span.red {
 		font-size:15px;
 		color:rgb(200,10,30);
+	}
+	
+	
+	
+	.product_detail div#product_review_QnA label,
+	.product_detail div#product_img_notice label,
+	.product_detail div#product_delivery_notice label,
+	.product_detail div#product_exchangerefund_notice label,
+	.product_detail div#product_precautions label{
+		font-size:24px;
+		font-weight:500;
+		margin-left:30px;
+		margin-top:100px;
+	}
+	.product_detail div#product_review_QnA label.qna{
+		font-size:13px;
+		margin-left: 500px;
+	}
+	.product_detail div#product_review_QnA label.btnNselect{
+		margin:20px 0 0 950px;
+	}
+	.product_detail div#product_review_QnA button{
+		font-size:15px;
+		width: 110px;
+		height:30px;
+		color:white;
+		border:1px solid rgb(99,102,106);
+		background-color:rgb(99,102,106);
+	}
+	.product_detail div#product_review_QnA select{
+		width: 120px;
+		height:30px;
+		font-size:15px;
+	}
+	.product_detail div#product_review_QnA td{
+		color:gray;
+		padding: 100px 500px;
+	}
+	.product_detail div#product_img_notice label.product_img_notice {
+		font-size:13px;
+		margin: 10px 0 50px 40px;
+	}
+	.product_detail div#product_delivery_notice div.delivery1,
+	.product_detail div#product_delivery_notice div.delivery2,
+	.product_detail div#product_exchangerefund_notice div.exchangrefund_notice,
+	.product_detail div#product_exchangerefund_notice div.order_cancle_notice,
+	.product_detail div#product_exchangerefund_notice div.exchangrefund_rule {
+		margin:10px 0 0 40px;
+		display:inline-block;
+		font-size:13px;
+	}
+	.product_detail div#product_delivery_notice div.delivery1 span,
+	.product_detail div#product_delivery_notice div.delivery2 span,
+	.product_detail div#product_exchangerefund_notice span.fontred,
+	.product_detail div#product_order_cancle_notice span.fontred {
+		color:rgb(200,10,30);
+		font-weight:400;
+	}
+	.product_detail div#product_exchangerefund_notice span.fontW {
+		font-weight:600;
+	}
+	.product_detail div#product_exchangerefund_notice span.fontindent {
+		margin-left:15px;
+	}
+	.product_detail div#product_exchangerefund_notice span.fontindent:first-child {
+		margin-left:100px;
+	}
+	.product_detail div.exchangrefund_rule table td{
+		font-size:13px;
+		padding: 10px 5px 10px 10px;
+	}
+	.product_detail div#product_precautions div.precautions img{
+		margin-left:20px;
+	}
+	.product_detail div#product_precautions div.precautions p{
+		display:inline-block;
+		margin-left:40px;
+		text-align: center;
+		font-size:14px;
+		color:gray;
+	}
+	.product_detail div#product_precautions div.precautions p span{
+		font-size:16px; 
+		font-weight:600;
 	}
 	
 </style>
@@ -433,8 +515,162 @@
 					매장에서 나에게 맞는 옷장 구성을 상담받아 보세요.
 				</p>
 			</div>
-			
 		</section>
+		<section class="section4_product_notice" id="section4_product_notice">
+			<div class="product_review_QnA" id="product_review_QnA">
+				<label>한줄 상품평</label>
+				<label class="btnNselect">
+					<button type="button">리뷰등록</button>
+					<select name="product_review_sort" id="product_review_sort">
+						<option value="최근 리뷰순"> 최근 리뷰순</option>
+						<option value="평점 높은순"> 평점 높은순</option>
+						<option value="평점 낮은순"> 평점 낮은순</option>
+					</select>
+				</label>
+				<hr>
+				<table class="1line_review" id="1line_review">
+					<tr>
+						<td>작성된 한줄 상품평이 없습니다.</td>
+					</tr>
+				</table>
+				<hr>
+				
+				<label>상품 Q&A <label class="qna">상품에 관한 문의가 아닌 경우 고객센터를 이용해주세요.</label>
+						<button type="button">문의하기</button>
+						<button type="button">고객센터</button>
+				</label>
+				
+				<hr>
+				<table class="product_Q&A" id="product_Q&A">
+					<tr>
+						<td>상품 Q&A 내역이 없습니다.</td>
+					</tr>
+				</table>
+				<hr>
+			</div>
+			<div class="product_img_notice" id="product_img_notice">
+				<label>제품 사진 관련 안내</label>
+				<hr>
+				<label class="product_img_notice">
+					위의 사진들은 모니터에 따라 약간의 색상 차이가 발생될 수 있습니다. 해당 제품은 지속적인 개선을 위하여 예고 없이 사양이 변경될 수 있습니다.
+				</label>
+			</div>
+			<div class="product_delivery_notice" id="product_delivery_notice">
+				<label>배송 안내</label>
+				<hr>
+				<div class="delivery1">
+					<p>
+						일룸에서는 배송예약 시스템을 운영하고 있습니다.<br>
+						일룸 제품은 주문제작 상품으로 배송까지 7~10일이 소요되며,<br>
+						배송 예약 일정을 변경하고자 하는 경우, 평일 기준 요청일 최소 3일 전에<br>
+						공식쇼핑몰 담당자(1577-5670) 에게 연락을 해주셔야 합니다.<br><br>
+						단, 주문의 폭주, 천재지변, 배송과정에 차질이 발생한 경우, 고객님께 사전에 배송 지연<br>
+						사실을 알려드리며, 상담을 통해 배송 요청일을 다시 조정하실 수 있습니다.<br>
+						도서/산간지역은 배송이 다소 늦을 수 있습니다.<br><br>	
+						<span class="fontred">설치 당일 설치 현장의 특수성으로 인해 추가적으로 발생하는 비용은 고객님 부담입니다.</span><br><br>
+						(엘레베이터 사용료/사다리차 사용료 등)<br><br>
+						제주도, 울릉도 지역은 온라인 주문이 불가합니다. 대리점에 직접 방문해주세요.
+					</p>					
+				</div>
+				<div class="delivery2">
+					<p>
+						<span class="fontred">배송 예약 시스템이란?</span><br><br><br>
+						일정이 바쁜 고객님들을 위하여<br>
+						상품의 희망 배송일을 예약할 수 있는 서비스를 제공해드리고 있습니다.<br>
+						결제일로부터 7일(일부 품목은 10일) 이후부터 지정이 가능합니다.<br><br>	
+						지정 후 온라인 담당자나 담당 시공자가 시공 전에<br>
+						연락을 드리고 세부일정을 확정하게 됩니다.<br>
+						(배송 예약 시스템은 시공 상품에만 해당하며, 택배 상품은<br>
+						 배송 희망일과 무관하며 5일정도 소요됩니다.)<br><br><br><br>
+					</p>
+				</div>
+			</div>
+			<div class="product_exchangerefund_notice" id="product_exchangerefund_notice">
+				<label>교환/환불안내</label>
+				<hr>
+				<div class="exchangrefund_notice">
+					<p>
+						<span class ="fontW">교환 및 반품<br><br></span>
+						<span class="fontred">가구의 특성상 설치(조립)이 된 후에는 상품 가치가 하락하여<br>
+							재판매가 불가능한 상태이므로 교환/반품 기간이라도 교환/반품이 불가합니다.</span><br><br>	
+							공정거래위원회 표준 약관에 의거하여 납품 후, 7일 이내에 교환/반품 신청이 가능합니다.<br><br>
+						<hr>
+						<span class ="fontW">교환 및 반품 가능한 경우 <span class ="fontindent"> 교환 및 반품 불가능한 경우</span></span><br><br>						 
+							· 배송된 상품이 주문 내용과 상이한 경우 <span class ="fontindent"> · 상품을 설치(조립)한 경우</span><br>
+							· 상품에 오염이나 손상이 있는 경우 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class ="fontindent"> · 고객님의 사용 및 부주의로 인하여</span><br>
+							· 상품 자체의 이상 및 결함이 있는 경우 &nbsp&nbsp&nbsp&nbsp<span class ="fontindent"> 상품 가치가 감소한 경우</span><br><br>
+						<hr>
+					</p>
+				</div>
+				<div class="order_cancle_notice">
+					<p>
+						<span class ="fontW">주문취소<br><br></span>
+						결제하신 상품의 주문취소를 원하시면 주문등록 전에는 쇼핑몰에서 직접 취소하실 수 있습니다.<br>
+						주문등록 후에는 평일 기준(주말 및 공휴일 제외) 3일 전까지 쇼핑몰 담당자 (1588-6792)에게<br>
+						전화로 요청이 가능하며, 배송 준비 또는 배송 중에는 반품비용이 청구됩니다.<br>
+						주문 내용 변경을 원하시면 주문 전체를 취소하시고 새로 주문하셔야 하며, 부분 변경이 불가합니다.<br><br>
+						<span class ="fontW">환불안내<br><br></span>
+						<span class="fontred"></span>소비자 보호 규정에 의거하여 주문의 취소일 혹은 재화 등을 반환받은 날로부터<br>
+						영업일 3일 이내에 결제금액을 환불해드립니다.<br><br></span>	
+						단, 신용카드 경제 일자에 맞추어 대금이 청구될 경우, 익월 신용카드 대금청구 시 카드사에서<br>
+						환급 처리됩니다. 무통장입금의 경우에는 주문의 취소 혹은 제품 회수 후 입금 계좌가 확인되면<br>
+						3일 이내에 환불해 드립니다.(토요일, 일요일 및 공휴일은 제외)<br>
+					</p>
+				</div>
+				<div class="exchangrefund_rule">
+					<p>
+						<span class ="fontW">주문취소 및 교환/반품 비용 규정</span><br><br>
+						<table border=1>
+							<tr>
+								<td>주문취소<br>(납품 전)</td>
+								<td>주문후 ~ <br>배송전일</td>
+								<td>무상 취소가능</td>
+							</tr>
+							<tr>
+								<td rowspan="2">교환/반품<br>(납품 후)</td>
+								<td>7일이내</td>
+								<td>박스 개봉 전 or 박스 개봉 후 (조립 설치 전)<br>구매 금액의 10% (50,000원 이하 상품은 5,000원 정액)<br><br>
+									제품 조립 설치 후 (상품 가치 하락)<br>교환/반품 불가</td>
+							</tr>
+							<tr>
+								<td>7일이후</td>
+								<td>교환/반품 불가</td>
+							</tr>
+						</table>
+					</p>
+				</div>
+				
+			</div>
+			<div class="product_precautions" id="product_precautions">
+				<div class="precautions">
+					<label>제품 사용/관리 주의사항</label>
+					<hr><br>				
+					<img src="http://localhost:9000/sist_project_2/images/warning_1.png">
+					<img src="http://localhost:9000/sist_project_2/images/warning_2.png">
+					<img src="http://localhost:9000/sist_project_2/images/warning_3.png">
+					<img src="http://localhost:9000/sist_project_2/images/warning_4.png">
+					<p>
+						<br><span>장시간 지속적인 물, 습기, 열 및<br>오염물질 등에 노출될 경우</span><br><br>
+						제품 변형의 원인이 될 수 있으므로<br>주의하여 주십시오.<br>
+					</p>
+					<p>
+						<br><span>제품의 임의적인 분해 및<br>재조립을 하였을 경우</span><br><br>
+						손상 및 파손이 발생하여 사용 기간이<br>단축될 수 있으니 지양해주십시오.<br>
+					</p>
+					<p>
+						<br><span>제품에 사람이 올라타거나<br>무거운 것을 올렸을 경우</span><br><br>
+						미끄러져 떨어지거나 전복되어 상해를<br>입을 수 있으니 각별히 주의하십시오.<br>
+					</p>
+					<p>
+						<br><span>제품을 이동할 경우<br></span><br>
+						끌거나 밀지마시고 두 명이 함께 들어<br>수평을 유지한 채 운반하여 주십시오.<br>제품/바닥에 손상을 입힐 수 있습니다.<br>
+					</p>
+				</div>
+					
+			</div>
+			
+			
+		</section>	
 	</div>
 	
 	

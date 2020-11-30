@@ -71,76 +71,85 @@
 		color:rgb(200,10,30);
 	}
 	
-	div.content #section1_withdrawal {
-		margin-top: 9%;
-		padding-left: 28%;
+	#section1_withdrawal {
+		position: relative;
+		min-height: 600px;
+		width: 800px;
+		margin-left: 18%;
+		margin-top: 107px;
+		text-align: center;
 	}
-	.section1 div.whead {
-		font-size: 30px;
-		padding-left: 25%;
-	}
-	.section1 h5 {
-		padding-left: 21%;
+	
+	#section1_withdrawal div.title {
+		font-size: 35px;
 		color: #333;
-		font-weight: 400;
+		margin-bottom: 44px;
 	}
-	.section1 h5.reason {
-		padding-left: 25%;
+	
+	#section1_withdrawal div.subtitle,
+	#section1_withdrawal .reason {
+		font-size: 22px;
+		color: #333;
+		margin-bottom: 24px;
 	}
-	.section1 h6.reason1 {
-		padding-left: 11%;
+	
+	#section1_withdrawal .reason {
+		font-size
 	}
-	.section1 h6.reason2 {
-		padding-left: 10%;
+	
+	#section1_withdrawal div.wbody {
+		background-color: #e7e7e7;
+		margin-bottom: 45px;
+		text-align: left;
 	}
-	.section1 div.wbody {
-		background-color: rgb(231,231,231);
-		width: 59%;
-		margin-left: 40px;
-	}
-	.section1 div > div {
+	#section1_withdrawal div > div {
 		width: 96%;
 		margin: 0 10px;
 		line-height: 30px;
-		padding: 112px 40px;
-		font-size: 13px;
+		padding: 112px 66px 113px 66px;
+		font-size: 14px;
 	}
-	.content .section1 form.wcheckbox1 {
-		margin-left: 40px;
+	#section1_withdrawal form.wcheckbox1 {
+		margin-left: 110px;
 		float: left;
+		text-align: left;
 	}
-	.content .section1 form.wcheckbox2 {
+	#section1_withdrawal form.wcheckbox2 {
+		text-align: left;
 		margin-top: 47px;
 		margin-left: 72px;
 		display: inline-block;
 	}
-	.content .section1 form.wtextarea {
+	#section1_withdrawal form.wtextarea {
 		margin-top: 10%;
 		margin-right: 60px;
 		clear: both;
 	}
-	.content .section1 form.wtextarea textarea {
+	.content #section1_withdrawal form.wtextarea textarea {
 		border: 1px solid gray;
 		width: 620px;
 		height: 220px;
 		padding: 40px;
 		resize: none;
+		margin-left: 70px;
 		font-size: 13px;
 	}
-	.content .section1 form > span.wchk{
+	#section1_withdrawal form > span.wchk{
 		font-size: 15px;
 		padding-left: 5px;
 	}
 	.buttonarea {
 		margin-top: 35px;
-		padding-left: 90px;
-		padding-bottom: 30px;
+		padding-bottom: 200px;
 	}
 	.buttonarea button{
 		width: 205px;
 		height: 50px;
 		font-size: 16px;
-		color: white
+		color: white;
+	}
+	.buttonarea button:focus{
+		outline: none !important;
 	}
 	.buttonarea button.btn_cancel{
 		background-color: #c80a1e;
@@ -157,7 +166,7 @@
 	.buttonarea button.btn_withdrawal:hover{
 		opacity: 0.7;
 	}
-	div.content section.section1 h2{
+	div.content #section1_withdrawal h2{
 		margin-left:30%;
 	} 
 </style>
@@ -185,9 +194,9 @@
 				</ul>
 			</nav>
 		</aside>
-		<section class="section1" id="section1_withdrawal">
-				<div class="whead">회원 탈퇴</div><br><br>
-				<h5>회원탈퇴 및 재가입 정책</h5><br>
+		<div id="section1_withdrawal">
+				<div class="title">회원 탈퇴</div>
+				<div class="subtitle">회원탈퇴 및 재가입 정책</div>
 				<div class="wbody">
 					<div>
 						회원탈퇴 시 개인정보는 즉시 파기되어 복구가 불가능합니다. 단, 회원으로 활동 시 작성하셨던 게시물
@@ -196,10 +205,9 @@
 						주문이나 배송 진행중인 거래내역이 있을 경우, 거래 종료 후 탈퇴가 가능합니다.
 					</div>
 				</div>
-				<br><br><br>
-				<h5 class="reason">회원 탈퇴 이유</h5><br>
-				<h6 class="reason1">일룸몰을 이용하시면서 가장 불편했던 점을 알려주세요.</h6>
-				<h6 class="reason2">보다 나은 서비스를 위해 소중한 의견으로 활용하겠습니다.</h6>
+				<div class="reason">회원 탈퇴 이유</div><br>
+				<div class="reason1">일룸몰을 이용하시면서 가장 불편했던 점을 알려주세요.</div>
+				<div class="reason2">보다 나은 서비스를 위해 소중한 의견으로 활용하겠습니다.</div>
 				<form class="wcheckbox1"><br><br>
 					<input type="checkbox"><span class="wchk">상품 다양성(디자인 불만족)</span><div></div><br>
 					<input type="checkbox"><span class="wchk">이용빈도 낮음</span><div></div><br>
@@ -222,7 +230,7 @@
 					<button type="button" class="btn_cancel">취소</button>
 					<button type="button" class="btn_withdrawal">탈퇴하기</button>
 				</div>
-		</section>
+		</div>
 	</div>
 	
 	<!-- footer -->
