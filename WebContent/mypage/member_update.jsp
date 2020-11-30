@@ -19,83 +19,85 @@
 <title>회원 정보 - 수정</title>
 </head>
 <style>
-	.content{
-		padding-left: 10%; 
-		display: inline-block;
-		 margin-top:5%; 
+	.content {
+		border:1px solid white;
+		width:95%;
+		margin:auto;
 	}
 	div.content aside.sideMenuBar{
-				border:1px solid rgb(170, 170, 170);
-				margin-top:9%;
-				width:165px;	
-				float:left;			
-			}
-			div.content aside.sideMenuBar ul{
-				padding-left:20px;
-			}
-			div.content aside.sideMenuBar ul li{
-				list-style-type:none;
-				margin-top:30px;
-				font-size:14.5px;
-				font-weight:540;
-			}
-			div.content aside.sideMenuBar ul li:nth-child(3) ,
-			div.content aside.sideMenuBar ul li:nth-child(4) ,
-			div.content aside.sideMenuBar ul li:nth-child(5) ,
-			div.content aside.sideMenuBar ul li:nth-child(7) ,
-			div.content aside.sideMenuBar ul li:nth-child(8) ,
-			div.content aside.sideMenuBar ul li:nth-child(10) ,
-			div.content aside.sideMenuBar ul li:nth-child(11)  {
-				margin-top:15px;
-			}
-			div.content aside.sideMenuBar ul li:nth-child(3) a,
-			div.content aside.sideMenuBar ul li:nth-child(4) a,
-			div.content aside.sideMenuBar ul li:nth-child(5) a,
-			div.content aside.sideMenuBar ul li:nth-child(7) a ,
-			div.content aside.sideMenuBar ul li:nth-child(8) a ,
-			div.content aside.sideMenuBar ul li:nth-child(10) a,
-			div.content aside.sideMenuBar ul li:nth-child(11) a{
-				font-size:12px;				
-				color:rgb(144, 144, 144);
-				text-decoration:none;
-				font-weight:0;
-			}
-			div.content aside.sideMenuBar ul li:nth-child(3) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(4) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(5) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(7) a:hover ,
-			div.content aside.sideMenuBar ul li:nth-child(8) a:hover ,
-			div.content aside.sideMenuBar ul li:nth-child(10) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(11) a:hover{
-				color:rgb(200,10,30);
-			}
-	div.content #section1_memberupdate {
-		margin-top: 8%;
-		padding-left: 22%;
+		border:1px solid rgb(170, 170, 170);
+		margin-top:9%;
+		width:165px;	
+		float:left;			
+	}
+    div.content aside.sideMenuBar ul{
+		padding-left:20px;
+	}
+	div.content aside.sideMenuBar ul li{
+		list-style-type:none;
+		margin-top:30px;
+		font-size:14.5px;
+		font-weight:540;
+	}
+	div.content aside.sideMenuBar ul li:nth-child(3) ,
+	div.content aside.sideMenuBar ul li:nth-child(4) ,
+	div.content aside.sideMenuBar ul li:nth-child(5) ,
+	div.content aside.sideMenuBar ul li:nth-child(7) ,
+	div.content aside.sideMenuBar ul li:nth-child(8) ,
+	div.content aside.sideMenuBar ul li:nth-child(10) ,
+	div.content aside.sideMenuBar ul li:nth-child(11)  {
+		margin-top:15px;
+	}
+	div.content aside.sideMenuBar ul li:nth-child(3) a,
+	div.content aside.sideMenuBar ul li:nth-child(4) a,
+	div.content aside.sideMenuBar ul li:nth-child(5) a,
+	div.content aside.sideMenuBar ul li:nth-child(7) a ,
+	div.content aside.sideMenuBar ul li:nth-child(8) a ,
+	div.content aside.sideMenuBar ul li:nth-child(10) a,
+	div.content aside.sideMenuBar ul li:nth-child(11) a{
+		font-size:12px;				
+		color:rgb(144, 144, 144);
+		text-decoration:none;
+		font-weight:0;
+	}
+	div.content aside.sideMenuBar ul li:nth-child(3) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(4) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(5) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(7) a:hover ,
+	div.content aside.sideMenuBar ul li:nth-child(8) a:hover ,
+	div.content aside.sideMenuBar ul li:nth-child(10) a:hover,
+	div.content aside.sideMenuBar ul li:nth-child(11) a:hover{
+		color:rgb(200,10,30);
 	}
 	
-	section.section1 h2 {
+	.memberupdate{
+		position: relative;
+		min-height: 600px;
+		width: 800px;
+		margin-left: 18%;
+		margin-top: 107px;
+		text-align: center;
+	}
+	.memberupdate h2 {
+		font-size: 35px;
 		display:inline-block;
-		margin: 1% 0 0 25%;
+		text-align:center;
+		margin:1% 0 0 0;
 	}
-	section.section1 form.mypage{
-		width:780px;
-		height:800px;
-		margin: 0 0 0 8%;	
-	}
-	section.section1 ul {
+	.memberupdate ul {
 		list-style-type: none;
-		margin: 30px 5px;
+		margin-top: 30px;
 	}
-	section.section1 ul >li{
-		padding: 5px 85px; 
+	.memberupdate ul >li{
+		padding: 5px 60px 5px 10px; 
 	}
-	section.section1 ul >li> label {
+	.memberupdate ul >li> label {
 		font-size:17px;
 		font-weight:700;
 		color:rgb(200,10,30);
+		margin-left: -230px;
 	}
-	section.section1 ul >li> label.change_info {
+	.memberupdate ul >li> label.change_info {
 		color:rgb(200,10,30);
 		margin-left: 270px;
 		font-size:14px;
@@ -103,68 +105,75 @@
 		text-decoration:underline;	
 		text-decoration-color: rgb(200,10,30);
 	}
-	section.section1 li > input[type="text"].email,
-	section.section1 li > input[type="text"].name {
+	.memberupdate li > input[type="text"].email,
+	.memberupdate li > input[type="text"].name {
 		width:330px; 	height:30px;
 		margin: 5px 2px;	
 	}
-	section.section1 li > input[type="text"] {
+	.memberupdate li > input[type="text"] {
 		width:85px; 	height:30px;
 		margin: 5px 0px;
 	}
-	section.section1 li > input[type="text"].hp {
+	.memberupdate li > input[type="text"].hp {
 		width:105px; 	height:30px;
 		margin: 5px 1px;
 	}
-	section.section1 li > input[type="text"].addr_number {
+	.memberupdate li > input[type="text"].addr_number {
 		width:250px;	height:30px;
 	}
-	section.section1 li > input[type="text"].addr {
+	.memberupdate li > input[type="text"].addr {
 		width:163px;	height:30px;
 	}
-	section.section1 li button {
+	.memberupdate li button {
 		border: 1px solid lightgray;
-		padding:0 4px;
+		padding:0 4px 0 4px;
+		margin-left: 10px;
 		height:30px;
 		font-size: 13px;
 	}
-	section.section1 li button.info1:hover, 
-	section.section1 li button.info2:hover,
-	section.section1 li button.info3:hover {
+	.memberupdate li button.info1:hover, 
+	.memberupdate li button.info2:hover,
+	.memberupdate li button.info3:hover {
 		height:30px;
 		color:white;
 		background-color:rgb(99,102,106);
 	}
-	section.section1 li button.info1{
+	.memberupdate li button.info1{
 		margin: 0 5px 3px 90px;
 	} 
-	section.section1 li button.info2{
+	.memberupdate li button.info2{
 		margin: 0 5px 3px 55px;
 	} 
-	section.section1 li button.info3 {
+	.memberupdate li button.info3 {
 		margin: 0 5px 3px 43px;
 	}
-	section.section1 li button.cancel,
-	section.section1 li button.OK{
+	.memberupdate li button.cancel,
+	.memberupdate li button.OK{
 		color:white;
 		width:160px; height:40px;
 		margin: 0 2px; 
 		border:1px solid white;
 	}
-	section.section1 li button.cancel{
+	.memberupdate li button.cancel{
 		background-color:rgb(99,102,106);
 	}
-	section.section1 li button.OK{
+	.memberupdate li button.OK{
 		background-color:rgb(200,10,30);
 	}
-	section.section1 li > span {
+	.memberupdate li button.cancel:hover {
+		background-color:rgb(79,82,86);
+	}
+	.memberupdate li button.OK:hover {
+		background-color:rgb(160,14,43);
+	}
+	.memberupdate li > span {
 		font-size:13px;
 		margin-left:3px;
 	}
-	section.section1 hr {
+	.memberupdate hr {
 		width:325px;
 		border:0.2px solid lightgray;
-		margin:1px 3px;
+		margin:1px 180px;
 	}
 	
 </style>
@@ -189,8 +198,8 @@
 				</ul>
 			</nav>
 		</aside>
-		<section class="section1" id="section1_memberupdate">
-			<form class="mypage">
+		<div class="memberupdate" id="memberupdate">
+			<!-- <form class="mypage"> -->
 				<h2>회원정보 수정</h2>
 					<ul>
 						<li><input type="text" class="email" placeholder="아이디(이메일)"> </li>
@@ -229,8 +238,8 @@
 							<button type="button" class="OK">확인</button> 
 						</li>
 					</ul>
-				</form>
-		</section>
+				<!-- </form> -->
+		</div>
 	</div>
 	
 	<jsp:include page="../footer.jsp"></jsp:include>
