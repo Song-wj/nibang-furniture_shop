@@ -64,12 +64,12 @@
 			
 			}
 			div.content div.cancel_info>div:first-child{
-				font-size:30px;
+				font-size:35px;
 				font-weight:548;
 				margin-bottom:50px;
 			}
 			div.content div.cancel_info>div:nth-child(2){
-				font-size:20px;
+				font-size:22px;
 				margin-bottom:30px;
 			}
 			div.content div.cancel_form{

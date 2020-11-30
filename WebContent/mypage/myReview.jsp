@@ -64,7 +64,7 @@
 				text-align:center;
 			}
 			div.content div.my_review div:first-child{
-				font-size:30px;
+				font-size:35px;
 				font-weight:548;
 				margin-bottom:50px;
 			}
