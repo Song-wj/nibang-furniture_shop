@@ -140,13 +140,13 @@
 	}
 	.buttonarea {
 		margin-top: 35px;
-		padding-bottom: 30px;
+		padding-bottom: 200px;
 	}
 	.buttonarea button{
 		width: 205px;
 		height: 50px;
 		font-size: 16px;
-		color: white
+		color: white;
 	}
 	.buttonarea button:focus{
 		outline: none !important;
