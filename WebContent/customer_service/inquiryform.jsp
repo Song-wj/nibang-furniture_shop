@@ -69,8 +69,6 @@
 	
 </style>
 <body>
-	<%-- <jsp:include page="../header.jsp"></jsp:include> --%>
-	
 	<div class="content" id="inquiryform">
 		<h3>쪽지 문의</h3>
 		<form name="inquiryform1" action="#" method="get" class="inquiryform1">
