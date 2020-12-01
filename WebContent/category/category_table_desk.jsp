@@ -181,7 +181,7 @@
 				</div>
 				<ul class="category_table_list1">
 					<li class="product_list">
-					<a href ="">						
+					<a href ="http://localhost:9000/sist_project_2/product_detail/table_detail_1.jsp">						
 						<img src="http://localhost:9000/sist_project_2/images/table_타이디.jpg">						
 						<span class="title">타이디</span>
 						<br>
@@ -191,7 +191,7 @@
 					</a>
 					</li>
 					<li class="product_list">
-						<a href="">
+						<a href="http://localhost:9000/sist_project_2/product_detail/table_detail_2.jsp">
 						<span></span>			
 						<span class="title">모리니</span>
 						<br>

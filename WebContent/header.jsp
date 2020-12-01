@@ -169,7 +169,7 @@
 	}	
 	header #logo {
 		position: absolute;
-		left: 47.5%;
+		left: 45%;
 		margin-top: 7px;
 		width: 120px;
 		height: 60px;
