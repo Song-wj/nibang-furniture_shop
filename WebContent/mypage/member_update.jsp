@@ -449,8 +449,8 @@
 								<button type="button" class="cancel">취소</button>
 								<button type="button" class="OK">확인</button> 
 							</li>
-				</div>
-			</ul>		
+					</ul>
+			</div>
 		</div>
 	
 	<jsp:include page="../footer.jsp"></jsp:include>
