@@ -216,6 +216,25 @@
 		color:rgb(200,10,30);
 	}
 	
+	.product_detail div#product_closet_img img:nth-child(6){
+		width:1200px;
+	}
+
+	.product_detail div#product_closet_img img#img10 {
+		margin-top:52px;
+	}
+	.product_detail div#product_closet_img img#img12 {
+		margin-top:25px;
+	}	
+	.product_detail div#product_closet_img img#img15 {
+		margin-top:30px;
+	}
+	.product_detail div#product_closet_img img#img19 {
+		margin-top:62px;
+	}
+	.product_detail div#product_closet_img img#img20-2 {
+		margin-left:-10px;
+	}
 	
 	
 	.product_detail div#product_review_QnA label,
@@ -290,10 +309,19 @@
 	}
 	.product_detail div#product_precautions div.precautions p{
 		display:inline-block;
-		margin-left:40px;
+		margin-left:30px;
 		text-align: center;
 		font-size:14px;
 		color:gray;
+	}
+	.product_detail div#product_precautions div.precautions p#warning2{
+		margin-left:60px;
+	}
+	.product_detail div#product_precautions div.precautions p#warning3{
+		margin-left:45px;
+	}
+	.product_detail div#product_precautions div.precautions p#warning4{
+		margin-left:45px;
 	}
 	.product_detail div#product_precautions div.precautions p span{
 		font-size:16px; 
@@ -301,6 +329,19 @@
 	}
 	
 </style>
+<script>
+	function img_change(img_id){
+		var name = document.getElementById(img_id).getAttribute("src");
+		
+		if(name =="../images/컬렉트_부띠크형1.jpg" ){
+			document.getElementById("change").src ="../images/컬렉트_부띠크형메인.jpg";
+		}else if (name == "../images/컬렉트_부띠크형2.jpg"){
+			document.getElementById("change").src ="../images/컬렉트_부띠크형2.jpg";
+		}else{
+			document.getElementById("change").src ="../images/컬렉트_부띠크형3.jpg";
+		}
+	}
+</script>
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp" />
@@ -309,13 +350,13 @@
 		<section class="section1" id="section1_pd">
 			<aside class="product_img">
 				<div class="productmain_img" id="productmain_img">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형메인.jpg">
+					<img src = "../images/컬렉트_부띠크형메인.jpg" id="change" >
 		<!--돋보기 	<a href ="#"><img src = "http://localhost:9000/sist_project_2/images/magnify_grey.png"></a> -->
 				</div>
 				<div class="productmini_img" id="productmini_img">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형1.jpg">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형2.jpg">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형3.jpg">
+					<img src = "../images/컬렉트_부띠크형1.jpg" id ="change1" onclick = "img_change('change1')">
+					<img src = "../images/컬렉트_부띠크형2.jpg" id ="change2" onclick = "img_change('change2')">
+					<img src = "../images/컬렉트_부띠크형3.jpg" id ="change3" onclick = "img_change('change3')">
 					<hr>
 				</div>
 			</aside>
@@ -327,9 +368,9 @@
 					<hr>					
 					<li class="pcode">
 						배송기간 <span>약 10일</span> 배송비<span>무료배송</span>
-<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span>HXXZ002015</span> 
+<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span>HXXZ002015</span>
 					</li>
-					<br>
+					
 					<li>
 <!--고치기-->				<select name="product_colors" id="product_colors">
 					  		<option value="선택">[필수] 색상을 선택해주세요</option>
@@ -353,7 +394,7 @@
 			</div>
 		</section> 
 		<section class="section2" id="section2_pd">
-			<!-- <div class="product_recommend" id="product_recommend">    우선은 생략,,,,,,,,,,,,, 힘들ㄷㅏ,,,
+			<!-- <div class="product_recommend" id="product_recommend">    우선은 생략했어요
 				<label>함께 본 제품 추천</label>
 랜덤			<a href=""><img src=""></a>
 					<a href=""><img src=""></a>
@@ -443,18 +484,18 @@
 				</p>
 				<img src="http://localhost:9000/sist_project_2/images/컬렉트9.jpg">
 				<br><br><br>
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트10.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트11.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트12.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트13.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트14.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트15.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트16.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트17.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트18.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트19.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트20-1.jpg">
-				<img src="http://localhost:9000/sist_project_2/images/컬렉트20-2.jpg">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트10.jpg" id="img10">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트11.jpg" >
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트12.jpg" id="img12">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트13.jpg" >
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트14.jpg" id="img14">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트15.jpg" id="img15">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트16.jpg" >
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트17.jpg" >
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트18.jpg" >
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트19.jpg" id="img19">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트20-1.jpg" id="img20-1">
+				<img src="http://localhost:9000/sist_project_2/images/컬렉트20-2.jpg" id="img20-2">
 				<hr>
 				<img src="http://localhost:9000/sist_project_2/images/컬렉트21.jpg">
 				<hr>
@@ -649,19 +690,19 @@
 					<img src="http://localhost:9000/sist_project_2/images/warning_2.png">
 					<img src="http://localhost:9000/sist_project_2/images/warning_3.png">
 					<img src="http://localhost:9000/sist_project_2/images/warning_4.png">
-					<p>
+					<p id="warning1">
 						<br><span>장시간 지속적인 물, 습기, 열 및<br>오염물질 등에 노출될 경우</span><br><br>
 						제품 변형의 원인이 될 수 있으므로<br>주의하여 주십시오.<br>
 					</p>
-					<p>
+					<p id="warning2">
 						<br><span>제품의 임의적인 분해 및<br>재조립을 하였을 경우</span><br><br>
 						손상 및 파손이 발생하여 사용 기간이<br>단축될 수 있으니 지양해주십시오.<br>
 					</p>
-					<p>
+					<p id="warning3">
 						<br><span>제품에 사람이 올라타거나<br>무거운 것을 올렸을 경우</span><br><br>
 						미끄러져 떨어지거나 전복되어 상해를<br>입을 수 있으니 각별히 주의하십시오.<br>
 					</p>
-					<p>
+					<p id="warning4">
 						<br><span>제품을 이동할 경우<br></span><br>
 						끌거나 밀지마시고 두 명이 함께 들어<br>수평을 유지한 채 운반하여 주십시오.<br>제품/바닥에 손상을 입힐 수 있습니다.<br>
 					</p>
