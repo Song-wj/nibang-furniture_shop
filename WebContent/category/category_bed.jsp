@@ -158,7 +158,7 @@
 				</div>
 				<ul class="category_bed_list1">
 					<li class="product_list">
-						<a href="">
+						<a href="http://localhost:9000/sist_project_2/product_detail/bed_다나.jsp">
 						<img src="http://localhost:9000/sist_project_2/images/다나.jpg">					
 						<span class="title">다나</span>
 						<br>
@@ -168,7 +168,7 @@
 						</a>
 					</li>
 					<li class="product_list">
-						<a href="">
+						<a href="http://localhost:9000/sist_project_2/product_detail/bed_쿠시노.jsp">
 						<span></span>
 						<span class="title">쿠시노</span>
 						<br>
