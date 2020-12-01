@@ -154,10 +154,6 @@
 		margin-top: 8px;
 		margin-left: 30px;
 	}	
-	header .icons img:hover {
-		opacity: 0.5;
-	}	
-	
 	header .icons {
 		display: inline-block;
 		border: 2px solid #c80a1e;
