@@ -65,7 +65,7 @@
 	header div.fg button.close_btn {
 		display: inline-block;
 		float: right;
-		margin: 30px 30px 0 0;
+		margin: 40px 30px 0 0;
 		border: 1px solid white;
 		width: 50px;
 		heigth: 50px;
@@ -80,7 +80,7 @@
 	header div.fg button.back_btn {
 		display: inline-block;
 		float: right;
-		margin: 30px 30px 0 0;
+		margin: 40px 30px 0 0;
 		border: 1px solid white;
 		width: 50px;
 		heigth: 50px;
@@ -99,6 +99,7 @@
 	
 	header div.fg>nav>ul>li.li_logo{
 		margin-bottom: 30px;
+		float: left;
 	}
 	header div.fg>nav>ul>li:nth-child(2), div.fg>nav>ul>li:nth-child(3), div.fg>nav>ul>li:nth-child(4)
 		{
@@ -152,12 +153,11 @@
 		width: 20px;
 		height: 20px;
 		margin-top: 8px;
-		margin-left: 30px;
 	}	
 	header .icons {
 		display: inline-block;
 		border: 2px solid #c80a1e;
-		width: 380px;
+		width: 350px;
 		height: 40px;
 		padding-left: 10px;
 		border-radius: 15px;
@@ -170,7 +170,14 @@
 	header #logo {
 		position: absolute;
 		left: 47.5%;
-		margin-top: 20px;
+		margin-top: 7px;
+		width: 120px;
+		height: 60px;
+	}	
+	header #li_logo {
+		width: 120px;
+		height: 60px;
+		margin-left: -13px;
 	}	
 	header div nav.second ul{
 		padding-top: 15px;
@@ -218,8 +225,8 @@
 						</button>
 						<nav class="first">
 							<ul>
-								<li class="li_logo"><img
-									src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></li>
+								<li class="li_logo"><img id="li_logo"
+									src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></li>
 								<li><a href="#" onclick="document.getElementById('mw_temp2').style.display='block'">모든제품</a></li>
 								<li><a href="#">신제품</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a></li>
@@ -246,8 +253,8 @@
 						</button>
 						<nav class="all_items">
 							<ul>
-								<li class="li_logo"><img
-									src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></li>
+								<li class="li_logo"><img id="li_logo"
+									src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></li>
 								<li><a href="#" onclick="document.getElementById('mw_temp2').style.display='block'">모든제품</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_table_desk.jsp">책상/식탁</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/category/category_bed.jsp">침대</a></li>
@@ -266,7 +273,7 @@
 				</div>
 				
 				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
-					src="http://localhost:9000/sist_project_2/images/gnb_logo.png"></a>
+					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
 						<li><a href="http://localhost:9000/sist_project_2/login/login.jsp">로그인</a>
