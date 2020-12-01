@@ -329,6 +329,19 @@
 	}
 	
 </style>
+<script>
+	function img_change(img_id){
+		var name = document.getElementById(img_id).getAttribute("src");
+		
+		if(name =="../images/컬렉트_부띠크형1.jpg" ){
+			document.getElementById("change").src ="../images/컬렉트_부띠크형메인.jpg";
+		}else if (name == "../images/컬렉트_부띠크형2.jpg"){
+			document.getElementById("change").src ="../images/컬렉트_부띠크형2.jpg";
+		}else{
+			document.getElementById("change").src ="../images/컬렉트_부띠크형3.jpg";
+		}
+	}
+</script>
 <body>
 	<!-- header -->
 	<jsp:include page="../header.jsp" />
@@ -337,13 +350,13 @@
 		<section class="section1" id="section1_pd">
 			<aside class="product_img">
 				<div class="productmain_img" id="productmain_img">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형메인.jpg">
+					<img src = "../images/컬렉트_부띠크형메인.jpg" id="change" >
 		<!--돋보기 	<a href ="#"><img src = "http://localhost:9000/sist_project_2/images/magnify_grey.png"></a> -->
 				</div>
 				<div class="productmini_img" id="productmini_img">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형1.jpg">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형2.jpg">
-					<img src = "http://localhost:9000/sist_project_2/images/컬렉트_부띠크형3.jpg">
+					<img src = "../images/컬렉트_부띠크형1.jpg" id ="change1" onclick = "img_change('change1')">
+					<img src = "../images/컬렉트_부띠크형2.jpg" id ="change2" onclick = "img_change('change2')">
+					<img src = "../images/컬렉트_부띠크형3.jpg" id ="change3" onclick = "img_change('change3')">
 					<hr>
 				</div>
 			</aside>
@@ -355,9 +368,9 @@
 					<hr>					
 					<li class="pcode">
 						배송기간 <span>약 10일</span> 배송비<span>무료배송</span>
-<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span>HXXZ002015</span> 
+<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span>HXXZ002015</span>
 					</li>
-					<br>
+					
 					<li>
 <!--고치기-->				<select name="product_colors" id="product_colors">
 					  		<option value="선택">[필수] 색상을 선택해주세요</option>
