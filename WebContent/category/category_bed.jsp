@@ -159,7 +159,7 @@
 				<ul class="category_bed_list1">
 					<li class="product_list">
 						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/다나-2090000.jpg">					
+						<img src="http://localhost:9000/sist_project_2/images/다나.jpg">					
 						<span class="title">다나</span>
 						<br>
 						<span class="explain">모션베드 캐주얼(라텍스,책상형)</span>
