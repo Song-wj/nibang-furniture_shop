@@ -339,6 +339,17 @@
 			document.getElementById("change").src ="../images/c캐스터네츠2.jpg";
 		}
 	}
+	$(document).ready(function(){
+		$("select#product_colors").change(function(){
+			if($("select#product_colors").val()=="3J1"){
+				$("span#total_price").html("1,099,000");
+				$("span#total_price").css("margin-left","300px");
+			}else{
+				$("span#total_price").html("0 ");
+				$("span#total_price").css("margin-left","355px");
+			}
+		})
+	})
 </script>
 <body>
 	<!-- header -->
@@ -371,11 +382,11 @@
 					<li>
 <!--고치기-->				<select name="product_colors" id="product_colors">
 					  		<option value="선택">[필수] 색상을 선택해주세요</option>
-					  		<option value="CGYA">3J1 1,099,000원</option>
+					  		<option value="3J1">3J1 1,099,000원</option>
 					  	</select>
 				  	</li>
 				  	<hr>
-				  	<li class=total_price>총 구매가 <span> 0 원</span></li>
+				  	<li class=total_price>총 구매가 <span id="total_price"> 0 </span>원</li>
 				  	<li class="btn_productPay">
 				  		<button type="button">결제하기</button>
 				  		<button type="button">장바구니</button>

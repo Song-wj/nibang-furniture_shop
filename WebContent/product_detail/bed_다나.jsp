@@ -106,6 +106,7 @@
 	.product_detail div#product_payInfo ul li.total_price span{
 		margin-left:350px;
 		color:rgb(200,10,30);
+		
 	}
 	.product_detail div#product_payInfo ul li.btn_productPay button{
 		width:200px;
