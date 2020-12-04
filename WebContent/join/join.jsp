@@ -59,7 +59,7 @@
 		width: 100px;
 		height: 32px;
 	}	
-	section.section1 div.join form>ul>li:nth-child(2)>input[type="text"],
+	section.section1 div.join form>ul>li:nth-child(2)>input[type="password"],
 	section.section1 div.join form>ul>li:nth-child(3)>input[type="text"] {
 		width: 500px;
 		height: 37px;
@@ -113,6 +113,78 @@
 		font-size: 15px;
 	}
 	</style>
+	<script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
+			$("button#join_btn").click(function (){
+				if($("#email").val() == ""){
+					alert("이메일을 입력해주세요");
+				}else if($("#email").val() == ""){
+					alert("이메일을 입력해주세요");
+				}else if($("#email2").val() == ""){
+					alert("이메일을 입력해주세요");
+				}else if(!passCheck($("#pass") , chk )){
+					return false;
+				}else if($("#cpass").val() == ""){
+					alert("비밀번호 확인을 입력해주세요");
+				}else if($("#name").val() == ""){
+					alert("이름을 입력해주세요");
+				}else if($("#birth1").val() == "" || $("#birth2").val() == "" || $("#birth3").val() == ""){
+					alert("생년 월일을 입력해주세요");
+				}else if($("#gender:checked").length ==0){
+					alert("성별을 체크해주세요");	
+				}else if($("#ph1").val() == "" || $("#ph2").val() == "" || $("#ph3").val() == ""){
+					alert("번호를 입력해주세요");
+				}else if($("#addr2").val() == ""){
+					alert("도로명을 입력해주세요");
+				}else if($("#name").val() == ""){
+					alert("상세주소를 입력해주세요");
+				}	
+			})
+			
+			$("#s_email").change(function(){
+				if($("#s_email").val() != "직접입력"){
+					$("#email2").val($(this).val());
+				}else{
+					$("#email2").val("");
+					$("#email2").focus();
+				}
+			})
+			
+			$("#cpass").focusout(function(){
+				if($("#pass").val() == $(this).val()){
+					$("#msg").text("사용가능합니다").css("font-size","10px").css("color","blue").css("margin-left","430px");
+					$("#name").focus();
+				}else{
+					$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
+					$(this).val("");
+					$("#cpass").focus();
+					
+				}
+			})
+			
+			function passCheck(id ,chk){
+				if(id.val()==""){
+					alert("비밀번호를 입력해주세요");
+					id.focus();
+				}else
+					if(chk.test(id.val())){
+						return true;
+					}else{
+						alert("8~15자의 영문, 숫자, 특수문자 조합으로 구성해주세요");
+						id.focus();
+						return false;
+						
+					}
+				
+				
+			}
+
+			
+			
+		})
+	</script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -124,8 +196,9 @@
 				<h1>회원가입</h1>
 				<form name="join" action="#" method="get" class="join_from">
 					<ul>
-						<li><input type="text" name="id" placeholder="아이디(이메일)">
-							<input type="text" name="e-mail"> <select>
+						<li><input type="text" name="id" placeholder="아이디(이메일)" id="email">
+							<input type="text" name="e-mail" id="email2">
+							 <select id ="s_email">
 								<option value="직접입력">직접입력
 								<option value="naver.com">naver.com
 								<option value="nate.com">nate.com
@@ -135,27 +208,28 @@
 								<option value="yahoo.co.kr">yahoo.co.kr
 						</select>
 							<div>중복확인</div></li>
-						<li><input type="text" name="pass" placeholder="비밀번호">
-							<br> <input type="text" name="cpass" placeholder="비밀번호확인">
+						<li><input type="password" name="pass" placeholder="비밀번호" id="pass">
+							<br> <input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
 							<br>
+							<span id="msg"></span>							
 							<div>8~15자의 영문, 숫자, 특수문자 조합</div></li>
-						<li><input type="text" name="name" placeholder="이름"></li>
-						<li><input type="text" name="pass" placeholder="생년월일">
-							<input type="text" name="pass"> <input type="text"
-							name="pass"> <input type="radio" name="sex">남 <input
-							type="radio" name="sex">여</li>
-						<li><input type="text" name="ph1" placeholder="전화번호">
-							<input type="text" name="ph2"> <input type="text"
-							name="ph3">
+						<li><input type="text" name="name" placeholder="이름" id="name"></li>
+						<li><input type="text" name="pass" placeholder="생년월일" id="birth1">
+							<input type="text" name="pass" id="birth2">
+							<input type="text" name="pass" id="birth3">
+						    <input type="radio" name="gender" id ="gender">남 <input
+							type="radio" name="gender" id="gedger">여</li>
+						<li><input type="text" name="ph1" placeholder="전화번호" id="ph1">
+							<input type="text" name="ph2" id="ph2"> 
+							<input type="text" name="ph3" id="ph3">
 							<div>중복확인</div></li>
 						<li><input type="text" name="addr" placeholder="우편번호">
 							<button type="button" class="btn_style">찾기</button> <br>
-						<br> <input type="text" name="addr2" placeholder="도로명주소"
-							class="a"> <input type="text" name="addr3"
-							placeholder="상세주소"></li>
+						<br> <input type="text" name="addr2" placeholder="도로명주소"	class="a" id="addr2">
+						 <input type="text" name="addr3" placeholder="상세주소" id="addr3"></li>
 					</ul>
 
-					<button type="button" class="btn_style">회원가입</button>
+					<button type="button" class="btn_style" id="join_btn">회원가입</button>
 				</form>
 			</div>
 		</section>

@@ -346,7 +346,7 @@
 				$("span#total_price").css("margin-left","300px");
 			}else{
 				$("span#total_price").html("0 ");
-				$("span#total_price").css("margin-left","355px");
+				$("span#total_price").css("margin-left","354px");
 			}
 		})
 	})
