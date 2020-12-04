@@ -5,6 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
+<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("button#btn_login").click(function(){
+			//id, pass 유효성 체크(validation check)
+			if($("#id").val() == ""){
+				alert("아이디를 입력해주세요.");
+				$("#id").focus();
+				return false;
+			}else if($("#pass").val() == ""){
+				alert("비밀번호를 입력해주세요.");
+				$("#pass").focus();
+				return false;
+			}else {
+				loginForm.submit();
+			}
+		});
+	});
+</script>
 <style>
 div.content {
 	border: 1px solid white;
@@ -37,7 +56,7 @@ section.section1 div.login form li {
 	margin: 15px;
 }
 
-section.section1 div.login form input.textfield {
+section.section1 div.login form input#id, input#pass {
 	width: 100%;
 	height: 40px;
 	text-indent: 10px;
@@ -92,9 +111,9 @@ section.section1 div.login form button:hover {
 				<h3>로그인</h3>
 				<form name="loginForm" action="#" method="get" class="loginform">
 					<ul>
-						<li><input type="text" name="id" placeholder="아이디(이메일)" class="textfield">
+						<li><input type="text" name="id" placeholder="아이디(이메일)" class="textfield" id="id">
 						</li>
-						<li><input type="text" name="pass" placeholder="비밀번호" class="textfield">
+						<li><input type="password" name="pass" placeholder="비밀번호" class="textfield" id="pass">
 						</li>
 						<li>
 							<div class="all">
@@ -111,7 +130,7 @@ section.section1 div.login form button:hover {
 							</div>
 						</li>
 						<li>
-							<button type="button" class="btn_style">로그인</button>
+							<button type="button" class="btn_style" id="btn_login">로그인</button>
 						</li>
 					</ul>
 				</form>
