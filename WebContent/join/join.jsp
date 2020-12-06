@@ -141,7 +141,7 @@
 				}else if($("#name").val() == ""){
 					alert("상세주소를 입력해주세요");
 				}	
-			})
+			});
 			
 			$("#s_email").change(function(){
 				if($("#s_email").val() != "직접입력"){
@@ -150,7 +150,7 @@
 					$("#email2").val("");
 					$("#email2").focus();
 				}
-			})
+			});
 			
 			$("#cpass").focusout(function(){
 				if($("#pass").val() == $(this).val()){
@@ -162,7 +162,7 @@
 					$("#cpass").focus();
 					
 				}
-			})
+			});
 			
 			function passCheck(id ,chk){
 				if(id.val()==""){
@@ -182,6 +182,7 @@
 			}
 
 			
+<<<<<<< HEAD
 		})
 		
 		
@@ -204,6 +205,10 @@
 			
 			
 	}
+=======
+			
+		});
+>>>>>>> 67b395b4557fd1a3d80ef3e89c77dd5245e1e4b5
 	</script>
 </head>
 <body>
@@ -238,7 +243,7 @@
 							<input type="text" name="pass" id="birth2">
 							<input type="text" name="pass" id="birth3">
 						    <input type="radio" name="gender" id ="gender">남 <input
-							type="radio" name="gender" id="gedger">여</li>
+							type="radio" name="gender" id="gender">여</li>
 						<li><input type="text" name="ph1" placeholder="전화번호" id="ph1">
 							<input type="text" name="ph2" id="ph2"> 
 							<input type="text" name="ph3" id="ph3">

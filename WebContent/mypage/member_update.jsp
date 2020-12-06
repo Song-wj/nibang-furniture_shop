@@ -183,6 +183,12 @@
 		color:rgb(200,10,30);
 		margin-left: -230px;
 	}
+	
+	.memberupdate ul >li> label.password_chk {
+		font-size:12px;
+		color:black;
+		margin-left:130px;
+	}
 	.memberupdate ul >li> label.change_info {
 		color:rgb(200,10,30);
 		margin-left: 270px;
@@ -191,8 +197,10 @@
 		text-decoration:underline;	
 		text-decoration-color: rgb(200,10,30);
 	}
-	.memberupdate li > input[type="text"].email,
-	.memberupdate li > input[type="text"].name {
+	.memberupdate li > input[type="text"]#email,
+	.memberupdate li > input[type="text"]#name,
+	.memberupdate li > input[type="password"]#pass, 
+	.memberupdate li > input[type="password"]#cpass {
 		width:330px; 	height:30px;
 		margin: 5px 2px;	
 	}
@@ -200,14 +208,17 @@
 		width:85px; 	height:30px;
 		margin: 5px 0px;
 	}
-	.memberupdate li > input[type="text"].hp {
+	.memberupdate li > input[type="text"]#hp1, 
+	.memberupdate li > input[type="text"]#hp2, 
+	.memberupdate li > input[type="text"]#hp3 {
 		width:105px; 	height:30px;
 		margin: 5px 1px;
 	}
-	.memberupdate li > input[type="text"].addr_number {
+	.memberupdate li > input[type="text"]#addr_number {
 		width:250px;	height:30px;
 	}
-	.memberupdate li > input[type="text"].addr {
+	.memberupdate li > input[type="text"]#addr1,
+	.memberupdate li > input[type="text"]#addr2 {
 		width:163px;	height:30px;
 	}
 	.memberupdate li button {
@@ -323,8 +334,89 @@
 		text-align:center;
 	}
 	
-	
 </style>
+<script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
+<script>
+		$(document).ready(function(){
+			
+			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
+			
+			$("button#btn_updateOK").click(function (){
+				if($("#name").val() == ""){
+					alert("이름을 입력해주세요");
+					$("#name").focus();
+				}else if(!passCheck($("#pass") , chk )){
+					return false;
+				}else if($("#cpass").val() == ""){
+					alert("비밀번호를 확인해주세요");
+				}else if($("#year").val() == "" || $("#month").val() == "" || $("#day").val() == ""){
+					alert("생년 월일을 입력해주세요");
+					$("#year").focus();
+				}else if($("input:radio:checked").length == 0){
+					alert("성별을 체크해주세요");	
+				}else if($("#hp1").val() == "" || $("#hp2").val() == "" || $("#hp3").val() == ""){
+					alert("전화번호를 입력해주세요");
+					$("#hp1").focus();
+				}else if($("#addr1").val() == ""){
+					alert("도로명주소를 입력해주세요");
+					$("#addr1").focus();
+				}else if($("#addr2").val() == ""){
+					alert("상세주소를 입력해주세요");
+					$("#addr2").focus();
+				}	
+			});
+			
+			$("button#btn_updateCancel").click(function(){
+				//수정 취소 눌렀을때
+				//디비에서 다시 가져오기...?
+						
+			});
+			
+			
+			$("#cpass").focusout(function(){
+				if($("#pass").val() == $(this).val()){
+					$("#msg").text("사용가능한 비밀번호입니다").css("font-size","10px").css("color","blue").css("margin-left","200px");
+					$("#name").focus();
+				}else{
+					$("#msg").text("비밀번호가 일치하지 않습니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","200px");
+					$(this).val("");
+					$("#cpass").focus();
+					
+				}
+			});
+			
+			function passCheck(id ,chk){
+				if(id.val()==""){
+					alert("비밀번호를 입력해주세요");
+					id.focus();
+				}else
+					if(chk.test(id.val())){
+						return true;
+					}else{
+						alert("8~15자의 영문, 숫자, 특수문자 조합으로 구성해주세요");
+						id.focus();
+						return false;	
+					}
+			}
+			
+			
+			/** 
+				성별 count 출력
+			**/
+			function nameCheckCount(name) {
+		         var name_list = document.getElementsByName(name);   
+		         var count = 0;
+		         
+		         for(var i=0; i<name_list.length; i++) {
+		            if(name_list[i].checked) count++;
+		         }
+		         
+		         return count;
+		      }
+			
+	});
+		
+</script>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
 	
@@ -349,24 +441,28 @@
 			<div class="memberupdate" id="memberupdate">
 					<h2>회원정보 수정</h2>
 						<ul>
-							<li><input type="text" class="email" placeholder="아이디(이메일)"> </li>
-							<li><input type="text" class="name" placeholder="이름"> </li>
+							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email"> </li>
+							<li><input type="text" name="name" placeholder="이름" id="name"> </li>
+							<li><input type="password" name="pass" placeholder="비밀번호" id="pass"></li>
+							<li><input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
+								<br><span id="msg"></span>
+								<br><label class="password_chk">8~15자의 영문, 숫자, 특수문자 조합</label><li>
 							<li>
-								<input type="text" class="year" placeholder="생년월일">
-								<input type="text" class="month">
-								<input type="text" class="day">
-								<input type="radio" class="gender"><span>남</span>
-								<input type="radio" class="gender"><span>여</span>					
+								<input type="text" name="year" placeholder="생년월일" id="year">
+								<input type="text" name="month" id="month">
+								<input type="text" name="day" id="day">
+								<input type="radio" name="gender" id="gender"><span>남</span>
+								<input type="radio" name="gender" ><span>여</span>					
 							</li>
 							<li>
-								<input type="text" class="hp" placeholder="전화번호">
-								<input type="text" class="hp">
-								<input type="text" class="hp">
+								<input type="text" name="hp" placeholder="전화번호" id="hp1">
+								<input type="text" name="hp" id="hp2">
+								<input type="text" name="hp" id="hp3">
 							</li>
-							<li><input type="text" class="addr_number" placeholder="우편번호"> <button type="button">주소검색</button> </li>	
+							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number"> <button type="button">주소검색</button> </li>	
 							<li>
-								<input type="text" class="addr" placeholder="도로명주소">		
-								<input type="text" class="addr" placeholder="상세주소">
+								<input type="text" name="addr" placeholder="도로명주소" id="addr1">		
+								<input type="text" name="addr" placeholder="상세주소" id="addr2">
 							</li>
 							<li><label class="change_info">정보변경</label></li>
 							<li><label>선택 동의항목</label><hr></li>
@@ -380,7 +476,7 @@
 												</div>
 													<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a><br><br>
 												<div class="content">
-													㈜ 일룸(이하 ‘일룸’ 또는 ‘회사’)은 최초 회원 가입 또는 서비스 이용 시 이용자로부터 아래와 같은 개인정보를 수집하고 있습니다. 
+													㈜ nibang(이하 ‘니방’ 또는 ‘회사’)은 최초 회원 가입 또는 서비스 이용 시 이용자로부터 아래와 같은 개인정보를 수집하고 있습니다. 
 													귀하께서는 선택항목 수집/이용에 대한 동의를 거부하실 수 있으며, 이는 서비스 제공에 필수적으로 제공되어야 하는 정보가 아니므로 
 													동의를 거부하시더라도 회원가입, 서비스 이용, 홈페이지 이용 등이 가능합니다.
 													다만 선택항목 수집/이용에 대하여 동의하지 않으실 경우, 이벤트 참여 및 판촉 안내 등 서비스에 제한이 있을 수 있습니다.
@@ -446,8 +542,8 @@
 									</div>	
 							</li>
 							<li>
-								<button type="button" class="cancel">취소</button>
-								<button type="button" class="OK">확인</button> 
+								<button type="button" class="cancel" id ="btn_updateCancel">취소</button>
+								<button type="button" class="OK" id="btn_updateOK">확인</button> 
 							</li>
 					</ul>
 			</div>
