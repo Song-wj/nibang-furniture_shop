@@ -182,8 +182,28 @@
 			}
 
 			
-			
 		})
+		
+		
+		function goPopup(){
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+		var pop = window.open("../addr/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+		
+		// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+	    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+		}
+		function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+			/* document.form.roadFullAddr.value = roadFullAddr; */
+			document.join.addr1.value = zipNo;
+			document.join.addr2.value = roadAddrPart1;
+			document.join.addr3.value = addrDetail;
+			
+			
+			
+			
+	}
 	</script>
 </head>
 <body>
@@ -223,8 +243,8 @@
 							<input type="text" name="ph2" id="ph2"> 
 							<input type="text" name="ph3" id="ph3">
 							<div>중복확인</div></li>
-						<li><input type="text" name="addr" placeholder="우편번호">
-							<button type="button" class="btn_style">찾기</button> <br>
+						<li><input type="text" name="addr" placeholder="우편번호" id="addr1">
+							<button type="button" class="btn_style" onClick="goPopup();" >찾기</button> <br>
 						<br> <input type="text" name="addr2" placeholder="도로명주소"	class="a" id="addr2">
 						 <input type="text" name="addr3" placeholder="상세주소" id="addr3"></li>
 					</ul>
