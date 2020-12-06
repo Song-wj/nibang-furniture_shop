@@ -197,6 +197,10 @@
 		text-decoration:underline;	
 		text-decoration-color: rgb(200,10,30);
 	}
+	.memberupdate li > input[type="text"]{
+		
+		margin: 5px 0px;
+	}
 	.memberupdate li > input[type="text"]#email,
 	.memberupdate li > input[type="text"]#name,
 	.memberupdate li > input[type="password"]#pass, 
@@ -204,18 +208,20 @@
 		width:330px; 	height:30px;
 		margin: 5px 2px;	
 	}
-	.memberupdate li > input[type="text"] {
-		width:85px; 	height:30px;
+	.memberupdate li > input[type="text"]#year,
+	.memberupdate li > input[type="text"]#month,
+	.memberupdate li > input[type="text"]#day {
+		width:87.3px; 	height:30px;
 		margin: 5px 0px;
 	}
 	.memberupdate li > input[type="text"]#hp1, 
 	.memberupdate li > input[type="text"]#hp2, 
 	.memberupdate li > input[type="text"]#hp3 {
-		width:105px; 	height:30px;
+		width:106px; 	height:30px;
 		margin: 5px 1px;
 	}
 	.memberupdate li > input[type="text"]#addr_number {
-		width:250px;	height:30px;
+		width:254px;	height:30px;
 	}
 	.memberupdate li > input[type="text"]#addr1,
 	.memberupdate li > input[type="text"]#addr2 {
@@ -416,6 +422,26 @@
 			
 	});
 		
+			function goPopup(){
+			// 주소검색을 수행할 팝업 페이지를 호출합니다.
+			// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+			var pop = window.open("../addr/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+			
+			// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+		    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+			}
+			function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+				// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+				/* document.form.roadFullAddr.value = roadFullAddr; */
+				document.mupdate.addr_number.value = zipNo;
+				document.mupdate.addr1.value = roadAddrPart1;
+				document.mupdate.addr2.value = addrDetail;
+			
+				document.getElementById("addr_number").style.fontSize = "15px";
+			    document.getElementById("addr1").style.fontSize = "12px";
+				document.getElementById("addr2").style.fontSize = "12px";
+			}
+		
 </script>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -439,6 +465,7 @@
 				</nav>
 			</aside>
 			<div class="memberupdate" id="memberupdate">
+			<form name="mupdate" action="#" method="get">
 					<h2>회원정보 수정</h2>
 						<ul>
 							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email"> </li>
@@ -459,7 +486,7 @@
 								<input type="text" name="hp" id="hp2">
 								<input type="text" name="hp" id="hp3">
 							</li>
-							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number"> <button type="button">주소검색</button> </li>	
+							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
 							<li>
 								<input type="text" name="addr" placeholder="도로명주소" id="addr1">		
 								<input type="text" name="addr" placeholder="상세주소" id="addr2">
@@ -546,6 +573,7 @@
 								<button type="button" class="OK" id="btn_updateOK">확인</button> 
 							</li>
 					</ul>
+			</form>
 			</div>
 		</div>
 	

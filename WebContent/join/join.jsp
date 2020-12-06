@@ -181,9 +181,9 @@
 				
 			}
 
+		});
 			
-<<<<<<< HEAD
-		})
+
 		
 		
 		function goPopup(){
@@ -201,14 +201,14 @@
 			document.join.addr2.value = roadAddrPart1;
 			document.join.addr3.value = addrDetail;
 			
+			document.getElementById("addr1").style.fontSize = "15px";
+		    document.getElementById("addr2").style.fontSize = "12px";
+			document.getElementById("addr3").style.fontSize = "12px";
+		
+		}
+
 			
-			
-			
-	}
-=======
-			
-		});
->>>>>>> 67b395b4557fd1a3d80ef3e89c77dd5245e1e4b5
+
 	</script>
 </head>
 <body>
