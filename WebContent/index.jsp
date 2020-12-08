@@ -337,7 +337,7 @@
 			</div>
 		</div>
 	</section>
-	<div class="chatbot_banner_kakao" onclick="location.href='#'">
+	<div class="chatbot_banner_kakao" onclick="location.href='http://pf.kakao.com/_laGxnK/chat'">
 		<span >카톡문의</span>
 	</div>
 	<div class="chatbot_banner_message" onclick="location.href='#'">
