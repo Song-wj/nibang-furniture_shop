@@ -343,15 +343,16 @@
 	
 	$(document).ready(function(){
 		$("#product_colors").change(function(){
-			var option_text = $("#product_colors option:selected").text(); 
-			var option_price = option_text.replace(/[^0-9]/g,"");
-			var total_price = $("#total_price").text().replace(/[^0-9]/g,"");
-			var sum = parseInt(total_price)+parseInt(option_price);
-			var sum_price = addComma(sum.toString());
-			//var replace_price = 
+			var option_text = $("#product_colors option:selected").text().split(' '); 
+			var option_price = option_text[1].replace(/[^0-9]/g,"");
+			var sum_price = addComma(option_price);
+			
 			if($("#product_colors option:selected").val() != "선택"){
 				$("#total_price").replaceWith("<span id='total_price'>" + sum_price + " 원</span>");
+				$("#total_price").css("margin-left","300px");
 			} else {
+				$("#total_price").replaceWith("<span id='total_price'>" + 0 + " 원</span>");
+				$("#total_price").css("margin-left","354px");
 				return false;
 			}
 		});

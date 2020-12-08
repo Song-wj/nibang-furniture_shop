@@ -339,6 +339,28 @@
 			document.getElementById("change").src ="../images/쿠시노2_detail.jpg";
 		}
 	}
+	
+	$(document).ready(function(){
+		$("#product_colors").change(function(){
+			var option_text = $("#product_colors option:selected").text().split(' '); 
+			var option_price = option_text[1].replace(/[^0-9]/g,"");
+			var sum_price = addComma(option_price);
+			
+			if($("#product_colors option:selected").val() != "선택"){
+				$("#total_price").replaceWith("<span id='total_price'>" + sum_price + " 원</span>");
+				$("#total_price").css("margin-left","300px");
+			} else {
+				$("#total_price").replaceWith("<span id='total_price'>" + 0 + " 원</span>");
+				$("#total_price").css("margin-left","354px");
+				return false;
+			}
+		});
+	});
+	
+	function addComma(value) {
+		var value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return value;
+	}
 </script>
 <body>
 	<!-- header -->
@@ -361,7 +383,7 @@
 				<ul>
 <!--제품명 고치기--><li class="pname">쿠시노</li>
 <!--고치기-->			<li class="pexplain">저상형 패밀리침대(인조가죽)</li>
-<!--고치기-->			<li class="pprice" id="total">1,09,000원</li> 				
+<!--고치기-->			<li class="pprice" id="total">1,090,000원</li> 				
 					<hr>					
 					<li class="pcode">
 						배송기간 <span>약 10일</span> 배송비<span>무료배송</span>
@@ -375,7 +397,7 @@
 					  	</select>
 				  	</li>
 				  	<hr>
-				  	<li class=total_price>총 구매가 <span> 0 원</span></li>
+				  	<li class=total_price>총 구매가 <span id="total_price"> 0 원</span></li>
 				  	<li class="btn_productPay">
 				  		<button type="button">결제하기</button>
 				  		<button type="button">장바구니</button>

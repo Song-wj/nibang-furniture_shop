@@ -158,7 +158,7 @@
 				</div>
 				<ul class="category_bed_list1">
 					<li class="product_list">
-						<a href="">
+						<a href="http://localhost:9000/sist_project_2/product_detail/closet_컬렉트.jsp">
 						<img src="http://localhost:9000/sist_project_2/images/컬렉트.png">					
 						<span class="title">컬렉트</span>
 						<br>
