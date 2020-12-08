@@ -54,6 +54,14 @@
 				    }
 				}
 				
+
+				
+				
+				$("li").click(function (){
+				    var loc =$(this).attr("id");					
+					ps.keywordSearch(loc, placesSearchCB);
+								
+				 })
 				// 검색 결과 목록과 마커를 표출하는 함수입니다
 				function displayPlaces(places) {
 				
@@ -212,12 +220,9 @@
 				    }
 				}
 				 
-				$("#btn").click(function (){
-					var loc = $(this).attr("name");			
-					if(loc == "서울"){
-						$("#store_loc").append("강남구");
-					}
-				 })
+				
+				 
+				 
 	})
 	</script>
     <style>
@@ -298,23 +303,26 @@
 		                  	<div>
 		                  		<div class ="select_loc">
 		                  			<ul>
-		                  				<li><button type="button" id="btn" name ="서울">서울</button></li>
-		                  				<li><button type="button" id="인천 일룸">인천</button></li>
-		                  				<li><button type="button" id="일룸 대전">대전</button></li>
-		                  				<li><button type="button" id="일룸 세종">세종</button></li>
-		                  				<li><button type="button" id="일룸 광주">광주</button></li>
-		                  				<li><button type="button" id="일룸 대구">대구</button></li>
-		                  				<li><button type="button" id="일룸 울산">울산</button></li>
-		                  				<li><button type="button" id="일룸 부산">부산</button></li>
-		                  				<li><button type="button" id="일룸 제주">제주</button></li>
-		                  				<li><button type="button" id="일룸 경기도">경기도</button></li>
-		                  				<li><button type="button" id="일룸 강원도">강원도</button></li>
-		                  				<li><button type="button" id="일룸 세종">충청도</button></li>
-		                  				<li><button type="button" id="일룸 전라도">전라도</button></li>
-		                  				<li><button type="button" id="일룸 경상도">경상도</button></li>
+		                  				<li id ="서울">서울</li>
+		                  				<li id="인천 일룸">인천</li>
+		                  				<li id="일룸 대전">대전</li>
+		                  				<li id="일룸 세종">세종</li>
+		                  				<li id="일룸 광주">광주</li>
+		                  				<li id="일룸 대구">대구</li>
+		                  				<li id="일룸 울산">울산</li>
+		                  				<li id="일룸 부산">부산</li>
+		                  				<li id="일룸 제주">제주</li>
+		                  				<li id="일룸 경기도">경기도</li>
+		                  				<li id="일룸 강원도">강원도</li>
+		                  				<li id="일룸 세종">충청도</li>
+		                  				<li id="일룸 전라도">전라도</li>
+		                  				<li id="일룸 경상도">경상도</li>
                   					</ul>
 		                  		</div>
 		                  		<div id ="store_loc">
+		                  			<ul class ="store_select">
+		                  				
+		                  			</ul>
 		                  		</div>
 		                  	</div>
 		                </form>
