@@ -341,6 +341,28 @@
 			document.getElementById("change").src ="../images/컬렉트_부띠크형3.jpg";
 		}
 	}
+	
+	$(document).ready(function(){
+		$("#product_colors").change(function(){
+			var option_text = $("#product_colors option:selected").text().split(' '); 
+			var option_price = option_text[1].replace(/[^0-9]/g,"");
+			var sum_price = addComma(option_price);
+			
+			if($("#product_colors option:selected").val() != "선택"){
+				$("#total_price").replaceWith("<span id='total_price'>" + sum_price + " 원</span>");
+				$("#total_price").css("margin-left","300px");
+			} else {
+				$("#total_price").replaceWith("<span id='total_price'>" + 0 + " 원</span>");
+				$("#total_price").css("margin-left","354px");
+				return false;
+			}
+		});
+	});
+	
+	function addComma(value) {
+		var value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		return value;
+	}
 </script>
 <body>
 	<!-- header -->
@@ -379,7 +401,7 @@
 					  	</select>
 				  	</li>
 				  	<hr>
-				  	<li class=total_price>총 구매가 <span> 0 원</span></li>
+				  	<li class=total_price>총 구매가 <span id="total_price"> 0 원</span></li>
 				  	<li class="btn_productPay">
 				  		<button type="button">결제하기</button>
 				  		<button type="button">장바구니</button>
