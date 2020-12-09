@@ -62,7 +62,7 @@
 		color:rgb(200,10,30);
 	} */
 		
-	.white_content1 {
+	/* .white_content1 {
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -330,7 +330,7 @@
 	}
 	.personalinfo_agree div.table td:last-child {
 		text-align:center;
-	}
+	} */
 	
 </style>
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
