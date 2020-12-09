@@ -918,15 +918,7 @@
 		font-weight:500;
 		margin: 10px -18px;	
 	}
-<<<<<<< HEAD
-=======
-	
-	.product_detail div#product_closet_img,
-	.product_detail div#product_precautions{
-		margin-left:30px;
-	}
-	
->>>>>>> b70cc13d93e2babd32323e37fa08625fdb75e38d
+
 	.product_detail div#product_closet_img label{
 		font-size: 12px;
 		display:inline-block;
@@ -953,12 +945,9 @@
 	.product_detail div#product_closet_img p span.red {
 		font-size:15px;
 		color:rgb(200,10,30);
-<<<<<<< HEAD
-	}	
-=======
+
 	}
 	.product_detail div#product_closet_img img:nth-child(1),
->>>>>>> b70cc13d93e2babd32323e37fa08625fdb75e38d
 	.product_detail div#product_closet_img img:nth-child(6){
 		width:1200px;
 		
