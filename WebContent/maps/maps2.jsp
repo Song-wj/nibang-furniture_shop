@@ -39,7 +39,7 @@
 		        // LatLngBounds 객체에 좌표를 추가합니다
 		        var bounds = new kakao.maps.LatLngBounds();
 		
-		        for (var i=0; i<data.length; i++) {clusterer.addMarkers(markers);
+		        for (var i=0; i<data.length; i++) {
 		            displayMarker(data[i]);    
 		            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
 		        }       
@@ -70,7 +70,6 @@
 		        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
 		        infowindow.open(map, marker);
 		    });
-		    
 		}
 		
 		}
