@@ -5,27 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
-<<<<<<< HEAD
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-	crossorigin="anonymous"></script>
-<title>Nibang</title>
-=======
 <link rel="stylesheet"	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
-<title>일룸</title>
->>>>>>> cb7a619522312380f54f0dd1c752e17e767034cb
+<title>Nibang</title>
 <style>
-	/* #section1_category_bed {
+/*
+	 #section1_category_bed {
 		border: 1px solid white;
 	}
 	#section1_category_bed div {
@@ -85,22 +71,10 @@
 		background-image: url('http://localhost:9000/sist_project_2/images/컬렉트(아이템1).png');
 		background-repeat: no-repeat;
 	}
-	#section1_category_bed ul li.product_list:first-child a span:first-child:hover {
+	/* #section1_category_bed ul li.product_list:first-child a span:first-child:hover {
 		background-image: url('http://localhost:9000/sist_project_2/images/컬렉트(아이템2).jpg');
 	}
-	
-	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드.jpg');
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드2.jpg');
-	}
-	
+	 */
 	/* --------------- */
 	
 	/* #section1_category_bed ul li.product_list span.title{
@@ -155,6 +129,7 @@
 					<li class="product_list">
 						<a href="http://localhost:9000/sist_project_2/product_detail/closet_컬렉트.jsp">
 						<span></span>
+						<img src="http://localhost:9000/sist_project_2/images/컬렉트.png">
 						<span class="title">컬렉트</span>
 						<br>
 						<span class="explain">아이템별 맞춤수납-부띠끄형PKG</span>
