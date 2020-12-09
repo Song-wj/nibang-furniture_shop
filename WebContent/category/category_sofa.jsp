@@ -10,59 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
 <title>일룸</title>
 <style>
-	/* #section1_category_bed {
-		border: 1px solid white;
-	}
-	#section1_category_bed div {
-		text-align: center; 
-		width: 90%;
-		margin: 8% 0 0 35px;
-	}
-	#section1_category_bed div p {
-		margin-left: 80px;
-		font-size: 35px;
-	}
-	
-	#section1_category_bed div div.category_sort {
-		margin: 10px 0 40px 170px;
-		text-align: right;
-	}
-	
-	#section1_category_bed div div.category_sort a {
-		color: rgb(51, 51, 51);
-		margin: 0 2px;
-		font-size: 13px;
-		text-decoration: none;
-	}
-	#section1_category_bed div div.category_sort a:hover {
-		color: rgb(200, 10, 30);
-	}
-	
-	#section1_category_bed ul {
-		width: 1200px;
-		margin-left: 1%;
-		padding: 0;
-		list-style: none;
-		text-align: left;
-	}
-	
-	#section1_category_bed ul li.product_list {
-		width: 280px;
-		display: inline-block;
-		margin: 0 1.3% 40px 0;
-		/* vertical-align: top; */
-	}
-	#section1_category_bed ul li.product_list a{
-		text-decoration:none;
-	}
-	#section1_category_bed ul li.product_list p {
-		margin: 0;
-	}
-	
-	#section1_category_bed ul li.product_list img{
-		width: 274px;
-		height: 274px;
-	} */
+
 	/* ----- hover image ----- */
 	#section1_category_bed ul li.product_list  a span:first-child {
 		display: inline-block;
@@ -77,40 +25,6 @@
 		background-image: url('http://localhost:9000/sist_project_2/images/루오바2.jpg');
 		background-size:274px;
 	}
-	
-	
-	
-	/* #section1_category_bed ul li.product_list span.title{
-		font-size: 14px;
-		padding-top: 17px;
-		display: inline-block;
-		font-weight: bold;
-		color: #333;
-	}
-	#section1_category_bed ul li.product_list span.explain{
-		font-size: 13px;
-		color: #333;
-	}
-	#section1_category_bed ul li.product_list span.price{
-		font-size: 14px;
-		color: #C80A1E;
-	}
-	
-	#section1_category_bed ul.category_page_num {
-		text-align: center;
-		margin-top: 40px;
-		margin-bottom: 120px;
-	}
-	
-	#section1_category_bed ul.category_page_num li{
-	    display: inline-block;
-	    font-size: 12px;
-	    margin-right: 10px;
-	    padding: 6px 10px 6px 10px;
-	    border: 1px solid rgb(224, 224, 224);
-	    border-radius: 30px;
-	}
-} */
 	
 </style>
 </head>
@@ -130,7 +44,7 @@
 				</div>
 				<ul class="category_bed_list1">
 					<li class="product_list">
-					<a href ="">						
+					<a href ="../product_detail/sofa_캐스터네츠.jsp">						
 						<img src="http://localhost:9000/sist_project_2/images/캐스터네츠 1099000.jpg">						
 						<span class="title">캐스터네츠</span>
 						<br>
@@ -140,7 +54,7 @@
 					</a>
 					</li>
 					<li class="product_list">
-						<a href="">
+						<a href="../product_detail/sofa_루오바.jsp">
 						<span></span>			
 						<span class="title">루오바</span>
 						<br>

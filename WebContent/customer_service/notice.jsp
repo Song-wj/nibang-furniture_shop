@@ -16,16 +16,12 @@ section.section1 {
     height: 80%;
     padding-top: 10%;
     margin-bottom: 100px;
-}
-			
-
+}			
 div.content h1 {
 	margin-top: 20px;
     margin-bottom: 40px;
    	padding-left:51%;
 }
-
-
 
 </style>
 </head>

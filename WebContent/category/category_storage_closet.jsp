@@ -10,127 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
 <style>
-	/* #section1_category_bed {
-		border: 1px solid white;
-	}
-	#section1_category_bed div {
-		text-align: center; 
-		width: 90%;
-		margin: 8% 0 0 35px;
-	}
-	#section1_category_bed div p {
-		margin-left: 80px;
-		font-size: 35px;
-	}
 	
-	#section1_category_bed div div.category_sort {
-		margin: 10px 0 40px 170px;
-		text-align: right;
-	}
-	
-	#section1_category_bed div div.category_sort a {
-		color: rgb(51, 51, 51);
-		margin: 0 2px;
-		font-size: 13px;
-		text-decoration: none;
-	}
-	#section1_category_bed div div.category_sort a:hover {
-		color: rgb(200, 10, 30);
-	}
-	
-	#section1_category_bed ul {
-		width: 1200px;
-		margin-left: 1%;
-		padding: 0;
-		list-style: none;
-		text-align: left;
-	}
-	
-	#section1_category_bed ul li.product_list {
-		width: 280px;
-		display: inline-block;
-		margin: 0 1.3% 40px 0;
-		/* vertical-align: top; */
-	}
-	
-	/* #section1_category_bed ul li.product_list a {		
-		text-decoration:none;
-	}
-	
-	#section1_category_bed ul li.product_list p.product_img img{
-		width: 274px;
-		height: 274px;
-	} */ */
-	/* ----- hover image ----- */	
-	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형2(Q)-579000.jpg');
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형(SS)-480000.jpg');
-	}
-	
-	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드.jpg');
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드2.jpg');
-	}
-	
-	#section1_category_bed ul li.product_list:last-child a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리2.jpg');
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:last-child a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리.jpg');
-	}
-	
-	/* --------------- */
-	
-	/* #section1_category_bed ul li.product_list span.title{
-		font-size: 14px;
-		padding-top: 17px;
-		display: inline-block;
-		font-weight: bold;
-		color: #333;
-	}
-	#section1_category_bed ul li.product_list span.explain{
-		font-size: 13px;
-		color: #333;
-	}
-	#section1_category_bed ul li.product_list span.price{
-		font-size: 14px;
-		color: #C80A1E;
-	}
-	
-	#section1_category_bed ul.category_page_num {
-		text-align: center;
-		margin-top: 40px;
-		margin-bottom: 120px;
-	}
-	
-	#section1_category_bed ul.category_page_num li{
-	    display: inline-block;
-	    font-size: 12px;
-	    margin-right: 10px;
-	    padding: 6px 10px 6px 10px;
-	    border: 1px solid rgb(224, 224, 224);
-	    border-radius: 30px;
-	}
-} */
 	
 </style>
 </head>
@@ -150,26 +30,6 @@
 				</div>
 				<ul class="category_bed_list1">
 					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/로이.png">					
-						<span class="title">로이</span>
-						<br>
-						<span class="explain">4단 서랍장 600폭</span>
-						<br>
-						<span class="price">449,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/링키플러스.png">					
-						<span class="title">링키플러스</span>
-						<br>
-						<span class="explain">PL박스 수납책장6단</span>
-						<br>
-						<span class="price">299,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
 						<a href="http://localhost:9000/sist_project_2/product_detail/storagecloset_미엘.jsp">
 						<img src="http://localhost:9000/sist_project_2/images/미엘 5단서랍장.png">						
 						<span class="title">미엘</span>
@@ -187,6 +47,26 @@
 						<span class="explain">3단 와이드체스트 1200폭</span>
 						<br>
 						<span class="price">541,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/로이.png">					
+						<span class="title">로이</span>
+						<br>
+						<span class="explain">4단 서랍장 600폭</span>
+						<br>
+						<span class="price">449,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/링키플러스.png">					
+						<span class="title">링키플러스</span>
+						<br>
+						<span class="explain">PL박스 수납책장6단</span>
+						<br>
+						<span class="price">299,000 원</span>
 						</a>
 					</li>
 					<li class="product_list">

@@ -18,119 +18,7 @@
 		width: 1263px;
 		margin: auto;
 	}
-	/* 
-	
-	.section2 .label {
-		margin-bottom: 20px;
-		text-align: center;
-		font-size: 13px;
-		font-weight: 600;
-		color: #333;
-	}
-	
-	.section2 .recomand_img {
-		width: 175px;
-		height: 180px;
-		padding: 10px 10px;
-	}
-	
-	.section2 .recomand>div {
-		display: inline-block;
-	}
-	
-	.section3>div {
-		padding: 50px 0px;
-	}
-	
-	.section3 .simple {
-		display: inline-block;
-	}
-	
-	.section3 .simple .simple_img {
-		width: 355px;
-		height: 450px;
-		padding: 10px 8px;
-	}
-	
-	.section4>div {
-		padding-top: 50px;
-		padding-bottom: 70px;
-	}
-	
-	.section2>div {
-		text-align: center;
-		margin: 40px 60px;
-	}
-	
-	.section3 {
-		text-align: center;
-		border-top: 1px solid lightgray;
-	}
-	
-	.section4 {
-		text-align: center;
-	}
-	
-	.section4 .quick {
-		display: inline-block;
-		padding: 50px;
-	}
-	
-	.section4 .effect1 {
-		display: inline-block;
-		width: 200px;
-		height: 200px;
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_3.png')
-	}
-	
-	.section4 .effect2 {
-		display: inline-block;
-		width: 200px;
-		height: 200px;
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_4.png')
-	}
-	
-	.section4 .effect3 {
-		display: inline-block;
-		width: 200px;
-		height: 200px;
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_2.png')
-	}
-	.section4 .effect1 span:nth-child(2),
-	.section4 .effect2 span:nth-child(2),
-	.section4 .effect3 span:nth-child(2){
-		display:inline-block;
-		margin-top:180px;
-	}
-	
-	.section4 .effect1 span,
-	.section4 .effect2 span,
-	.section4 .effect3 span{
-		
-	}
-	.section4 .effect1:hover {
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_33.png');
-		color:rgb(200,10,30);
-		text-decoration:none;
-	}
-	
-	.section4 .effect2:hover {
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_44.png');
-		color:rgb(200,10,30);
-		text-decoration:none;
-	}
-	
-	.section4 .effect3:hover {
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_22.png');
-		color:rgb(200,10,30);
-		text-decoration:none;
-	}
-	
-	div.carousel-slide h5 {
-		color: black;
-		text-align:right;
-	}
-	
+
 	/* 왼쪽 배너 */
 	
 	div.chatbot_banner_kakao {
@@ -190,16 +78,20 @@
 		letter-spacing: -1.5px;
 		line-height: 41px;
 		padding-right: 14px;
+		border:1px solid red;
 	}
 	div.chatbot_banner_message div.mdiv{
 		margin-left:40px;
 		width:65px;
 		height:30px;
+		border:1px solid red;
 	}
 	div.chatbot_banner_message div.mdiv span{
 		display:inline-block;
 		height:20px;
 		width:65px;
+		border:1px solid red;
+		color:red;
 	}
 	div.chatbot_banner_message:hover {
 		background-color: rgb(35,197,69);
@@ -207,8 +99,8 @@
 	}	
 	div.chatbot_banner_message span:hover {
 		color: black;
-	} */
-	.white_content {
+	} 
+	.white_content4 {
 		position: fixed;
 		top: 0;
 		right: 0;
@@ -221,97 +113,7 @@
 	    transition: opacity 400ms ease-in;
 	    pointer-events: none;
 	}
-	.white_content:target {
-		opacity:1;
-	    pointer-events: auto;
-	} 
-	.white_content > div {
-	    position: absolute;
-		top: 100px;
-		left: 400px;
-		width: 500px;
-		height: 500px;
-		padding: 16px;
-		border: 2px solid red;
-		background-color: white;
-		overflow: auto;	
-	}			
-	form.inquiryform1{
-		color:rgb(51,51,51);
-		font-weight:450;
-	}			
-	.inquiry_content h3{
-		margin-right:170px;
-		padding:40px 0 30px 0 ;
-		color:rgb(51,51,51);
-	}
-	.inquiry_content form.inquiryform1 ul{
-		padding-left:0;
-	}
-	.inquiry_content form.inquiryform1 ul li:first-child label{
-		font-size:15px; 
-		color:rgb(51,51,51);
-		font-weight:450;
-		display:inline-block;
-		width:90px;
-	}
-	.inquiry_content form.inquiryform1 ul li{
-		list-style-type:none;
-		font-size:14px;
-		margin-bottom:10px;
-	}
-	.inquiry_content form.inquiryform1 ul li:nth-child(2),
-	.inquiry_content form.inquiryform1 ul li:nth-child(4){
-		margin-right:372px;
-		color:rgb(51,51,51);
-		font-weight:500;
-	}
-	.inquiry_content form.inquiryform1 ul li:nth-child(2){
-		margin-right:403px;
-	}
-	.inquiry_content form.inquiryform1 ul li select{
-		width:307px;
-		height:40px;
-		margin:0 31px 10px 29px;
-	}		
-	.inquiry_content form.inquiryform1 input[type="text"]{
-		width:400px;
-		height:40px;
-		margin-right:30px;
-	}
-	.inquiry_content form.inquiryform1 textarea {
-		width:401px;
-		height:150px;
-		margin:5px 30px 30px 1px;
-	}
-	.inquiry_content form.inquiryform1 ul li:nth-child(6){
-		margin-right:173px;
-	}
-	.inquiry_content form.inquiryform1 ul li:nth-child(7),
-	.inquiry_content form.inquiryform1 ul li:nth-child(8){
-		color:rgb(200,10,30);
-		font-size: 13px;
-		font-weight:400;
-		margin:10px 278px 10px 0;
-	}
-	.inquiry_content form.inquiryform1 ul li:nth-child(7){
-		margin-right:66px;
-	}
-	.inquiryform1 button{
-		width:200px;
-		height:50px;
-		margin:25px 150px 25px 130px;
-		background-color:rgb(200,10,30);
-		border:1px solid rgb(200,10,30);
-		color:white;
-	}
-	.inquiryform1 button:hover{
-		background-color:rgb(160,14,43);
-	}
-	.inquiry_content a{
-		float:right;
-		margin:20px 15px;
-	}
+
 </style>
 </head>
 <body>
@@ -449,8 +251,8 @@
 	</div>
 	<div class="chatbot_banner_message" >
 		<div class="mdiv"><a href="#open"  class="message"><span>쪽지문의</span></a></div>
-		<div class="white_content" id="open">
-						<div class="inquiry_content"  id="inquiry_content">
+		<div class="white_content4" id="open">
+						<div class="inquiry_content1"  id="inquiry_content1">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
 							<form name="inquiryform1" action="#" method="get" class="inquiryform1">

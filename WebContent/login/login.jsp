@@ -33,78 +33,7 @@
  div.content {
 	border: 1px solid white;
 }
-/*
-section.section1 div.login {
-	border: 1px solid lightgray;
-	max-width: 500px;
-	margin: auto;
-	text-align: center;
-	margin-top: 200px;
-	margin-bottom: 200px;
-	padding: 30px;
-}
 
-section.section1 div.login h3 {
-	padding-top: 25px;
-	padding-bottom: 40px;
-	border-bottom: 1px solid lightgray;
-	margin-bottom: 30px;
-}
-
-section.section1 div.login form ul {
-	list-style-type: none;
-	padding: 0px;
-	margin: 0px;
-}
-
-section.section1 div.login form li {
-	margin: 15px;
-}
-
-section.section1 div.login form input#id, input#pass {
-	width: 100%;
-	height: 40px;
-	text-indent: 10px;
-}
-
-form ul li div.link {
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	justify-content: flex-end;
-	font-size: 14px;
-}
-form ul li div.all {
-	display:flex;
-	justify-content: space-between;
-	margin-top:30px;
-}
-form ul li div.idCheckbox {
-	display:flex;
-	align-items:center;
-}
-form ul li a {
-	text-decoration: none;
-	color: black;
-	flex: 0 1 auto;
-}
-
-section.section1 div.login form button {
-	width: 45%;
-	height: 45px;
-	padding: 10px 20px;
-	background-color: rgb(200, 10, 30);
-	border: none;
-	font-family: "나눔바른고딕";
-	color: white;
-	font-size: 14px;
-	font-weight: 700;
-	margin-top:20px;
-}
-
-section.section1 div.login form button:hover {
-	opacity: 0.5;
-} */
 </style>
 </head>
 <body>
