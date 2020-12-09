@@ -16,7 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
-<title>일룸</title>
+<title>Nibang</title>
 <style>
 	#section1_category_bed {
 		border: 1px solid white;
@@ -65,21 +65,21 @@
 		text-decoration:none;
 	}
 	
-	#section1_category_bed ul li.product_list p.product_img img{
+	#section1_category_bed ul li.product_list img{
 		width: 274px;
 		height: 274px;
 	}
 	/* ----- hover image ----- */	
-	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child {
+	#section1_category_bed ul li.product_list:first-child a span:first-child {
 		display: inline-block;
 		width: 274px;
 		height: 274px;
 		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형2(Q)-579000.jpg');
+		background-image: url('http://localhost:9000/sist_project_2/images/컬렉트(아이템1).png');
 		background-repeat: no-repeat;
 	}
-	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형(SS)-480000.jpg');
+	#section1_category_bed ul li.product_list:first-child a span:first-child:hover {
+		background-image: url('http://localhost:9000/sist_project_2/images/컬렉트(아이템2).jpg');
 	}
 	
 	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child {
@@ -92,18 +92,6 @@
 	}
 	#section1_category_bed ul li.product_list:nth-child(5) a span:first-child:hover {
 		background-image: url('http://localhost:9000/sist_project_2/images/아르지안트윈모션베드2.jpg');
-	}
-	
-	#section1_category_bed ul li.product_list:last-child a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리2.jpg');
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:last-child a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/미엘갤러리.jpg');
 	}
 	
 	/* --------------- */
@@ -159,16 +147,17 @@
 				<ul class="category_bed_list1">
 					<li class="product_list">
 						<a href="http://localhost:9000/sist_project_2/product_detail/closet_컬렉트.jsp">
-						<img src="http://localhost:9000/sist_project_2/images/컬렉트.png">					
+						<span></span>
 						<span class="title">컬렉트</span>
 						<br>
-						<span class="explain">서랍마다 꼼꼼수납-멀티수납형 PKG</span>
+						<span class="explain">아이템별 맞춤수납-부띠끄형PKG</span>
 						<br>
-						<span class="price">2,235,000 원</span>
+						<span class="price">2,087,000원</span>
 						</a>
 					</li>
 					<li class="product_list">
 						<a href="">
+						<span></span>
 						<img src="http://localhost:9000/sist_project_2/images/컬렉트2.png">					
 						<span class="title">컬렉트</span>
 						<br>
@@ -188,7 +177,8 @@
 						</a>
 					</li>
 					<li class="product_list">
-						<a href="">
+						<a href="http://localhost:9000/sist_project_2/product_detail/closet_테일러.jsp">
+						<span></span>
 						<img src="http://localhost:9000/sist_project_2/images/테일러 테일러코너형드레스룸세트.jpg">						
 						<span class="title">테일러</span>
 						<br>
@@ -209,7 +199,7 @@
 					</li>
 					<li class="product_list">
 						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/테일러2.jpg">
+						<img src="http://localhost:9000/sist_project_2/images/테일러옷장800폭.jpg">
 						<span class="title">테일러</span>
 						<br>
 						<span class="explain">옷장 800폭(기본장)</span>
@@ -229,7 +219,7 @@
 					</li>
 					<li class="product_list">
 						<a href="">
-	            		<img src="http://localhost:9000/sist_project_2/images/테일러.jpg">				
+	            		<img src="http://localhost:9000/sist_project_2/images/테일러800폭옵션장.jpg">				
 						<span class="title">테일러</span>
 						<br>
 						<span class="explain">800폭 옵션장(3단서랍형)</span>

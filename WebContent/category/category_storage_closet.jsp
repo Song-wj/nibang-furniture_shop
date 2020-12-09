@@ -16,7 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 	crossorigin="anonymous"></script>
-<title>일룸</title>
+<title>Nibang</title>
 <style>
 	#section1_category_bed {
 		border: 1px solid white;
@@ -178,7 +178,7 @@
 						</a>
 					</li>
 					<li class="product_list">
-						<a href="">
+						<a href="http://localhost:9000/sist_project_2/product_detail/storagecloset_미엘.jsp">
 						<img src="http://localhost:9000/sist_project_2/images/미엘 5단서랍장.png">						
 						<span class="title">미엘</span>
 						<br>
@@ -188,7 +188,7 @@
 						</a>
 					</li>
 					<li class="product_list">
-						<a href="">
+						<a href="http://localhost:9000/sist_project_2/product_detail/storagecloset_아르지안.jsp">
 						<img src="http://localhost:9000/sist_project_2/images/아르지안 3단와이드체스트.jpg">						
 						<span class="title">아르지안</span>
 						<br>
