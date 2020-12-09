@@ -7,7 +7,7 @@
 <title>header</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <style>
-     header {
+    /*  header {
 		width: 100%;
 		margin: auto;
 		position: fixed;
@@ -18,7 +18,7 @@
 	*:focus {
 		outline: none;
 	}	
-	/* menubar */
+	menubar 
 	header .mw {
 		position: fixed;
 		_position: absolute;
@@ -48,7 +48,7 @@
 		background: #fff;
 	}	
 	
-	/* ----- */
+
 	
 	header div.fg>nav>ul>li {
 		list-style-type: none;
@@ -113,7 +113,7 @@
 		font-weight: 2000px;
 	}	
 	
-	/* ----- */
+
 	header div.fg>nav.all_items>ul {
 		margin-top: 20px;
 		margin-right: 150px;
@@ -130,7 +130,7 @@
 	header div.fg>nav.all_items>ul>li:nth-child(2) {
 		padding-bottom: 30px;
 	}	
-	/* ----- */
+
 	
 	header div img.menu_bar {
 		display: inline-block;
@@ -201,7 +201,7 @@
 		height: 7px;
 		display: inline-block;
 		margin: 0 7px 0 7px;
-	}
+	} */
 </style>
 </head>
 <body>

@@ -5,17 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link rel="stylesheet"
-	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-	crossorigin="anonymous"></script>
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <style>
 section.section1 {
 	width: 1100px;
@@ -24,7 +17,7 @@ section.section1 {
     padding-top: 10%;
     margin-bottom: 100px;
 }
-			.section1 aside.sideMenuBar2{
+			/* .section1 aside.sideMenuBar2{
 		 		border:1px solid rgb(144, 144, 144);		 		
 		 		float:left;
 		 		margin-right:100px;
@@ -59,7 +52,7 @@ section.section1 {
 		 	.section1 aside.sideMenuBar2 ul li:nth-child(6) a:hover,
 		 	.section1 aside.sideMenuBar2 ul li:nth-child(7) a:hover{
 		 		color:rgb(200,10,30);
-		 	}
+		 	} */
 
 div.content h1 {
 	margin-top: 20px;
@@ -67,7 +60,7 @@ div.content h1 {
    	padding-left:51%;
 }
 
-table.notice_table th {
+/* table.notice_table th {
 	text-align: center;
 }
 
@@ -155,7 +148,7 @@ table.notice_table td {
 
 table.notice_table th {
 	font-size: 13px;
-}
+} */
 
 </style>
 </head>
