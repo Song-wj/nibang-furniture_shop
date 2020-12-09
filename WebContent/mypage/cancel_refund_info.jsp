@@ -5,13 +5,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>교환/반품/환불안내</title>
+		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
 			div.content{
 				border:1px solid white;
 				width:95%;
 				margin:auto;
 			}
-			div.content aside.sideMenuBar{
+			/* div.content aside.sideMenuBar{
 				border:1px solid rgb(170, 170, 170);
 				margin-top:9%;
 				width:165px;	
@@ -229,7 +233,7 @@
 			}
 			div.content div.cancel_form>div.r4 div:nth-child(6){
 				margin-bottom:70px;
-			}
+			} */
 		</style>
 	</head>
 	<body>

@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>고객센터</title>
-		<link rel="stylesheet"
+		<!-- <link rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
 		crossorigin="anonymous">
@@ -15,7 +15,7 @@
 		<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script> -->
 		<style>
 			section.section1{
 		 		width:1100px;;		 				 			 		
@@ -24,7 +24,7 @@
 		 		padding-top:10%;
 		 		margin-bottom:100px;
 		 	}
-		 	.section1 aside.sideMenuBar2{
+		 	/* .section1 aside.sideMenuBar2{
 		 		border:1px solid rgb(144, 144, 144);		 		
 		 		float:left;
 		 		margin-right:100px;
@@ -242,7 +242,7 @@
 		 	}
 		 	.section1 div table.click_img td:hover{
 		 		border:0.5px solid black;
-		 	}
+		 	} */
 		 	.white_content {
 		    position: fixed;
 		    top: 0;

@@ -19,7 +19,7 @@
 <title>일룸</title>
 </head>
 <style>
-	.product_detail {
+	/* .product_detail {
 		width:1260px;
 		height:20500px;
 		padding-top:90px;
@@ -327,7 +327,7 @@
 	.product_detail div#product_precautions div.precautions p span{
 		font-size:16px; 
 		font-weight:600;
-	}
+	} */
 	
 </style>
 <script>

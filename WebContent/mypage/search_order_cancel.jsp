@@ -5,13 +5,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>주문취소조회</title>
+		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
 			div.content{
 				border:1px solid white;
 				width:95%;
 				margin:auto;
 			}
-			div.content aside.sideMenuBar{
+			/* div.content aside.sideMenuBar{
 				border:1px solid rgb(170, 170, 170);
 				margin-top:9%;
 				width:165px;	
@@ -55,9 +59,9 @@
 			div.content aside.sideMenuBar ul li:nth-child(10) a:hover,
 			div.content aside.sideMenuBar ul li:nth-child(11) a:hover{
 				color:rgb(200,10,30);
-			}
+			} */
 			
-			.search_order_cancel {
+			/* .search_order_cancel {
 				position: relative;
 			    min-height: 600px;
 			    width: 800px;
@@ -128,7 +132,7 @@
 				border-bottom: none;
 				font-weight: 300;
 				padding: 100px 0 300px;
-			}
+			} */
 						
 		</style>
 	</head>
