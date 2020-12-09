@@ -671,7 +671,6 @@ section.section1 div.login form button:hover {
 	footer {
 		clear: both;
 	}
-}
 /* event_winner_main */
 
 
@@ -1657,7 +1656,7 @@ section.section1 div.login form button:hover {
 	}
 	
 	#section1_withdrawal .reason {
-		font-size
+		font-size: 35px;
 	}
 	
 	#section1_withdrawal div.wbody {
