@@ -9,132 +9,34 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
 		<style>
 			div.content{
 				border:1px solid white;
 				width:95%;
 				margin:auto;
 			}
-			/* div.content aside.sideMenuBar{
-				border:1px solid rgb(170, 170, 170);
-				margin-top:9%;
-				width:165px;	
-				float:left;			
-			}
-			div.content aside.sideMenuBar ul{
-				padding-left:20px;
-			}
-			div.content aside.sideMenuBar ul li{
-				list-style-type:none;
-				margin-top:30px;
-				font-size:14.5px;
-				font-weight:540;
-			}
-			div.content aside.sideMenuBar ul li:nth-child(3) ,
-			div.content aside.sideMenuBar ul li:nth-child(4) ,
-			div.content aside.sideMenuBar ul li:nth-child(5) ,
-			div.content aside.sideMenuBar ul li:nth-child(7) ,
-			div.content aside.sideMenuBar ul li:nth-child(8) ,
-			div.content aside.sideMenuBar ul li:nth-child(10) ,
-			div.content aside.sideMenuBar ul li:nth-child(11)  {
-				margin-top:15px;
-			}
-			div.content aside.sideMenuBar ul li:nth-child(3) a,
-			div.content aside.sideMenuBar ul li:nth-child(4) a,
-			div.content aside.sideMenuBar ul li:nth-child(5) a,
-			div.content aside.sideMenuBar ul li:nth-child(7) a ,
-			div.content aside.sideMenuBar ul li:nth-child(8) a ,
-			div.content aside.sideMenuBar ul li:nth-child(10) a,
-			div.content aside.sideMenuBar ul li:nth-child(11) a{
-				font-size:12px;				
-				color:rgb(144, 144, 144);
-				text-decoration:none;
-				font-weight:0;
-			}
-			div.content aside.sideMenuBar ul li:nth-child(3) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(4) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(5) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(7) a:hover ,
-			div.content aside.sideMenuBar ul li:nth-child(8) a:hover ,
-			div.content aside.sideMenuBar ul li:nth-child(10) a:hover,
-			div.content aside.sideMenuBar ul li:nth-child(11) a:hover{
-				color:rgb(200,10,30);
-			} */
-			
-			/* .search_order_cancel {
-				position: relative;
-			    min-height: 600px;
-			    width: 800px;
-			    margin-left: 18%;
-			    margin-top: 107px;
-			    text-align: center;
-			}
-			
-			.search_order_cancel div.title {
-				font-size: 35px;
-				color: #333;
-				margin-bottom: 44px;
-			} 
-			
-			.search_order_cancel div.subtitle {
-				font-size: 22px;
-				color: #333;
-				margin-bottom: 24px;
-			}
-			
-			.search_order_cancel div.cancel_procedure {
-				background-color: #f0f0f0;
-			    padding: 55px 60px;
-			    margin-bottom: 45px;
-			    text-align: left;
-			}
-			
-			.search_order_cancel div.cancel_procedure span {
-				font-size: 14px;
-				color: #333;
-				letter-spacing: -0.3px;
-				line-height: 40px;
-			}
-			
-			.search_order_cancel button {
-				display: inline-block;
-    			background-color: #fff;
-   				width: 182px;
-    			height: 50px;
-    			font-weight: 300;
-    			color: #333;
-    			border: none;
-    			position: relative;
-    			z-index: 0;
-    			outline: 1px solid #aaa;
-				margin-right: -3px;    			
-			}
-			
-			.search_order_cancel button:focus {
-				outline: 1px solid #aaa;
-			}
-			.search_order_cancel button.duration_btn1 {
-				color: #c80a1e;
-				outline: 1px solid #c80a1e;
-			}
-			
-			.search_order_cancel table.order_table {
-				border-top: 1px solid #aaa;
-			    border-bottom: 1px solid #aaa;
-			    width: 100%;
-			    margin: 40px auto 200px;
-			    border-collapse: collapse;
-			}
-			.search_order_cancel table.order_table tr td{
-				font-size: 20px;
-				color: #aaa;
-				height: 24px;
-				border-bottom: none;
-				font-weight: 300;
-				padding: 100px 0 300px;
-			} */
-						
 		</style>
+		<script>
+			$(document).ready(function(){
+				$("#duration_btn1").click(function(){
+					var str = "최근 1개월 내 취소내역이 없습니다.";
+					$("#order_table tr:eq(0) td:eq(0)").html(str);
+				});
+				$("#duration_btn2").click(function(){
+					var str = "최근 3개월 내 취소내역이 없습니다.";
+					$("#order_table tr:eq(0) td:eq(0)").html(str);
+				});
+				$("#duration_btn3").click(function(){
+					var str = "최근 6개월 내 취소내역이 없습니다.";
+					$("#order_table tr:eq(0) td:eq(0)").html(str);
+				});
+				$("#duration_btn4").click(function(){
+					var str = "취소내역이 없습니다.";
+					$("#order_table tr:eq(0) td:eq(0)").html(str);
+				});
+			});
+		</script>
 	</head>
 	<body>
 		
@@ -169,11 +71,11 @@
 				<span>∙  &nbsp;매장에서 구매하신 제품의 경우, 쇼핑몰을 통한 주문 취소 신청이 불가하오니 매장으로 문의하시기 바랍니다.</span><br>
 			</div>
 			<div class="subtitle">취소 내역 조회</div>
-			<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/search_order_cancel.jsp'" class="duration_btn1">1개월</button>
-			<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/period3.jsp'" class="duration_btn2">3개월</button>
-			<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/period6.jsp'" class="duration_btn3">6개월</button>
-			<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/period_all.jsp'" class="duration_btn4">전체</button>
-			<table class="order_table">
+			<button type="button" id="duration_btn1">1개월</button>
+			<button type="button" id="duration_btn2">3개월</button>
+			<button type="button" id="duration_btn3">6개월</button>
+			<button type="button" id="duration_btn4">전체</button>
+			<table class="order_table" id="order_table">
 				<tbody>
 					<tr>
 						<td>취소내역이 없습니다.</td>

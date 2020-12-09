@@ -1949,10 +1949,6 @@ section.section1 div.login form button:hover {
 			.search_order_cancel button:focus {
 				outline: 1px solid #aaa;
 			}
-			.search_order_cancel button.duration_btn1 {
-				color: #c80a1e;
-				outline: 1px solid #c80a1e;
-			}
 			
 			.search_order_cancel table.order_table {
 				border-top: 1px solid #aaa;
