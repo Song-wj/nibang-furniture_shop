@@ -17,148 +17,7 @@
 		 		height:80%;
 		 		padding-top:10%;
 		 		margin-bottom:100px;
-		 	}
-		 	/* .section1 aside.sideMenuBar2{
-		 		border:1px solid rgb(144, 144, 144);		 		
-		 		float:left;
-		 		margin-right:100px;
-		 		margin-left:50px;
-		 		height:250px;	
-		 		padding-right:50px;	
-		 		margin-top:20px;		 		
-		 	}
-	 		.section1 aside.sideMenuBar2 ul{
-		 		list-style-type: none;	
-		 		padding-left:20px;		 	    
-		 	}
-		 	.section1 aside.sideMenuBar2 ul>li{
-		 		font-size:15px;	
-		 		margin-top:20px; 			 			 	    
-		 	}
-		 	.section1 aside.sideMenuBar2 ul>li>a{
-		 		text-decoration:none;
-		 		color:rgb(144, 144, 144);	 		 
-		 	}
-		 	.section1 aside.sideMenuBar2 ul>li:first-child>a{
-		 		font-size:20px;	
-		 		font-weight:10000px;
-		 		color:black;
-		 		margin-bottom:10px;
-		 	}
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(2) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(3) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(4) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(5) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(6) a:hover,
-		 	.section1 aside.sideMenuBar2 ul li:nth-child(7) a:hover{
-		 		color:rgb(200,10,30);
-		 	}		 */
-		 	.section1 div div:first-child{
-		 		margin-left:35%;
-		 	}
-		 	.section1 div div:first-child h1{
-		 		margin-top:20px;
-		 		margin-bottom:30px;
-		 		padding-left:180px;
-		 	}
-		 	.section1 div div:first-child label{
-		 	    font-size:18px;
-		 		width:700px;
-		 		margin-left:150px; 		
-		 	}
-
-		 	.section1 div div:nth-child(2) div:first-child{
-		 		margin-left:50px;
-		 		margin-right:20px;
-		 	}
-		 	.section1 div div:nth-child(2) div.kdiv,
-		 	.section1 div div:nth-child(2) div.mdiv{
-		 		display:inline-block;
-		 		text-align:center;
-		 		width:270px;
-		 		height:170px;
-		 		border:1px solid black;
-		 		margin-top:30px;		 		
-		 	}		
-		
-
-		      a.kakao{
-		        display:inline-block;
-		        width:270px;
-		        height:170px;
-		     	background-image: url('http://localhost:9000/sist_project_2/images/talk1.png');
-		 		background-size:30px;
-		 		background-repeat:no-repeat;
-		 		background-position:3.2cm 50px;
-		 		
-		     }
-		     a.kakao span{
-		     	color:black;
-		     	display:inline-block;
-		     	font-size:13px;
-		     	margin-top:70px;
-		     	font-weight:600;
-		     }
-		      a.kakao:hover{
-		      	background-image: url('http://localhost:9000/sist_project_2/images/talk2.png');
-		      
-		      }
-		       a.message{
-		        display:inline-block;
-		        width:270px;
-		        height:170px;
-		     	background-image: url('http://localhost:9000/sist_project_2/images/talk3.png');
-		 		background-size:27px;
-		 		background-repeat:no-repeat;
-		 		background-position:3.2cm 50px;
-		 		
-		     }
-		     a.message span{
-		     	color:black;
-		     	display:inline-block;
-		     	font-size:13px;
-		     	margin-top:70px;
-		     	font-weight:600;
-		     }
-		      a.message:hover{
-		      	background-image: url('http://localhost:9000/sist_project_2/images/talk4.png');
-		      
-		      }
-		 	.section1 div>div#third_div{
-		 		display:inline-block;
-		 		margin-top:70px;
-		 		margin-left:33%;
-		 		width:567px;
-		 		border-top:1px solid rgb(170,170,170);		
-		 		padding-top:40px; 		
-		 	}
-		 	.section1 div>div:nth-child(3) label:first-child{
-		 		font-weight:bold;
-		 		font-size:15px;
-		 		margin-bottom:20px;
-		 	}
-		 	.section1 div>div:nth-child(3)>div:nth-child(3){
-		 		margin:10px 0 0 0;
-		 	}
-		 	.section1 div>div:nth-child(3) div>span{
-		 		display:inline-block;
-		 		border:1px solid rgb(170,170,170);
-		 		width:50px;
-		 		height:30px;
-		 		text-align:center;
-		 		padding-top:4px;
-		 		border-radius:4px;
-		 		margin-right:5px;
-		 	}
-		 	.section1 div>div:nth-child(3) div:last-child{
-		 		color:black;
-		 		font-size:12px;
-		 		font-weight:bold;
-				margin:10px 0 30px 0;
-		 	}	 	
-		 	.section1 div div:nth-child(2) img:hover{
-		 	}	  
-		 	
+		 	}		 	
 		 	.white_content {
 		    position: fixed;
 		    top: 0;
@@ -179,7 +38,7 @@
 			.white_content > div {
 				position: absolute;
 				top: 100px;
-				left: 400px;
+				left: 300px;
 				width: 500px;
 				height: 500px;
 				padding: 16px;
@@ -266,7 +125,7 @@
 				</ul>	
 			</nav>
 		   </aside>
-		  	<div>
+		  	<div class ="inquiry">
 				<div>
 					<h1>1 : 1 문의</h1>
 					<label>궁금하신 사항을 남겨주세요.</label>

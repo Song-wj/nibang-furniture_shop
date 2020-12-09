@@ -6,9 +6,9 @@
 		<meta charset="UTF-8">
 		<title>FAQ</title>
 		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
 		 		
 		 	section.section1{
@@ -18,7 +18,7 @@
 		 		padding-top:10%;
 		 		margin-bottom:100px;
 		 	}
-		 	.section1 aside.sideMenuBar2{
+		 	/* .section1 aside.sideMenuBar2{
 		 		border:1px solid rgb(144, 144, 144);		 		
 		 		float:left;
 		 		margin-right:100px;
@@ -53,40 +53,40 @@
 		 	.section1 aside.sideMenuBar2 ul li:nth-child(6) a:hover,
 		 	.section1 aside.sideMenuBar2 ul li:nth-child(7) a:hover{
 		 		color:rgb(200,10,30);
-		 	}		 	
+		 	}		 	 */
 		 	.section1 div {
 		 		margin-left:50px;
 		 	}
-		 	.section1 div div:first-child {
+		 	/* .section1 div.faq div:first-child {
 		 		display:inline-block;
 		 		width:600px;
 		 		heigth:70px;
 		 		text-align:center;
 		 		margin-left:30px;		 		
 		 	}
-		 	.section1 div div:first-child h1{		 		
+		 	.section1 div.faq div:first-child h1{		 		
 		 		margin-top:-40px;
 		 	}		 		 	
-		 	.section1 div div:nth-child(1)>label{
+		 	.section1 div.faq div:nth-child(1)>label{
 		 		font-size:15px;
 		 		margin: 30px 0;	
 		 		padding-left:20px;	 
 	
 		 	}
-		 	.section1 div div:nth-child(2)>button{		 		
+		 	.section1 div.faq div:nth-child(2)>button{		 		
 		 		background-color:white;
 		 		border:none;
 		 		margin-left:30px;
 		 	}
-		 	.section1 div div:nth-child(2)>button>img{
+		 	.section1 div.faq div:nth-child(2)>button>img{
 		 		width:45px;
 		 		height:46px;
 		 				 		
 		 	}
-		 	.section1 div div:nth-child(1){
+		 	.section1 div.faq div:nth-child(1){
 		 		margin-top:50px;
 		 	}
-		 	.section1 div div:nth-child(2){
+		 	.section1 div.faq div:nth-child(2){
 		 		border:1px solid rgb(144, 144, 144);
  	 		    display:inline-block;
 		 		width:650px;
@@ -98,12 +98,12 @@
 		 		clear:left;
 
 		 	}
-		 	.section1 div div:nth-child(2) >input[type="text"]{
+		 	.section1 div.faq div:nth-child(2) >input[type="text"]{
 		 		width:350px;
 		 		height:50px;
 		 		border:3px solid rgb(200, 10, 30);			 			 		
 		 	}
-		 	.section1 div div span{
+		 	.section1 div.faq div span{
 		 		display:inline-block;
 		 		font-size:13px;
 		 		color:rgb(200, 10, 30);
@@ -111,100 +111,97 @@
 		 		margin-right:5px;
 		 		padding-right:9px;
 		 	}
-		 	.section1 div div:nth-child(2)>div {
+		 	.section1 div.faq div:nth-child(2)>div {
 		 		display:inline-block;
 		 		width:1px;
 		 		height:11px;
 		 		background-color:lightgray;
 		 		margin:0 5px;
 		 	}		 
-		 	.section1 div div:nth-child(3){
+		 	.section1 div.faq div:nth-child(3){
 		 		
 		 		margin-left:247px;
 		 		display:inline-block;
 		 		width:638px;
 		 	}
-		 	.section1 div div:nth-child(3)>table{
+		 	.section1 div.faq div:nth-child(3)>table{
 		 		border-collaspe:collaspe;
 			  	border:1px solid rgb(170,170,170);
 			  	width:650px;
 			  	margin-left:15px;
 		 	}
-		 	.section1 div div:nth-child(3)>table td{
+		 	.section1 div.faq div:nth-child(3)>table td{
 		 		padding:5px 10px;
 		 		font-size:13px;		 
 		 		color:rgb(144, 144, 144);
 		 		text-align:center;		 				
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table{
+		 	.section1 div.faq div:nth-child(4)>table.faq_table{
 		 		width:660px;
 		 		margin-left:210px;
 		 		margin-top:30px ;	 		
 		 	}			 			 	
-		 	.section1 div div:nth-child(4)>table.faq_table,
-		 	.section1 div div:nth-child(4)>table.faq_table th,
-		 	.section1 div div:nth-child(4)>table.faq_table td{		 		
+		 	.section1 div.faq div:nth-child(4)>table.faq_table,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table th,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table td{		 		
 			  	border-collaspe:collaspe;
 			  	border:1px solid #333;
 			  	border-left:1px solid white;
 		 		border-right:1px solid white;
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table th,
-		 	.section1 div div:nth-child(4)>table.faq_table td{
+		 	.section1 div.faq div:nth-child(4)>table.faq_table th,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table td{
 		 		font-size:13.5px;
 		 		font-weight:550;
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(2) th{
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(2) th{
 		 		text-align:center;
 		 		color:rgb(144, 144, 144);
 		 		font-size:13px;
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table tr td{
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr td{
 		 		padding:20px 0;
 		 		
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(2) th ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(3) td ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(4) td ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(5) td ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(6) td ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(7) td ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(8) td ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(9) td ,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(10) td,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(11) td,
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(12) td{
-		 
-		 		border-bottom:1px solid lightgray;
-		 	
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(2) th ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(3) td ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(4) td ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(5) td ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(6) td ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(7) td ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(8) td ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(9) td ,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(10) td,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(11) td,
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(12) td{		 
+		 		border-bottom:1px solid lightgray;	 	
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table tr:nth-child(13) td{
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(13) td{
 		 		border-bottom:1px solid white;
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table tr td:first-child{
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr td:first-child{
 		 		text-align:center;
 		 	}
-		 	.section1 div div:nth-child(4)>table.faq_table tr:first-child td{		 		
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:first-child td{		 		
 		 		color:black;
 		 		border-top:1px solid white;
 		 		border-bottom:1px solid rgb(144, 144, 144);
 		 		font-size:12px;
-		 		text-align:right; 
-	
+		 		text-align:right; 	
 		 	}
-		    .section1 div div:nth-child(4)>table.faq_table tr td:nth-child(2){
+		    .section1 div.faq div:nth-child(4)>table.faq_table tr td:nth-child(2){
 				padding-left:20px;
 				padding-right:10px;
 			
 			}	
-			.section1 div div:nth-child(4)>table.faq_table tr td:nth-child(1){
+			.section1 div.faq div:nth-child(4)>table.faq_table tr td:nth-child(1){
 				width:100px;
 			}					
-		 	.section1 div div:nth-child(4)>table.faq_table tr td:nth-child(4){
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr td:nth-child(4){
 		 		width:70px;
 		 		text-align:center;
 		 	}
-		 	.section1 div div:nth-child(5){
+		 	.section1 div.faq div:nth-child(5){
 		 		text-align:center;
 		 		margin-top:10px;
 		 		width:747px;
@@ -214,22 +211,21 @@
 		 		margin-left:200px;
 		 		color:rgb(114,114,114);
 		 	}
-		 	.section1 div div:nth-child(6){
+		 	.section1 div.faq div:nth-child(6){
 		 		padding-left:50px;
 		 		display:inline-block;
 		 		margin-left:500px;
 		 	}
-		    .section1 div div:nth-child(3)>table tr td:hover{
+		    .section1 div.faq div:nth-child(3)>table tr td:hover{
 		 		background-color:rgb(99,102,106);
 		 		color:white;
 		 	} 		 	
-		 	.section1 div div:nth-child(4)>table.faq_table tr:hover{
+		 	.section1 div.faq div:nth-child(4)>table.faq_table tr:hover{
 		 		color:rgb(200,10,30);
-		 	}
-		 	
-		 	.section1 div div:nth-child(2)>button:focus{
+		 	}		 	
+		 	.section1 div.faq div:nth-child(2)>button:focus{
 		 		outline:none;
-		 	}
+		 	} */
 		</style>
 	</head>
 	<body>
@@ -246,7 +242,7 @@
 				</ul>	
 			</nav>
 		   </aside>
-		    <div>
+		    <div class ="faq">
 			<div>
 				<h1>FAQ</h1>
 				<label>일룸 서비스에 대해 궁금한 사항을 FAQ로 신속하게 해결해보세요.</label>

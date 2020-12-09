@@ -64,13 +64,14 @@
 		height: 274px;
 	} */
 	/* ----- hover image ----- */	
-	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child {
+	#section1_category_bed ul li.product_list:nth-child(2) a span.abc {
 		display: inline-block;
 		width: 274px;
 		height: 274px;
 		margin-bottom: -5px;
 		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형2(Q)-579000.jpg');
 		background-repeat: no-repeat;
+		border:1px solid red;
 	}
 	#section1_category_bed ul li.product_list:nth-child(2) a span:first-child:hover {
 		background-image: url('http://localhost:9000/sist_project_2/images/쿠시노_저상형(SS)-480000.jpg');
@@ -163,7 +164,7 @@
 					</li>
 					<li class="product_list">
 						<a href="http://localhost:9000/sist_project_2/product_detail/bed_쿠시노.jsp">
-						<span></span>
+						<span class="abc"></span>
 						<span class="title">쿠시노</span>
 						<br>
 						<span class="explain">저상형 패밀리침대(인조가죽)</span>
