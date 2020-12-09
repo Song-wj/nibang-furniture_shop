@@ -69,50 +69,26 @@
 		background-position: 13px 10px;
 		text-align: right;
 	}
-	div.chatbot_banner_message span{
+	div.chatbot_banner_message a.message{
 		display: inline-block;
 		font-size: 13px;
 		font-weight: bold;
-		width: 100%;
+		width: 97%;
+		height:40px;
 		color: #fff;
 		letter-spacing: -1.5px;
 		line-height: 41px;
 		padding-right: 14px;
-		border:1px solid red;
-	}
-	div.chatbot_banner_message div.mdiv{
-		margin-left:40px;
-		width:65px;
-		height:30px;
-		border:1px solid red;
-	}
-	div.chatbot_banner_message div.mdiv span{
-		display:inline-block;
-		height:20px;
-		width:65px;
-		border:1px solid red;
-		color:red;
+		text-decoration:none;
 	}
 	div.chatbot_banner_message:hover {
 		background-color: rgb(35,197,69);
 		background-image: url('http://localhost:9000/sist_project_2/images/talk4.png');
 	}	
-	div.chatbot_banner_message span:hover {
+	div.chatbot_banner_message a.message:hover {
 		color: black;
 	} 
-	.white_content4 {
-		position: fixed;
-		top: 0;
-		right: 0;
-	    bottom: 0;
-	    left: 0;
-		/* background: rgba(0, 0, 0, 0.8); */
-		opacity:0;
-		-webkit-transition: opacity 400ms ease-in;
-		-moz-transition: opacity 400ms ease-in;
-	    transition: opacity 400ms ease-in;
-	    pointer-events: none;
-	}
+	
 
 </style>
 </head>
@@ -250,7 +226,7 @@
 		<span >카톡문의</span>
 	</div>
 	<div class="chatbot_banner_message" >
-		<div class="mdiv"><a href="#open"  class="message"><span>쪽지문의</span></a></div>
+		<a href="#open"  class="message">쪽지문의</a>
 		<div class="white_content4" id="open">
 						<div class="inquiry_content1"  id="inquiry_content1">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
@@ -281,7 +257,7 @@
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 									<li>최대 5개 파일 업로드 가능</li>				
 								</ul>
-									<button type="button">신청하기</button>
+									<button type="button" id="a">신청하기</button>
 							</form>
 						</div>        
 					</div>
