@@ -415,11 +415,15 @@
 		float:right;
 		margin:20px 15px;
 	}
+	
+	
+	
+	
 /* 
 	¿ÞÂÊ ¹è³Ê
  */
 	
-	/* div.chatbot_banner_kakao {
+	div.chatbot_banner_kakao {
 		background-color: #222222;
 		border-radius: 50px;
 		position: fixed;
@@ -467,34 +471,29 @@
 		background-position: 13px 10px;
 		text-align: right;
 	}
-	div.chatbot_banner_message span{
+	div.chatbot_banner_message a.message{
 		display: inline-block;
 		font-size: 13px;
 		font-weight: bold;
-		width: 100%;
+		width: 97%;
+		height:40px;
 		color: #fff;
 		letter-spacing: -1.5px;
 		line-height: 41px;
 		padding-right: 14px;
-	}
-	div.chatbot_banner_message div.mdiv{
-		margin-left:40px;
-		width:65px;
-		height:30px;
-	}
-	div.chatbot_banner_message div.mdiv span{
-		display:inline-block;
-		height:20px;
-		width:65px;
+		text-decoration:none;
 	}
 	div.chatbot_banner_message:hover {
 		background-color: rgb(35,197,69);
 		background-image: url('http://localhost:9000/sist_project_2/images/talk4.png');
 	}	
-	div.chatbot_banner_message span:hover {
+	div.chatbot_banner_message a.message:hover {
 		color: black;
 	}
-	 */
+	
+	
+	
+	
 /* 
 	login
  */
@@ -2254,6 +2253,9 @@
 		margin-top: 80px;
 		text-align: center;
 	}	
+	#section2_event1 div.event_img img{
+		width:1000px;
+	}
 	#section2_event1 p {
 		margin-top: 50px;
 	}
@@ -2303,9 +2305,9 @@
 		background-color: rgb(250, 248, 236);
 	}	
 	#section2_event1 div.event_apply {
-		width: 1205px;
+		display: inline-block;
+		width: 1120px;
 		padding: 25px;
-		margin: 50px 0 0 30px;
 		background-color: rgb(216, 135, 102);
 	}
 	#section2_event1 div.event_apply a{
