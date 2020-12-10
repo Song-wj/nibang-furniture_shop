@@ -149,9 +149,9 @@
 	<div class="chatbot_banner_message" >
 		<a href="#open"  class="message">쪽지문의</a>
 		<div class="white_content4" id="open">
-						<div class="inquiry_content1"  id="inquiry_content1">
-							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-							<h3>쪽지 문의</h3>
+			<div class="inquiry_content1"  id="inquiry_content1">
+					<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
+						<h3>쪽지 문의</h3>
 							<form name="inquiryform1" action="#" method="get" class="inquiryform1">
 								<ul>
 									<li>
