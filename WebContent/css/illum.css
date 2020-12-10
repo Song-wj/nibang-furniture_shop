@@ -2987,3 +2987,16 @@
 	table.notice_table th {
 		font-size: 13px;
 	}
+	ul.notice_page_num  {
+	  	text-align: center;
+	    padding-left: 20%;
+	    margin-top: 40px;
+	}
+	ul.notice_page_num li {
+	    display: inline-block;
+	    font-size: 12px;
+	    margin-right: 10px;
+	    padding: 6px 10px 6px 10px;
+	    border: 1px solid rgb(224, 224, 224);
+	    border-radius: 30px;
+	}
