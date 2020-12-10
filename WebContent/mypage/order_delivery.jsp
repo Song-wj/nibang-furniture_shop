@@ -15,9 +15,8 @@
    		width: 95%;
     	margin: auto;
     }
-	
-	
 </style>
+
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -69,13 +68,17 @@
 						</ul>
 				</div>
 				<div class="duration_btn">
-					<button type="button" class="duration_btn1">1개월</button>
-					<button type="button" class="duration_btn2">3개월</button>
-					<button type="button" class="duration_btn3">6개월</button>
-					<button type="button" class="duration_btn4">전체</button>
+					<table class="r_btn" >
+						<tr>
+							<td id="btn1"><button type="button" onclick="r_change1()" >1개월</button></td>
+							<td id="btn2"><button type="button" onclick="r_change2()" >3개월</button></td>
+							<td id="btn3"><button type="button" onclick="r_change3()" >6개월</button></td>
+							<td id="btn4"><button type="button" onclick="r_change4()" >전체</button></td>
+						</tr>
+					</table>
 				</div>
-				<div style="margin:40px; text-align:center;">
-						<span style="color:#aaa; font-size: 16px; ">최대 3년 이내 주문내역만 조회하실 수 있습니다.</span>
+				<div style="margin:40px; text-align:center; color:#aaa; font-size: 16px;">
+						최대 3년 이내 주문내역만 조회하실 수 있습니다.
 				</div>
 				<table class="order_table">
 					<tbody>

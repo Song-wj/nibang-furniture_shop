@@ -1842,6 +1842,9 @@
 	    position: relative;
 	    outline: 1px solid #aaa;
 	}
+	div.duration_btn {
+		 padding-left: 5%;
+	}
 	div.duration_btn button {
 		display: inline-block;
 		background-color: #fff;
@@ -1854,10 +1857,7 @@
 		z-index: 0;
 		outline: 1px solid #aaa;
 		margin-right: -3px;}
-	button.duration_btn1 {
-		color: #c80a1e;
-		outline: 1px solid #c80a1e;
-	}			
+		
 	table.order_table {
 		border-top: 1px solid #aaa;
 		border-bottom: 1px solid #aaa;
