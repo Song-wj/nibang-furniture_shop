@@ -614,6 +614,9 @@
 		width: 500px;
 		height: 37px;
 	}
+	section.section1 div.join form>ul>li:nth-child(2)>input#cpass{
+		text-indent:10px;
+	}
 	section.section1 div.join form>ul>li:nth-child(2)>input[type="password"],
 	section.section1 div.join form>ul>li:nth-child(3)>input[type="text"] {
 		width: 500px;

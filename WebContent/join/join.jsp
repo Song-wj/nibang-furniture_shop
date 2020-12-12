@@ -23,27 +23,37 @@
 			$("button#join_btn").click(function (){
 				if($("#email").val() == ""){
 					alert("이메일을 입력해주세요");
-				}else if($("#email").val() == ""){
-					alert("이메일을 입력해주세요");
+					$("#email").focus();
 				}else if($("#email2").val() == ""){
 					alert("이메일을 입력해주세요");
+					$("#email2").focus();
 				}else if(!passCheck($("#pass") , chk )){
 					return false;
 				}else if($("#cpass").val() == ""){
 					alert("비밀번호 확인을 입력해주세요");
 				}else if($("#name").val() == ""){
 					alert("이름을 입력해주세요");
+					$("#name").focus();
 				}else if($("#birth1").val() == "" || $("#birth2").val() == "" || $("#birth3").val() == ""){
 					alert("생년 월일을 입력해주세요");
+					$("#birth1").focus();
 				}else if($("#gender:checked").length ==0){
-					alert("성별을 체크해주세요");	
+					alert("성별을 체크해주세요");
+					$("#gender").focus();
 				}else if($("#ph1").val() == "" || $("#ph2").val() == "" || $("#ph3").val() == ""){
 					alert("번호를 입력해주세요");
+					$("#ph1").focus();
+				}else if($("#addr1").val() == ""){
+					alert("우편번호를 입력해주세요");
+					$("#addr1").focus();
 				}else if($("#addr2").val() == ""){
-					alert("도로명을 입력해주세요");
-				}else if($("#name").val() == ""){
-					alert("상세주소를 입력해주세요");
-				}	
+					alert("주소을 입력해주세요");
+					$("#addr2").focus();
+				}else if($("#addr1").val() == ""){
+					alert("상세주소을 입력해주세요");
+					$("#addr3").focus();	
+				}else
+					joinForm.submit();
 			});
 			
 			$("#s_email").change(function(){
@@ -56,15 +66,16 @@
 			});
 			
 			$("#cpass").focusout(function(){
-				if($("#pass").val() == $(this).val()){
-					$("#msg").text("사용가능합니다").css("font-size","10px").css("color","blue").css("margin-left","430px");
-					$("#name").focus();
-				}else{
-					$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
-					$(this).val("");
-					$("#cpass").focus();
-					
-				}
+				if($("#pass").val() != ""){
+					if($("#pass").val() == $(this).val()){
+						$("#msg").text("사용가능합니다").css("font-size","10px").css("color","blue").css("margin-left","430px");
+						$("#name").focus();
+					}else{
+						$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
+						$(this).val("");
+				/* 		$("#cpass").focus();	 */					
+					}
+				}	
 			});
 			
 			function passCheck(id ,chk){
@@ -100,9 +111,9 @@
 		function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
 			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
 			/* document.form.roadFullAddr.value = roadFullAddr; */
-			document.join.addr1.value = zipNo;
-			document.join.addr2.value = roadAddrPart1;
-			document.join.addr3.value = addrDetail;
+			document.joinForm.addr1.value = zipNo;
+			document.joinForm.addr2.value = roadAddrPart1;
+			document.joinForm.addr3.value = addrDetail;
 			
 			document.getElementById("addr1").style.fontSize = "15px";
 		    document.getElementById("addr2").style.fontSize = "12px";
@@ -122,18 +133,18 @@
 		<section class="section1">
 			<div class="join">
 				<h1>회원가입</h1>
-				<form name="join" action="#" method="get" class="join_from">
+				<form name="joinForm" action="joinProc.jsp" method="get" class="join_from">
 					<ul>
 						<li><input type="text" name="id" placeholder="아이디(이메일)" id="email">
 							<input type="text" name="e-mail" id="email2">
 							 <select id ="s_email">
 								<option value="직접입력">직접입력
-								<option value="naver.com">naver.com
-								<option value="nate.com">nate.com
-								<option value="daum.net">daum.net
-								<option value="hanamil.net">hanamil.net
-								<option value="gmail.com">gmail.com
-								<option value="yahoo.co.kr">yahoo.co.kr
+								<option value="@naver.com">naver.com
+								<option value="@nate.com">nate.com
+								<option value="@daum.net">daum.net
+								<option value="@hanamil.net">hanamil.net
+								<option value="@gmail.com">gmail.com
+								<option value="@yahoo.co.kr">yahoo.co.kr
 						</select>
 							<div>중복확인</div></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass">
@@ -142,16 +153,16 @@
 							<span id="msg"></span>							
 							<div>8~15자의 영문, 숫자, 특수문자 조합</div></li>
 						<li><input type="text" name="name" placeholder="이름" id="name"></li>
-						<li><input type="text" name="pass" placeholder="생년월일" id="birth1">
-							<input type="text" name="pass" id="birth2">
-							<input type="text" name="pass" id="birth3">
-						    <input type="radio" name="gender" id ="gender">남 <input
-							type="radio" name="gender" id="gender">여</li>
+						<li><input type="text" name="birth1" placeholder="생년월일" id="birth1">
+							<input type="text" name="birth2" id="birth2">
+							<input type="text" name="birth3" id="birth3">
+						    <input type="radio" name="gender" id ="gender" value ="남">남 <input
+							type="radio" name="gender" id="gender" value ="여">여</li>
 						<li><input type="text" name="ph1" placeholder="전화번호" id="ph1">
 							<input type="text" name="ph2" id="ph2"> 
 							<input type="text" name="ph3" id="ph3">
 							<div>중복확인</div></li>
-						<li><input type="text" name="addr" placeholder="우편번호" id="addr1">
+						<li><input type="text" name="addr1" placeholder="우편번호" id="addr1">
 							<button type="button" class="btn_style" onClick="goPopup();" >찾기</button> <br>
 						<br> <input type="text" name="addr2" placeholder="도로명주소"	class="a" id="addr2">
 						 <input type="text" name="addr3" placeholder="상세주소" id="addr3"></li>
