@@ -155,11 +155,33 @@
 		div#map{
 			
 		}
+		/** 날씨 API css*/
+		.map_section .js-weather-container {
+	    	text-align: right;
+		}
+	
+		.map_section .js-weather-container .js-weather {
+		    position: absolute;
+		    right: 5%;
+		    top: 80px;
+		    color: #aaa;
+		    font-size: 15px;
+		}
+		
+		.map_section .js-weather-icon {
+			position: absolute;
+			top: 60px;
+			right: 10px;
+		}
 </style>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 		<section class ="map_section">
+		<div class="js-weather-container">
+        	<span class="js-weather"></span>
+        	<span class="js-weather-icon"></span>
+    	</div>
 		<div class="map_wrap">
 		<div class = "store_info">매장안내</div>
 		    <div id="map" style="width:750px;height:400px;position:relative;overflow:hidden;"></div>
@@ -203,6 +225,6 @@
 		</div>
 		</section>
 	<jsp:include page="../footer.jsp" />
- 	
+ 	<script src="http://localhost:9000/sist_project_2/js/weather.js"></script>
 </body>
 </html>
