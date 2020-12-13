@@ -7,7 +7,7 @@
 	
 	
 	String email1 = request.getParameter("id");
-	String email2 = request.getParameter("email2");
+	String email2 = request.getParameter("e-mail");
 	String pass = request.getParameter("pass");
 	String name = request.getParameter("name");
 	String birth1 = request.getParameter("birth1");
@@ -25,7 +25,7 @@
 	
 	String id =email1 + "@" + email2;
 	String birth = birth1 + "년" + birth2 + "월" + birth3 +"일";
-	String addr =  "우편번호=" +addr1+  "상세주소=" +addr2 + addr3;
+	String addr =  "우편번호=" +addr1+  "상세주소=" +addr2 +" "+ addr3;
 	String phone = phone1+ "-" + phone2 + "-" + phone3;
 		
 	joinVO vo = new joinVO();

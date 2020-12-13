@@ -34,26 +34,34 @@
 				}else if($("#name").val() == ""){
 					alert("이름을 입력해주세요");
 					$("#name").focus();
-				}else if($("#birth1").val() == "" || $("#birth2").val() == "" || $("#birth3").val() == ""){
-					alert("생년 월일을 입력해주세요");
-					$("#birth1").focus();
+				}else if(!birthCheck($("#birth1").attr("name"))){
+					return false;
+				}else if(!birthCheck($("#birth2").attr("name"))){
+					return false;
+				}else if(!birthCheck($("#birth3").attr("name"))){	
+					return false;	
 				}else if($("#gender:checked").length ==0){
 					alert("성별을 체크해주세요");
 					$("#gender").focus();
-				}else if($("#ph1").val() == "" || $("#ph2").val() == "" || $("#ph3").val() == ""){
-					alert("번호를 입력해주세요");
-					$("#ph1").focus();
+				}else if(!phoneCheck()){
+					return false;
 				}else if($("#addr1").val() == ""){
 					alert("우편번호를 입력해주세요");
 					$("#addr1").focus();
 				}else if($("#addr2").val() == ""){
 					alert("주소을 입력해주세요");
 					$("#addr2").focus();
-				}else if($("#addr1").val() == ""){
+				}else if($("#addr3").val() == ""){
 					alert("상세주소을 입력해주세요");
 					$("#addr3").focus();	
-				}else
-					joinForm.submit();
+				}else{			
+					if($("#pass").val() == $("#cpass").val()){
+						joinForm.submit();			
+					}else{
+						alert("비밀번호가 다릅니다.")
+					}
+				}
+					
 			});
 			
 			$("#s_email").change(function(){
@@ -73,28 +81,118 @@
 					}else{
 						$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
 						$(this).val("");
-				/* 		$("#cpass").focus();	 */					
+						$("#pass").focus();
+				 		 			
 					}
 				}	
 			});
+			
+		 	$("#pass").focusout(function(){
+				if($("#pass").val() != "" && $("#cpass").val() != ""){	
+					if($("#pass").val() != $("#cpass").val()){
+						$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
+						$("#cpass").focus();
+					}
+					
+				}	
+			}); 
 			
 			function passCheck(id ,chk){
 				if(id.val()==""){
 					alert("비밀번호를 입력해주세요");
 					id.focus();
+					return false;
 				}else
 					if(chk.test(id.val())){
 						return true;
 					}else{
 						alert("8~15자의 영문, 숫자, 특수문자 조합으로 구성해주세요");
 						id.focus();
-						return false;
-						
+						return false;						
 					}
 				
 				
 			}
 
+			function birthCheck(birth){
+				var today = new Date();
+				var yearNow = today.getFullYear()
+				if($("#birth1").attr("name") == birth){
+					var key = $("#birth1").val();
+					if(key==""){
+						alert("생년 입력해주세요");
+						return false;
+					}else{
+						if(key>yearNow || key<1940){
+							alert("생년를 다시입력해주세요");
+							$("#birth1").focus();
+						}else
+							return true;
+					}
+				
+				}else if($("#birth2").attr("name") == birth){
+					var key = $("#birth2").val();
+					if(key==""){
+						alert("생월을 입력해주세요");
+						return false;
+					}else{
+						if(key>12 || key<01){
+							alert("생월을 다시입력해주세요");
+							$("#birth2").focus();
+							return false;
+						}else
+							return true;
+					}
+				}else {
+					var key = $("#birth3").val();
+					if(key==""){
+						alert("생일을 입력해주세요");
+						return false;
+					}else{
+						if(key>31 || key<01){
+							alert("생일을 다시입력해주세요");
+							$("#birth1").focus();
+							return false;
+						}else
+							return true;
+					}
+				}
+			};
+			
+			function phoneCheck(){
+				var a = $("#ph1").val();
+				var b = $("#ph2").val();
+				var c = $("#ph3").val();
+				var ph = a + "-" + b + "-" +c;
+				var phrule = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+				if(a =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#ph1").focus();
+					return false;
+				}else if(b =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#ph2").focus();
+					return false;
+				}else if(c =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#ph3").focus();
+					return false;	
+				}else
+					if(phrule.test(ph)){
+						return true;
+					}else{
+						alert("휴대번호를 다시 입력해주세요");
+						$("#ph1").val("");
+						$("#ph2").val("");
+						$("#ph3").val("");
+						phone.focus();
+						return false;						
+					}
+			
+				
+			}
+		
+		
 		});
 			
 
@@ -146,7 +244,7 @@
 								<option value="@gmail.com">gmail.com
 								<option value="@yahoo.co.kr">yahoo.co.kr
 						</select>
-							<div>중복확인</div></li>
+							<div><a href ="#">중복확인</a></div></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass">
 							<br> <input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
 							<br>
@@ -161,7 +259,7 @@
 						<li><input type="text" name="ph1" placeholder="전화번호" id="ph1">
 							<input type="text" name="ph2" id="ph2"> 
 							<input type="text" name="ph3" id="ph3">
-							<div>중복확인</div></li>
+							<div ><a href="#" id=pchk>중복확인</a></div></li>
 						<li><input type="text" name="addr1" placeholder="우편번호" id="addr1">
 							<button type="button" class="btn_style" onClick="goPopup();" >찾기</button> <br>
 						<br> <input type="text" name="addr2" placeholder="도로명주소"	class="a" id="addr2">
