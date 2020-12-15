@@ -45,9 +45,9 @@
 					$("#gender").focus();
 				}else if(!phoneCheck()){
 					return false;
-				}else if($("#addr1").val() == ""){
+				}else if($("#addr_num").val() == ""){
 					alert("우편번호를 입력해주세요");
-					$("#addr1").focus();
+					$("#addr_num").focus();
 				}else if($("#addr2").val() == ""){
 					alert("주소을 입력해주세요");
 					$("#addr2").focus();
@@ -233,8 +233,8 @@
 				<h1>회원가입</h1>
 				<form name="joinForm" action="joinProc.jsp" method="get" class="join_from">
 					<ul>
-						<li><input type="text" name="id" placeholder="아이디(이메일)" id="email">
-							<input type="text" name="e-mail" id="email2">
+						<li><input type="text" name="email1" placeholder="아이디(이메일)" id="email">
+							<input type="text" name="email2" id="email2">
 							 <select id ="s_email">
 								<option value="직접입력">직접입력
 								<option value="@naver.com">naver.com
@@ -260,7 +260,7 @@
 							<input type="text" name="ph2" id="ph2"> 
 							<input type="text" name="ph3" id="ph3">
 							<div ><a href="#" id=pchk>중복확인</a></div></li>
-						<li><input type="text" name="addr1" placeholder="우편번호" id="addr1">
+						<li><input type="text" name="addr_num" placeholder="우편번호" id="addr1">
 							<button type="button" class="btn_style" onClick="goPopup();" >찾기</button> <br>
 						<br> <input type="text" name="addr2" placeholder="도로명주소"	class="a" id="addr2">
 						 <input type="text" name="addr3" placeholder="상세주소" id="addr3"></li>
