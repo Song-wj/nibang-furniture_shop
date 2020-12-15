@@ -42,4 +42,17 @@ public class nibangDAO extends DBConn{
 		}
 		return result;
 	}
+	public boolean idCheck(String id) {
+		boolean result =false;
+		try {
+			String sql = "select count(*) from nibangmember where mid =?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, id);
+			rs.next();
+			if(rs.getInt(1) !=0) result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import = "com.sist_project_2.dao.*"%>
+<%
+	nibangDAO dao = new nibangDAO();
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -20,6 +24,7 @@
 	<script>
 		$(document).ready(function(){
 			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
+			var checknum = 0;
 			$("button#join_btn").click(function (){
 				if($("#email").val() == ""){
 					alert("이메일을 입력해주세요");
@@ -54,12 +59,10 @@
 				}else if($("#addr3").val() == ""){
 					alert("상세주소을 입력해주세요");
 					$("#addr3").focus();	
-				}else{			
-					if($("#pass").val() == $("#cpass").val()){
-						joinForm.submit();			
-					}else{
-						alert("비밀번호가 다릅니다.")
-					}
+				}else{							
+						if(checknum ==0){							
+							joinForm.submit();			
+						}				
 				}
 					
 			});
@@ -86,17 +89,20 @@
 					}
 				}	
 			});
-			
-		 	$("#pass").focusout(function(){
-				if($("#pass").val() != "" && $("#cpass").val() != ""){	
+		
+	
+		 	$("#pass").change(function (){
+		 		if( $("#cpass").val() !="" ){	 			
 					if($("#pass").val() != $("#cpass").val()){
 						$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
 						$("#cpass").focus();
+						checknum =1;
 					}
-					
-				}	
-			}); 
-			
+				
+		 	}
+		 	}) ;
+		 	
+		 	
 			function passCheck(id ,chk){
 				if(id.val()==""){
 					alert("비밀번호를 입력해주세요");
@@ -191,6 +197,18 @@
 			
 				
 			}
+			
+			<%-- $("#idCheck").click(function (){
+				var id =$('#email1').val() + $('#email2').val(); 
+				if($('#email1').val() != "" && $('#email2').val() != ""){
+					<% if(dao.idCheck(id)){ %>
+						alert("이미 존재하는 ID입니다.");
+					}else
+						alert("사용가능한 ID입니다.");
+					<% } %>
+				}else
+					alert("email을 입력해 주세요");
+			}) --%>
 		
 		
 		});
@@ -244,7 +262,7 @@
 								<option value="@gmail.com">gmail.com
 								<option value="@yahoo.co.kr">yahoo.co.kr
 						</select>
-							<div><a href ="#">중복확인</a></div></li>
+							<div><a href ="#" id="idCheck">중복확인</a></div></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass">
 							<br> <input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
 							<br>
