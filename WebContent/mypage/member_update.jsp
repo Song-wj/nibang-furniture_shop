@@ -3,7 +3,8 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
 <%
-	String id = request.getParameter("id");
+	/* String id = request.getParameter("id"); */
+	String id= "a@naver.com";
 	nibangDAO dao = new nibangDAO();
 	joinVO vo = dao.getMemberInfo(id);
 %>
@@ -135,31 +136,31 @@
 	<div class="content">
 		<jsp:include page="../sideMenuBar.jsp"/>
 			<div class="memberupdate" id="memberupdate">
-			<form name="mupdate" action="member_updateProc.jsp" method="get">
+			<form name="mupdate" action="member_updateProc.jsp" method="post">
 					<h2>회원정보 수정</h2>
 						<ul>
-							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email" value="<%= vo.getEmail() %>"></li>
+							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email" value="<%= vo.getEmail() %>" disabled></li>
 							<li><input type="text" name="name" placeholder="이름" id="name" value="<%= vo.getName() %>"></li>
 							<li><input type="password" name="pass" placeholder="비밀번호" id="pass" value="<%= vo.getPass() %>"></li>
 							<li><input type="password" name="cpass" placeholder="비밀번호확인" id="cpass" value="<%= vo.getPass() %>">
 								<br><span id="msg"></span>
 								<br><label class="password_chk">8~15자의 영문, 숫자, 특수문자 조합</label><li>
 							<li>
-								<input type="text" name="year" placeholder="생년월일" id="year" value="<%= vo.getBirth1() %>">
-								<input type="text" name="month" id="month" value="<%= vo.getBirth2() %>">
-								<input type="text" name="day" id="day" value="<%= vo.getBirth3() %>">
+								<input type="text" name="birth1" placeholder="생년월일" id="year" value="<%= vo.getBirth1() %>">
+								<input type="text" name="birth2" id="month" value="<%= vo.getBirth2() %>">
+								<input type="text" name="birth3" id="day" value="<%= vo.getBirth3() %>">
 								<input type="radio" name="gender" id="gender"><span>남</span>
 								<input type="radio" name="gender" ><span>여</span>					
 							</li>
 							<li>
-								<input type="text" name="hp" placeholder="전화번호" id="hp1" value="<%= vo.getPh1() %>">
-								<input type="text" name="hp" id="hp2" value="<%= vo.getPh2() %>">
-								<input type="text" name="hp" id="hp3" value="<%= vo.getPh3() %>">
+								<input type="text" name="ph1" placeholder="전화번호" id="hp1" value="<%= vo.getPh1() %>">
+								<input type="text" name="ph2" id="hp2" value="<%= vo.getPh2() %>">
+								<input type="text" name="ph3" id="hp3" value="<%= vo.getPh3() %>">
 							</li>
-							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number" value="<%= vo.getAddr_num() %>"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
+							<li><input type="text" name="addr_num" placeholder="우편번호" id="addr_number" value="<%= vo.getAddr_num() %>"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
 							<li>
-								<input type="text" name="addr" placeholder="도로명주소" id="addr1">		
-								<input type="text" name="addr" placeholder="상세주소" id="addr2">
+								<input type="text" name="addr2" placeholder="도로명주소" id="addr1" value= "<%= vo.getAddr2()%>">		
+								<input type="text" name="addr3" placeholder="상세주소" id="addr2" value= "<%= vo.getAddr3()%>">
 							</li>
 							<li><label class="change_info">정보변경</label></li>
 							<li><label>선택 동의항목</label><hr></li>

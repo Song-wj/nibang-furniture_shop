@@ -33,7 +33,7 @@ public class joinVO {
 	public String getAddr() {
 		String address = "";
 		if (addr2 != null) {
-			address = addr2 + " " + addr3;
+			address = addr2 + "," + addr3;
 		} else
 			address = addr;
 		return address;
