@@ -3,7 +3,7 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
 <%
-	/* String id = request.getParameter("id"); */
+	
 	String id= "a@naver.com";
 	nibangDAO dao = new nibangDAO();
 	joinVO vo = dao.getMemberInfo(id);
@@ -33,7 +33,7 @@
 			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
 			
 			$("button#btn_updateOK").click(function (){
-				if($("#name").val() == ""){
+				 if($("#name").val() == ""){
 					alert("이름을 입력해주세요");
 					$("#name").focus();
 				}else if(!passCheck($("#pass") , chk )){
@@ -53,7 +53,7 @@
 					$("#addr1").focus();
 				}else if($("#addr2").val() == ""){
 					alert("상세주소를 입력해주세요");
-					$("#addr2").focus();
+					$("#addr2").focus(); 
 				}else {
 					mupdate.submit();
 				}
@@ -136,7 +136,8 @@
 	<div class="content">
 		<jsp:include page="../sideMenuBar.jsp"/>
 			<div class="memberupdate" id="memberupdate">
-			<form name="mupdate" action="member_updateProc.jsp" method="post">
+
+			<form name="mupdate" action="member_updateProc.jsp?id=<%= id %>" method="post">
 					<h2>회원정보 수정</h2>
 						<ul>
 							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email" value="<%= vo.getEmail() %>" disabled></li>

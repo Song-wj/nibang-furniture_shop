@@ -64,9 +64,8 @@ public class nibangDAO extends DBConn{
 	public joinVO getMemberInfo(String mid) {
 		joinVO vo = new joinVO();
 		try {
-//			String sql = "select mid, pass, name, substr(birth,1,4), substr(birth,6,2), substr(birth,9,2), gender, substr(hp,1,3), substr(hp,5,4), substr(hp,10,4), addrnum, addr"
-//					+ " from nibangmember where mid=?";
-			String sql = "select mid, pass, name, substr(birth,1,4), substr(birth,6,2), substr(birth,9,2), gender, substr(hp,1,3), substr(hp,5,4), substr(hp,10,4), addrnum, addr"
+			String sql = "select mid, pass, name, substr(birth,1,4), substr(birth,6,2), substr(birth,9,2), gender, "
+					+ "substr(hp,1,3), substr(hp,5,4), substr(hp,10,4), addrnum, addr"
 					+ " from nibangmember where mid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, mid);
@@ -90,7 +89,7 @@ public class nibangDAO extends DBConn{
 				String addr3 = rs.getString(12).substring(idx+1);
 				vo.setAddr2(addr2);
 				vo.setAddr3(addr3);
-				//vo.setAddr(rs.getString(12));
+
 			}
 			
 		} catch (Exception e) {
@@ -99,12 +98,10 @@ public class nibangDAO extends DBConn{
 		return vo;
 	}
 	
-	public boolean getMemberUpdate(joinVO vo) {
+	public boolean getMemberUpdate(joinVO vo ,String id) {
 		boolean result = false;
 		
 		try {
-//			String sql = "update nibangmember set mid=?, pass=?, name=?, birth=?, "
-//					+ "gender=?, hp=?, addrnum=?, addr=? where mid=?";
 			String sql = "update nibangmember set pass=?, name=?, birth=?, "
 					+ "gender=?, hp=?, addrnum=? , addr =? where mid=?";
 			getPreparedStatement(sql);
@@ -115,8 +112,8 @@ public class nibangDAO extends DBConn{
 			pstmt.setString(5, vo.getPh());
 			pstmt.setString(6, vo.getAddr_num());
 			pstmt.setString(7, vo.getAddr());
-			pstmt.setString(8, vo.getEmail1());
-	
+			pstmt.setString(8, id);
+			
 			int val = pstmt.executeUpdate();
 			if(val != 0) result = true;
 		} catch (Exception e) {
