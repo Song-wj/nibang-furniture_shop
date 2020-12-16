@@ -15,7 +15,9 @@ img{
 	width:200px;
 	height:200px;
 }
-
+div.content button.product_del{
+	margin-left:300px;
+}
 
 </style>
 </head>
@@ -36,7 +38,7 @@ img{
 				 <div><h1>상품 삭제</h1></div>			
 					<img src ="../images/delete.jpg">
 	  				<div>삭제하시겠습니까?</div>
-	  				<button type="button">삭제</button>
+	  				<button type="button" class="product_del">삭제</button>
 	  				<button type ="button">목록으로</button>
 	  			</div>
 	  		

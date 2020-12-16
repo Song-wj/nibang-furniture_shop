@@ -12,8 +12,7 @@
 <%
 	nibangDAO dao = new nibangDAO();
 	boolean result = dao.join(vo);
-	
-	
+		
 	if(result){
 		response.sendRedirect("../login/login.jsp");
 	}else{
@@ -22,8 +21,4 @@
 
 %>	
 
-
-	
-	
-	
  

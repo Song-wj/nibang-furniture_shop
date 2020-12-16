@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8" import = "com.sist_project_2.dao.*"%>
 <%
 	nibangDAO dao = new nibangDAO();
+
 %>
 
 <!DOCTYPE html>
@@ -157,7 +158,7 @@
 					}else{
 						if(key>31 || key<01){
 							alert("생일을 다시입력해주세요");
-							$("#birth1").focus();
+							$("#birth3").focus();
 							return false;
 						}else
 							return true;
@@ -198,17 +199,17 @@
 				
 			}
 			
-			<%-- $("#idCheck").click(function (){
+			/* <$("#idCheck").click(function (){
 				var id =$('#email1').val() + $('#email2').val(); 
 				if($('#email1').val() != "" && $('#email2').val() != ""){
-					<% if(dao.idCheck(id)){ %>
+					if(){ 
 						alert("이미 존재하는 ID입니다.");
 					}else
 						alert("사용가능한 ID입니다.");
-					<% } %>
+					 } 
 				}else
 					alert("email을 입력해 주세요");
-			}) --%>
+			})  */
 		
 		
 		});
@@ -262,7 +263,7 @@
 								<option value="@gmail.com">gmail.com
 								<option value="@yahoo.co.kr">yahoo.co.kr
 						</select>
-							<div><a href ="#" id="idCheck">중복확인</a></div></li>
+							<div><a href ="" id="idCheck">중복확인</a></div></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass">
 							<br> <input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
 							<br>

@@ -24,12 +24,18 @@
 		width:95%;
 		margin:auto;
 	}
-	
+	form input#pass{
+		text-indent:0px;
+	}
+	form input#addr1,
+	form input#addr2{
+		font-size:12px;
+	}
 </style>
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <script>
 		$(document).ready(function(){
-			
+			var checknum= 0;
 			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
 			
 			$("button#btn_updateOK").click(function (){
@@ -40,14 +46,16 @@
 					return false;
 				}else if($("#cpass").val() == ""){
 					alert("비밀번호를 확인해주세요");
-				}else if($("#year").val() == "" || $("#month").val() == "" || $("#day").val() == ""){
-					alert("생년 월일을 입력해주세요");
-					$("#year").focus();
+				}else if(!birthCheck($("#year").attr("name"))){
+					return false;
+				}else if(!birthCheck($("#month").attr("name"))){
+					return false;
+				}else if(!birthCheck($("#day").attr("name"))){	
+					return false;
 				}else if($("input:radio:checked").length == 0){
 					alert("성별을 체크해주세요");	
-				}else if($("#hp1").val() == "" || $("#hp2").val() == "" || $("#hp3").val() == ""){
-					alert("전화번호를 입력해주세요");
-					$("#hp1").focus();
+				}else if(!phoneCheck()){
+					return false;
 				}else if($("#addr1").val() == ""){
 					alert("도로명주소를 입력해주세요");
 					$("#addr1").focus();
@@ -55,7 +63,9 @@
 					alert("상세주소를 입력해주세요");
 					$("#addr2").focus(); 
 				}else {
-					mupdate.submit();
+					if(checknum ==0){	
+						mupdate.submit();
+					}
 				}
 			});
 			
@@ -78,6 +88,17 @@
 				}
 			});
 			
+			$("#pass").change(function (){
+		 		if( $("#cpass").val() !="" ){	 			
+					if($("#pass").val() != $("#cpass").val()){
+						$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
+						$("#cpass").focus();
+						checknum =1;
+					}
+				
+		 	   }
+		 	}) ;
+			
 			function passCheck(id ,chk){
 				if(id.val()==""){
 					alert("비밀번호를 입력해주세요");
@@ -91,7 +112,81 @@
 						return false;	
 					}
 			}
+			function birthCheck(birth){
+				var today = new Date();
+				var yearNow = today.getFullYear()
+				if($("#year").attr("name") == birth){
+					var key = $("year").val();
+					if(key==""){
+						alert("생년 입력해주세요");
+						return false;
+					}else{
+						if(key>yearNow || key<1940){
+							alert("생년를 다시입력해주세요");
+							$("#year").focus();
+						}else
+							return true;
+					}
+				
+				}else if($("#month").attr("name") == birth){
+					var key = $("#month").val();
+					if(key==""){
+						alert("생월을 입력해주세요");
+						return false;
+					}else{
+						if(key>12 || key<01){
+							alert("생월을 다시입력해주세요");
+							$("#month").focus();
+							return false;
+						}else
+							return true;
+					}
+				}else {
+					var key = $("#day").val();
+					if(key==""){
+						alert("생일을 입력해주세요");
+						return false;
+					}else{
+						if(key>31 || key<01){
+							alert("생일을 다시입력해주세요");
+							$("#day").focus();
+							return false;
+						}else
+							return true;
+					}
+				}
+			};
 			
+			function phoneCheck(){
+				var a = $("#hp1").val();
+				var b = $("#hp2").val();
+				var c = $("#hp3").val();
+				var ph = a + "-" + b + "-" +c;
+				var phrule = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+				if(a =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#hp1").focus();
+					return false;
+				}else if(b =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#hp2").focus();
+					return false;
+				}else if(c =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#hp3").focus();
+					return false;	
+				}else
+					if(phrule.test(ph)){
+						return true;
+					}else{
+						alert("휴대번호를 다시 입력해주세요");
+						$("#hp1").val("");
+						$("#hp2").val("");
+						$("#hp3").val("");
+						phone.focus();
+						return false;						
+					}
+			}
 			
 			/** 
 				성별 count 출력
@@ -107,7 +202,7 @@
 		         return count;
 		      }
 			
-	});
+		});
 		
 			function goPopup(){
 			// 주소검색을 수행할 팝업 페이지를 호출합니다.
@@ -128,6 +223,7 @@
 			    document.getElementById("addr1").style.fontSize = "12px";
 				document.getElementById("addr2").style.fontSize = "12px";
 			}
+	
 		
 </script>
 <body>

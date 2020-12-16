@@ -30,7 +30,6 @@ table{
 					</ul>	
 				</nav>
 			   </aside>
-	</section>
 	<div class="content">
 	<div><h1>상품관리</h1></div>
 	  <div class="list_body">
@@ -49,5 +48,6 @@ table{
 		</table>
 	</div>
 	</div>
+	</section>
 </body>
 </html>
