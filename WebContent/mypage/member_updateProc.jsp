@@ -7,11 +7,12 @@
 <jsp:setProperty property="*" name="vo" />
 
 <%
+	String id = request.getParameter("id");
 	nibangDAO dao = new nibangDAO();
 	boolean result = dao.getMemberUpdate(vo);
 	
 	if(result) {
-		response.sendRedirect("member_update.jsp");
+		response.sendRedirect("member_update.jsp?id="+id);
 	} else {
 		//에러페이지
 		System.out.println("에러입니다.");

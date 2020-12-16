@@ -32,7 +32,7 @@
 			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
 			
 			$("button#btn_updateOK").click(function (){
-				if($("#name").val() == ""){
+				/* if($("#name").val() == ""){
 					alert("이름을 입력해주세요");
 					$("#name").focus();
 				}else if(!passCheck($("#pass") , chk )){
@@ -52,10 +52,10 @@
 					$("#addr1").focus();
 				}else if($("#addr2").val() == ""){
 					alert("상세주소를 입력해주세요");
-					$("#addr2").focus();
-				}else {
+					$("#addr2").focus(); */
+				//}else {
 					mupdate.submit();
-				}
+				//}
 			});
 			
 			$("button#btn_updateCancel").click(function(){
@@ -135,7 +135,7 @@
 	<div class="content">
 		<jsp:include page="../sideMenuBar.jsp"/>
 			<div class="memberupdate" id="memberupdate">
-			<form name="mupdate" action="member_updateProc.jsp" method="get">
+			<form name="mupdate" action="member_updateProc.jsp?id=<%= id %>" method="get">
 					<h2>회원정보 수정</h2>
 						<ul>
 							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email" value="<%= vo.getEmail() %>"></li>
@@ -145,21 +145,21 @@
 								<br><span id="msg"></span>
 								<br><label class="password_chk">8~15자의 영문, 숫자, 특수문자 조합</label><li>
 							<li>
-								<input type="text" name="year" placeholder="생년월일" id="year" value="<%= vo.getBirth1() %>">
-								<input type="text" name="month" id="month" value="<%= vo.getBirth2() %>">
-								<input type="text" name="day" id="day" value="<%= vo.getBirth3() %>">
+								<input type="text" name="birth1" placeholder="생년월일" id="year" value="<%= vo.getBirth1() %>">
+								<input type="text" name="birth2" id="month" value="<%= vo.getBirth2() %>">
+								<input type="text" name="birth3" id="day" value="<%= vo.getBirth3() %>">
 								<input type="radio" name="gender" id="gender"><span>남</span>
 								<input type="radio" name="gender" ><span>여</span>					
 							</li>
 							<li>
-								<input type="text" name="hp" placeholder="전화번호" id="hp1" value="<%= vo.getPh1() %>">
-								<input type="text" name="hp" id="hp2" value="<%= vo.getPh2() %>">
-								<input type="text" name="hp" id="hp3" value="<%= vo.getPh3() %>">
+								<input type="text" name="ph1" placeholder="전화번호" id="hp1" value="<%= vo.getPh1() %>">
+								<input type="text" name="ph2" id="hp2" value="<%= vo.getPh2() %>">
+								<input type="text" name="ph3" id="hp3" value="<%= vo.getPh3() %>">
 							</li>
-							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number" value="<%= vo.getAddr_num() %>"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
+							<li><input type="text" name="addr_num" placeholder="우편번호" id="addr_number" value="<%= vo.getAddr_num() %>"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
 							<li>
-								<input type="text" name="addr" placeholder="도로명주소" id="addr1">		
-								<input type="text" name="addr" placeholder="상세주소" id="addr2">
+								<input type="text" name="addr" placeholder="도로명주소" id="addr1" value="<%= vo.getAddr()%>">		
+								<input type="text" name="addr3" placeholder="상세주소" id="addr2">
 							</li>
 							<li><label class="change_info">정보변경</label></li>
 							<li><label>선택 동의항목</label><hr></li>
