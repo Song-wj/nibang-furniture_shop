@@ -150,8 +150,8 @@
 								<input type="text" name="birth1" placeholder="생년월일" id="year" value="<%= vo.getBirth1() %>">
 								<input type="text" name="birth2" id="month" value="<%= vo.getBirth2() %>">
 								<input type="text" name="birth3" id="day" value="<%= vo.getBirth3() %>">
-								<input type="radio" name="gender" id="gender"><span>남</span>
-								<input type="radio" name="gender" ><span>여</span>					
+								<input type="radio" name="gender" id="gender" value="남"><span>남</span>
+								<input type="radio" name="gender"  value ="여"><span>여</span>					
 							</li>
 							<li>
 								<input type="text" name="ph1" placeholder="전화번호" id="hp1" value="<%= vo.getPh1() %>">
