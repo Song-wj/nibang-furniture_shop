@@ -1,5 +1,5 @@
 package com.sist_project_2.dao;
-import com.sist_project_2.vo.*;
+import com.sist_project_2.vo.joinVO;
 
 public class nibangDAO extends DBConn{
 	
@@ -24,6 +24,7 @@ public class nibangDAO extends DBConn{
 		}
 		return result;
 	}
+	
 	public boolean login(String id,String pass) {
 		boolean result = false;
 		try {
@@ -42,6 +43,7 @@ public class nibangDAO extends DBConn{
 		}
 		return result;
 	}
+	
 	public boolean idCheck(String id) {
 		boolean result =false;
 		try {
@@ -55,4 +57,96 @@ public class nibangDAO extends DBConn{
 		}
 		return result;
 	}
+	
+	/**
+	 * MemberUpdate : 회원정보 수정
+	 */
+	public joinVO getMemberInfo(String mid) {
+		joinVO vo = new joinVO();
+		try {
+//			String sql = "select mid, pass, name, substr(birth,1,4), substr(birth,6,2), substr(birth,9,2), gender, substr(hp,1,3), substr(hp,5,4), substr(hp,10,4), addrnum, addr"
+//					+ " from nibangmember where mid=?";
+			String sql = "select mid, pass, name, substr(birth,1,4), substr(birth,6,2), substr(birth,9,2), gender, substr(hp,1,3), substr(hp,5,4), substr(hp,10,4), addrnum"
+					+ " from nibangmember where mid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				vo.setEmail(rs.getString(1));
+				vo.setPass(rs.getString(2));
+				vo.setName(rs.getString(3));
+				vo.setBirth1(rs.getString(4));
+				vo.setBirth2(rs.getString(5));
+				vo.setBirth3(rs.getString(6));
+				vo.setGender(rs.getString(7));
+				vo.setPh1(rs.getString(8));
+				vo.setPh2(rs.getString(9));
+				vo.setPh3(rs.getString(10));
+				vo.setAddr_num(rs.getString(11));
+				//vo.setAddr(rs.getString(12));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
+	
+	public boolean getMemberUpdate(joinVO vo) {
+		boolean result = false;
+		
+		try {
+//			String sql = "update nibangmember set mid=?, pass=?, name=?, birth=?, "
+//					+ "gender=?, hp=?, addrnum=?, addr=? where mid=?";
+			String sql = "update nibangmember set mid=?, pass=?, name=?, birth=?, "
+					+ "gender=?, hp=?, addrnum=? where mid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(2, vo.getPass());
+			pstmt.setString(3, vo.getName());
+			pstmt.setString(4, vo.getBirth1() + vo.getBirth2() + vo.getBirth3());
+			pstmt.setString(5, vo.getGender());
+			pstmt.setString(6, vo.getPh1() + vo.getPh2() + vo.getPh3());
+			pstmt.setString(7, vo.getAddr_num());
+//			pstmt.setString(8, vo.getAddr());
+			pstmt.setString(8, vo.getEmail());
+			
+			System.out.println(vo.getEmail());
+			System.out.println(vo.getPass());
+			System.out.println(vo.getName());
+			System.out.println(vo.getBirth1() + vo.getBirth2() + vo.getBirth3());
+			System.out.println(vo.getGender());
+			System.out.println(vo.getPh1() + vo.getPh2() + vo.getPh3());
+			System.out.println(vo.getAddr_num());
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	             
+	//update
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

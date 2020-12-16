@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    %>
+<%
+	String id = request.getParameter("id");
+	nibangDAO dao = new nibangDAO();
+	joinVO vo = dao.getMemberInfo(id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +53,9 @@
 				}else if($("#addr2").val() == ""){
 					alert("상세주소를 입력해주세요");
 					$("#addr2").focus();
-				}	
+				}else {
+					mupdate.submit();
+				}
 			});
 			
 			$("button#btn_updateCancel").click(function(){
@@ -124,46 +133,30 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	
 	<div class="content">
-			<aside class="sideMenuBar">
-				<nav>
-					<ul>
-						<li>마이페이지</li>
-						<li>나의 쇼핑내역</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">주문/배송 조회</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/search_order_cancel.jsp">주문/취소 조회</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/cancel_refund_info.jsp">교환/반품/환불 안내</a></li>
-						<li>나의 게시글 답변</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiry.jsp" >1:1문의</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/myReview.jsp">상품평 관리</a></li>
-						<li>회원정보</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/member_update.jsp" class="h_side">회원정보수정</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/member_withdrawal.jsp" class="h_side">회원탈퇴</a></li>
-					</ul>
-				</nav>
-			</aside>
+		<jsp:include page="../sideMenuBar.jsp"/>
 			<div class="memberupdate" id="memberupdate">
-			<form name="mupdate" action="#" method="get">
+			<form name="mupdate" action="member_updateProc.jsp" method="get">
 					<h2>회원정보 수정</h2>
 						<ul>
-							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email"> </li>
-							<li><input type="text" name="name" placeholder="이름" id="name"> </li>
-							<li><input type="password" name="pass" placeholder="비밀번호" id="pass"></li>
-							<li><input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
+							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email" value="<%= vo.getEmail() %>"></li>
+							<li><input type="text" name="name" placeholder="이름" id="name" value="<%= vo.getName() %>"></li>
+							<li><input type="password" name="pass" placeholder="비밀번호" id="pass" value="<%= vo.getPass() %>"></li>
+							<li><input type="password" name="cpass" placeholder="비밀번호확인" id="cpass" value="<%= vo.getPass() %>">
 								<br><span id="msg"></span>
 								<br><label class="password_chk">8~15자의 영문, 숫자, 특수문자 조합</label><li>
 							<li>
-								<input type="text" name="year" placeholder="생년월일" id="year">
-								<input type="text" name="month" id="month">
-								<input type="text" name="day" id="day">
+								<input type="text" name="year" placeholder="생년월일" id="year" value="<%= vo.getBirth1() %>">
+								<input type="text" name="month" id="month" value="<%= vo.getBirth2() %>">
+								<input type="text" name="day" id="day" value="<%= vo.getBirth3() %>">
 								<input type="radio" name="gender" id="gender"><span>남</span>
 								<input type="radio" name="gender" ><span>여</span>					
 							</li>
 							<li>
-								<input type="text" name="hp" placeholder="전화번호" id="hp1">
-								<input type="text" name="hp" id="hp2">
-								<input type="text" name="hp" id="hp3">
+								<input type="text" name="hp" placeholder="전화번호" id="hp1" value="<%= vo.getPh1() %>">
+								<input type="text" name="hp" id="hp2" value="<%= vo.getPh2() %>">
+								<input type="text" name="hp" id="hp3" value="<%= vo.getPh3() %>">
 							</li>
-							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
+							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number" value="<%= vo.getAddr_num() %>"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
 							<li>
 								<input type="text" name="addr" placeholder="도로명주소" id="addr1">		
 								<input type="text" name="addr" placeholder="상세주소" id="addr2">
