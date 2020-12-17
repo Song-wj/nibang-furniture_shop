@@ -3,8 +3,7 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
 <%
-	
-	String id= "a@naver.com";
+	String id= request.getParameter("id");
 	nibangDAO dao = new nibangDAO();
 	joinVO vo = dao.getMemberInfo(id);
 %>
