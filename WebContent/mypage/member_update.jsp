@@ -4,7 +4,7 @@
     %>
 <%
 	
-	String id= "a@naver.com";
+	String id= request.getParameter("id");
 	nibangDAO dao = new nibangDAO();
 	joinVO vo = dao.getMemberInfo(id);
 %>
