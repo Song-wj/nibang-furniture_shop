@@ -40,9 +40,9 @@
 									
 								</tr>
 								<tr>
-									<th>NO</th>
-									<td><a href="1-1inquiry_content.jsp">상품</a></td>
-					    			<td>가격이 비싸요</td>
+									<td>NO</td>
+									<td><a href="1-1inquiry_content.jsp">가격이 비싸요</a></td>
+					    			<td>가격 문의</td>
 					    			<td>2018.03.13</td>
 					    			
 								</tr>							

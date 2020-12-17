@@ -15,8 +15,8 @@ img{
 	width:200px;
 	height:200px;
 }
-div.content{
-	display:inline-block;
+div.content button.faq_del{
+	margin-left:300px;
 }
 
 </style>
@@ -38,7 +38,7 @@ div.content{
 				<div><h1>FAQ 삭제</h1></div>
 					<img src ="../images/delete.jpg">
 	  				<div>삭제하시겠습니까?</div>
-	  				<button type="button">삭제</button>
+	  				<button type="button" class="faq_del">삭제</button>
 	  				<button type ="button">목록으로</button>
 	  			</div>
 	</section>
