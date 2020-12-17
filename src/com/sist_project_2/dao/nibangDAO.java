@@ -1,8 +1,10 @@
 package com.sist_project_2.dao;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
-import com.sist_project_2.vo.*;
+import com.sist_project_2.vo.joinVO;
+import com.sist_project_2.vo.messageVO;
 
 public class nibangDAO extends DBConn{
 	
@@ -92,6 +94,7 @@ public class nibangDAO extends DBConn{
 				String addr3 = rs.getString(12).substring(idx+1);
 				vo.setAddr2(addr2);
 				vo.setAddr3(addr3);
+				System.out.println(addr2+ "," + addr3);
 
 			}
 			
@@ -128,7 +131,145 @@ public class nibangDAO extends DBConn{
 	             
 	//update
 	
+	/* FAQ */
+	/**
+	 * insertFAQ : faq 등록
+	 */
+	public boolean insertFAQ(faqVO vo) {
+		boolean result = false;
+		
+		try {
+			String sql = "insert into faq values('f_'||sqe_nibang_faq.nextval,?,?,?,0,sysdate)";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getF_div());
+			pstmt.setString(2, vo.getF_title());
+			pstmt.setString(3, vo.getF_content());
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 	
+	/**
+	 * getFAQList : faq 리스트 출력
+	 */
+	public ArrayList<faqVO> getFAQList() {
+		ArrayList<faqVO> list = new ArrayList<>();
+		
+		try {
+			String sql ="select fid, f_div, f_title, f_content, to_char(f_date,'yyyy.mm.dd'), f_views from faq order by f_date desc";
+			getPreparedStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				faqVO vo = new faqVO();
+				vo.setFid(rs.getString(1));
+				vo.setF_div(rs.getString(2));
+				vo.setF_title(rs.getString(3));
+				vo.setF_content(rs.getString(4));
+				vo.setF_date(rs.getString(5));
+				vo.setF_views(rs.getInt(6));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	/**
+	 * getFAQContent : faq Content 출력
+	 */
+	public faqVO getFAQContent(String fid) {
+		faqVO vo = new faqVO();
+		
+		try {
+			String sql = "select fid, f_div, f_title, f_content, f_views, to_char(f_date,'yyyy.mm.dd') from faq "
+					+ "where fid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, fid);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				vo.setFid(rs.getString(1));
+				vo.setF_div(rs.getString(2));
+				vo.setF_title(rs.getString(3));
+				vo.setF_content(rs.getString(4));
+				vo.setF_views(rs.getInt(5));
+				vo.setF_date(rs.getString(6));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}	
+	
+	/**
+	 * faqUpdate : faq 수정
+	 */
+	public boolean faqUpdate(faqVO vo) {
+		boolean result = false;
+		
+		try {
+			String sql ="update faq set f_div=?, f_title=?, f_content=? where fid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getF_div());
+			pstmt.setString(2, vo.getF_title());
+			pstmt.setString(3, vo.getF_content());
+			pstmt.setString(4, vo.getFid());
+			
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * faqDelete : faq 삭제
+	 */
+	public boolean faqDelete(String fid) {
+		boolean result = false;
+		
+		try {
+			String sql = "delete from faq where fid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, fid);
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * faq 조회수 업데이트
+	 */
+	public void nibangViews(String fid) {
+		try {
+			String sql = "update faq set f_views=f_views+1 where fid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, fid);
+			pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	/** header에  name(OOO님) 가져오기 **/
 	public joinVO getName(String mid){
@@ -145,10 +286,7 @@ public class nibangDAO extends DBConn{
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return vo;
-	}	
-	
+	}
 	/** insert : 1:1 문의 **/
 	public boolean getMessageInsert(messageVO vo) {
 		boolean result = false;
@@ -169,36 +307,24 @@ public class nibangDAO extends DBConn{
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return result;
 	}
 	
 	
-	/** select : 1:1 문의 전체 리스트 **/
-	public messageVO getInquiryList() {
-		messageVO vo = new messageVO();
-		
-		try {
-			String sql = "select sid, mid m_div, m_title, m_content, m_file, to_char(mdate,'yyyy.mm.dd') from message";
+		/** select : 1:1 문의 전체 리스트 **/
+		public messageVO getInquiryList() {
+			messageVO vo = new messageVO();
 			
+			try {
+				String sql = "select sid, mid m_div, m_title, m_content, m_file, to_char(mdate,'yyyy.mm.dd') from message";
+				
+				
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
 			
-			
-		}catch (Exception e) {
-			e.printStackTrace();
+			return vo;
 		}
-		
-		return vo;
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*" 
+    %>
+<%
+	String fid = request.getParameter("fid");
+	nibangDAO dao = new nibangDAO();
+	faqVO vo = dao.getFAQContent(fid);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +22,7 @@
 </head>
 <body>
 	<section class="section1">
-		<aside class="sideMenuBar2">
-				<nav>
-					<ul>
-						<li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">상품 리스트</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/product_insert.jsp">상품등록</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/notice_list.jsp">공지사항</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/faq_list.jsp">FAQ</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/1-1inquiry_list.jsp">1:1문의</a></li>
-					</ul>	
-				</nav>
-			   </aside>
+			<jsp:include page="../sideMenuBar2.jsp"/>
 			<div>
 					<div class="content">
 						<div><h1>FAQ</h1></div>
@@ -33,22 +30,23 @@
 							<table class="notice_table">
 								<tr class="table_header">
 									<th>제목</th>
-									<td>??</td>
+									<td><%= vo.getF_title() %></td>
 									<th>구분</th>
-									<td>??</td>
+									<td><%= vo.getF_div() %></td>
 									<th>등록일</th>
-									<td>??</td>
+									<td><%= vo.getF_date() %></td>
 								</tr>
 								<tr>
 									<td colspan ='6'>
-										<p> aaaa</p>
+										<p><%= vo.getF_content() %></p>
 									</td>
 					    			
 								</tr>	
 								<tr>
 									<td colspan='8'>
-										<a href="faq_update.jsp"><button type="button">수정</button></a>
-										<a href="faq_delete.jsp"><button type="button">삭제</button></a>
+										<a href="faq_update.jsp?fid=<%= fid%>"><button type="button">수정</button></a>
+										<a href="faq_delete.jsp?fid=<%= vo.getFid()%>"><button type="button">삭제</button></a>
+										<a href="faq_list.jsp"><button type="button">목록으로</button></a>
 									</td>
 								</tr>						
 							</table>

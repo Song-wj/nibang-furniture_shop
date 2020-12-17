@@ -12,7 +12,7 @@
 	boolean result = dao.getMemberUpdate(vo,id);
 	
 	if(result) {
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect("../index.jsp?id="+id);
 	} else {
 		//에러페이지
 		System.out.println("에러입니다.");
