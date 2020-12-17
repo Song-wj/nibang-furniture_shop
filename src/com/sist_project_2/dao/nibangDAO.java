@@ -92,6 +92,7 @@ public class nibangDAO extends DBConn{
 				String addr3 = rs.getString(12).substring(idx+1);
 				vo.setAddr2(addr2);
 				vo.setAddr3(addr3);
+				System.out.println(addr2+ "," + addr3);
 
 			}
 			
