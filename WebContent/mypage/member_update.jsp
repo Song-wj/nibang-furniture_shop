@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    %>
+<%
+	String id= request.getParameter("id");
+	nibangDAO dao = new nibangDAO();
+	joinVO vo = dao.getMemberInfo(id);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,37 +23,49 @@
 		width:95%;
 		margin:auto;
 	}
-	
+	form input#pass{
+		text-indent:0px;
+	}
+	form input#addr1,
+	form input#addr2{
+		font-size:12px;
+	}
 </style>
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <script>
 		$(document).ready(function(){
-			
+			var checknum= 0;
 			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
 			
 			$("button#btn_updateOK").click(function (){
-				if($("#name").val() == ""){
+				 if($("#name").val() == ""){
 					alert("이름을 입력해주세요");
 					$("#name").focus();
 				}else if(!passCheck($("#pass") , chk )){
 					return false;
 				}else if($("#cpass").val() == ""){
 					alert("비밀번호를 확인해주세요");
-				}else if($("#year").val() == "" || $("#month").val() == "" || $("#day").val() == ""){
-					alert("생년 월일을 입력해주세요");
-					$("#year").focus();
+				}else if(!birthCheck($("#year").attr("name"))){
+					return false;
+				}else if(!birthCheck($("#month").attr("name"))){
+					return false;
+				}else if(!birthCheck($("#day").attr("name"))){	
+					return false;
 				}else if($("input:radio:checked").length == 0){
 					alert("성별을 체크해주세요");	
-				}else if($("#hp1").val() == "" || $("#hp2").val() == "" || $("#hp3").val() == ""){
-					alert("전화번호를 입력해주세요");
-					$("#hp1").focus();
+				}else if(!phoneCheck()){
+					return false;
 				}else if($("#addr1").val() == ""){
 					alert("도로명주소를 입력해주세요");
 					$("#addr1").focus();
 				}else if($("#addr2").val() == ""){
 					alert("상세주소를 입력해주세요");
-					$("#addr2").focus();
-				}	
+					$("#addr2").focus(); 
+				}else {
+					if(checknum ==0){	
+						mupdate.submit();
+					}
+				}
 			});
 			
 			$("button#btn_updateCancel").click(function(){
@@ -68,6 +87,17 @@
 				}
 			});
 			
+			$("#pass").change(function (){
+		 		if( $("#cpass").val() !="" ){	 			
+					if($("#pass").val() != $("#cpass").val()){
+						$("#msg").text("비밀번호가 다릅니다.").css("font-size","10px").css("color","rgb(200, 10, 30)").css("margin-left","400px");
+						$("#cpass").focus();
+						checknum =1;
+					}
+				
+		 	   }
+		 	}) ;
+			
 			function passCheck(id ,chk){
 				if(id.val()==""){
 					alert("비밀번호를 입력해주세요");
@@ -81,7 +111,81 @@
 						return false;	
 					}
 			}
+			function birthCheck(birth){
+				var today = new Date();
+				var yearNow = today.getFullYear()
+				if($("#year").attr("name") == birth){
+					var key = $("year").val();
+					if(key==""){
+						alert("생년 입력해주세요");
+						return false;
+					}else{
+						if(key>yearNow || key<1940){
+							alert("생년를 다시입력해주세요");
+							$("#year").focus();
+						}else
+							return true;
+					}
+				
+				}else if($("#month").attr("name") == birth){
+					var key = $("#month").val();
+					if(key==""){
+						alert("생월을 입력해주세요");
+						return false;
+					}else{
+						if(key>12 || key<01){
+							alert("생월을 다시입력해주세요");
+							$("#month").focus();
+							return false;
+						}else
+							return true;
+					}
+				}else {
+					var key = $("#day").val();
+					if(key==""){
+						alert("생일을 입력해주세요");
+						return false;
+					}else{
+						if(key>31 || key<01){
+							alert("생일을 다시입력해주세요");
+							$("#day").focus();
+							return false;
+						}else
+							return true;
+					}
+				}
+			};
 			
+			function phoneCheck(){
+				var a = $("#hp1").val();
+				var b = $("#hp2").val();
+				var c = $("#hp3").val();
+				var ph = a + "-" + b + "-" +c;
+				var phrule = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+				if(a =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#hp1").focus();
+					return false;
+				}else if(b =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#hp2").focus();
+					return false;
+				}else if(c =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#hp3").focus();
+					return false;	
+				}else
+					if(phrule.test(ph)){
+						return true;
+					}else{
+						alert("휴대번호를 다시 입력해주세요");
+						$("#hp1").val("");
+						$("#hp2").val("");
+						$("#hp3").val("");
+						phone.focus();
+						return false;						
+					}
+			}
 			
 			/** 
 				성별 count 출력
@@ -97,7 +201,7 @@
 		         return count;
 		      }
 			
-	});
+		});
 		
 			function goPopup(){
 			// 주소검색을 수행할 팝업 페이지를 호출합니다.
@@ -118,55 +222,41 @@
 			    document.getElementById("addr1").style.fontSize = "12px";
 				document.getElementById("addr2").style.fontSize = "12px";
 			}
+	
 		
 </script>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
 	
 	<div class="content">
-			<aside class="sideMenuBar">
-				<nav>
-					<ul>
-						<li>마이페이지</li>
-						<li>나의 쇼핑내역</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">주문/배송 조회</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/search_order_cancel.jsp">주문/취소 조회</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/cancel_refund_info.jsp">교환/반품/환불 안내</a></li>
-						<li>나의 게시글 답변</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiry.jsp" >1:1문의</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/myReview.jsp">상품평 관리</a></li>
-						<li>회원정보</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/member_update.jsp" class="h_side">회원정보수정</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/member_withdrawal.jsp" class="h_side">회원탈퇴</a></li>
-					</ul>
-				</nav>
-			</aside>
+		<jsp:include page="../sideMenuBar.jsp"/>
 			<div class="memberupdate" id="memberupdate">
-			<form name="mupdate" action="#" method="get">
+
+			<form name="mupdate" action="member_updateProc.jsp?id=<%= id %>" method="post">
 					<h2>회원정보 수정</h2>
 						<ul>
-							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email"> </li>
-							<li><input type="text" name="name" placeholder="이름" id="name"> </li>
-							<li><input type="password" name="pass" placeholder="비밀번호" id="pass"></li>
-							<li><input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
+							<li><input type="text" name="email" placeholder="아이디(이메일)" id="email" value="<%= vo.getEmail() %>" disabled></li>
+							<li><input type="text" name="name" placeholder="이름" id="name" value="<%= vo.getName() %>"></li>
+							<li><input type="password" name="pass" placeholder="비밀번호" id="pass" value="<%= vo.getPass() %>"></li>
+							<li><input type="password" name="cpass" placeholder="비밀번호확인" id="cpass" value="<%= vo.getPass() %>">
 								<br><span id="msg"></span>
 								<br><label class="password_chk">8~15자의 영문, 숫자, 특수문자 조합</label><li>
 							<li>
-								<input type="text" name="year" placeholder="생년월일" id="year">
-								<input type="text" name="month" id="month">
-								<input type="text" name="day" id="day">
-								<input type="radio" name="gender" id="gender"><span>남</span>
-								<input type="radio" name="gender" ><span>여</span>					
+								<input type="text" name="birth1" placeholder="생년월일" id="year" value="<%= vo.getBirth1() %>">
+								<input type="text" name="birth2" id="month" value="<%= vo.getBirth2() %>">
+								<input type="text" name="birth3" id="day" value="<%= vo.getBirth3() %>">
+								<input type="radio" name="gender" id="gender" value="남"><span>남</span>
+								<input type="radio" name="gender"  value ="여"><span>여</span>					
 							</li>
 							<li>
-								<input type="text" name="hp" placeholder="전화번호" id="hp1">
-								<input type="text" name="hp" id="hp2">
-								<input type="text" name="hp" id="hp3">
+								<input type="text" name="ph1" placeholder="전화번호" id="hp1" value="<%= vo.getPh1() %>">
+								<input type="text" name="ph2" id="hp2" value="<%= vo.getPh2() %>">
+								<input type="text" name="ph3" id="hp3" value="<%= vo.getPh3() %>">
 							</li>
-							<li><input type="text" name="addr_number" placeholder="우편번호" id="addr_number"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
+							<li><input type="text" name="addr_num" placeholder="우편번호" id="addr_number" value="<%= vo.getAddr_num() %>"> <button type="button" onClick="goPopup();" style="height:32px;" >주소검색</button> </li>	
 							<li>
-								<input type="text" name="addr" placeholder="도로명주소" id="addr1">		
-								<input type="text" name="addr" placeholder="상세주소" id="addr2">
+								<input type="text" name="addr2" placeholder="도로명주소" id="addr1" value= "<%= vo.getAddr2()%>">		
+								<input type="text" name="addr3" placeholder="상세주소" id="addr2" value= "<%= vo.getAddr3()%>">
 							</li>
 							<li><label class="change_info">정보변경</label></li>
 							<li><label>선택 동의항목</label><hr></li>

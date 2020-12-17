@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+	import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
+    %>
+<%
+	String id = request.getParameter("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,7 +79,7 @@
 						src="http://localhost:9000/sist_project_2/images/search.png">
 				</div>
 				
-				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=id%>"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
@@ -84,7 +89,7 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">마이페이지</a>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%= id%>">마이페이지</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터</a>
 						<div></div></li>
