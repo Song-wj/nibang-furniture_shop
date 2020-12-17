@@ -4,6 +4,8 @@
     %>
 <%
 	String mid = request.getParameter("mid");
+	nibangDAO dao = new nibangDAO();
+	messageVO vo = dao.getInquiryList();
 %>
 <!DOCTYPE html>
 <html>
@@ -115,19 +117,19 @@
 									<td>문의날짜</td>
 								</tr>
 								<tr>
-                           			<td>i_134(임시)</td>
-                           			<td>상품문의</td>
+                           			<td>i_134(임시) vo.sid </td>
+                           			<td>상품문의 vo.m_div</td>
                            			<td>
                            				<details>
-                           					<summary>dddddd</summary>
-                           					<p><br>문의 테스트입니다.ㄴㅇㄴㅇㄹㄴㄷㄴㄹㄷㄴㄷㄹㄴ
+                           					<summary>dddddd vo.m_title</summary>
+                           					<p><br>문의 테스트입니다.ㄴㅇㄴㅇㄹㄴㄷㄴㄹㄷㄴㄷㄹㄴ vo.m_content
  	                          				   <br><br>
  	                          					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp"><button type="button" style="margin-left:250px;background-color:rgb(200,10,30); color:white;">수정</button></a>
 	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp"><button type="button" style="background-color:rgb(200,10,30); color:white;">삭제</button></a>
                            					</p>
                            				</details>
                            			</td>                           			
-                           			<td>2020.</td>	                           					
+                           			<td>2020.12.16 vo.m_date</td>	                           					
                         		</tr>
 							</tbody>
 						</table>
