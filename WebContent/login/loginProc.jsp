@@ -8,7 +8,7 @@
 	nibangDAO dao = new nibangDAO();
 	boolean result = dao.login(id, pass);
 	if(result){
-		response.sendRedirect("../index.jsp?id=" + id);
+		response.sendRedirect("../index_login.jsp?id=" + id);
 	}else
 		response.sendRedirect("loginFail.jsp?id=" + id);
 %>

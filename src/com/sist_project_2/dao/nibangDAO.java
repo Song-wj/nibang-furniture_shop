@@ -1,4 +1,6 @@
 package com.sist_project_2.dao;
+import java.sql.ResultSet;
+
 import com.sist_project_2.vo.*;
 
 public class nibangDAO extends DBConn{
@@ -55,4 +57,26 @@ public class nibangDAO extends DBConn{
 		}
 		return result;
 	}
-}
+	
+	/** header에  name(OOO님) 가져오기 **/
+	public joinVO getName(String mid){
+		joinVO vo = new joinVO();
+		
+		try {
+			String sql = "select name from nibangmember where mid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, mid);
+	
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) 
+				vo.setName(rs.getString(1));
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
+	}		
+		
+}//class

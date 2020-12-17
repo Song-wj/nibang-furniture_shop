@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import = "com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,13 @@
    		width: 95%;
     	margin: auto;
     }
-	
+	summary {
+		cursor: pointer;
+		list-style: none;
+	}
+	summary::-webkit-details-marker {
+		display:none;
+	}
 </style>
 </head>
 <body>
@@ -114,10 +122,26 @@
 						<table  style="width:100%">
 							<tbody>
 								<tr class="noto">
+									<td>문의번호</td>
 									<td style="width:150px">구분</td>
-									<td style="width:440px">문의내용</td>
-									<td>처리상태</td>
+									<td style="width:400px">문의내용</td>
+									<td>문의날짜</td>
 								</tr>
+								<tr>
+                           			<td>i_134(임시)</td>
+                           			<td>상품문의</td>
+                           			<td>
+                           				<details>
+                           					<summary>dddddd</summary>
+                           					<p><br>문의 테스트입니다.ㄴㅇㄴㅇㄹㄴㄷㄴㄹㄷㄴㄷㄹㄴ
+ 	                          				   <br><br>
+ 	                          					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp"><button type="button" style="margin-left:250px;background-color:rgb(200,10,30); color:white;">수정</button></a>
+	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp"><button type="button" style="background-color:rgb(200,10,30); color:white;">삭제</button></a>
+                           					</p>
+                           				</details>
+                           			</td>                           			
+                           			<td>2020.</td>	                           					
+                        		</tr>
 							</tbody>
 						</table>
 					</div>
