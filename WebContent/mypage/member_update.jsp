@@ -302,7 +302,7 @@
 										</div>
 									</div>
 							</li>
-							<li> 
+						`	<li> 
 								<span class="chk1">마케팅 수신동의( 이메일<input type="checkbox" name="email"> SMS<input type="checkbox" name="SMS"> )&nbsp;&nbsp;</span>
 									<div class="info2div"><a href="#open2"  class="info2"><button type="button" class="info2">내용보기</button></a> <hr>
 										<div class="white_content2" id="open2">
