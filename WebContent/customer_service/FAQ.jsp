@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"
+    %>
+<%
+	nibangDAO dao = new nibangDAO();
+	ArrayList<faqVO> list = dao.getFAQList();
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,8 +24,18 @@
 		 		padding-top:10%;
 		 		margin-bottom:100px;
 		 	}
-
+		 	.drop {
+		 		display: none;
+		 	}
+		 	
 		</style>
+ 		<script>
+			$(document).ready(function(){
+				$(".open").click(function(){
+					$(".drop").toggle();
+				});
+			});
+		</script> 
 	</head>
 	<body>
 		<jsp:include page="../header.jsp" />
@@ -75,66 +91,17 @@
 		    			<th>등록일</th>
 		    			<th>조회수</th>
 		    		</tr>
-		    		<tr>
-		    			<td>상품</td>
-		    			<td>가격이 비싸요</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
+		    		<%for(faqVO vo : list) { %>
+		    		<tr class="open">
+		    			<td><%= vo.getF_div() %></td>
+		    			<td><%= vo.getF_title() %></td>
+		    			<td><%= vo.getF_date() %></td>
+		    			<td><%= vo.getF_views() %></td>
 		    		</tr>
-		    		<tr>
-		    			<td>AS</td>
-		    			<td>이사를 하게 되어 가구를 옮겨야 하는데 해체, 재조립해주시나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
+		    		<tr class="drop">
+		    			<td colspan="4"><%= vo.getF_content() %></td>
 		    		</tr>
-		    		<tr>
-		    			<td>주문결제/취소</td>
-		    			<td>오래 전 구입한 제품인데, 하자가 나서 A/S를 신청하니 단종된 제품이라고 합니다.</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    		</tr>
-		    		<tr>
-		    			<td>배송/시공</td>
-		    			<td>제품을 구입하면 사용하던 제품을 무료로 수거해 주거나 옮겨주나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    		</tr>
-		    		<tr>
-		    			<td>배송/시공</td>
-		    			<td>제품을 구입하면 사용하던 제품을 무료로 수거해 주거나 옮겨주나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    		</tr>
-		    		<tr>
-		    			<td>배송/시공</td>
-		    			<td>제품을 구입하면 사용하던 제품을 무료로 수거해 주거나 옮겨주나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    		</tr>
-		    		<tr>
-		    			<td>배송/시공</td>
-		    			<td>제품을 구입하면 사용하던 제품을 무료로 수거해 주거나 옮겨주나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    		</tr>
-		    		<tr>
-		    			<td>배송/시공</td>
-		    			<td>제품을 구입하면 사용하던 제품을 무료로 수거해 주거나 옮겨주나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    		</tr>
-		    		<tr>
-		    			<td>배송/시공</td>
-		    			<td>제품을 구입하면 사용하던 제품을 무료로 수거해 주거나 옮겨주나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    		</tr>
-		    		<tr>
-		    			<td>배송/시공</td>
-		    			<td>제품을 구입하면 사용하던 제품을 무료로 수거해 주거나 옮겨주나요?</td>
-		    			<td>2018.03.13</td>
-		    			<td>100</td>
-		    	
+		    		<% } %>
 		    	</table>
 		    		</div>
 		    			<div>기타 문의사항은 1:1 문의 또는 고객센터(1577-5670)를 이용해주세요.</div>

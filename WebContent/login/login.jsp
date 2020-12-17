@@ -46,7 +46,7 @@
 		<section class="section1" id="section1_login">
 			<div class="login">
 				<h3>로그인</h3>
-				<form name="loginForm" action="loginProc.jsp" method="get" class="loginform">
+				<form name="loginForm" action="loginProc.jsp" method="post" class="loginform">
 					<ul>
 						<li><input type="text" name="id" placeholder="아이디(이메일)" class="textfield" id="id">
 						</li>
