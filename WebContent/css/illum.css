@@ -2909,7 +2909,7 @@
 		background-color: rgb(99, 102, 106);
 		color: white;
 	}
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:hover {
+	.section1 div.faq div:nth-child(4)>table.faq_table tr.subject:hover {
 		color: rgb(200, 10, 30);
 	}
 	.section1 div.faq div:nth-child(2)>button:focus {
