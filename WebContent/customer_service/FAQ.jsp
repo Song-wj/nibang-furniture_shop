@@ -36,7 +36,10 @@
 			.contents td {
 				background-color: #f0f0f0;
 			}
-			
+			.contents td#ccc{
+				border:1px solid red;
+				padding:0;
+			}
 		</style>
  		<script>
 			function slideDown(fid) {
@@ -107,7 +110,7 @@
 		    			<td><%= vo.getF_views() %></td>
 		    		</tr>
 		    		<tr class="contents" id="<%=vo.getFid() %>">
-		    			<td colspan="4">
+		    			<td colspan="4" id="ccc">
 							<div style="display: none;">
 								<p><%= vo.getF_content() %></p>
 							</div>
