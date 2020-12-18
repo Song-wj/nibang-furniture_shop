@@ -13,7 +13,7 @@
 		<title>FAQ</title>
 		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+		<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 		<style>
 		 		
@@ -24,17 +24,24 @@
 		 		padding-top:10%;
 		 		margin-bottom:100px;
 		 	}
-		 	.drop {
-		 		display: none;
-		 	}
-		 	
+			
+			.subject {
+				text-align: center;
+			}
+			
+			.subject td:nth-child(1) {
+				letter-spacing: -1.5px;
+			}
+			
+			.contents td {
+				background-color: #f0f0f0;
+			}
+			
 		</style>
  		<script>
-			$(document).ready(function(){
-				$(".open").click(function(){
-					$(".drop").toggle();
-				});
-			});
+			function slideDown(fid) {
+				$("#"+fid+" div").toggle();
+			} 
 		</script> 
 	</head>
 	<body>
@@ -92,14 +99,19 @@
 		    			<th>조회수</th>
 		    		</tr>
 		    		<%for(faqVO vo : list) { %>
-		    		<tr class="open">
+		    		<tr class="subject" onclick="slideDown('<%= vo.getFid() %>')"> 
+		    		<!-- <tr class="subject"> -->
 		    			<td><%= vo.getF_div() %></td>
 		    			<td><%= vo.getF_title() %></td>
 		    			<td><%= vo.getF_date() %></td>
 		    			<td><%= vo.getF_views() %></td>
 		    		</tr>
-		    		<tr class="drop">
-		    			<td colspan="4"><%= vo.getF_content() %></td>
+		    		<tr class="contents" id="<%=vo.getFid() %>">
+		    			<td colspan="4">
+							<div style="display: none;">
+								<p><%= vo.getF_content() %></p>
+							</div>
+						</td>
 		    		</tr>
 		    		<% } %>
 		    	</table>
