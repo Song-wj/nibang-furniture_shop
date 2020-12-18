@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
  
-<%
-	String pid = request.getParameter("pid");
-	productDAO dao = new productDAO(); 
-	productVO vo = dao.update(pid);
-%>   
+  
  
 <!DOCTYPE html>
 <html>
@@ -47,7 +43,7 @@
   				<form name ="noticeUpdateForm" action="#" method="post">
   					<ul>
   						<li><label>제목</label>
-  							<input type="text" name="pid" value=<%= vo.getPid() %>>
+  							<input type="text" name="pid" >
   						</li>
   						<li><label>내용</label>
   						    <textarea rows="10" cols ="50" name ="pcontent" ></textarea>
