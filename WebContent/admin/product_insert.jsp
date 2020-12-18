@@ -39,12 +39,16 @@
 		$("#pi_btn").click(function() {
 			if($("#pid").val() == ""){
 				alert("상품번호를 입력해주세요");
+				$("#pid").focus();
 			}else if($("#pname").val() == ""){
 				alert("상품명 입력해주세요");
+				$("#pname").focus();
 			}else if($("#price").val() == ""){
 				alert("가격을 입력해주세요");
+				$("#price").focus();
 			}else if($("#color").val() == ""){
 				alert("색상를 입력해주세요");
+				$("#color").focus();
 			}else if($("#img1").val() == ""){
 				alert("사진을 넣어주세요");				
 			}else

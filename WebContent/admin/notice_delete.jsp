@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <% 
+ 	String nid = request.getParameter("nid");
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +43,7 @@ div.content button.notice_del{
 					<div><h1>공지사항 삭제</h1></div>
 						<img src ="../images/delete.jpg">
 		  				<div>삭제하시겠습니까?</div>
-		  				<button type="button" class="notice_del">삭제</button>
+		  				<a href="noticeDeleteProc.jsp?nid=<%=nid %>"><button type="button" class="notice_del">삭제</button></a>
 		  				<button type ="button">목록으로</button>
 		  		</div>
 	</section>
