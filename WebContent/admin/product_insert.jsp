@@ -66,7 +66,7 @@
 			   </aside>
 				<div class="content">
 					<div><h1>상품 등록</h1></div>
-	  				<form name ="productInsertForm" action="productInsertProc.jsp" method="post">
+	  				<form name ="productInsertForm" action="productInsertProc.jsp" method="post" enctype ="multipart/form-data">
 	  					<ul>
 	  						<li><label>상품번호</label>
 	  							<input type="text" name="pid" id ="pid">

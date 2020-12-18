@@ -9,13 +9,16 @@ public class productDAO extends DBConn{
 	public boolean productInsert(productVO vo) {
 		boolean result = false;
 		try {
-			String sql ="insert into product values( ?, ? ,? ,? , sysdate ,0 ,0)";
+			String sql ="insert into product values( ?, ? ,? ,? , sysdate ,? ,? ,? ,?)";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getPid());
 			pstmt.setString(2, vo.getPname());
 			pstmt.setInt(3, vo.getPrice());
 			pstmt.setString(4, vo.getColor());
-			
+			pstmt.setString(5, vo.getImg1());
+			pstmt.setString(6, vo.getImg2());
+			pstmt.setString(7, vo.getSimg1());
+			pstmt.setString(8, vo.getSimg2());
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result= true;
