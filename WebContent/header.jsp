@@ -91,7 +91,7 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%= id%>">마이페이지</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터</a>
+						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%= id%>">고객센터</a>
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="">매장안내</a></li>
 					</ul>

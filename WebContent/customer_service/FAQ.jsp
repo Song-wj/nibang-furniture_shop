@@ -36,9 +36,15 @@
 			.contents td {
 				background-color: #f0f0f0;
 			}
-			.contents td#ccc{
-				border:1px solid red;
+			.contents td#faq_content{
 				padding:0;
+			}
+			.contents td p#faq_content_detail {
+				margin-top: -35px;
+				margin-left: -30px;
+				text-align: left;
+				padding: 60px 95px 60px 95px;
+				font-weight: normal;
 			}
 		</style>
  		<script>
@@ -110,9 +116,9 @@
 		    			<td><%= vo.getF_views() %></td>
 		    		</tr>
 		    		<tr class="contents" id="<%=vo.getFid() %>">
-		    			<td colspan="4" id="ccc">
+		    			<td colspan="4" id="faq_content">
 							<div style="display: none;">
-								<p><%= vo.getF_content() %></p>
+								<p id="faq_content_detail"><%= vo.getF_content().replace("\r\n", "<br><br>") %></p>
 							</div>
 						</td>
 		    		</tr>
