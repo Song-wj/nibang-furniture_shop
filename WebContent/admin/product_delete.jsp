@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+ <%
+	request.setCharacterEncoding("utf-8");
+	String pid = request.getParameter("pid");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,10 +43,9 @@ div.content button.product_del{
 				 <div><h1>상품 삭제</h1></div>			
 					<img src ="../images/delete.jpg">
 	  				<div>삭제하시겠습니까?</div>
-	  				<button type="button" class="product_del">삭제</button>
+	  				<a href="productDeleteProc.jsp?pid=<%=pid %>"><button type="button" class="product_del">삭제</button></a>
 	  				<button type ="button">목록으로</button>
 	  			</div>
-	  		
 	</section>
 </body>
 </html>
