@@ -3,6 +3,7 @@ package com.sist_project_2.dao;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import com.sist_project_2.vo.faqVO;
 import com.sist_project_2.vo.joinVO;
 import com.sist_project_2.vo.messageVO;
 
@@ -286,7 +287,10 @@ public class nibangDAO extends DBConn{
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return vo;
 	}
+	
 	/** insert : 1:1 문의 **/
 	public boolean getMessageInsert(messageVO vo) {
 		boolean result = false;
@@ -307,16 +311,17 @@ public class nibangDAO extends DBConn{
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 	
 	
-		/** select : 1:1 문의 전체 리스트 **/
-		public messageVO getInquiryList() {
-			messageVO vo = new messageVO();
+	/** select : 1:1 문의 전체 리스트 **/
+	public messageVO getInquiryList() {
+		messageVO vo = new messageVO();
 			
 			try {
-				String sql = "select sid, mid m_div, m_title, m_content, m_file, to_char(mdate,'yyyy.mm.dd') from message";
-				
+				String sql = "select sid, mid m_div, m_title, m_content, m_file,"
+						+ " to_char(mdate,'yyyy.mm.dd') from message";		
 				
 				
 			}catch (Exception e) {
