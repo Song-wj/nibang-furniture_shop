@@ -3,8 +3,8 @@
 	import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"%>
 <%
 	String fid = request.getParameter("fid");
-nibangDAO dao = new nibangDAO();
-faqVO vo = dao.getFAQContent(fid);
+	nibangDAO dao = new nibangDAO();
+	faqVO vo = dao.getFAQContent(fid);
 %>
 <!DOCTYPE html>
 <html>

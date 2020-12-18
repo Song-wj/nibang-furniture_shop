@@ -9,7 +9,7 @@
 <%
 	nibangDAO dao = new nibangDAO();
 	boolean result = dao.insertFAQ(vo);
-	
+
 	if(result) {
 		response.sendRedirect("faq_list.jsp");
 	} else {
