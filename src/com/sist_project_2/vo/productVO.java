@@ -1,9 +1,26 @@
 package com.sist_project_2.vo;
 
 public class productVO {
-	String pid, pname , color, img1, img2 ,pdate;
-
-	int price;
+	String pid, pname , color, img1, img2,simg1,simg2 ,pdate;
+    int price;
+    
+    
+    
+	public String getSimg1() {
+		return simg1;
+	}
+	
+	public void setSimg1(String simg1) {
+		this.simg1 = simg1;
+	}
+	
+	public String getSimg2() {
+		return simg2;
+	}
+	
+	public void setSimg2(String simg2) {
+		this.simg2 = simg2;
+	}
 	
 	public String getPdate() {
 		return pdate;
