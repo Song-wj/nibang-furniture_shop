@@ -6,6 +6,8 @@
 	String pid = request.getParameter("pid");
 	productDAO dao = new productDAO(); 
 	productVO vo = dao.getData(pid);
+	
+	
 %>  
 <!DOCTYPE html>
 <html>
@@ -41,7 +43,7 @@
 	span.img_f2{
 		margin-left:-177px;
 		display:inline-block;
-		width:170px;
+		width:175px;
 		font-size:13px;
 		background-color:white;
 	}
@@ -57,24 +59,23 @@
 					alert("가격을 입력해주세요");
 				}else if($("#color").val() == ""){
 					alert("색상를 입력해주세요");
-				}else if($("#img1").val() == ""){
-					alert("이미지를 입력해주세요");
 				}else
 					productUpdateForm.submit();
 			})
 			
-			$("input[type=file]").on('change',function(){
+			$("#img_f1").change(function(){
 					if(window.FileReader){
 						var fileName= $(this)[0].files[0].name;
 						$(".img_f1").text("").text(fileName);					
 					}
-				})
-				$("input[type=file]").on('change',function(){
+				}) 
+			$("#img_f2").change(function(){
 					if(window.FileReader){
-						var fileName= $(this)[0].files[1].name;
+						var fileName= $(this)[0].files[0].name;
 						$(".img_f2").text("").text(fileName);					
 					}
-				})
+				}) 	
+			
 		})
 </script>
 </head>
@@ -93,7 +94,7 @@
 			   </aside>
 				<div class="content">
 					<div><h1>상품수정</h1></div>
-	  				<form name ="productUpdateForm" action="productUpdateProc.jsp?pid=<%=pid %>" method="post">
+	  				<form name ="productUpdateForm" action="productUpdateProc.jsp?pid=<%=pid %>" method="post" enctype="multipart/form-data">
 	  					<ul>
 	  						<li><label>상품번호</label>
 	  							<input type="text" name="pid" value = "<%= vo.getPid() %>" disabled>
@@ -109,14 +110,14 @@
 	  					    </li> 
 	  					    <li><label>이미지1</label> 
 	  					    	<% if(vo.getImg1() != null) {%>
-	  					    	<input type = "file" name ="img1" ><span class="img_f1"><%=vo.getImg1() %></span>
+	  					    	<input type = "file" name ="img1" id ="img_f1"><span class="img_f1"><%=vo.getImg1() %></span>
 	  					    	<%}else{ %>
-	  					    	<input type = "file" name ="img1" ><span class="img_f1">선택된 파일 없음</span>
+	  					    	<input type = "file" name ="img1" id ="img_f1" ><span class="img_f1">선택된 파일 없음</span>
 	  					    	<% } %>
 	  					    </li>
 	  					    <li><label>이미지2</label>
 	  					    	<% if(vo.getImg2() != null) {%>
-	  					    	<input type = "file" name ="img2" id="img_f2"><span class="img_f2"><%=vo.getImg1() %></span>
+	  					    	<input type = "file" name ="img2" id="img_f2"><span class="img_f2"><%=vo.getImg2() %></span>
 	  					    	<%}else{ %>
 	  					    	<input type = "file" name ="img2" id="img_f2"><span class="img_f2">선택된 파일 없음</span>
 	  					    	<% } %>

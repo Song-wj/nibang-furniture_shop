@@ -5,6 +5,7 @@
 <%
 	productDAO dao = new productDAO(); 
 	ArrayList<productVO> list = dao.getList();
+	/* System.out.println(list[9].getImg2()); */
 %>   
 <!DOCTYPE html>
 <html>
