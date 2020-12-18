@@ -12,7 +12,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+<style>
 
+</style>
 </head>
 
 <body>

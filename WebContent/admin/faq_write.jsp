@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <script>
 	$(document).ready(function(){
 		$("#faqWriter").click(function(){
