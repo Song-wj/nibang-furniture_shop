@@ -37,6 +37,14 @@
 	form ul li:nth-child(6) label{
 		margin-right:27px;
 	}
+	span.img_f1,
+	span.img_f2{
+		margin-left:-177px;
+		display:inline-block;
+		width:170px;
+		font-size:13px;
+		background-color:white;
+	}
 </style>
 <script>
 	$(document).ready(function() {
@@ -49,9 +57,24 @@
 					alert("가격을 입력해주세요");
 				}else if($("#color").val() == ""){
 					alert("색상를 입력해주세요");
+				}else if($("#img1").val() == ""){
+					alert("이미지를 입력해주세요");
 				}else
 					productUpdateForm.submit();
 			})
+			
+			$("input[type=file]").on('change',function(){
+					if(window.FileReader){
+						var fileName= $(this)[0].files[0].name;
+						$(".img_f1").text("").text(fileName);					
+					}
+				})
+				$("input[type=file]").on('change',function(){
+					if(window.FileReader){
+						var fileName= $(this)[0].files[1].name;
+						$(".img_f2").text("").text(fileName);					
+					}
+				})
 		})
 </script>
 </head>
@@ -85,10 +108,18 @@
 	  					    	<input type="text" name="color" value = "<%= vo.getColor() %>" id="color">
 	  					    </li> 
 	  					    <li><label>이미지1</label> 
-	  					    	<input type = "file" name ="img1">
+	  					    	<% if(vo.getImg1() != null) {%>
+	  					    	<input type = "file" name ="img1" ><span class="img_f1"><%=vo.getImg1() %></span>
+	  					    	<%}else{ %>
+	  					    	<input type = "file" name ="img1" ><span class="img_f1">선택된 파일 없음</span>
+	  					    	<% } %>
 	  					    </li>
 	  					    <li><label>이미지2</label>
-	  					    	<input type ="file" name ="img2">
+	  					    	<% if(vo.getImg2() != null) {%>
+	  					    	<input type = "file" name ="img2" id="img_f2"><span class="img_f2"><%=vo.getImg1() %></span>
+	  					    	<%}else{ %>
+	  					    	<input type = "file" name ="img2" id="img_f2"><span class="img_f2">선택된 파일 없음</span>
+	  					    	<% } %>
 	  					    </li>					    
 	  					</ul>
 	  					<button type ="button" id="pu_btn">수정</button>
