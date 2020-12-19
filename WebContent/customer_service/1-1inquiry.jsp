@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import= "com.sist_project_2.dao.*, com.sist_project_2.vo.*"
+    %>
+<% 
+	String id = request.getParameter("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +13,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+</script>
 <title>1:1 문의</title>
 </head>
 <style>
@@ -29,10 +37,10 @@
 			<nav>
 				<ul>
 				    <li>고객센터</li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터 안내</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp">공지사항</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp">FAQ</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp">1:1문의</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%=id%>">고객센터 안내</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp?id=<%=id%>">공지사항</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%=id%>">FAQ</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%=id%>">1:1문의</a></li>
 				</ul>	
 			</nav>
 		   </aside>
@@ -48,7 +56,8 @@
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1">
+							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
+								<input type="hidden" name="mid" value="<%=id%>"> 
 								<ul>
 									<li>
 										<label>문의구분</label>
@@ -74,7 +83,7 @@
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 									<li>최대 5개 파일 업로드 가능</li>				
 								</ul>
-									<button type="button">신청하기</button>
+									<button type="submit">신청하기</button>
 							</form>
 						</div>        
 					</div>

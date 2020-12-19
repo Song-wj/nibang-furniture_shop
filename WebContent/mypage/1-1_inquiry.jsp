@@ -3,9 +3,9 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
     %>
 <%
-	String mid = request.getParameter("mid");
+	String id = request.getParameter("id");
 	nibangDAO dao = new nibangDAO();
-	messageVO vo = dao.getInquiryList();
+	//messageVO vo = dao.getInquiryList();
 %>
 <!DOCTYPE html>
 <html>

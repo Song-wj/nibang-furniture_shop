@@ -14,7 +14,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="header_login.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 	<!-- carousel -->
 	<div class="carousel-slide">
 		<div id="carouselExampleControls" class="carousel slide"

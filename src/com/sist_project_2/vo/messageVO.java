@@ -1,7 +1,15 @@
 package com.sist_project_2.vo;
 
 public class messageVO {
-	String sid, mid, m_div, m_title, m_content, m_file, m_date;
+	String sid, mid, m_div, m_title, m_content, m_file, m_sfile, m_date;
+
+	public String getM_sfile() {
+		return m_sfile;
+	}
+
+	public void setM_sfile(String m_sfile) {
+		this.m_sfile = m_sfile;
+	}
 
 	public String getSid() {
 		return sid;
