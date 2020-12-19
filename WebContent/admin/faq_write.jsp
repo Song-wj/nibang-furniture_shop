@@ -51,9 +51,9 @@
 							name="f_content" class="f_content"></textarea></li>
 					<li>
 						<button type="button" id="faqWriter">등록</button>
-						<button type="reset" class="btn_style">취소</button> <a
+						<button type="reset" >취소</button> <a
 						href="notice_list.jsp">
-							<button type="button" class="btn_style">목록으로</button>
+							<button type="button">목록으로</button>
 					</a>
 					</li>
 				</ul>
