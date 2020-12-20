@@ -2853,17 +2853,9 @@
 	.section1 div.faq div:nth-child(4)>table.faq_table tr td {
 		padding: 20px 0;
 	}	
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(2) th,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(3) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(4) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(5) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(6) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(7) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(8) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(9) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(10) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(11) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(12) td	{
+	.section1 div.faq div:nth-child(4)>table.faq_table tr th,
+	.section1 div.faq div:nth-child(4)>table.faq_table tr td
+	{
 		border-bottom: 1px solid lightgray;
 	}	
 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(13) td {
