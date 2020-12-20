@@ -5,7 +5,7 @@
 <%
 	productDAO dao = new productDAO(); 
 	ArrayList<productVO> list = dao.getList();
-	/* System.out.println(list[9].getImg2()); */
+	
 %>   
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
 <style>
 table{
  	text-align:center;
-	width:900px;
+	width:800px;
 }
 table.notice_table tr td:nth-child(2){
 	padding-left:0px;
@@ -26,8 +26,8 @@ table.notice_table tr td:nth-child(2){
 	color: rgb(144, 144, 144);
 }
 table.notice_table tr img{
-	width:70px;
-	height:70px;
+	width:50px;
+	height:50px;
 }
 </style>
 </head>
@@ -51,6 +51,7 @@ table.notice_table tr img{
 			<tr>
 				<th>상품번호</th>
 				<th>상품명</th>
+				<th>상품정보</th>
 				<th>가격</th>
 				<th>color</th>
 				<th>이미지1</th>
@@ -63,6 +64,7 @@ table.notice_table tr img{
 			<tr>
 				<td><%= vo.getPid() %></td>
 				<td><%= vo.getPname() %></td>
+				<td><%= vo.getPinfo() %></td>
 				<td><%= vo.getPrice() %></td>
 				<td><%= vo.getColor() %></td>
 				<td><img src="../upload/<%= vo.getImg1() %>"></td>

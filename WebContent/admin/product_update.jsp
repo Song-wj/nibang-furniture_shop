@@ -31,12 +31,12 @@
 	form ul li:nth-child(2) label{
 		margin-right:36px;
 	}
-	form ul li:nth-child(3) label,
-	form ul li:nth-child(4) label{
+	form ul li:nth-child(4) label,
+	form ul li:nth-child(5) label{
 		margin-right:52px;
 	}
-	form ul li:nth-child(5) label,
-	form ul li:nth-child(6) label{
+	form ul li:nth-child(6) label,
+	form ul li:nth-child(7) label{
 		margin-right:27px;
 	}
 	span.img_f1,
@@ -46,6 +46,9 @@
 		width:180px;
 		font-size:13px;
 		background-color:white;
+	}
+	button#pu_btn{
+		margin-left:400px;
 	}
 </style>
 <script>
@@ -57,6 +60,9 @@
 				}else if($("#pname").val() == ""){
 					alert("상품명 입력해주세요");
 					$("#pname").focus();
+				}else if($("#pinfo").val() == ""){
+					alert("상품명 입력해주세요");
+					$("#pinfo").focus();
 				}else if($("#price").val() == ""){
 					alert("가격을 입력해주세요");
 					$("#price").focus();
@@ -98,13 +104,16 @@
 			   </aside>
 				<div class="content">
 					<div><h1>상품수정</h1></div>
-	  				<form name ="productUpdateForm" action="productUpdateProc.jsp?pid=<%=pid %>" method="post" enctype="multipart/form-data">
+	  				<form name ="productUpdateForm" action="productUpdateProc.jsp?pid=<%= pid %>" method="post" enctype="multipart/form-data">
 	  					<ul>
 	  						<li><label>상품번호</label>
 	  							<input type="text" name="pid" value = "<%= vo.getPid() %>" disabled>
 	  						</li>
 	  						<li><label>상품명</label>
 	  						    <input type="text" name="pname" value = "<%= vo.getPname() %>" id="pname">
+	  					    </li>
+	  					    <li><label>상품정보</label>
+	  						    <input type="text" name="pinfo" value = "<%= vo.getPinfo() %>" id="pinfo">
 	  					    </li>
 	  					    <li><label>가격</label>
 	  					    	<input type="text" name ="price" value = "<%= vo.getPrice() %>" id="price">

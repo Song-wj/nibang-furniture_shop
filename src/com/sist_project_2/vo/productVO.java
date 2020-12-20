@@ -1,10 +1,18 @@
 package com.sist_project_2.vo;
 
 public class productVO {
-	String pid, pname , color, img1, img2,simg1,simg2 ,pdate;
-    int price;
+	String pid, pname , pinfo , color, img1, img2,simg1,simg2 ,pdate;
+
+	int price;
     
     
+	public String getPinfo() {
+		return pinfo;
+	}
+	
+	public void setPinfo(String pinfo) {
+		this.pinfo = pinfo;
+	}
     
 	public String getSimg1() {
 		return simg1;

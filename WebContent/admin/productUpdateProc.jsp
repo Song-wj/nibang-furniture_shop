@@ -5,6 +5,7 @@
  <%@ page import = "com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %> 
 
 <%
+
 	String save_path = request.getServletContext().getRealPath("/upload");
 	int max_size= 1024*1024*15;
 	
@@ -13,11 +14,14 @@
 	
 	productDAO dao = new productDAO();
 	productVO vo = new productVO();
+	
+	
 	boolean result = false;
 	if(multi.getOriginalFileName("img1") != null){
 		if(multi.getOriginalFileName("img2") != null){
 			vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
+			vo.setPinfo(multi.getParameter("pinfo"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color"));
 			vo.setImg1(multi.getOriginalFileName("img1"));
@@ -29,6 +33,7 @@
 		}else {
 			vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
+			vo.setPinfo(multi.getParameter("pinfo"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color"));
 			vo.setImg1(multi.getOriginalFileName("img1"));
@@ -41,6 +46,7 @@
 		if(multi.getOriginalFileName("img2") != null){
 		    vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
+			vo.setPinfo(multi.getParameter("pinfo"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color"));
 			vo.setImg2(multi.getOriginalFileName("img2"));
@@ -50,6 +56,7 @@
 		}else{
 			vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
+			vo.setPinfo(multi.getParameter("pinfo"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color")); 
 		

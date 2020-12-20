@@ -15,6 +15,7 @@
 	productVO vo = new productVO();
 	vo.setPid(multi.getParameter("pid"));
 	vo.setPname(multi.getParameter("pname"));
+	vo.setPinfo(multi.getParameter("pinfo"));
 	vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 	vo.setColor(multi.getParameter("color"));
 	vo.setImg1(multi.getOriginalFileName("img1"));
