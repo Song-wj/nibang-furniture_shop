@@ -41,7 +41,7 @@
 	}
 	span.img_f1,
 	span.img_f2{
-		margin-left:-177px;
+		margin-left:-178px;
 		display:inline-block;
 		width:180px;
 		font-size:13px;

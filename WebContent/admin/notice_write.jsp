@@ -29,7 +29,7 @@
 
 	}
 	form button#nw_btn{
-		margin-left:250px;
+		margin-left:550px;
 	}
 </style>
 <script>
@@ -61,7 +61,7 @@
 			   </aside>
 				<div class="content">
 				<div><h1>공지사항 등록</h1></div>
-  				<form name ="noticeWriteForm" action="noticeWriteProc.jsp" method="post">
+  				<form name ="noticeWriteForm" action="noticeWriteProc.jsp" method="post" enctype="multipart/form-data">
   					<ul>
   						<li><label>제목</label>
   							<input type="text" name="ntitle" id="ntitle" >
@@ -69,7 +69,9 @@
   						<li><label>내용</label>
   						    <textarea rows="10" cols ="50" name ="ncontent" id="ncontent"></textarea>
   					    </li>
- 					     
+  					    <li><label>첨부 파일</label>
+  						    <input type="file" name="nfile" >
+  					    </li>					     
   					</ul>
   					<button type ="button" id="nw_btn">등록</button>
   					<button type ="reset">취소</button>
