@@ -12,8 +12,8 @@
 <title>공지사항</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
 <style>
 section.section1 {
 	width: 1100px;
@@ -30,13 +30,24 @@ div.content h1 {
 table.notice_table{
 	width:700px;
 }
+table.notice_table td.ncontent{
+	background-color: #f0f0f0;
+}
+table.notice_table td.ncontent p{
+	text-align:left;
+	padding: 20px 0 20px 100px;
+	font-weight: normal;
+}
 </style>
-</head>
+<script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <script>
-function slideDown(nid) {
-	$("#"+nid+" div").toggle();
-} 
+$(document).ready(function(){
+})
+	function test(nid){			  
+		$("#"+nid).toggle();	   
+	}
 </script>
+</head>
 <body>
 	<jsp:include page="../header.jsp" />
 	<div>
@@ -64,17 +75,22 @@ function slideDown(nid) {
 									<th>조회수</th>
 								</tr>
 								<%for(noticeVO vo : list) {%>								
-								<tr  onclick='slideDown(<%=vo.getNid() %>)'>
+								<tr class="ntitle " onclick="test('<%=vo.getNid() %>')">
 									<td><%= vo.getRno()%></td>
 									<td><%= vo.getNtitle()%></td>
 									<td><%= vo.getNdate()%></td>
 									<td><%= vo.getNviews()%></td>								
 								</tr>
-								<tr class="contents" id="<%=vo.getNid() %>">
-					    			<td colspan="4" >
-										<div style="display: none;">
-											<p id="faq_content_detail"><%= vo.getNcontent().replace("\r\n", "<br>") %></p>
-										</div>
+								<tr>
+					    			<td colspan="4"  class="ncontent"  id="<%=vo.getNid() %>" style="display:none;">										
+										
+										<p><%= vo.getNcontent().replace("\r\n", "<br>") %></p>
+										<p>
+										<%if (vo.getNsfile() != null) {%>
+											<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getNsfile() %>" width=150px height=150px>
+										<%} %>
+										</p>
+										
 									</td>
 					    		</tr>								
 								<%} %>

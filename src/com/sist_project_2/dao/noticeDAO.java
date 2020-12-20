@@ -27,7 +27,7 @@ public class noticeDAO extends DBConn{
 	public ArrayList<noticeVO> getList() {
 		ArrayList<noticeVO> list = new ArrayList<>();
 		try {
-			String sql = "select rownum rno , nid, n_title, n_content, to_char(n_date,'yy/mm/dd') ,n_views from (select * from notice order by n_date desc) ";
+			String sql = "select rownum rno , nid, n_title, n_content, to_char(n_date,'yy/mm/dd') ,n_views,n_sfile from (select * from notice order by n_date desc) ";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -38,6 +38,7 @@ public class noticeDAO extends DBConn{
 				vo.setNcontent(rs.getString(4));
 				vo.setNdate(rs.getString(5));
 				vo.setNviews(rs.getString(6));
+				vo.setNsfile(rs.getString(7));
 				
 				list.add(vo);
 			}

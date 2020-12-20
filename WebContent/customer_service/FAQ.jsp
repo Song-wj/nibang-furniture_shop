@@ -41,8 +41,8 @@
 				padding:0;
 			}
 			.contents td p#faq_content_detail {
-				margin-top: -35px;
-				margin-left: -30px;
+				/* margin-top: -35px;
+				margin-left: -30px; */
 				text-align: left;
 				padding: 60px 95px 60px 95px;
 				font-weight: normal;
