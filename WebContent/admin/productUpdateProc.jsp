@@ -22,6 +22,7 @@
 			vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
 			vo.setPinfo(multi.getParameter("pinfo"));
+			vo.setPkind(multi.getParameter("pkind"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color"));
 			vo.setImg1(multi.getOriginalFileName("img1"));
@@ -34,6 +35,7 @@
 			vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
 			vo.setPinfo(multi.getParameter("pinfo"));
+			vo.setPkind(multi.getParameter("pkind"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color"));
 			vo.setImg1(multi.getOriginalFileName("img1"));
@@ -47,6 +49,7 @@
 		    vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
 			vo.setPinfo(multi.getParameter("pinfo"));
+			vo.setPkind(multi.getParameter("pkind"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color"));
 			vo.setImg2(multi.getOriginalFileName("img2"));
@@ -57,6 +60,7 @@
 			vo.setPid(multi.getParameter("pid"));
 			vo.setPname(multi.getParameter("pname"));
 			vo.setPinfo(multi.getParameter("pinfo"));
+			vo.setPkind(multi.getParameter("pkind"));
 			vo.setPrice(Integer.parseInt(multi.getParameter("price")));
 			vo.setColor(multi.getParameter("color")); 
 		

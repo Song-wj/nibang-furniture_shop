@@ -52,6 +52,7 @@ table.notice_table tr img{
 				<th>상품번호</th>
 				<th>상품명</th>
 				<th>상품정보</th>
+				<th>종류</th>
 				<th>가격</th>
 				<th>color</th>
 				<th>이미지1</th>
@@ -65,6 +66,7 @@ table.notice_table tr img{
 				<td><%= vo.getPid() %></td>
 				<td><%= vo.getPname() %></td>
 				<td><%= vo.getPinfo() %></td>
+				<td><%= vo.getPkind() %></td>
 				<td><%= vo.getPrice() %></td>
 				<td><%= vo.getColor() %></td>
 				<td><img src="../upload/<%= vo.getImg1() %>"></td>

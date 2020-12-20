@@ -9,17 +9,18 @@ public class productDAO extends DBConn{
 	public boolean productInsert(productVO vo) {
 		boolean result = false;
 		try {
-			String sql ="insert into product values( ?, ?, ?,? ,? , sysdate ,? ,? ,? ,?)";
+			String sql ="insert into product values( ?, ?, ?,? ,?,? , sysdate ,? ,? ,? ,?)";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getPid());
 			pstmt.setString(2, vo.getPname());
 			pstmt.setString(3, vo.getPinfo());
-			pstmt.setInt(4, vo.getPrice());
-			pstmt.setString(5, vo.getColor());
-			pstmt.setString(6, vo.getImg1());
-			pstmt.setString(7, vo.getImg2());
-			pstmt.setString(8, vo.getSimg1());
-			pstmt.setString(9, vo.getSimg2());
+			pstmt.setString(4, vo.getPkind());
+			pstmt.setInt(5, vo.getPrice());
+			pstmt.setString(6, vo.getColor());
+			pstmt.setString(7, vo.getImg1());
+			pstmt.setString(8, vo.getImg2());
+			pstmt.setString(9, vo.getSimg1());
+			pstmt.setString(10, vo.getSimg2());
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result= true;
@@ -32,7 +33,7 @@ public class productDAO extends DBConn{
 	public ArrayList<productVO> getList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname, price, color, img1,img2, to_char(pdate,'yy/mm/dd') pdate , pinfo from (select * from product order by pdate desc)";
+			String sql = "select pid , pname, price, color, img1,img2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc)";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -45,6 +46,7 @@ public class productDAO extends DBConn{
 				vo.setImg2(rs.getString(6));
 				vo.setPdate(rs.getString(7));
 				vo.setPinfo(rs.getString(8));
+				vo.setPkind(rs.getString(9));
 				
 				list.add(vo);
 			}
@@ -57,7 +59,7 @@ public class productDAO extends DBConn{
 	public productVO getData(String pid) {
 		productVO vo = new productVO();
 		try {
-			String sql = "select pid ,pname, pinfo, price, color ,img1, img2 from product where pid =?";
+			String sql = "select pid ,pname, pinfo, pkind, price, color ,img1, img2 from product where pid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, pid);
 			rs=pstmt.executeQuery();
@@ -65,10 +67,11 @@ public class productDAO extends DBConn{
 				vo.setPid(rs.getString(1));
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
-				vo.setPrice(rs.getInt(4));
-				vo.setColor(rs.getString(5));	
-				vo.setImg1(rs.getString(6));	
-				vo.setImg2(rs.getString(7));	
+				vo.setPkind(rs.getString(4));
+				vo.setPrice(rs.getInt(5));
+				vo.setColor(rs.getString(6));	
+				vo.setImg1(rs.getString(7));	
+				vo.setImg2(rs.getString(8));	
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -79,7 +82,7 @@ public class productDAO extends DBConn{
 	public boolean productUpdate(productVO vo) {
 		boolean result = false;
 		try {
-			String sql = "update product set pname =? ,color =? ,price =? ,img1=? ,img2=? , simg1=?, simg2=? , pinfo=?  where pid =?";
+			String sql = "update product set pname =? ,color =? ,price =? ,img1=? ,img2=? , simg1=?, simg2=? , pinfo=? ,pkind=?  where pid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getPname());
 			pstmt.setString(2, vo.getColor());
@@ -89,7 +92,8 @@ public class productDAO extends DBConn{
 			pstmt.setString(6, vo.getSimg1());
 			pstmt.setString(7, vo.getSimg2());
 			pstmt.setString(8, vo.getPinfo());
-			pstmt.setString(9, vo.getPid());
+			pstmt.setString(9, vo.getPkind());
+			pstmt.setString(10, vo.getPid());
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result = true;
@@ -104,7 +108,7 @@ public class productDAO extends DBConn{
 	public boolean productUpdate1(productVO vo) {
 		boolean result = false;
 		try {
-			String sql = "update product set pname =? ,color = ?, price = ? ,img1=? ,simg1=? ,pinfo = ? where pid=?";
+			String sql = "update product set pname =? ,color = ?, price = ? ,img1=? ,simg1=? ,pinfo = ?, pkind =? where pid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getPname());			
 			pstmt.setString(2, vo.getColor());
@@ -112,7 +116,8 @@ public class productDAO extends DBConn{
 			pstmt.setString(4, vo.getImg1());
 			pstmt.setString(5, vo.getSimg1());
 			pstmt.setString(6, vo.getPinfo());
-			pstmt.setString(7, vo.getPid());
+			pstmt.setString(7, vo.getPkind());
+			pstmt.setString(8, vo.getPid());
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result = true;
@@ -125,7 +130,7 @@ public class productDAO extends DBConn{
 	public boolean productUpdate2(productVO vo) {
 		boolean result = false;
 		try {
-			String sql = "update product set pname =? , color =? ,price =? ,img2=? ,simg2=? ,pinfo=?  where pid =?";
+			String sql = "update product set pname =? , color =? ,price =? ,img2=? ,simg2=? ,pinfo=? , pkind=? where pid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getPname());			
 			pstmt.setString(2, vo.getColor());
@@ -133,7 +138,8 @@ public class productDAO extends DBConn{
 			pstmt.setString(4, vo.getImg2());
 			pstmt.setString(5, vo.getSimg2());
 			pstmt.setString(6, vo.getPinfo());
-			pstmt.setString(7, vo.getPid());
+			pstmt.setString(7, vo.getPkind());
+			pstmt.setString(8, vo.getPid());
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result = true;
@@ -146,13 +152,14 @@ public class productDAO extends DBConn{
 	public boolean productUpdate3(productVO vo) {
 		boolean result = false;
 		try {
-			String sql = "update product set pname =? ,pinfo=? , price =? ,color=? where pid =?";
+			String sql = "update product set pname =? ,pinfo=? , pkind =? ,price =? ,color=? where pid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getPname());
 			pstmt.setString(2, vo.getPinfo());
-			pstmt.setInt(3, vo.getPrice());
-			pstmt.setString(4, vo.getColor());
-			pstmt.setString(5, vo.getPid());
+			pstmt.setString(3, vo.getPkind());
+			pstmt.setInt(4, vo.getPrice());
+			pstmt.setString(5, vo.getColor());
+			pstmt.setString(6, vo.getPid());
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result = true;

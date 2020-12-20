@@ -26,12 +26,16 @@
 		margin-right:36px;
 	}
 	form ul li:nth-child(4) label,
-	form ul li:nth-child(5) label{
+	form ul li:nth-child(5) label,
+	form ul li:nth-child(6) label{
 		margin-right:52px;
 	}
-	form ul li:nth-child(6) label,
-	form ul li:nth-child(7) label{
+	form ul li:nth-child(7) label,
+	form ul li:nth-child(8) label{
 		margin-right:27px;
+	}
+	form ul li:nth-child(8) label{
+		margin-left:289px;
 	}
 	button#pi_btn { 
 		margin-left:400px;
@@ -49,6 +53,9 @@
 			}else if($("#pinfo").val() == ""){
 				alert("상품정보 입력해주세요");
 				$("#pinfo").focus();
+			}else if($("#pkind").val() == ""){
+				alert("종류를 입력해주세요");
+				$("#pkind").focus();	
 			}else if($("#price").val() == ""){
 				alert("가격을 입력해주세요");
 				$("#price").focus();
@@ -88,6 +95,9 @@
 	  					    </li>
 	  					    <li><label>상품정보</label>
 	  						    <input type="text" name="pinfo" id ="pinfo">
+	  					    </li>
+	  					    <li><label>종류</label>
+	  						    <input type="text" name="pkind" id ="pkind">
 	  					    </li>
 	  					    <li><label>가격</label>
 	  					    	<input type="text" name ="price" id="price">
