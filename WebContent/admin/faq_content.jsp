@@ -4,7 +4,7 @@
     %>
 <%
 	String fid = request.getParameter("fid");
-	nibangDAO dao = new nibangDAO();
+	faqDAO dao = new faqDAO();
 	faqVO vo = dao.getFAQContent(fid);
 %>
 <!DOCTYPE html>
