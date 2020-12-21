@@ -1,7 +1,5 @@
 package com.sist_project_2.dao;
-import java.util.ArrayList;
 
-import com.sist_project_2.vo.faqVO;
 import com.sist_project_2.vo.joinVO;
 
 public class nibangDAO extends DBConn{
