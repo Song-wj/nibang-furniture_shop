@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8" import = "com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
 <%
 	noticeDAO dao = new noticeDAO();
+
 	ArrayList<noticeVO> list = dao.getList();
-	
 %>
 <!DOCTYPE html>
 <html>
