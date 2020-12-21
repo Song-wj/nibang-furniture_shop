@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
+ 
+ <% 
+ 	String nid = request.getParameter("nid");
+ 	noticeDAO dao = new noticeDAO();
+ 	noticeVO vo = dao.getContent(nid);
+ %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +17,13 @@
 	.section1 aside.sideMenuBar2 ul>li:first-child>a {
 		font-size: 15px;
 		color: rgb(144, 144, 144);
+	}
+	.section1 table.notice_table{
+		width:500px;
+	}
+	.section1 table.notice_table tr:first-child td{
+		text-align:center;
+		padding-left:0;
 	}
 </style>
 </head>
@@ -31,24 +45,23 @@
 				<div class="list_body">
 					<table class="notice_table">
 						<tr class="table_header">
-							<th>NO</th>
-							<td>???</td>
 							<th>제목</th>
-							<td>??</td>
+							<td><%= vo.getNtitle() %></td>
 							<th>등록일</th>
-							<td>??</td>
-							<th>조회수</th>
-							<td>??</td>
+							<td><%= vo.getNdate() %></td>
 						</tr>
 						<tr>
 							<td colspan='8'>
-								<p>aaa</p>
+								<p><%= vo.getNcontent().replace("\r\n", "<br>") %></p>
+								<%if(vo.getNsfile() != null) {%>
+									<img src ="http://localhost:9000/sist_project_2/upload/<%=vo.getNsfile() %>">
+								<%} %>
 						</td>
 						</tr>
 						<tr>
 							<td colspan='8'>
-								<a href="notice_update.jsp"><button type="button">수정</button></a>
-								<a href="notice_delete.jsp"><button type="button">삭제</button></a>
+								<a href="notice_update.jsp?nid=<%=nid%>"><button type="button">수정</button></a>
+								<a href="notice_delete.jsp?nid=<%=nid%>"><button type="button">삭제</button></a>
 							</td>
 						</tr>
 					</table>
