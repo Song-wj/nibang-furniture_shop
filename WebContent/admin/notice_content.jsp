@@ -44,7 +44,7 @@
 							<td colspan='8'>
 								<p><%= vo.getNcontent().replace("\r\n", "<br>") %></p>
 								<%if(vo.getNsfile() != null) {%>
-									<img src ="http://localhost:9000/sist_project_2/upload/<%=vo.getNsfile() %>">
+									<img src ="http://localhost:9000/sist_project_2/upload/<%=vo.getNsfile() %>" width =200px height =200px>
 								<%} %>
 						</td>
 						</tr>

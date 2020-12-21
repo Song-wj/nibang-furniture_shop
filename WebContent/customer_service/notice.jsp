@@ -44,7 +44,7 @@ table.notice_table td.ncontent p{
 $(document).ready(function(){
 })
 	function test(nid){			  
-		$("#"+nid).toggle();	   
+		$("#"+nid).toggle();
 	}
 </script>
 </head>

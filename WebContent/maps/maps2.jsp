@@ -152,9 +152,54 @@
 			font-size:25px;
 			text-align:center;
 		}
-		div#map{
+		section.store_detail{
+			margin-bottom:200px;
+			height:250px;
+		}
+		section.store_detail div{
+			clear:both;
+			display:inline-block; 
+			width:50px; 
+			height:50px;
 			
 		}
+		section.store_detail div.info_border{
+			border-bottom:0.5px solid lightgray;
+			width:700px;
+			height:250px;
+			margin-left:250px;
+		}
+		section.store_detail div.store_info2{
+			margin-left:300px;
+			margin-bottom:50px;
+		}
+		section.store_detail div.store_info2 ul{
+			display:inline-block;			
+			list-style:none;
+		}
+		section.store_detail div.store_info2 ul li{
+			margin-bottom:10px;
+			width:150px;
+		}
+		section.store_detail div.store_info2 li:nth-child(3){
+			margin-bottom:20px;
+		}
+		section.store_detail div.store_info2 li:nth-child(2),
+		section.store_detail div.store_info2 li:nth-child(3){
+			font-size:10px;
+		}
+		section.store_detail div.store_info2 li:nth-child(4),
+		section.store_detail div.store_info2 li:nth-child(5),
+		section.store_detail div.store_info2 li:nth-child(6),
+		section.store_detail div.store_info2 li:nth-child(7){
+			font-size:8px;
+		}
+		section.store_detail div.store_img img{
+			width:300px; 
+			height:200px;			
+			margin-bottom:90px;
+		}
+		
 </style>
 </head>
 <body>
@@ -197,11 +242,28 @@
 		            </div>
 		        </div>
 
-		        <ul id="placesList"></ul>
-		        <div id="pagination"></div>
+		        <!-- <ul id="placesList"></ul>
+		        <div id="pagination"></div> -->
 		    </div>
 		</div>
 		</section>
+		<section class= "store_detail">
+			<div class ="info_border">
+			<div class ="store_img">
+				<img src ="../images/다나_detail.jpg" > 
+			</div>
+			<div class ="store_info2">
+				<ul>
+					<li>프리미엄논현</li>
+					<li>서울시특별시 강남구 학동로 147</li>
+					<li>02-3443-1001</li>
+					<li>주차가능</li>
+					<li>영업시간 10:30~19:30</li>
+					<li>연중무휴(설,추석 당일 제외)</li>					
+				</ul>
+			</div>
+			</div>
+		</section> 
 	<jsp:include page="../footer.jsp" />
  	
 </body>
