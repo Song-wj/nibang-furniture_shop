@@ -5,11 +5,12 @@
 <%
 	String sid = request.getParameter("sid");
 	messageDAO dao = new messageDAO();
+	messageVO vo = new messageVO();
 	boolean result = dao.getDelete(sid);
 	
 	if(result){
 		response.sendRedirect("1-1_inquiry.jsp");
 	}else{
-		response.sendRedirect("../errorPage.jsp");
+		out.write("error");
 	}
 %>    

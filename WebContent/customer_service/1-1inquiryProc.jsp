@@ -16,7 +16,7 @@
 	//4. VO 객체 생성
 	messageVO vo = new messageVO();
 	
-//	vo.setMid(multi.getParameter(id));
+	vo.setMid(multi.getParameter(id));
 	vo.setM_div(multi.getParameter("m_div"));
 	vo.setM_title(multi.getParameter("m_title"));
 	vo.setM_content(multi.getParameter("m_content"));

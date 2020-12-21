@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"import ="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    pageEncoding="UTF-8"
+    import ="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>    
 
 <%
     	String save_path = request.getServletContext().getRealPath("/upload"); 
-
-    	int max_size = 1024*1024*100;
+    	
+		int max_size = 1024*1024*100;
 
     	MultipartRequest multi 
     		= new MultipartRequest(request,save_path,max_size,

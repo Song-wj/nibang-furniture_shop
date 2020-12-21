@@ -4,6 +4,7 @@
     %>
 <%
 	String id = request.getParameter("id");
+	String sid = request.getParameter("sid");
 	messageDAO dao = new messageDAO();
 	ArrayList<messageVO> list =  dao.getInquiryList();
 	
@@ -23,6 +24,7 @@
    		width: 95%;
     	margin: auto;
     }
+    
 	summary {
 		cursor: pointer;
 		list-style: none;
@@ -30,6 +32,8 @@
 	summary::-webkit-details-marker {
 		display:none;
 	}
+	
+	
 </style>
 </head>
 <body>
@@ -55,7 +59,7 @@
 								<td rowspan="3" style="width:110px;"></td>
 								<td class="all" onclick="">전체내역</td>
 								<td style="width:53px">
-									<span class="cNum">0</span>
+									<span class="cNum">0 <%=vo.getM_div()%></span>
 								</td>
 								<td class="">상품문의</td>
 								<td style="width:53px">
@@ -111,14 +115,14 @@
 					<div>
 						<table  style="width:100%">
 							<tbody>
-								<tr class="noto">
+								<tr class="noto" style="border:1px solid lightgray">
 									<td>문의번호</td>
-									<td style="width:150px">구분</td>
-									<td style="width:400px">문의내용</td>
+									<td style="width:150px;">구분</td>
+									<td style="width:400px;">문의내용</td>
 									<td>문의날짜</td>
 								</tr>
 								<% for(messageVO vo : list){ %>
-								<tr style="background-color:lightgray">
+								<tr style="border:1px solid lightgray">
                            			<td><%=vo.getSid()%></td>
                            			<td><%=vo.getM_div()%></td>
                            			<td>
@@ -126,8 +130,8 @@
                            					<summary><%=vo.getM_title()%></summary>
                            					<p><br><%=vo.getM_content()%>
  	                          				   <br>
-	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiry.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:300px; background-color:lightgray; border:1px solid white; color:white;">수정</button></a>
-	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:300px; background-color:lightgray; border:1px solid white; color:white;">삭제</button></a>
+	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:280px; background-color:lightgray; border:1px solid white; color:rgb(200,10,30);">수정</button></a>
+	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="background-color:lightgray; border:1px solid white; color:rgb(200,10,30);">삭제</button></a>
                            					</p>
                            				</details>
                            			</td>
