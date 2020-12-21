@@ -6,8 +6,8 @@
 	String id = request.getParameter("id");
 	String sid = request.getParameter("sid");
 	messageDAO dao = new messageDAO();
+	int list_count = dao.getListCount();	
 	ArrayList<messageVO> list =  dao.getInquiryList();
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -59,7 +59,7 @@
 								<td rowspan="3" style="width:110px;"></td>
 								<td class="all" onclick="">전체내역</td>
 								<td style="width:53px">
-									<span class="cNum">0 <%=vo.getM_div()%></span>
+									<span class="cNum"><%=list_count%></span>
 								</td>
 								<td class="">상품문의</td>
 								<td style="width:53px">
@@ -79,10 +79,9 @@
 								<td style="width:53px">
 									<span class="cNum">0</span>
 								</td>
-								<td class="">A/S</td>
+								<td class="">기타</td>
 								<td style="width:53px">
 									<span class="cNum">0</span>
-								</td>
 							</tr>
 							<tr>
 								<td class="">회원정보</td>
@@ -93,9 +92,7 @@
 								<td style="width:53px">
 									<span class="cNum">0</span>
 								</td>
-								<td class="">기타</td>
-								<td style="width:53px">
-									<span class="cNum">0</span>
+								
 							</tr>
 						</tbody>
 					</table>
@@ -121,6 +118,7 @@
 									<td style="width:400px;">문의내용</td>
 									<td>문의날짜</td>
 								</tr>
+							<% if(list_count != 0){ %>
 								<% for(messageVO vo : list){ %>
 								<tr style="border:1px solid lightgray">
                            			<td><%=vo.getSid()%></td>
@@ -138,12 +136,13 @@
                            			<td><%=vo.getM_date()%></td>	                           					
                         		</tr>
                         		<% } %>
+                        	<% }else{ %>
+								<td colspan="4" style="color:#aaa; font-size:18px; padding-top: 100px;">조회 결과가 없습니다.</td>
+							<% } %>
 							</tbody>
 						</table>
 					</div>
-					<div class="noList" style="padding:170px 0; text-align:center;">
-						<p style="color:#aaa; font-size:18px;" class="noto">조회 결과가 없습니다.</p>
-					</div>
+					
 				</div>
 			</div>
 		</div>

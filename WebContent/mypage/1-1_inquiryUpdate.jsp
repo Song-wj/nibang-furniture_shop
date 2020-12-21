@@ -38,7 +38,6 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	
 	<section class ="section1">
-			<jsp:include page="../sideMenuBar.jsp"/>
 		  	<div class ="inquiry">
 					<div class="mdiv"><a href="#open"  class="message"></a></div>					  
 						<div class="white_content" id="open">

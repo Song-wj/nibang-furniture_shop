@@ -10,14 +10,14 @@ public class messageDAO extends DBConn {
 	/*
 	 * insert : 1:1 ¹®ÀÇ
 	 **/
-	public boolean getMessageInsert(messageVO vo, String mid) {
+	public boolean getMessageInsert(messageVO vo) {
 		boolean result = false;
 
 		try {
 			String sql = "insert into message values('m_'||sqe_nibang_message.nextval,?,?,?,?,?,sysdate,?)";
 			getPreparedStatement(sql);
 
-			pstmt.setString(1, mid);
+			pstmt.setString(1, vo.getMid());
 			pstmt.setString(2, vo.getM_div());
 			pstmt.setString(3, vo.getM_title());
 			pstmt.setString(4, vo.getM_content());
@@ -157,6 +157,24 @@ public class messageDAO extends DBConn {
 				if(val != 0) result = true;
 				
 			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return result;
+		}
+		
+		
+		public int getListCount() {
+			int result = 0;
+			
+			try {
+				String sql = "select count(*) from message";
+				getPreparedStatement(sql);
+				
+				ResultSet rs = pstmt.executeQuery();
+				if(rs.next()) result = rs.getInt(1);
+				
+			}catch (Exception e) {
 				e.printStackTrace();
 			}
 			

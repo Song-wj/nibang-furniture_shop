@@ -7,7 +7,7 @@
 <jsp:setProperty name="vo" property="*" />
 
 <%
-	nibangDAO dao = new nibangDAO();
+	faqDAO dao = new faqDAO();
 	boolean result = dao.insertFAQ(vo);
 
 	if(result) {
