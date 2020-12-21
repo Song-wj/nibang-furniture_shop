@@ -2,8 +2,16 @@ package com.sist_project_2.vo;
 
 public class faqVO {
 	String mid, fid, f_div, f_title, f_content, f_date;
-	int f_views;
+	int rno, f_views;
 	
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
+
 	public String getMid() {
 		return mid;
 	}
