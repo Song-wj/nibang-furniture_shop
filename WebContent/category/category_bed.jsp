@@ -160,7 +160,7 @@
 			</div>
 		</section>
 	</div>
-	
+	<jsp:include page="../nibangBanner.jsp"/>	
 	<!-- footer -->
 	<jsp:include page="../footer.jsp" />		
 </body>

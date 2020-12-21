@@ -26,7 +26,7 @@ div.content button.faq_del {
 </head>
 <body>
 	<section class="section1">
-		<jsp:include page="../sideMenuBar2.jsp" />
+		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 		<div class="content">
 			<div>
 				<h1>FAQ 삭제</h1>

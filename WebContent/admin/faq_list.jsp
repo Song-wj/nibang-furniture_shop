@@ -19,7 +19,7 @@
 
 <body>
 		<section class="section1">
-		<jsp:include page="../sideMenuBar2.jsp"/>
+		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 			<div>
 					<div class="content">
 						<div><h1>FAQ</h1></div>

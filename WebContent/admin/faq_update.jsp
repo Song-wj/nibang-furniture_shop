@@ -32,7 +32,7 @@ form ul li {
 </style>
 <body>
 	<section class="section1">
-		<jsp:include page="../sideMenuBar2.jsp" />
+		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 		<div class="content">
 			<div>
 				<h1>FAQ 수정</h1>

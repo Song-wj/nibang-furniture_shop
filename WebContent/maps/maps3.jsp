@@ -224,6 +224,7 @@
 		    </div>
 		</div>
 		</section>
+	<jsp:include page="../nibangBanner.jsp"/>
 	<jsp:include page="../footer.jsp" />
  	<script src="http://localhost:9000/sist_project_2/js/weather.js"></script>
 </body>
