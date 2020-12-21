@@ -3,7 +3,32 @@
 <%
 	noticeDAO dao = new noticeDAO();
 
-	ArrayList<noticeVO> list = dao.getList();
+	String rpage= request.getParameter("rpage");
+	
+	int start =0;
+	int end=0;
+	int pageSize=10; //한 페이지당 출력되는 row
+	int pageCount = 1;//전체 페이지수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao.getListCount() ; // DB연동 후 전체로우수 출력
+	int reqPage = 1;//요청페이지
+	
+	if(dbCount%pageSize==0){
+	   pageCount= dbCount/pageSize;
+	}else{
+	   pageCount= dbCount/pageSize+1;
+	
+	}
+	
+	if(rpage != null){
+	   reqPage = Integer.parseInt(rpage);
+	   start = (reqPage -1) * pageSize +1 ;
+	   end = reqPage * pageSize;
+	}else{
+	   start = reqPage;
+	   end = pageSize;
+	}
+	
+	ArrayList<noticeVO> list = dao.getList(start, end);
 %>
 <!DOCTYPE html>
 <html>
@@ -11,9 +36,9 @@
 <meta charset="UTF-8">
 <title>공지사항</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/am-pagination.css">
+<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
+<script src="http://localhost:9000/sist_project_2/js/am-pagination.js"></script>
 <style>
 section.section1 {
 	width: 1100px;
@@ -38,14 +63,83 @@ table.notice_table td.ncontent p{
 	padding: 20px 0 20px 100px;
 	font-weight: normal;
 }
+
+	.subject {
+		text-align: center;
+	}
+	.subject td:nth-child(1) {
+		letter-spacing: -1.5px;
+	}
+			
+	.contents td {
+		background-color: #f0f0f0;
+	}
+	.contents td#notice_content{
+		padding:0;
+	}
+	.contents td p#notice_content_detail {
+		/* margin-top: -35px;
+		margin-left: -30px; */
+		text-align: left;
+		padding: 60px 95px 60px 95px;
+		font-weight: normal;
+	}
+	.page {
+		text-align: center;
+		margin-left: 15%;
+	}
+
+.pageNotice {
+	text-align: center;
+	width: 400px;
+	margin-left: 41%;
+}
 </style>
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <script>
-$(document).ready(function(){
-})
-	function test(nid){			  
+
+	$(document).ready(function(){
+			// 페이지 번호 및 링크
+			const pager = jQuery("#ampaginationsm").pagination({
+				maxSize : 5,
+				totals : <%=dbCount%>,
+				pageSize : <%=pageSize%>,
+				page : <%=reqPage%>,
+				
+				prevTest : '&lt;',
+				nextTest : '&gt;',
+				
+				btnSize : 'sm'
+			});
+			
+			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?rpage=' + e.page);
+				//location.href('이동페이지'); -> javascript
+			}); 
+		});
+	
+	function slideDown(nid) {
+		//$("#"+fid+" div").slideToggle();
+		
+		$('.contents div').each(function(){
+			if($(this).css('display') == 'block')
+				$(this).slideUp('fast');
+		}); 
+		
+		if($("#"+nid+" div").css('display') == 'none') {
+			$("#"+nid+" div").css('display','block');
+			$("#"+nid+" div").slideDown('fast');
+		} else {
+			$("#"+nid+" div").css('display','none');
+			$("#"+nid+" div").slideUp('fast');
+		}   
+		
+		history.pushState(null, null, 'notice.jsp?nid='+nid);
+	}  
+
+/* 	function test(nid){			  
 		$("#"+nid).toggle();
-	}
+	} */
 </script>
 </head>
 <body>
@@ -75,29 +169,30 @@ $(document).ready(function(){
 									<th>조회수</th>
 								</tr>
 								<%for(noticeVO vo : list) {%>								
-								<tr class="ntitle " onclick="test('<%=vo.getNid() %>')">
+								<tr class="ntitle " onclick="slideDown('<%=vo.getNid() %>')">
 									<td><%= vo.getRno()%></td>
 									<td><%= vo.getNtitle()%></td>
 									<td><%= vo.getNdate()%></td>
 									<td><%= vo.getNviews()%></td>								
 								</tr>
-								<tr>
-					    			<td colspan="4"  class="ncontent"  id="<%=vo.getNid() %>" style="display:none;">										
-										
-										<p><%= vo.getNcontent().replace("\r\n", "<br>") %></p>
-										<p>
+								<tr class="contents" id="<%=vo.getNid() %>">
+					    			<td colspan="4" id="notice_content">						
+					    				<div style="display: none;">				
+											<p id="notice_content_detail"><%= vo.getNcontent().replace("\r\n", "<br>") %></p>
+							<%-- 			<p>
 										<%if (vo.getNsfile() != null) {%>
 											<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getNsfile() %>" width=150px height=150px>
 										<%} %>
-										</p>
-										
+										</p> --%>
+										</div>
 									</td>
 					    		</tr>								
-								<%} %>
+								<% } %>
 							</table>
 						</div>
 					</div>
 			</div>
+			<div id="ampaginationsm" class="pageNotice"></div>
 		</section>
 	</div>
 	<jsp:include page="../nibangBanner.jsp"/>
