@@ -1,9 +1,25 @@
 package com.sist_project_2.vo;
 
 public class noticeVO {
-	String nid, ntitle,ncontent, nviews, ndate;
+	String nid, ntitle,ncontent, nviews, ndate ,nfile,nsfile;
+
 	int rno;
 
+	public String getNfile() {
+		return nfile;
+	}
+	
+	public void setNfile(String nfile) {
+		this.nfile = nfile;
+	}
+	
+	public String getNsfile() {
+		return nsfile;
+	}
+	
+	public void setNsfile(String nsfile) {
+		this.nsfile = nsfile;
+	}
 	public int getRno() {
 		return rno;
 	}

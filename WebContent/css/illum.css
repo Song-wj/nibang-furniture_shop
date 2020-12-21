@@ -224,20 +224,33 @@
 	index 
 */
 	.section2 .label {
-		margin-bottom: 20px;
 		text-align: center;
 		font-size: 13px;
 		font-weight: 600;
 		color: #333;
 	}	
-	.section2 .recomand_img {
+	.section2 .recommand_img {
 		width: 175px;
 		height: 180px;
 		padding: 10px 10px;
 	}	
-	.section2 .recomand>div {
+	.section2 .recommand>div {
 		display: inline-block;
 	}	
+	.section2 div.recommand div>label.title,
+	.section2 div.recommand div>label.price{
+		font-size:12px;
+		text-align:left;
+		display:inline-block;
+		width:155px;
+		text-align:left;
+	}
+	.section2 div.recommand div>label.title{
+		margin-bottom:0;
+	}
+	.section2 div.recommand div>label.price{
+		color:rgb(200,10,30);
+	}
 	.section3>div {
 		padding: 50px 0px;
 	}	
@@ -2853,17 +2866,9 @@
 	.section1 div.faq div:nth-child(4)>table.faq_table tr td {
 		padding: 20px 0;
 	}	
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(2) th,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(3) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(4) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(5) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(6) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(7) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(8) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(9) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(10) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(11) td,
-	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(12) td	{
+	.section1 div.faq div:nth-child(4)>table.faq_table tr th,
+	.section1 div.faq div:nth-child(4)>table.faq_table tr td
+	{
 		border-bottom: 1px solid lightgray;
 	}	
 	.section1 div.faq div:nth-child(4)>table.faq_table tr:nth-child(13) td {
@@ -2921,7 +2926,7 @@
 
 /* 
 	notice 
-*/
+*/	
 	table.notice_table th {
 		text-align: center;
 	}	

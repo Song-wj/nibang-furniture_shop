@@ -5,7 +5,7 @@
 <%
 	String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
-	ArrayList<faqVO> list = dao.getFAQList();
+	ArrayList<faqVO> list = dao.getFAQListDelivery();
 	dao.nibangViews(fid);
 %>
 <!DOCTYPE html>
@@ -30,6 +30,7 @@
 			.subject {
 				text-align: center;
 			}
+			
 			.subject td:nth-child(1) {
 				letter-spacing: -1.5px;
 			}
@@ -41,8 +42,8 @@
 				padding:0;
 			}
 			.contents td p#faq_content_detail {
-				/* margin-top: -35px;
-				margin-left: -30px; */
+				margin-top: -35px;
+				margin-left: -30px;
 				text-align: left;
 				padding: 60px 95px 60px 95px;
 				font-weight: normal;
@@ -61,10 +62,12 @@
 					$("#"+fid+" div").show();
 				} else {
 					$("#"+fid+" div").hide();
-				}   */
+				}  */
+				history.pushState(null, null, 'FAQ_delivery.jsp?fid='+fid);
 				
-				history.pushState(null, null, 'FAQ.jsp?fid='+fid);
-				
+				$(".subject").on('click', function(){
+					location.reload();
+				});
 			}  
 			
 			

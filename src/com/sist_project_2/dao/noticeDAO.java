@@ -9,10 +9,12 @@ public class noticeDAO extends DBConn{
 	public boolean insertNotice(noticeVO vo) {
 		boolean result = false;
 		try {
-			String sql = "insert into notice values('n_'||SQE_NIBANG_NOTICE.NEXTVAL,?,?,sysdate,0)";
+			String sql = "insert into notice values('n_'||SQE_NIBANG_NOTICE.NEXTVAL,?,?,sysdate,0,?,?)";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getNtitle());
 			pstmt.setString(2, vo.getNcontent());
+			pstmt.setString(3, vo.getNfile());
+			pstmt.setString(4, vo.getNsfile());
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result = true;
@@ -25,7 +27,7 @@ public class noticeDAO extends DBConn{
 	public ArrayList<noticeVO> getList() {
 		ArrayList<noticeVO> list = new ArrayList<>();
 		try {
-			String sql = "select rownum rno , nid, n_title, n_content, to_char(n_date,'yy/mm/dd') ,n_views from (select * from notice order by n_date desc) ";
+			String sql = "select rownum rno , nid, n_title, n_content, to_char(n_date,'yy/mm/dd') ,n_views,n_sfile from (select * from notice order by n_date desc) ";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -36,6 +38,7 @@ public class noticeDAO extends DBConn{
 				vo.setNcontent(rs.getString(4));
 				vo.setNdate(rs.getString(5));
 				vo.setNviews(rs.getString(6));
+				vo.setNsfile(rs.getString(7));
 				
 				list.add(vo);
 			}
@@ -48,7 +51,7 @@ public class noticeDAO extends DBConn{
 	public noticeVO getContent(String nid) {
 		noticeVO vo = new noticeVO();
 		try {
-			String sql ="select n_title, n_content, to_char(n_date,'yy/mm/dd') ,n_views from notice where nid =?";
+			String sql ="select n_title, n_content, to_char(n_date,'yy/mm/dd') ,n_views ,n_sfile from notice where nid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, nid);
 			rs= pstmt.executeQuery();
@@ -56,6 +59,8 @@ public class noticeDAO extends DBConn{
 				vo.setNtitle(rs.getString(1));
 				vo.setNcontent(rs.getString(2));
 				vo.setNdate(rs.getString(3));
+				vo.setNviews(rs.getString(4));
+				vo.setNsfile(rs.getString(5));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,7 +71,27 @@ public class noticeDAO extends DBConn{
 	public boolean updateNotice(noticeVO vo) {
 		boolean result = false;
 		try {
-			String sql ="update notice set n_title =? , n_content=? where nid =?";
+			String sql ="update notice set n_title =? , n_content=?, n_file=?, n_sfile=? where nid =?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, vo.getNtitle());
+			pstmt.setString(2, vo.getNcontent());
+			pstmt.setString(3, vo.getNfile());
+			pstmt.setString(4, vo.getNsfile());
+			pstmt.setString(5, vo.getNid());
+			
+			int count = pstmt.executeUpdate();
+			if(count != 0) result = true;
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public boolean updateNotice1(noticeVO vo) {
+		boolean result = false;
+		try {
+			String sql ="update notice set n_title =? , n_content=?  where nid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, vo.getNtitle());
 			pstmt.setString(2, vo.getNcontent());
@@ -80,7 +105,6 @@ public class noticeDAO extends DBConn{
 		}
 		return result;
 	}
-	
 	public boolean noticeDelete(String nid) {
 		boolean result = false;
 		try {

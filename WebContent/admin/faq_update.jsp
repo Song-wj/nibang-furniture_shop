@@ -44,14 +44,13 @@ form ul li {
 					<li><label>구분</label> <select name="f_div" id="f_div">
 							<option value="<%= vo.getF_div()%>"><%= vo.getF_div()%></option>
 							<option value="선택">선택</option>
-							<option value="상품문의">상품문의</option>
+							<option value="상품">상품</option>
 							<option value="주문/결제/취소">주문/결제/취소</option>
-							<option value="배송">배송</option>
+							<option value="배송/시공">배송/시공</option>
 							<option value="교환/반품">교환/반품</option>
+							<option value="A/S">A/S</option>
 							<option value="회원정보">회원정보</option>
 							<option value="사이트이용">사이트이용</option>
-							<option value="이벤트/프로모션">이벤트/프로모션</option>
-							<option value="기타문의">기타문의</option>
 					</select></li>
 					<li><label>제목</label> <input type="text" name="f_title"
 						id="f_title" value="<%= vo.getF_title()%>"></li>

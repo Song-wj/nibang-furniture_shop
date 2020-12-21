@@ -37,7 +37,7 @@
 			<div>
 					<div class="content">
 						<div><h1>공지사항</h1></div>
-						<div class="list_body">
+						<div class="list_body" style="height:500px; overflow:auto">
 							<table class="notice_table">
 								<tr class="table_header">
 									<th>NO</th>
