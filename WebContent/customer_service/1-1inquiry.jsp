@@ -97,5 +97,6 @@
 			   
 		   </div>
 		</section>
+		<jsp:include page="../nibangBanner.jsp"/>
 </body>
 </html>

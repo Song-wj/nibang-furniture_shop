@@ -4,6 +4,8 @@
 	noticeDAO dao = new noticeDAO();
 	ArrayList<noticeVO> list = dao.getList();
 	
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -44,7 +46,7 @@ table.notice_table td.ncontent p{
 $(document).ready(function(){
 })
 	function test(nid){			  
-		$("#"+nid).toggle();	   
+		$("#"+nid).toggle();
 	}
 </script>
 </head>
@@ -100,7 +102,7 @@ $(document).ready(function(){
 			</div>
 		</section>
 	</div>
-
+	<jsp:include page="../nibangBanner.jsp"/>
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>

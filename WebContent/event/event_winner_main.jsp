@@ -42,6 +42,7 @@
 	</div>
 	
 	<!-- footer -->
+	<jsp:include page="../nibangBanner.jsp"/>
 	<jsp:include page="../footer.jsp" />		
 </body>
 </html>

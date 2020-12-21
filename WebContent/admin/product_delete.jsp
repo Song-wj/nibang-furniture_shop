@@ -27,18 +27,7 @@ div.content button.product_del{
 </style>
 </head>
 <body>
-	<section class ="section1">
-				<aside class="sideMenuBar2">
-				<nav>
-					<ul>
-						<li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">상품 리스트</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/product_insert.jsp">상품등록</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/notice_list.jsp">공지사항</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/faq_list.jsp">FAQ</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/admin/1-1inquiry_list.jsp">1:1문의</a></li>
-					</ul>	
-				</nav>
-			   </aside>
+	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 			   <div class="content">
 				 <div><h1>상품 삭제</h1></div>			
 					<img src ="../images/delete.jpg">

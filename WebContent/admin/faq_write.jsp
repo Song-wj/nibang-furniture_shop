@@ -26,7 +26,7 @@
 </head>
 <body>
 	<section class="section1" id="faq_write_section1">
-	<jsp:include page="../sideMenuBar2.jsp"/>
+	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 		<div>
 			<h1>FAQ</h1>
 			<form name="faqWriteForm" action="faq_writeProc.jsp" method="post"
