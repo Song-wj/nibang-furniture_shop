@@ -3000,3 +3000,543 @@
 		font-size: 13px;
 	}
 	
+	
+/*
+*	order_form
+*/
+div.order_lnb {
+    width: 100%;
+    background-color: #F0F0F0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    }
+.f_red{    color: #c80a1e;}
+.order_lnb hr {
+    width: 25px;
+    border: solid 1px #aaaaaa;
+    display: inline-block;
+    margin: 0px 21px;
+    vertical-align: middle;}
+    
+
+#order_form_title {
+    width: 100%;
+    padding: 70px 0px 20px 0;
+    text-align: center;
+    font-size: 35.2px;
+    letter-spacing: -1.1px;
+    text-align: center;
+    color: #333333;
+    }
+.order_form_sub_title {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.43;
+    letter-spacing: -0.8px;
+    color: #333333;
+    text-align: center; 
+    padding: 40px 0px;
+  	border-bottom: 1px solid #f0f0f0; 
+    }
+
+.w130 {
+    width: 130px;
+}
+.w100, #order_form_ph1, #order_form_ph2, #order_form_ph3 {
+    width: 100px;
+}
+#order_form_ph1, #order_form_ph2, #order_form_ph3, #order_form_email, #order_form_email2{
+	width:100px;
+}
+div#order_form_content tr.mainProduct {
+    border-bottom: solid 1px #aaaaaa;
+}
+div#order_form_content td.w10_checkBox {
+    vertical-align: top;
+}
+
+div#order_form_content table.order_product {
+	width:90%;
+	margin:auto;
+}
+div#order_form_content table.order_product th {
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaaaaa;
+    border-top: solid 1px #AAAAAA;
+    border-bottom: solid 1px #F0F0F0;
+}
+
+div#order_form_content table.order_product td {
+    padding: 20px 0px;
+    font-size: 15px;
+    text-align: center;
+}
+
+div#order_form_content tr.mainProduct img.product_img {
+    vertical-align: middle;
+    margin-left: -17px;
+}
+div#order_form_content td.productInfo {
+    text-align: left;
+    line-height: 25px;
+    padding-top: 50px;
+}
+span.f_bold {
+    font-weight: bold;
+}
+
+
+#order_form_content span.totalPrice {
+    float: right;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+    color: #c80a1e;
+}
+
+input.btn_pay {
+	width: 240px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    background-color:#c80a1e;;
+    color: #FFF;
+}
+div.title_2 {
+	width: 100%;
+    font-size: 22.1px;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: -0.7px;
+    color: #333333;
+    padding: 0px 0px 70px 0px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#delivery_info {
+    margin: 0px auto;
+    width: 900px;
+}
+#delivery_info_L {
+    float: left;
+    padding-right: 60px;
+    width: 420px;
+}
+#delivery_info_R {
+    float: left;
+    padding-left: 60px;
+    width: 420px;
+}
+.delivery_info_title {
+	font-size: 15px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    color: #333333;
+    margin-top:20px;
+    margin-bottom: 32px;
+}
+#delivery_info label {
+    font-size: 14px;
+    display: block;
+}
+div#delivery_info input[type=text] {
+    padding: 12px 20px;
+    height: 41px;
+    display: inline-block;
+    border: solid 1px #aaaaaa;
+    box-sizing: border-box;
+}
+.w420, #order_name, #order_form_addr2, #order_form_addr3, #recipient {
+    width: 420px;
+}
+.w140 {
+    width: 140px;
+}
+
+#s_email {
+	height:41px;
+}
+
+div#order_form_content label {
+    margin: 19px 0px 11px 0px;
+}
+
+.DELIVERY_LIST1 { 
+	margin: 29px 9px 30px 0px;
+    float: left;
+    border: solid 1px #c80a1e;
+    background-color: white;
+    color: #c80a1e;
+    width: 175px;
+    height: 41px;
+    font-size: 14px;
+}
+.DELIVERY_LIST2 {
+	margin: 29px 0px 30px 0px;
+    float: left;
+    border: solid 1px #c80a1e;
+    background-color: white;
+    color: #c80a1e;
+    width: 175px;
+    height: 41px;
+    font-size: 14px;
+}
+
+div#order_form_content button.find_addr {
+	margin-left: 10px;
+	border: none;
+    background-color: #63666A;
+    color: #FFF;
+    width: 100px;
+    height: 41px;
+    font-size: 14px;
+}
+#pay_info {
+	width:80%;
+	margin:auto;
+}
+#pay_info div.total_price {
+    padding: 41px 0px 36px 0px;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+    
+}
+#pay_info div.total_price_red {
+    padding-left: 50px;
+	margin: 41px 0px 36px 0px;
+	color: #c80a1e;
+	display: inline-block;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+}
+#pay_info label {
+    display: inline-block;
+    width: 125px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 36px;
+}
+#pay_info button {
+	margin: 10px;
+	width: 240px;
+    height: 50px;
+    font-size: 16px;
+    border: solid 1px #AAA;
+    background-color: white;
+    color: #333;
+}
+.discription {
+	width:90%;
+    border: 1px solid #aaaaaa;
+    padding: 40px 30px 40px 40px;
+    margin: 35px auto;
+    
+}
+.discription p {
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: -0.4px;
+    color: #909090;
+}
+div#order_form_content #order_form_btn {
+	margin:40px 15% 85px 15%; text-align:center;
+}
+div.h80 {
+	height: 80px;
+}
+div.h140 {
+	height: 140px;
+}
+
+#order_form_addr1, #order_form_addr2, #order_form_addr3{
+	margin: 9px 0px;
+}
+
+
+/*
+	cart
+*/
+#cart_btn {
+	margin:40px 15% 85px 15%; 
+	text-align:center;
+}
+
+.order_lnb {
+    width: 100%;
+    background-color: #F0F0F0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    }
+.f_red{    color: #c80a1e;}
+.order_lnb hr {
+    width: 25px;
+    border: solid 1px #aaaaaa;
+    display: inline-block;
+    margin: 0px 21px;
+    vertical-align: middle;}
+    
+div#cart_content #title {
+	margin-top: 20px;
+    margin-bottom: 40px;
+   	padding-left:51%;
+    width: 100%;
+    padding: 60px 0px 50px 0px;
+    text-align: center;
+    font-size: 35.2px;
+    letter-spacing: -1.1px;
+    text-align: center;
+    color: #333333;
+    border-bottom: 1px solid #aaa;
+    }
+div#cart_content #sub_title {
+    width: 100%;
+     padding: 40px 0px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: -0.7px;
+    color: #333333;
+    }
+table.order_product {
+	width:90%;
+	margin:auto;
+}
+table.order_product th {
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaaaaa;
+    border-top: solid 1px #AAAAAA;
+    border-bottom: solid 1px #F0F0F0;
+}
+.w130 {
+    width: 130px;
+}
+.w100 {
+    width: 100px;
+}
+div#cart_content tr.mainProduct {
+    border-bottom: solid 1px #aaaaaa;
+}
+div#cart_content td.w10_checkBox {
+    vertical-align: top;
+}
+div#cart_content .order_product td {
+    padding: 20px 0px;
+    font-size: 15px;
+    text-align: center;
+}
+
+div#cart_content tr.mainProduct img.product_img {
+    vertical-align: middle;
+    margin-left: -17px;
+}
+div#cart_content td.productInfo {
+    text-align: left;
+    padding-left: 40px;
+    line-height: 25px;
+    padding-top: 50px;
+}
+div#cart_content .f_bold {
+    font-weight: bold;
+}
+
+div#cart_content .btn_buynow {
+    border: solid 1px #c80a1e;
+    background-color: white;
+    color: #c80a1e;
+    margin:20px 0;
+}
+div#cart_content .btn_delete {
+    border: solid 1px #AAA;
+    background-color: white;
+    color: #333;
+}
+div#cart_content .totalPrice {
+    float: right;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+    color: #c80a1e;
+}
+div#cart_content .btn_select_order {
+	width: 240px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    background-color: #63666A;
+    color: #FFF;
+}
+div#cart_content .btn_all_order {
+	width: 240px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    background-color:#c80a1e;;
+    color: #FFF;
+}
+
+/*
+*	orderComplete
+*/
+#title {
+    width: 100%;
+    padding: 70px 0px 20px 0;
+    text-align: center;
+    font-size: 35.2px;
+    letter-spacing: -1.1px;
+    text-align: center;
+    color: #333333;
+    }
+.order_lnb {
+    width: 100%;
+    background-color: #F0F0F0;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+    }
+.f_red{    color: #c80a1e;}
+.order_lnb hr {
+    width: 25px;
+    border: solid 1px #aaaaaa;
+    display: inline-block;
+    margin: 0px 21px;
+    vertical-align: middle;}
+
+div.title_2 {
+	width: 100%;
+    font-size: 22.1px;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: -0.7px;
+    color: #333333;
+    padding: 0px 0px 70px 0px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#orderComplete_content p {
+	font-size: 22px;
+	text-align: center;
+    padding: 80px 0px 0px 0px;
+    color: #aaaaaa;
+}
+
+.order_num {
+	font-size: 18px;
+	text-align: center;
+	padding: 6px 0px;
+    color: #c80a1e;
+}
+
+#orderComplete_content .event_img {
+	padding: 50px 0px;
+	text-align: center;
+}
+#orderComplete_content .event_img hr{
+	border-top:1px solid #f0f0f0;
+	padding: 40px 0px;
+}
+
+#orderComplete_content .subtitle {
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1.43;
+    letter-spacing: -0.8px;
+    color: #333333;
+    text-align: center;
+    padding-bottom:20px;
+}
+
+table.delivery_info {
+	width: 90%;
+    margin: auto;
+    border-top: 1px solid #AAAAAA;
+    border-bottom: 1px solid #aaaaaa;
+    letter-spacing: -1.5px;
+    text-align: center;
+}
+
+table.delivery_info th {
+    padding: 14px 0px;
+    color: #aaaaaa;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+table.delivery_info td {
+    text-align: center;
+    padding: 20px;
+    line-height: 30px;
+}
+
+#orderComplete_content #bottom_btn {
+	margin:40px 15% 85px 15%; 
+	text-align:center;
+}
+
+#orderComplete_content #deliveryBtn {
+	width: 240px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    background-color: #63666A;
+    color: #FFF;
+}
+#orderComplete_content #indexBtn {
+	width: 240px;
+    height: 50px;
+    font-size: 16px;
+    border: none;
+    background-color:#c80a1e;;
+    color: #FFF;
+}
+
+.h90 {
+	height:90px;
+}
+
+table.order_product {
+	width:90%;
+	margin:auto;
+}
+table.order_product th {
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaaaaa;
+    border-top: solid 1px #AAAAAA;
+    border-bottom: solid 1px #F0F0F0;
+}
+
+table.order_product tr {
+    border-bottom: solid 1px #F0F0F0;
+}
+
+.order_product td {
+    padding: 20px 0px;
+    font-size: 15px;
+    text-align: center;
+}
+
+tr.mainProduct img.product_img {
+    vertical-align: middle;
+    margin-left: -17px;
+}
+td.productInfo {
+    text-align: left;
+    line-height: 25px;
+    padding-top: 50px;
+}
+#orderComplete_content .totalPrice {
+    float: right;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: -0.7px;
+    color: #c80a1e;
+}
