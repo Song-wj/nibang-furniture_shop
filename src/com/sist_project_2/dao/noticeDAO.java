@@ -119,4 +119,20 @@ public class noticeDAO extends DBConn{
 		}
 		return result;
 	}
+	
+	public boolean updateView(String nid) {
+		boolean result = false;
+		try {
+			String sql ="update notice set n_views = n_views+1 nid =? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, nid);
+			int count = pstmt.executeUpdate();
+			if(count != 0) result = true;
+				
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 }
