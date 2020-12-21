@@ -71,6 +71,7 @@
 </script>
 </head>
 <body>
+	<section class ="section1">
 	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 				<div class="content">
 					<div><h1>상품 등록</h1></div>

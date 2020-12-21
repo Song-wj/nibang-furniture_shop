@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
+    
+  <%
+  		categoryDAO dao = new categoryDAO();
+  		ArrayList<productVO> list = dao.chairList();
+  		
+  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,92 +29,28 @@
 				<p>의자</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="#">인기순</a>
+					<a href="#" style="color:rgb(200,100,30)">인기순</a>
 					<a href="#">신상품순</a>
-					<a href="#">가격순</a>
+					<a href="category_chair_price.jsp">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
 				<ul class="category_bed_list1">
+				<% for(productVO vo : list){ %>
+					<% if( vo.getSimg2()==null){ %> 
 					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/버튼2.jpg">					
-						<span class="title">버튼</span>
+						<a href="http://localhost:9000/sist_project_2/product_detail/chair_<%=vo.getPname() %>.jsp">
+						<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>">					
+						<span class="title"><%= vo.getPname()%></span>
 						<br>
-						<span class="explain">버튼</span>
+						<span class="explain"><%= vo.getPinfo()%></span>
 						<br>
-						<span class="price">139,000 원</span>
+						<span class="price"><%= vo.getPrice()%></span>
 						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/버튼.jpg">					
-						<span class="title">버튼</span>
-						<br>
-						<span class="explain">버튼 스위블(BK,등좌판패딩無)(온라인몰 전용)</span>
-						<br>
-						<span class="price">139,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/아이핏.jpg">						
-						<span class="title">아이핏</span>
-						<br>
-						<span class="explain">헤드레스트,럼버서포트</span>
-						<br>
-						<span class="price">320,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/아이핏에어.jpg">						
-						<span class="title">아이핏 에어</span>
-						<br>
-						<span class="explain">헤드레스트,럼버서포트</span>
-						<br>
-						<span class="price">357,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/올리버.jpg">						
-						<span class="title">올리버</span>
-						<br>
-						<span class="explain">플라스틱 의자(고정형,WH)</span>
-						<br>
-						<span class="price">239,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/올리버2.jpg">
-						<span class="title">올리버</span>
-						<br>
-						<span class="explain">메쉬의자(고정형,WH)</span>
-						<br>
-						<span class="price">239,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-	            		<img src="http://localhost:9000/sist_project_2/images/지엘.jpg">				
-						<span class="title">지엘</span>
-						<br>
-						<span class="explain">천연가죽 의자</span>
-						<br>
-						<span class="price">710,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-	            		<img src="http://localhost:9000/sist_project_2/images/펑거스.jpg">				
-						<span class="title">펑거스</span>
-						<br>
-						<span class="explain">스툴(블랙)</span>
-						<br>
-						<span class="price">98,000 원</span>
-						</a>
-					</li>
+					</li>				
+					 <%}else{ %> 
+					 <%} %>
+					 <%} %>
+		
 				</ul>
 				<ul class="category_page_num">
 					<li>1</li>

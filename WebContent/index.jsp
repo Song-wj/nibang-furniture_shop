@@ -90,7 +90,7 @@
 				<%for(productVO vo : list) {%>
 				<div>
 					<img class="recommand_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1()%>"><br>
-					<label class="title"><%= vo.getPname() %></label><br>
+					<label class="title"><%= vo.getPinfo() %></label><br>
 					<label class="price"><%= vo.getPrice() %></label>
 				</div>
 				<%} %>

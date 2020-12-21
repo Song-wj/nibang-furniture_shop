@@ -185,13 +185,13 @@ public class productDAO extends DBConn{
 	public ArrayList<productVO> getRecommandList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql ="select simg1,pname,price from( select * from product order by DBMS_RANDOM.RANDOM) where rownum < 7";
+			String sql ="select simg1,pinfo,price from( select * from product order by DBMS_RANDOM.RANDOM) where rownum < 7";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				productVO vo = new productVO();
 				vo.setSimg1(rs.getString(1));
-				vo.setPname(rs.getString(2));
+				vo.setPinfo(rs.getString(2));
 				vo.setPrice(rs.getInt(3));
 				list.add(vo);
 			}

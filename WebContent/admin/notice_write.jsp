@@ -47,7 +47,7 @@
 	})
 </script>
 <body>
-<section class ="section1">
+	<section class ="section1">
 	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 				<div class="content">
 				<div><h1>공지사항 등록</h1></div>
