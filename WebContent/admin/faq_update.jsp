@@ -3,8 +3,8 @@
 	import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"%>
 <%
 	String fid = request.getParameter("fid");
-nibangDAO dao = new nibangDAO();
-faqVO vo = dao.getFAQContent(fid);
+	faqDAO dao = new faqDAO();
+	faqVO vo = dao.getFAQContent(fid);
 %>
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,7 @@ form ul li {
 </style>
 <body>
 	<section class="section1">
-		<jsp:include page="../sideMenuBar2.jsp" />
+		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 		<div class="content">
 			<div>
 				<h1>FAQ 수정</h1>

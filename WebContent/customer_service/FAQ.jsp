@@ -86,7 +86,6 @@
 				}   
 				
 				history.pushState(null, null, 'FAQ.jsp?fid='+fid);
-				
 			}  
 			
 		</script> 
@@ -202,7 +201,7 @@
 		    </div>
 	    	<div id="ampaginationsm" class="page"></div>
 		</section>	
-			
+		<jsp:include page="../nibangBanner.jsp"/>	
 		<jsp:include page="../footer.jsp" />
 	</body>
 </html>

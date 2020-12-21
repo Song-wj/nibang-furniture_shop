@@ -4,7 +4,7 @@
     %>
 <%
 	String fid = request.getParameter("fid");
-	nibangDAO dao = new nibangDAO();
+	faqDAO dao = new faqDAO();
 	faqVO vo = dao.getFAQContent(fid);
 %>
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 </head>
 <body>
 	<section class="section1">
-			<jsp:include page="../sideMenuBar2.jsp"/>
+			<jsp:include page="../sideMenuBarAdmin.jsp"/>
 			<div>
 					<div class="content">
 						<div><h1>FAQ</h1></div>
