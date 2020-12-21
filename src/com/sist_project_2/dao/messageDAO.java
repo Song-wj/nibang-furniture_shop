@@ -65,54 +65,31 @@ public class messageDAO extends DBConn {
 		return list;
 	}
 	
-	/**Select : 1:1문의 내용 불러오기**/
+	/** 1:1문의 수정시 내용 가져오기**/
 	public messageVO getContent(String sid) {
 		messageVO vo = new messageVO();
 		
 		try {
-			String sql = "select m_title, m_content from message where sid=?";
-			getPreparedStatement(sql);
-			pstmt.setString(1,sid);
+			String sql = "select sid, m_div, m_title, m_content, m_file, m_sfile from message where sid=?";
 			
-			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) {
-				//vo.setSid(rs.getString(1));
-				//vo.setM_div(rs.getString(2));
-				vo.setM_title(rs.getString(1));
-				vo.setM_content(rs.getString(2));
-				//vo.setM_file(rs.getString(5));
-				//vo.setM_sfile(rs.getString(6));
-				//vo.setM_date(rs.getString(7));
-			}
-			
+			  getPreparedStatement(sql);
+			  pstmt.setString(1,sid);
+			  
+			  ResultSet rs = pstmt.executeQuery();
+			  if(rs.next()) {
+				  vo.setSid(rs.getString(1));
+				  vo.setM_div(rs.getString(2));
+				  vo.setM_title(rs.getString(3)); 
+				  vo.setM_content(rs.getString(4));
+				  vo.setM_file(rs.getString(5));
+				  vo.setM_sfile(rs.getString(6));
+			  }
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 		return vo;
 	}
-	
-	
-	
-	/**1:1 문의 삭제**/
-	public boolean getDelete(String sid) {
-		boolean result = false;
-		
-		try {
-			String sql = "delete from message where sid=?";
-			getPreparedStatement(sql);
-			pstmt.setString(1, sid);
-			int val = pstmt.executeUpdate();
-			if(val != 0) result = true;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return result;
-	}
-	
-	
 	
 	
 	/**
@@ -122,13 +99,18 @@ public class messageDAO extends DBConn {
 		  boolean result = false;
 	  
 		  try { 
-			  String sql ="update cgvboard set m_div=?, m_title=?, m_content=? " +
-					  	" , m_file=?, m_sfile=? where sid=?"; getPreparedStatement(sql);
-				  pstmt.setString(1, vo.getM_div()); pstmt.setString(2, vo.getM_title());
-				  pstmt.setString(3, vo.getM_content()); pstmt.setString(4, vo.getM_file());
-				  pstmt.setString(5, vo.getM_sfile()); pstmt.setString(6, vo.getSid());
+			  String sql ="update message set m_div=?, m_title=?, m_content=? " +
+					  	" , m_file=?, m_sfile=? where sid=?";
+			  	  getPreparedStatement(sql);
+				  pstmt.setString(1, vo.getM_div());
+				  pstmt.setString(2, vo.getM_title());
+				  pstmt.setString(3, vo.getM_content());
+				  pstmt.setString(4, vo.getM_file());
+				  pstmt.setString(5, vo.getM_sfile());
+				  pstmt.setString(6, vo.getSid());
 				  
-				  int val = pstmt.executeUpdate(); if(val != 0) result = true;
+				  int val = pstmt.executeUpdate();
+				  if(val != 0) result = true;
 		  
 		  } catch (Exception e) {
 			  e.printStackTrace();
@@ -139,10 +121,11 @@ public class messageDAO extends DBConn {
 		/**
 		 * Update : 내용 업데이트 - 새로운 파일을 선택한 경우
 		 */
-	  public boolean getUpdateNofile(messageVO vo) { boolean result = false;
+	  public boolean getUpdateNofile(messageVO vo) {
+		  boolean result = false;
 			  
 			  try {
-				  String sql ="update message set m_div, m_title=?, m_content=? where sid=?";
+				  String sql ="update message set m_div=?, m_title=?, m_content=? where sid=?";
 				  
 				  getPreparedStatement(sql);
 				  pstmt.setString(1, vo.getM_div());
@@ -159,5 +142,25 @@ public class messageDAO extends DBConn {
 		
 			  return result;
 	  }
-			 
+		
+	  
+	  
+	  /**1:1 문의 삭제**/
+		public boolean getDelete(String sid) {
+			boolean result = false;
+			
+			try {
+				String sql = "delete from message where sid=?";
+				getPreparedStatement(sql);
+				pstmt.setString(1, sid);
+				int val = pstmt.executeUpdate();
+				if(val != 0) result = true;
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return result;
+		}
+	  
 }

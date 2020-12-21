@@ -5,7 +5,7 @@
 <% 	
 	String id = request.getParameter("id");
 	nibangDAO dao = new nibangDAO();
-	joinVO vo = dao.getName(id);              //나중에 해결ㅠ
+	joinVO vo = dao.getName(id);              
 %>  
 
 <!DOCTYPE html>

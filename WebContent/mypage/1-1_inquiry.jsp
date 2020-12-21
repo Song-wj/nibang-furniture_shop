@@ -4,9 +4,9 @@
     %>
 <%
 	String id = request.getParameter("id");
-	String sid = request.getParameter("sid");
 	messageDAO dao = new messageDAO();
 	ArrayList<messageVO> list =  dao.getInquiryList();
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -126,8 +126,8 @@
                            					<summary><%=vo.getM_title()%></summary>
                            					<p><br><%=vo.getM_content()%>
  	                          				   <br>
-	                           					<a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?sid=<%=sid%>#open"><button type="button" style="margin-left:300px; background-color:lightgray; border:1px solid white; color:white;">수정</button></a>
-	                           					<a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp"><button type="button" style="margin-left:300px; background-color:lightgray; border:1px solid white; color:white;">삭제</button></a>
+	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiry.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:300px; background-color:lightgray; border:1px solid white; color:white;">수정</button></a>
+	                           					<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:300px; background-color:lightgray; border:1px solid white; color:white;">삭제</button></a>
                            					</p>
                            				</details>
                            			</td>

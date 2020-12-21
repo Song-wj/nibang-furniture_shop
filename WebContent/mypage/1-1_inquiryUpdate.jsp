@@ -52,9 +52,9 @@
 						<div class="white_content" id="open">
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-							<h3>문의 수정ㄴ</h3>
+							<h3>문의 수정</h3>
 							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
-								<input type="hidden" name="sid" value="<%=sid%>"> 
+								<input type="hidden" name="sid" value="<%=vo.getSid()%>"> 
 								<ul>
 									<li>
 										<label>문의구분</label>
@@ -80,8 +80,7 @@
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 									<li>최대 5개 파일 업로드 가능</li>				
 								</ul>
-									<a href="http://localhost:9000/sist_project_2/custmer_service/1-1inquiryUpdateProc.jsp"><button type="submit">수정완료</button></a>
-									<a href="http://localhost:9000/sist_project_2/custmer_service/1-1inquiryDeleteProc.jsp"><button type="button">삭제하기</button></a>
+									<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp"><button type="submit">수정완료</button></a>
 							</form>
 						</div>        
 					</div>
