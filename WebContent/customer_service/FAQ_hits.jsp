@@ -5,7 +5,38 @@
 <%
 	String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
-	ArrayList<faqVO> list = dao.getFAQListHits();
+	
+	//1. 선택한 페이지값
+	String rpage= request.getParameter("rpage");
+	
+	//2-1. 페이지 값에 따라서 start, end count 구하기
+	//1페이지(1~10) , 2페이지(11~20)...
+	int start =0;
+	int end=0;
+	int pageSize=10; //한 페이지당 출력되는 row
+	int pageCount = 1;//전체 페이지수 : 전체 리스트 row / 한 페이지당 출력되는 row
+	int dbCount = dao.getListCount() ; // DB연동 후 전체로우수 출력
+	int reqPage = 1;//요청페이지
+	
+	//2-2. 전체페이지 수 구하기
+	if(dbCount%pageSize==0){
+	   pageCount= dbCount/pageSize;
+	}else{
+	   pageCount= dbCount/pageSize+1;
+	
+	}
+	
+	//2-3. start, end 값 구하기
+	if(rpage != null){
+	   reqPage = Integer.parseInt(rpage);
+	   start = (reqPage -1) * pageSize +1 ;
+	   end = reqPage * pageSize;
+	}else{
+	   start = reqPage;
+	   end = pageSize;
+	}	
+	
+	ArrayList<faqVO> list = dao.getFAQListHits(start, end);
 	dao.nibangViews(fid);
 %>
 <!DOCTYPE html>
@@ -14,9 +45,9 @@
 		<meta charset="UTF-8">
 		<title>FAQ</title>
 		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/am-pagination.css">
 		<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="http://localhost:9000/sist_project_2/js/am-pagination.js"></script>
 		<style>
 		 		
 		 	section.section1{
@@ -48,30 +79,51 @@
 				padding: 60px 95px 60px 95px;
 				font-weight: normal;
 			}
+			.page {
+				text-align: center;
+				margin-left: 15%;
+			}
 		</style>
  		<script>
-			function slideDown(fid) {
-				$("#"+fid+" div").toggle();
-				
-/*  				$('.contents div').each(function(){
-					if($(this).is(':visible') == true)
-						$(this).hide();
-				}); 
-				
-				if($("#"+fid+" div").is(':visible') == false) {
-					$("#"+fid+" div").show();
-				} else {
-					$("#"+fid+" div").hide();
-				}  */
-				history.pushState(null, null, 'FAQ_hits.jsp?fid='+fid);
-				
-				$(".subject").on('click', function(){
-					location.reload();
-				});
-			}  
+ 		$(document).ready(function(){
+ 			// 페이지 번호 및 링크
+	 			const pager = jQuery("#ampaginationsm").pagination({
+ 				maxSize : 5,
+ 				totals : <%=dbCount%>,
+ 				pageSize : <%=pageSize%>,
+ 				page : <%=reqPage%>,
+ 				
+ 				prevTest : '&lt;',
+ 				nextTest : '&gt;',
+ 				
+ 				btnSize : 'sm'
+ 			});
+ 			
+ 			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
+ 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ_hits.jsp?rpage=' + e.page);
+ 				//location.href('이동페이지'); -> javascript
+ 			}); 
+ 		});
+		
+		function slideDown(fid) {
+			//$("#"+fid+" div").slideToggle();
 			
+			$('.contents div').each(function(){
+				if($(this).css('display') == 'block')
+					$(this).slideUp('fast');
+			}); 
 			
+			if($("#"+fid+" div").css('display') == 'none') {
+				$("#"+fid+" div").css('display','block');
+				$("#"+fid+" div").slideDown('fast');
+			} else {
+				$("#"+fid+" div").css('display','none');
+				$("#"+fid+" div").slideUp('fast');
+			}   
 			
+			history.pushState(null, null, 'FAQ.jsp?fid='+fid);
+			
+		}   
 		</script> 
 	</head>
 	<body>
@@ -146,9 +198,8 @@
 		    	</table>
 		    		</div>
 		    			<div>기타 문의사항은 1:1 문의 또는 고객센터(1577-5670)를 이용해주세요.</div>
-	    			    <div>1 2 3 4 5 ></div>
-		    			
 		    </div>
+		    <div id="ampaginationsm" class="page"></div>
 		</section>	
 			
 		<jsp:include page="../footer.jsp" />
