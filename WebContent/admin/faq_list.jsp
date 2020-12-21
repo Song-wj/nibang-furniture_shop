@@ -3,7 +3,7 @@
 	import = "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"    
     %>
 <%
-	nibangDAO dao = new nibangDAO();
+	faqDAO dao = new faqDAO();
 	ArrayList<faqVO> list = dao.getFAQList();
 %>
 <!DOCTYPE html>

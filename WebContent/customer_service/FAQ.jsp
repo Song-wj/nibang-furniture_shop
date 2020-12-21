@@ -86,7 +86,6 @@
 				}   
 				
 				history.pushState(null, null, 'FAQ.jsp?fid='+fid);
-				
 			}  
 			
 		</script> 
