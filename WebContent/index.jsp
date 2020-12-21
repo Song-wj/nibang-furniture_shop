@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
+<%
+	productDAO dao = new productDAO();
+	ArrayList<productVO> list = dao.getRecommandList();
+	
+%>	
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,37 +86,15 @@
 			<div>
 				<label class="label">고객님을 위한 제품</label>
 			</div>
-			<div class="recomand">
+			<div class="recommand">
+				<%for(productVO vo : list) {%>
 				<div>
-					<img class="recomand_img" src="images/test1.jpg"><br>
-					<label class="price">~~~~</label><br>
-					<label>~~~~~</label>
+					<img class="recommand_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1()%>"><br>
+					<label class="title"><%= vo.getPname() %></label><br>
+					<label class="price"><%= vo.getPrice() %></label>
 				</div>
-				<div>
-					<img class="recomand_img" src="images/test2.jpg"><br>
-					<label class="price">~~~~</label><br>
-					<label>~~~~~</label>
-				</div>
-				<div>
-					<img class="recomand_img" src="images/test3.jpg"><br>
-					<label class="price">~~~~</label><br>
-					<label>~~~~~</label>
-				</div>
-				<div>
-					<img class="recomand_img" src="images/test4.jpg"><br>
-					<label class="price">~~~~</label><br>
-					<label>~~~~~</label>
-				</div>
-				<div>
-					<img class="recomand_img" src="images/test5.jpg"><br>
-					<label class="price">~~~~</label><br>
-					<label>~~~~~</label>
-				</div>
-				<div>
-					<img class="recomand_img" src="images/test6.jpg"><br>
-					<label class="price">~~~~</label><br>
-					<label>~~~~~</label>
-				</div>
+				<%} %>
+				
 			</div>
 		</div>
 	</section>
