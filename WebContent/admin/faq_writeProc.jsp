@@ -9,7 +9,7 @@
 <%
 	faqDAO dao = new faqDAO();
 	boolean result = dao.insertFAQ(vo);
-	
+
 	if(result) {
 		response.sendRedirect("faq_list.jsp");
 	} else {
