@@ -3,7 +3,7 @@
 	import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
     %>
 <%
-	String mid = request.getParameter("mid");
+	String mid = request.getParameter("id");
 %>
 <!DOCTYPE html>
 <html>
@@ -24,6 +24,16 @@
 	}
 	
 </style>
+<script>
+	$(document).ready(function(){
+		$("#btn_withdrawal").click(function(){
+			const check = confirm("정말로 탈퇴하시겠습니까?");
+			if(check){
+				withdrawalForm.submit();
+			}
+		});
+	});
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -46,28 +56,29 @@
 				<div class="reason">회원 탈퇴 이유</div><br>
 				<div class="reason1">일룸몰을 이용하시면서 가장 불편했던 점을 알려주세요.</div>
 				<div class="reason2">보다 나은 서비스를 위해 소중한 의견으로 활용하겠습니다.</div>
-				<form class="wcheckbox1"><br><br>
+				<form class="wcheckbox1" name="withdrawalForm" action="withdrawalProc.jsp?id=<%=mid %>" method="post"><br><br>
+					<input type="hidden" name=did value="<%=mid %>"> 
 					<input type="checkbox" name="reason" value="상품 다양성(디자인 불만족)"><span class="wchk">상품 다양성(디자인 불만족)</span><div></div><br>
 					<input type="checkbox" name="reason" value="이용빈도 낮음"><span class="wchk">이용빈도 낮음</span><div></div><br>
 					<input type="checkbox" name="reason" value="쇼핑몰 속도 불안"><span class="wchk">쇼핑몰 속도 불안</span><div></div><br>
 					<input type="checkbox" name="reason" value="가격품질 불만"><span class="wchk">가격품질 불만</span><div></div><br>
 					<input type="checkbox" name="reason" value="개인정보 유출 우려"><span class="wchk">개인정보 유출 우려</span><div></div><br>
 					<input type="checkbox" name="reason" value="아이디 변경을 위해 탈퇴 후 재가입"><span class="wchk">아이디 변경을 위해 탈퇴 후 재가입</span><br>
-				</form>
-				<form class="wcheckbox2">
-					<input type="checkbox"><span class="wchk">교환/품질 불만</span><div></div><br>
-					<input type="checkbox"><span class="wchk">회원특혜/쇼핑혜택 부족</span><div></div><br>
-					<input type="checkbox"><span class="wchk">배송지연</span><div></div><br>
-					<input type="checkbox"><span class="wchk">A/S불만족</span><div></div><br>
-					<input type="checkbox"><span class="wchk">기타</span><br>
-				</form>
-				<form class="wtextarea">
-					<textarea placeholder="기타의견 (100글자 이내)" name="d_content"></textarea>
-				</form>
+					<span class="wcheckbox2">
+					<input type="checkbox" name="reason" value="교환/품질 불만"><span class="wchk">교환/품질 불만</span><div></div><br>
+					<input type="checkbox" name="reason" value="회원특혜/쇼핑혜택 부족"><span class="wchk">회원특혜/쇼핑혜택 부족</span><div></div><br>
+					<input type="checkbox" name="reason" value="배송지연"><span class="wchk">배송지연</span><div></div><br>
+					<input type="checkbox" name="reason" value="A/S불만족"><span class="wchk">A/S불만족</span><div></div><br>
+					<input type="checkbox" name="reason" value="기타"><span class="wchk">기타</span><br>
+					</span>
+					<div class="wtextarea">
+					<textarea placeholder="기타의견 (100글자 이내)" name=d_content></textarea>
+					</div>
 				<div class="buttonarea">
 					<button type="button" class="btn_cancel">취소</button>
 					<button type="button" class="btn_withdrawal" id="btn_withdrawal">탈퇴하기</button>
 				</div>
+				</form>
 		</div>
 	</div>
 	
