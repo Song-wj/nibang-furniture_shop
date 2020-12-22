@@ -47,12 +47,12 @@
 				<div class="reason1">일룸몰을 이용하시면서 가장 불편했던 점을 알려주세요.</div>
 				<div class="reason2">보다 나은 서비스를 위해 소중한 의견으로 활용하겠습니다.</div>
 				<form class="wcheckbox1"><br><br>
-					<input type="checkbox"><span class="wchk">상품 다양성(디자인 불만족)</span><div></div><br>
-					<input type="checkbox"><span class="wchk">이용빈도 낮음</span><div></div><br>
-					<input type="checkbox"><span class="wchk">쇼핑몰 속도 불안</span><div></div><br>
-					<input type="checkbox"><span class="wchk">가격품질 불만</span><div></div><br>
-					<input type="checkbox"><span class="wchk">개인정보 유출 우려</span><div></div><br>
-					<input type="checkbox"><span class="wchk">아이디 변경을 위해 탈퇴 후 재가입</span><br>
+					<input type="checkbox" name="reason" value="상품 다양성(디자인 불만족)"><span class="wchk">상품 다양성(디자인 불만족)</span><div></div><br>
+					<input type="checkbox" name="reason" value="이용빈도 낮음"><span class="wchk">이용빈도 낮음</span><div></div><br>
+					<input type="checkbox" name="reason" value="쇼핑몰 속도 불안"><span class="wchk">쇼핑몰 속도 불안</span><div></div><br>
+					<input type="checkbox" name="reason" value="가격품질 불만"><span class="wchk">가격품질 불만</span><div></div><br>
+					<input type="checkbox" name="reason" value="개인정보 유출 우려"><span class="wchk">개인정보 유출 우려</span><div></div><br>
+					<input type="checkbox" name="reason" value="아이디 변경을 위해 탈퇴 후 재가입"><span class="wchk">아이디 변경을 위해 탈퇴 후 재가입</span><br>
 				</form>
 				<form class="wcheckbox2">
 					<input type="checkbox"><span class="wchk">교환/품질 불만</span><div></div><br>
@@ -62,11 +62,11 @@
 					<input type="checkbox"><span class="wchk">기타</span><br>
 				</form>
 				<form class="wtextarea">
-					<textarea placeholder="기타의견 (100글자 이내)"></textarea>
+					<textarea placeholder="기타의견 (100글자 이내)" name="d_content"></textarea>
 				</form>
 				<div class="buttonarea">
 					<button type="button" class="btn_cancel">취소</button>
-					<button type="button" class="btn_withdrawal">탈퇴하기</button>
+					<button type="button" class="btn_withdrawal" id="btn_withdrawal">탈퇴하기</button>
 				</div>
 		</div>
 	</div>
