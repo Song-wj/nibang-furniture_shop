@@ -1696,33 +1696,36 @@
 		float: left;
 		text-align: left;
 	}
-	#section1_withdrawal form.wcheckbox2 {
+	#section1_withdrawal span.wcheckbox2 {
 		text-align: left;
-		margin-top: 47px;
-		margin-left: 72px;
-		display: inline-block;
+		margin-top: -267px;
+		margin-left: 400px;
+		display: block;
+		padding: 0;
 	}
-	#section1_withdrawal form.wtextarea {
+	#section1_withdrawal div.wtextarea {
 		margin-top: 10%;
 		margin-right: 60px;
 		clear: both;
 	}
-	.content #section1_withdrawal form.wtextarea textarea {
+	.content #section1_withdrawal div.wtextarea textarea {
 		border: 1px solid gray;
 		width: 620px;
 		height: 220px;
 		padding: 40px;
 		resize: none;
-		margin-left: 70px;
+		margin-top: 50px;
 		font-size: 13px;
 	}
-	#section1_withdrawal form > span.wchk{
+	#section1_withdrawal form > span.wchk,
+	#section1_withdrawal span > span.wchk{
 		font-size: 15px;
 		padding-left: 5px;
 	}
 	.buttonarea {
 		margin-top: 35px;
 		padding-bottom: 200px;
+		margin-left: 100px;
 	}
 	.buttonarea button{
 		width: 205px;
