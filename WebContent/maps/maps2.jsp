@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
+   
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +9,7 @@
     <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7ce94d4dd9c22ccad809655bc3ab74f&libraries=services"></script>
 	<script>
-	$(document).ready(function(){
-		
-		search_loc("일룸 서울");
+	
 		function search_loc(loc){
 			
 		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
@@ -74,10 +73,79 @@
 		
 		}
 		
-			$("li").click(function (){
-				var a =$(this).attr("id");
+		$(document).ready(function(){
+			
+			search_loc("일룸 서울");
+		
+			$('li').click(function(){
+				var a ="일룸"+$(this).attr("id");
+				var b =$(this).attr("id");
 				search_loc(a);
+				store_list(b);
+								
+				var output =""
+				
+					$.ajax({
+						url:"gu_list.jsp?loc="+$(this).attr("id"),
+						success:function(data){
+							var jdata = JSON.parse(data);
+							
+							var output="<ul id='gu'>";
+							for(var i in jdata.jlist){
+								output += "<li id="+jdata.jlist[i].gu +">"+jdata.jlist[i].gu +"</li>"
+							}
+							output +="</ul>";
+							$("#store_loc").text(""); 					
+							$("#store_loc").append(output);
+							
+							
+							$("#gu li").click(function (){
+								var gu = "일룸" +$(this).attr("id");
+								var c =$(this).attr("id");
+								search_loc(gu);
+								store_list(c);
+								
+							})
+						}
+					
+					
+						
+					})
+	
 			})
+			
+			function store_list(loc){
+				
+				$.ajax({
+					url:"store_list.jsp?loc="+$("#"+loc).attr("id"),
+					success:function(data){
+						
+						var jdata = JSON.parse(data);
+						$("#store_info").text(""); 		
+						var output="";
+						for(var i in jdata.jlist){
+							output += "<div class='list_line'>"
+							output += "<ul id='store_list'>";
+							output += "<li><img src='http:localhost:9000/sist_project_2/images/"+jdata.jlist[i].mimg+"'></li>"
+							output += "<li>"+jdata.jlist[i].mloc +"</li>"
+							output += "<li>"+jdata.jlist[i].maddr +"</li>"
+							output += "<li>"+jdata.jlist[i].mph +"</li>"
+							output += "<li>"+jdata.jlist[i].mpark +"</li>"
+							output += "<li>"+jdata.jlist[i].mtime +"</li>"
+							output += "<li>"+jdata.jlist[i].mholiday +"</li>"
+							output +="</ul>";	
+							output +="</div>";
+						}
+						
+											
+						$("#store_info").append(output); 
+					}
+					})
+				
+			}
+			
+			
+			
 	})
 </script>
 
@@ -144,7 +212,7 @@
 			width:230px;
 			height:385px;
 		}
-		div.store_info{
+		div.label{
 			border:1px solid blue;
 			width:750px;
 			margin-top:-40px;
@@ -162,51 +230,68 @@
 			width:50px; 
 			height:50px;
 			
-		}
-		section.store_detail div.info_border{
+		}		
+		section.store_detail div.list_line{
 			border-bottom:0.5px solid lightgray;
 			width:700px;
 			height:250px;
-			margin-left:250px;
+			margin-left:-50px;
 		}
-		section.store_detail div.store_info2{
+		section.store_detail div#store_info{
 			margin-left:300px;
 			margin-bottom:50px;
 		}
-		section.store_detail div.store_info2 ul{
+		section.store_detail div#store_info ul{
 			display:inline-block;			
 			list-style:none;
 		}
-		section.store_detail div.store_info2 ul li{
+		section.store_detail div#store_info ul li{
 			margin-bottom:10px;
 			width:150px;
 		}
-		section.store_detail div.store_info2 li:nth-child(3){
+		section.store_detail div#store_info li:nth-child(3){
 			margin-bottom:20px;
 		}
-		section.store_detail div.store_info2 li:nth-child(2),
-		section.store_detail div.store_info2 li:nth-child(3){
+		section.store_detail div#store_info li:nth-child(2),
+		section.store_detail div#store_info li:nth-child(3){
 			font-size:10px;
 		}
-		section.store_detail div.store_info2 li:nth-child(4),
-		section.store_detail div.store_info2 li:nth-child(5),
-		section.store_detail div.store_info2 li:nth-child(6),
-		section.store_detail div.store_info2 li:nth-child(7){
+		section.store_detail div#store_info li:nth-child(4),
+		section.store_detail div#store_info li:nth-child(5),
+		section.store_detail div#store_info li:nth-child(6),
+		section.store_detail div#store_info li:nth-child(7){
 			font-size:8px;
 		}
-		section.store_detail div.store_img img{
+		section.store_detail div#store_img img{
 			width:300px; 
 			height:200px;			
 			margin-bottom:90px;
 		}
+		ul#gu li{
+			list-style:none;
+			font-size:10px;
+			margin-bottom:15px;
+		}
+		ul#gu li:nth-child(3){
+			margin-left:10px;
+		}
+		ul#gu{
+			border:1px solid red;
+			width:60px;
+			height:300px;
+			margin-left:80px;
+			margin-top:30px;
+		}
+
 		
 </style>
+
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 		<section class ="map_section">
 		<div class="map_wrap">
-		<div class = "store_info">매장안내</div>
+		<div class = "label">매장안내</div>
 		    <div id="map" style="width:750px;height:400px;position:relative;overflow:hidden;"></div>
 		
 		    <div id="menu_wrap" class="bg_white">
@@ -216,26 +301,24 @@
 		                  	<div>
 		                  		<div class ="select_loc">
 		                  			<ul>
-		                  				<li id ="일룸 서울">서울</li>
-		                  				<li id="인천 일룸">인천</li>
-		                  				<li id="일룸 대전">대전</li>
-		                  				<li id="일룸 세종">세종</li>
-		                  				<li id="일룸 광주">광주</li>
-		                  				<li id="일룸 대구">대구</li>
-		                  				<li id="일룸 울산">울산</li>
-		                  				<li id="일룸 부산">부산</li>
-		                  				<li id="일룸 제주">제주</li>
-		                  				<li id="일룸 경기도">경기도</li>
-		                  				<li id="일룸 강원도">강원도</li>
-		                  				<li id="일룸 세종">충청도</li>
-		                  				<li id="일룸 전라도">전라도</li>
-		                  				<li id="일룸 경상도">경상도</li>
+		                  				<li id="서울">서울</li>
+		                  				<li id="인천 ">인천</li>
+		                  				<li id="대전">대전</li>
+		                  				<li id="세종">세종</li>
+		                  				<li id="광주">광주</li>
+		                  				<li id="대구">대구</li>
+		                  				<li id="울산">울산</li>
+		                  				<li id="부산">부산</li>
+		                  				<li id="제주">제주</li>
+		                  				<li id="경기도">경기도</li>
+		                  				<li id="강원도">강원도</li>
+		                  				<li id="세종">충청도</li>
+		                  				<li id="전라도">전라도</li>
+		                  				<li id="경상도">경상도</li>
                   					</ul>
 		                  		</div>
 		                  		<div id ="store_loc">
-		                  			<ul class ="store_select">
-		                  				
-		                  			</ul>
+		                  			
 		                  		</div>
 		                  	</div>
 		                </form>
@@ -248,20 +331,8 @@
 		</div>
 		</section>
 		<section class= "store_detail">
-			<div class ="info_border">
-			<div class ="store_img">
-				<img src ="../images/다나_detail.jpg" > 
-			</div>
-			<div class ="store_info2">
-				<ul>
-					<li>프리미엄논현</li>
-					<li>서울시특별시 강남구 학동로 147</li>
-					<li>02-3443-1001</li>
-					<li>주차가능</li>
-					<li>영업시간 10:30~19:30</li>
-					<li>연중무휴(설,추석 당일 제외)</li>					
-				</ul>
-			</div>
+			<div id ="store_info">
+				
 			</div>
 		</section> 
 	<jsp:include page="../footer.jsp" />

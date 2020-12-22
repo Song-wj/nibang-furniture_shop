@@ -27,7 +27,7 @@
 				// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
 				var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 				
-				ps.keywordSearch("서울 일룸", placesSearchCB);
+				ps.keywordSearch("일룸 서대문구", placesSearchCB);
 				
 			
 				// 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
