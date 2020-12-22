@@ -138,7 +138,13 @@ table.notice_table td.ncontent p{
 			$("#"+nid+" div").slideUp('fast');
 		}   
 		
-		history.pushState(null, null, 'notice.jsp?nid='+nid);
+		//history.pushState(null, null, 'notice.jsp?nid='+nid);
+		$.ajax({
+			url: "notice_Views.jsp?nid=" + nid,
+			success: function(data){
+				console.log("조회수 증가");
+			} 
+		});
 	}  
 
 /* 	function test(nid){			  
