@@ -84,7 +84,6 @@ table.notice_table td.ncontent p{
 		font-weight: normal;
 	}
 	.contents td p#notice_img{
-		border:1px solid red;
 		text-align: left;
 		padding: 60px 0px 60px 75px;				
 	}
@@ -92,7 +91,6 @@ table.notice_table td.ncontent p{
 		text-align: center;
 		margin-left: 15%;
 	}
-
 	.pageNotice {
 		text-align: center;
 		width: 400px;
@@ -179,7 +177,7 @@ table.notice_table td.ncontent p{
 									<th>조회수</th>
 								</tr>
 								<%for(noticeVO vo : list) {%>								
-								<tr class="ntitle " onclick="slideDown('<%=vo.getNid() %>')">
+								<tr class="notice_subject" onclick="slideDown('<%=vo.getNid() %>')">
 									<td><%= vo.getRno()%></td>
 									<td><%= vo.getNtitle()%></td>
 									<td><%= vo.getNdate()%></td>

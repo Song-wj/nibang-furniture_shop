@@ -2994,9 +2994,6 @@
 		border: 1px solid #f0f0f0;
 		cursor: pointer;
 	}	
-	table.notice_table tr:hover {
-		color: rgb(200, 10, 30);
-	}	
 	table.notice_table tr:first-child {
 		color: #aaa;
 		pointer-events: none;
@@ -3010,6 +3007,10 @@
 	table.notice_table th {
 		font-size: 13px;
 	}
+	table.notice_table tr.notice_subject:hover {
+		color: rgb(200, 10, 30);
+	}	
+	
 	
 	
 /*
