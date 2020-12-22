@@ -9,7 +9,7 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> bedList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, price, color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc) where pkind ='침대'";
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc) where pkind ='침대'";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -18,7 +18,7 @@ public class categoryDAO  extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPrice(rs.getInt(5));
+				vo.setPprice(rs.getString(5));
 				vo.setColor(rs.getString(6));
 				vo.setSimg1(rs.getString(7));
 				vo.setSimg2(rs.getString(8));
@@ -37,7 +37,7 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> priceBedList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, price, color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by price desc) where pkind ='침대'";
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by price desc) where pkind ='침대'";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -46,7 +46,7 @@ public class categoryDAO  extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPrice(rs.getInt(5));
+				vo.setPprice(rs.getString(5));
 				vo.setColor(rs.getString(6));
 				vo.setSimg1(rs.getString(7));
 				vo.setSimg2(rs.getString(8));
@@ -65,7 +65,7 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> chairList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, price, color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc) where pkind ='의자'";
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc) where pkind ='의자'";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -74,7 +74,7 @@ public class categoryDAO  extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPrice(rs.getInt(5));
+				vo.setPprice(rs.getString(5));
 				vo.setColor(rs.getString(6));
 				vo.setSimg1(rs.getString(7));
 				vo.setSimg2(rs.getString(8));
@@ -93,7 +93,7 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> priceChairList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, price, color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by price desc) where pkind ='의자'";
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by price desc) where pkind ='의자'";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -102,7 +102,7 @@ public class categoryDAO  extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPrice(rs.getInt(5));
+				vo.setPprice(rs.getString(5));
 				vo.setColor(rs.getString(6));
 				vo.setSimg1(rs.getString(7));
 				vo.setSimg2(rs.getString(8));
@@ -121,7 +121,7 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> tableList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, price, color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc) where pkind ='책상'";
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc) where pkind ='책상'";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -130,7 +130,7 @@ public class categoryDAO  extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPrice(rs.getInt(5));
+				vo.setPprice(rs.getString(5));
 				vo.setColor(rs.getString(6));
 				vo.setSimg1(rs.getString(7));
 				vo.setSimg2(rs.getString(8));
@@ -149,7 +149,7 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> priceTableList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, price, color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by price desc) where pkind ='책상'";
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by price desc) where pkind ='책상'";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -158,7 +158,7 @@ public class categoryDAO  extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPrice(rs.getInt(5));
+				vo.setPprice(rs.getString(5));
 				vo.setColor(rs.getString(6));
 				vo.setSimg1(rs.getString(7));
 				vo.setSimg2(rs.getString(8));

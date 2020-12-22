@@ -56,7 +56,7 @@ function mout(pid,simg1){
 						<br>
 						<span class="explain"><%= vo.getPinfo()%></span>
 						<br>
-						<span class="price"><%= vo.getPrice()%></span>
+						<span class="price"><%= vo.getPprice()%></span>
 						</a>
 					</li>				
 					 <%}else{ %> 
@@ -67,7 +67,7 @@ function mout(pid,simg1){
 						<br>
 						<span class="explain"><%= vo.getPinfo()%></span>
 						<br>
-						<span class="price"><%= vo.getPrice()%></span>
+						<span class="price"><%= vo.getPprice()%></span>
 						</a>
 					</li>		
 					<%} %> 

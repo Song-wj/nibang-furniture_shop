@@ -33,14 +33,14 @@ public class productDAO extends DBConn{
 	public ArrayList<productVO> getList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname, price, color, img1,img2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc)";
+			String sql = "select pid , pname, to_char(price, '9,999,999'), color, img1,img2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind from (select * from product order by pdate desc)";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				productVO vo = new productVO();
 				vo.setPid(rs.getString(1));
 				vo.setPname(rs.getString(2));
-				vo.setPrice(rs.getInt(3));
+				vo.setPprice(rs.getString(3));
 				vo.setColor(rs.getString(4));
 				vo.setImg1(rs.getString(5));
 				vo.setImg2(rs.getString(6));
@@ -59,7 +59,7 @@ public class productDAO extends DBConn{
 	public productVO getData(String pid) {
 		productVO vo = new productVO();
 		try {
-			String sql = "select pid ,pname, pinfo, pkind, price, color ,img1, img2 from product where pid =?";
+			String sql = "select pid ,pname, pinfo, pkind, to_char(price, '9,999,999'), color ,img1, img2 from product where pid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, pid);
 			rs=pstmt.executeQuery();
@@ -68,7 +68,7 @@ public class productDAO extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPrice(rs.getInt(5));
+				vo.setPprice(rs.getString(5));
 				vo.setColor(rs.getString(6));	
 				vo.setImg1(rs.getString(7));	
 				vo.setImg2(rs.getString(8));	
@@ -185,14 +185,14 @@ public class productDAO extends DBConn{
 	public ArrayList<productVO> getRecommandList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql ="select simg1,pinfo,price from( select * from product order by DBMS_RANDOM.RANDOM) where rownum < 7";
+			String sql ="select simg1,pinfo,to_char(price, '9,999,999') from( select * from product order by DBMS_RANDOM.RANDOM) where rownum < 7";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
 				productVO vo = new productVO();
 				vo.setSimg1(rs.getString(1));
 				vo.setPinfo(rs.getString(2));
-				vo.setPrice(rs.getInt(3));
+				vo.setPprice(rs.getString(3));
 				list.add(vo);
 			}
 		} catch (Exception e) {

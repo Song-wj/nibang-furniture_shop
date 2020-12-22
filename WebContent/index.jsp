@@ -91,7 +91,7 @@
 				<div>
 					<img class="recommand_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1()%>"><br>
 					<label class="title"><%= vo.getPinfo() %></label><br>
-					<label class="price"><%= vo.getPrice() %></label>
+					<label class="price"><%= vo.getPprice() %></label>
 				</div>
 				<%} %>
 				
