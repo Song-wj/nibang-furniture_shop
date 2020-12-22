@@ -6,10 +6,11 @@
 	String sid = request.getParameter("sid");
 	messageDAO dao = new messageDAO();
 	messageVO vo = new messageVO();
+		
 	boolean result = dao.getDelete(sid);
 	
 	if(result){
-		response.sendRedirect("1-1_inquiry.jsp");
+		response.sendRedirect("1-1_inquiry.jsp?id=");
 	}else{
 		out.write("error");
 	}

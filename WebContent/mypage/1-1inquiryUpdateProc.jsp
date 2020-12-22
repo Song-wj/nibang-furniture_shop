@@ -5,7 +5,8 @@
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>    
 
-<%
+<%		
+		String mid = request.getParameter("mid");
     	String save_path = request.getServletContext().getRealPath("/upload"); 
     	
 		int max_size = 1024*1024*100;
@@ -42,7 +43,7 @@
     	}		
     	
     	if(result){
-    		response.sendRedirect("1-1_inquiry.jsp");
+    		response.sendRedirect("1-1_inquiry.jsp?id="+mid);
     	}else{
     		System.out.println("error");
     	}
