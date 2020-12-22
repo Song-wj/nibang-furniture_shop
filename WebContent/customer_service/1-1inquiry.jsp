@@ -60,8 +60,8 @@
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
-								<input type="hidden" name="mid" value="<%=id%>">  
+							<form name="inquiryform1" action="1-1inquiryProc.jsp?mid=a@naver.com" method="post" class="inquiryform1" enctype="multipart/form-data">
+								<%-- <input type="hidden" name="mid" value="<%=id%>">   --%>
 								<ul>
 									<li>
 										<label>문의구분</label>
@@ -82,12 +82,12 @@
 									<li>상세 내용</li>
 									<li><textarea name="m_content" id="m_content"></textarea></li>
 									<li>	
-										<!-- <input type="file" name="m_file" id="m_file"> -->
-										<% if(vo.getM_file() != null){ %>
+										<input type="file" name="m_file" id="m_file">
+										<%-- <% if(vo.getM_file() != null){ %>
 											<input type="file" name="m_file"><span id="fname"><%=vo.getM_file() %></span>
 										<% }else{ %>
 											<input type="file" name="m_file"><span id="fname">선택된 파일 없음</span>
-										<% } %>
+										<% } %> --%>
 									</li>
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 									<li>최대 5개 파일 업로드 가능</li>				

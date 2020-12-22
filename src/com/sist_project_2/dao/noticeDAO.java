@@ -189,7 +189,6 @@ public class noticeDAO extends DBConn{
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				result = rs.getInt(1);
-				System.out.println(result);
 			}
 				
 		} catch (Exception e) {

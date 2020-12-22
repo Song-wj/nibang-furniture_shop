@@ -105,8 +105,8 @@
 	 			}); 
 	 		});
 			
-			function slideDown(fid) {
-				//$("#"+fid+" div").slideToggle();
+	 		function slideDown(fid) {
+				
 				
 				$('.contents div').each(function(){
 					if($(this).css('display') == 'block')
@@ -116,17 +116,22 @@
 				if($("#"+fid+" div").css('display') == 'none') {
 					$("#"+fid+" div").css('display','block');
 					$("#"+fid+" div").slideDown('fast');
+					viewUpdate(fid);
 				} else {
 					$("#"+fid+" div").css('display','none');
 					$("#"+fid+" div").slideUp('fast');
 				}   
 				
+			
+				function viewUpdate(nid){
 				$.ajax({
 					url: "FAQ_Views.jsp?fid=" + fid,
 					success: function(data){
-						console.log("조회수 증가");
+							$("."+fid).text(data);
+						
 					} 
-				});		
+				});
+				}
 			}  
 		</script> 
 	</head>
@@ -189,7 +194,7 @@
 		    			<td><%= vo.getF_div() %></td>
 		    			<td><%= vo.getF_title() %></td>
 		    			<td><%= vo.getF_date() %></td>
-		    			<td><%= vo.getF_views() %></td>
+		    			<td class="<%= vo.getFid()%>"><%= vo.getF_views() %></td>
 		    		</tr>
 		    		<tr class="contents" id="<%=vo.getFid() %>">
 		    			<td colspan="4" id="faq_content">

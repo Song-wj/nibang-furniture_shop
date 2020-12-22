@@ -121,7 +121,7 @@ table.notice_table td.ncontent p{
 		});
 	
 	function slideDown(nid) {
-		//$("#"+fid+" div").slideToggle();
+	
 		$('.contents div').each(function(){
 			if($(this).css('display') == 'block'){
 				$(this).slideUp('fast');
@@ -143,22 +143,14 @@ table.notice_table td.ncontent p{
 		$.ajax({
 			
 			url:"noticeView.jsp?nid="+nid,
-			success:function(result){
-				if($("#"+nid+" div").css('display') == 'block'){
-					$("."+nid).text(result);
-				}
+			success:function(result){			
+					$("."+nid).text(result);			
 			}
 		})
 		}
 	
 
-		//history.pushState(null, null, 'notice.jsp?nid='+nid);
-		/* $.ajax({
-			url: "notice_Views.jsp?nid=" + nid,
-			success: function(data){
-				console.log("조회수 증가");
-			} 
-		}); */
+		
 	}  
 
 
