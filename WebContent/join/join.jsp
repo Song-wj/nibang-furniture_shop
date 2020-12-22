@@ -26,6 +26,7 @@
 		$(document).ready(function(){
 			var chk =/(?=.*\d{1,15})(?=.*[~`!@#$%\^&*()-+=]{1,15})(?=.*[a-zA-Z]{2,15}).{8,15}$/;
 			var checknum = 0;
+			var idchknum = 0;
 			$("button#join_btn").click(function (){
 				if($("#email").val() == ""){
 					alert("이메일을 입력해주세요");
@@ -60,10 +61,14 @@
 				}else if($("#addr3").val() == ""){
 					alert("상세주소을 입력해주세요");
 					$("#addr3").focus();	
-				}else{							
-						if(checknum ==0){							
-							joinForm.submit();			
-						}				
+				}else{														
+						if(idchknum ==0){	
+							alert("이메일 중복체크를 해주세요");
+						}else{
+							if(checknum ==0){							
+								joinForm.submit();			
+							}																	
+						}	
 				}
 					
 			});
@@ -198,19 +203,34 @@
 			
 				
 			}
+			$("#idCheck").click(function (){
+				var a=$("#email").val();
+				var b=$("#email2").val();
+				var id = a+b;
+				if(a == "" || b ==""){
+					alert("이메일을 입력해주세요");
+				}else{ 
+					$.ajax({									
+					url:"idCheck.jsp?id="+id,
+					success:function(data){
+						
+						if(data == 0){
+							$("#chkmsg").text("이미 사용중인 아이디입니다.").css("color","red");
+							$("#email").focus();
+						}else{
+							$("#chkmsg").text("사용가능한 아이디입니다.").css("color","blue");
+							idchknum =1;
+						}
+						
+					}					
+				})
+				
+			    }
+				
+			})
 			
-			/* <$("#idCheck").click(function (){
-				var id =$('#email1').val() + $('#email2').val(); 
-				if($('#email1').val() != "" && $('#email2').val() != ""){
-					if(){ 
-						alert("이미 존재하는 ID입니다.");
-					}else
-						alert("사용가능한 ID입니다.");
-					 } 
-				}else
-					alert("email을 입력해 주세요");
-			})  */
-		
+			
+			
 		
 		});
 			
@@ -263,7 +283,8 @@
 								<option value="@gmail.com">gmail.com
 								<option value="@yahoo.co.kr">yahoo.co.kr
 						</select>
-							<div><a href ="" id="idCheck">중복확인</a></div></li>
+							<div ><button type="button" id="idCheck">중복확인</button></div>
+							<div id="chkmsg"></div></li>
 						<li><input type="password" name="pass" placeholder="비밀번호" id="pass">
 							<br> <input type="password" name="cpass" placeholder="비밀번호확인" id="cpass">
 							<br>

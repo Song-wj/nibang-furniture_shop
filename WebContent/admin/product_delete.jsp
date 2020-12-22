@@ -27,6 +27,7 @@ div.content button.product_del{
 </style>
 </head>
 <body>
+	<section class="section1">
 	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 			   <div class="content">
 				 <div><h1>상품 삭제</h1></div>			

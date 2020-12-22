@@ -3,7 +3,7 @@
     
   <%
   		categoryDAO dao = new categoryDAO();
-  		ArrayList<productVO> list = dao.chairList();
+  		ArrayList<productVO> list = dao.priceChairList();
   		
   %>
 <!DOCTYPE html>
@@ -29,9 +29,9 @@
 				<p>의자</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="#" style="color:rgb(200,100,30)">인기순</a>
+					<a href="category_chair" >인기순</a>
 					<a href="#">신상품순</a>
-					<a href="category_chair_price.jsp">가격순</a>
+					<a href="#" style="color:rgb(200,100,30)">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
 				<ul class="category_bed_list1">

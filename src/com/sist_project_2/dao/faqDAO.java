@@ -311,6 +311,24 @@ public class faqDAO extends DBConn{
 		}
 	}
 	
+	public int faqHits(String fid) {
+		nibangViews(fid);
+		int result = 0;
+		try {
+			String sql = "select f_views from faq where fid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, fid);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	/** 조회수 순 **/
 	public ArrayList<faqVO> getFAQListHits() {
 		ArrayList<faqVO> list = new ArrayList<>();

@@ -1,11 +1,8 @@
 package com.sist_project_2.dao;
 
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
-import com.sist_project_2.vo.faqVO;
 import com.sist_project_2.vo.joinVO;
-import com.sist_project_2.vo.messageVO;
 
 public class nibangDAO extends DBConn{
 	
@@ -50,14 +47,17 @@ public class nibangDAO extends DBConn{
 		return result;
 	}
 	
-	public boolean idCheck(String id) {
-		boolean result =false;
+	public int idCheck(String id) {
+		int result = 0;
 		try {
-			String sql = "select count(*) from nibangmember where mid =?";
+			String sql =" select count(*) from nibangmember where mid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, id);
-			rs.next();
-			if(rs.getInt(1) !=0) result = true;
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(rs.getInt(1) == 0) result =1;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

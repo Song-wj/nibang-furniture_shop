@@ -244,9 +244,13 @@
 		display:inline-block;
 		width:155px;
 		text-align:left;
+			
 	}
 	.section2 div.recommand div>label.title{
 		margin-bottom:0;
+		overflow: hidden;
+	  	text-overflow: ellipsis;
+  		white-space: nowrap;
 	}
 	.section2 div.recommand div>label.price{
 		color:rgb(200,10,30);
@@ -613,7 +617,7 @@
 	section.section1 div.join form>ul>li:first-child>div{
 		/* margin: 10px 0; */
 	}
-	section.section1 div.join form>ul>li:first-child>div a, 
+	section.section1 div.join form>ul>li:first-child>div button,
 	section.section1 div.join form>ul>li:nth-child(5)>div a{
 		color: rgb(200, 10, 30);
 		text-decoration: underline;
@@ -623,7 +627,14 @@
 		width:500px;
 		
 	}	
-	section.section1 div.join form>ul>li:first-child>select {
+	section.section1 div.join form>ul>li:first-child>div button{
+		background-color:white;
+		border:1px solid white;
+		width:80px;
+		margin-bottom:10px;
+		outline:none;
+	}
+	section.section1 div.join form>ul>li:first-child>select#s_email {
 		width: 100px;
 		height: 32px;
 	}	
@@ -2983,9 +2994,6 @@
 		border: 1px solid #f0f0f0;
 		cursor: pointer;
 	}	
-	table.notice_table tr:hover {
-		color: rgb(200, 10, 30);
-	}	
 	table.notice_table tr:first-child {
 		color: #aaa;
 		pointer-events: none;
@@ -2999,6 +3007,10 @@
 	table.notice_table th {
 		font-size: 13px;
 	}
+	table.notice_table tr.notice_subject:hover {
+		color: rgb(200, 10, 30);
+	}	
+	
 	
 	
 /*
