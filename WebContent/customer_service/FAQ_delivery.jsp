@@ -121,8 +121,12 @@
 					$("#"+fid+" div").slideUp('fast');
 				}   
 				
-				history.pushState(null, null, 'FAQ.jsp?fid='+fid);
-				
+				$.ajax({
+					url: "FAQ_Views.jsp?fid=" + fid,
+					success: function(data){
+						console.log("조회수 증가");
+					} 
+				});		
 			}  
 		</script> 
 	</head>

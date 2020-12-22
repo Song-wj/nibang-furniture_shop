@@ -91,7 +91,6 @@ table.notice_table td.ncontent p{
 		text-align: center;
 		margin-left: 15%;
 	}
-
 	.pageNotice {
 		text-align: center;
 		width: 400px;
@@ -133,12 +132,13 @@ table.notice_table td.ncontent p{
 		if($("#"+nid+" div").css('display') == 'none') {
 			$("#"+nid+" div").css('display','block');
 			$("#"+nid+" div").slideDown('fast');
-			viewUpdate(nid);
+			viewUpdate(nid); 
 		} else {
 			$("#"+nid+" div").css('display','none');
 			$("#"+nid+" div").slideUp('fast');
 		}   
 		
+
 		function viewUpdate(nid){
 		$.ajax({
 			
@@ -149,11 +149,17 @@ table.notice_table td.ncontent p{
 		})
 		}
 	
+
+		//history.pushState(null, null, 'notice.jsp?nid='+nid);
+		/* $.ajax({
+			url: "notice_Views.jsp?nid=" + nid,
+			success: function(data){
+				console.log("조회수 증가");
+			} 
+		}); */
 	}  
 
-/* 	function test(nid){			  
-		$("#"+nid).toggle();
-	} */
+
 </script>
 </head>
 <body>
@@ -183,7 +189,7 @@ table.notice_table td.ncontent p{
 									<th>조회수</th>
 								</tr>
 								<%for(noticeVO vo : list) {%>								
-								<tr class="ntitle " onclick="slideDown('<%=vo.getNid() %>')">
+								<tr class="notice_subject" onclick="slideDown('<%=vo.getNid() %>')">
 									<td><%= vo.getRno()%></td>
 									<td><%= vo.getNtitle()%></td>
 									<td><%= vo.getNdate()%></td>

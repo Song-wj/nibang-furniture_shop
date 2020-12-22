@@ -3,7 +3,7 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"
     %>
 <%
-	String fid = request.getParameter("fid");
+	//String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
 	
 	//1. 선택한 페이지값
@@ -37,7 +37,7 @@
 	}
 	
 	ArrayList<faqVO> list = dao.getFAQList(start, end);
-	dao.nibangViews(fid);
+	//dao.nibangViews(fid);
 %>
 <!DOCTYPE html>
 <html>
@@ -67,6 +67,7 @@
 	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?rpage=' + e.page);
 	 				//location.href('이동페이지'); -> javascript
 	 			}); 
+	 			
 	 		});
  		
 			function slideDown(fid) {
@@ -85,7 +86,13 @@
 					$("#"+fid+" div").slideUp('fast');
 				}   
 				
-				history.pushState(null, null, 'FAQ.jsp?fid='+fid);
+				//history.pushState(null, null, 'FAQ.jsp?fid='+fid);
+				$.ajax({
+					url: "FAQ_Views.jsp?fid=" + fid,
+					success: function(data){
+						console.log("조회수 증가");
+					} 
+				});
 			}  
 			
 		</script> 
