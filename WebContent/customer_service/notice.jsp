@@ -84,7 +84,6 @@ table.notice_table td.ncontent p{
 		font-weight: normal;
 	}
 	.contents td p#notice_img{
-		border:1px solid red;
 		text-align: left;
 		padding: 60px 0px 60px 75px;				
 	}
@@ -124,21 +123,32 @@ table.notice_table td.ncontent p{
 	
 	function slideDown(nid) {
 		//$("#"+fid+" div").slideToggle();
-		
 		$('.contents div').each(function(){
-			if($(this).css('display') == 'block')
+			if($(this).css('display') == 'block'){
 				$(this).slideUp('fast');
+				
+			}
 		}); 
 		
 		if($("#"+nid+" div").css('display') == 'none') {
 			$("#"+nid+" div").css('display','block');
 			$("#"+nid+" div").slideDown('fast');
+			viewUpdate(nid);
 		} else {
 			$("#"+nid+" div").css('display','none');
 			$("#"+nid+" div").slideUp('fast');
 		}   
 		
-		history.pushState(null, null, 'notice.jsp?nid='+nid);
+		function viewUpdate(nid){
+		$.ajax({
+			
+			url:"noticeView.jsp?nid="+nid,
+			success:function(result){
+				$("."+nid).text(result);
+			}
+		})
+		}
+	
 	}  
 
 /* 	function test(nid){			  
@@ -177,7 +187,7 @@ table.notice_table td.ncontent p{
 									<td><%= vo.getRno()%></td>
 									<td><%= vo.getNtitle()%></td>
 									<td><%= vo.getNdate()%></td>
-									<td><%= vo.getNviews()%></td>								
+									<td class="<%=vo.getNid() %>"><%=vo.getNviews() %></td>								
 								</tr>
 								<tr class="contents" id="<%=vo.getNid() %>">
 					    			<td colspan="4" id="notice_content">						

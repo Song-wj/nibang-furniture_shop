@@ -165,14 +165,32 @@ public class noticeDAO extends DBConn{
 		return result;
 	}
 	
-	public boolean updateView(String nid) {
-		boolean result = false;
+	public void updateView(String nid) {
+
 		try {
-			String sql ="update notice set n_views = n_views+1 nid =? ";
+			String sql ="update notice set n_views = n_views+1 where nid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, nid);
-			int count = pstmt.executeUpdate();
-			if(count != 0) result = true;
+			pstmt.executeUpdate();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	
+	}
+	public int getView(String nid) {
+		updateView(nid);
+		int result = 0;
+		try {
+			String sql ="select n_views from notice where nid =? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, nid);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+				System.out.println(result);
+			}
 				
 		} catch (Exception e) {
 			e.printStackTrace();
