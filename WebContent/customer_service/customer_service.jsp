@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+	import= "com.sist_project_2.dao.*, com.sist_project_2.vo.*"
+    %>
+<% 
+	String id = request.getParameter("id");
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -26,10 +31,10 @@
 			<nav>
 				<ul>
 				    <li>고객센터</li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터 안내</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp">공지사항</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp">FAQ</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp">1:1문의</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%= id%>">고객센터 안내</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp?id=<%= id%>">공지사항</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%= id%>">FAQ</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%= id%>">1:1문의</a></li>
 				</ul>	
 			</nav>
 		   </aside>
@@ -45,11 +50,12 @@
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="#" method="get" class="inquiryform1">
+							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
+								<input type="hidden" name="mid" value="<%=id%>">  
 								<ul>
 									<li>
 										<label>문의구분</label>
-										<select name="inquiry_kinds" id="inquiry_kinds">
+										<select name="m_div" id="m_div">
 							  				<option value="선택">선택</option>
 							  				<option value="상품문의">상품문의</option>
 							  				<option value="주문/결제/취소">주문/결제/취소</option>
@@ -62,16 +68,16 @@
 										</select>
 									</li>
 									<li>제목</li>
-									<li><input type="text" name="ititle"></li>
+									<li><input type="text" name="m_title" id="m_title"></li>
 									<li>상세 내용</li>
-									<li><textarea name="icontent"></textarea></li>
+									<li><textarea name="m_content" id="m_content"></textarea></li>
 									<li>	
-										<input type="file" name="ifile">
+										<input type="file" name="m_file" id="m_file">
 									</li>
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 									<li>최대 5개 파일 업로드 가능</li>				
 								</ul>
-									<button type="button">신청하기</button>
+									<button type="submit">신청하기</button>
 							</form>
 						</div>        
 					</div>

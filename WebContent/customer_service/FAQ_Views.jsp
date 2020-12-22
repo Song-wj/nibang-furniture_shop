@@ -6,6 +6,6 @@
 <%
 	String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
-	dao.nibangViews(fid);
-	out.write(fid);
+	int result = dao.faqHits(fid);
+	out.write(String.valueOf(result));
 %>

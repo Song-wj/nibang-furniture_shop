@@ -90,7 +90,9 @@
 				$.ajax({
 					url: "FAQ_Views.jsp?fid=" + fid,
 					success: function(data){
-						console.log("조회수 증가");
+						if($("#"+fid+" div").css('display') == 'block'){
+							$("."+fid).text(data);
+						}
 					} 
 				});
 			}  
@@ -192,7 +194,7 @@
 		    			<td><%= vo.getF_div() %></td>
 		    			<td><%= vo.getF_title() %></td>
 		    			<td><%= vo.getF_date() %></td>
-		    			<td><%= vo.getF_views() %></td>
+		    			<td class="<%= vo.getFid()%>"><%= vo.getF_views() %></td>
 		    		</tr>
 		    		<tr class="contents" id="<%=vo.getFid() %>">
 		    			<td colspan="4" id="faq_content">

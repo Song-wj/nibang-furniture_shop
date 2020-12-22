@@ -144,7 +144,9 @@ table.notice_table td.ncontent p{
 			
 			url:"noticeView.jsp?nid="+nid,
 			success:function(result){
-				$("."+nid).text(result);
+				if($("#"+nid+" div").css('display') == 'block'){
+					$("."+nid).text(result);
+				}
 			}
 		})
 		}
