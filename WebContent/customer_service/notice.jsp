@@ -30,6 +30,7 @@
 	
 	ArrayList<noticeVO> list = dao.getList(start, end);
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,23 +78,26 @@ table.notice_table td.ncontent p{
 	.contents td#notice_content{
 		padding:0;
 	}
-	.contents td p#notice_content_detail {
-		/* margin-top: -35px;
-		margin-left: -30px; */
+	.contents td p#notice_content_detail{
 		text-align: left;
-		padding: 60px 95px 60px 95px;
+		padding: 60px 0 60px 105px;
 		font-weight: normal;
+	}
+	.contents td p#notice_img{
+		border:1px solid red;
+		text-align: left;
+		padding: 60px 0px 60px 75px;				
 	}
 	.page {
 		text-align: center;
 		margin-left: 15%;
 	}
 
-.pageNotice {
-	text-align: center;
-	width: 400px;
-	margin-left: 41%;
-}
+	.pageNotice {
+		text-align: center;
+		width: 400px;
+		margin-left: 41%;
+	}
 </style>
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <script>
@@ -179,11 +183,11 @@ table.notice_table td.ncontent p{
 					    			<td colspan="4" id="notice_content">						
 					    				<div style="display: none;">				
 											<p id="notice_content_detail"><%= vo.getNcontent().replace("\r\n", "<br>") %></p>
-							<%-- 			<p>
+							 			<p id="notice_img">
 										<%if (vo.getNsfile() != null) {%>
-											<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getNsfile() %>" width=150px height=150px>
+											<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getNsfile() %>" width=150px height=150px >
 										<%} %>
-										</p> --%>
+										</p> 
 										</div>
 									</td>
 					    		</tr>								

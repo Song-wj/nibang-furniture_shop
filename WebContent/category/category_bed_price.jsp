@@ -3,7 +3,7 @@
     
   <%
   		categoryDAO dao = new categoryDAO();
-  		ArrayList<productVO> list = dao.bedList();
+  		ArrayList<productVO> list = dao.priceBedList();
   		
   %>
 <!DOCTYPE html>
@@ -41,9 +41,9 @@ function mout(pid,simg1){
 				<p>침대</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="#" style="color:rgb(200,100,30)">인기순</a>
+					<a href="category_bed.jsp" >인기순</a>
 					<a href="#">신상품순</a>
-					<a href="category_bed_price.jsp" >가격순</a>
+					<a href="category_bed_price.jsp" style="color:rgb(200,100,30)">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
 				<ul class="category_bed_list1">
