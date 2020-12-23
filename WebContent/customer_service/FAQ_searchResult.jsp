@@ -3,11 +3,11 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"
     %>
 <%
-	String fid = request.getParameter("fid");
+	String content = request.getParameter("searchContent");
 	faqDAO dao = new faqDAO();
-	int pageTotal = dao.getListCountProduct();
-	
-	//1. 선택한 페이지값
+	int pageTotal = dao.getSearchCount(content);
+
+	/* //1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
 	
 	//2-1. 페이지 값에 따라서 start, end count 구하기
@@ -16,7 +16,7 @@
 	int end=0;
 	int pageSize=10; //한 페이지당 출력되는 row
 	int pageCount = 1;//전체 페이지수 : 전체 리스트 row / 한 페이지당 출력되는 row
-	int dbCount = dao.getListCountProduct() ; // DB연동 후 전체로우수 출력
+	int dbCount = dao.getListCount() ; // DB연동 후 전체로우수 출력
 	int reqPage = 1;//요청페이지
 	
 	//2-2. 전체페이지 수 구하기
@@ -35,10 +35,10 @@
 	}else{
 	   start = reqPage;
 	   end = pageSize;
-	}
+	} */
 	
-	ArrayList<faqVO> list = dao.getFAQListProduct(start, end);
-	dao.nibangViews(fid);
+	ArrayList<faqVO> list = dao.searchResult(content);
+	//dao.nibangViews(fid);
 %>
 <!DOCTYPE html>
 <html>
@@ -48,47 +48,11 @@
 		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 		<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/am-pagination.css">
 		<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
-		<script src="http://localhost:9000/sist_project_2/js/am-pagination.js"></script>
-		<style>
-		 		
-		 	section.section1{
-		 		width:1100px;;		 				 			 		
-		 		display:inline-block;
-		 		height:80%;
-		 		padding-top:10%;
-		 		margin-bottom:100px;
-		 	}
-			
-			.subject {
-				text-align: center;
-			}
-			
-			.subject td:nth-child(1) {
-				letter-spacing: -1.5px;
-			}
-			
-			.contents td {
-				background-color: #f0f0f0;
-			}
-			.contents td#faq_content{
-				padding:0;
-			}
-			.contents td p#faq_content_detail {
-				margin-top: -35px;
-				margin-left: -30px;
-				text-align: left;
-				padding: 60px 95px 60px 95px;
-				font-weight: normal;
-			}
-			.page {
-				text-align: center;
-				margin-left: 15%;
-			}
-		</style>
- 		<script>
+		<script src="http://localhost:9000/sist_project_2/js/am-pagination.js"></script> <!-- 제이쿼리 라이브러리 -->
+		<script>
 	 		$(document).ready(function(){
-	 			// 페이지 번호 및 링크
-		 			const pager = jQuery("#ampaginationsm").pagination({
+	 			<%-- // 페이지 번호 및 링크
+ 	 			const pager = jQuery("#ampaginationsm").pagination({
 	 				maxSize : 5,
 	 				totals : <%=dbCount%>,
 	 				pageSize : <%=pageSize%>,
@@ -101,16 +65,17 @@
 	 			});
 	 			
 	 			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
-	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ_product.jsp?rpage=' + e.page);
+	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ_searchResult.jsp?rpage=' + e.page);
 	 				//location.href('이동페이지'); -> javascript
-	 			}); 
+	 			}); --%> 
 	 			
 	 			$("#faq_searchBtn").click(function(){
 	 				//alert($("#faq_search").val());
 	 				window.location.replace("FAQ_searchResult.jsp?searchContent="+$("#faq_search").val())
 	 			});
+	 			
 	 		});
-			
+ 		
 			function slideDown(fid) {
 				//$("#"+fid+" div").slideToggle();
 				
@@ -127,14 +92,54 @@
 					$("#"+fid+" div").slideUp('fast');
 				}   
 				
+				//history.pushState(null, null, 'FAQ.jsp?fid='+fid);
 				$.ajax({
 					url: "FAQ_Views.jsp?fid=" + fid,
 					success: function(data){
-						console.log("조회수 증가");
+						if($("#"+fid+" div").css('display') == 'block'){
+							$("."+fid).text(data);
+						}
 					} 
 				});
-			} 
+			}  
+			
 		</script> 
+		<style>
+		 		
+		 	section.section1{
+		 		width:1100px;;		 				 			 		
+		 		display:inline-block;
+		 		height:80%;
+		 		padding-top:10%;
+		 		margin-bottom:100px;
+		 	}
+			
+			.subject {
+				text-align: center;
+			}
+			.subject td:nth-child(1) {
+				letter-spacing: -1.5px;
+			}
+			
+			.contents td {
+				background-color: #f0f0f0;
+			}
+			.contents td#faq_content{
+				padding:0;
+			}
+			.contents td p#faq_content_detail {
+				/* margin-top: -35px;
+				margin-left: -30px; */
+				text-align: left;
+				padding: 60px 95px 60px 95px;
+				font-weight: normal;
+			}
+			.page {
+				text-align: center;
+				margin-left: 15%;
+			}
+		</style>
+
 	</head>
 	<body>
 		<jsp:include page="../header.jsp" />
@@ -155,9 +160,9 @@
 				<h1>FAQ</h1>
 				<label>일룸 서비스에 대해 궁금한 사항을 FAQ로 신속하게 해결해보세요.</label>
 			</div>
-		    <div >
+		    <div>
 		    	<form name="searchFAQList" action="searchFAQListProc.jsp" method="get" id="searchFAQList">
-		    		<input type="text" name="fqa_search" id="faq_search">
+		    		<input type="text" name="faq_search" id="faq_search">
 			    	<button type="button" id="faq_searchBtn"><img src="http://localhost:9000/sist_project_2/images/search.png"></button><br>
 		    	</form>
 
@@ -166,7 +171,7 @@
 		    	<span>취소</span><div></div>
 		    	<span>반품신청</span><div></div>
 		    	<span>교환신청</span>
-                </div>
+            </div>
 		    <div>
 		       <table border="1">
 		       		<tr>
@@ -184,7 +189,7 @@
 		      <div>
 		    	<table class="faq_table">
 		    		<tr>
-		    			<td colspan="4">조회 결과 총 <%=pageTotal %>건이 있습니다.</td>
+		    			<td colspan="4">조회 결과 총 <%= pageTotal %>건이 있습니다.</td>
 		    		</tr>	    		
 		    		<tr>
 		    			<th>구분</th>
@@ -197,7 +202,7 @@
 		    			<td><%= vo.getF_div() %></td>
 		    			<td><%= vo.getF_title() %></td>
 		    			<td><%= vo.getF_date() %></td>
-		    			<td><%= vo.getF_views() %></td>
+		    			<td class="<%= vo.getFid()%>"><%= vo.getF_views() %></td>
 		    		</tr>
 		    		<tr class="contents" id="<%=vo.getFid() %>">
 		    			<td colspan="4" id="faq_content">
@@ -211,7 +216,7 @@
 		    		</div>
 		    			<div>기타 문의사항은 1:1 문의 또는 고객센터(1577-5670)를 이용해주세요.</div>
 		    </div>
-		    <div id="ampaginationsm" class="page"></div>
+	    	<!-- <div id="ampaginationsm" class="page"></div> -->
 		</section>	
 		<jsp:include page="../nibangBanner.jsp"/>	
 		<jsp:include page="../footer.jsp" />

@@ -5,7 +5,7 @@
 <%
 	//String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
-	
+	int pageTotal = dao.getListCount();
 	//1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
 	
@@ -68,6 +68,10 @@
 	 				//location.href('이동페이지'); -> javascript
 	 			}); 
 	 			
+	 			$("#faq_searchBtn").click(function(){
+	 				//alert($("#faq_search").val());
+	 				window.location.replace("FAQ_searchResult.jsp?searchContent="+$("#faq_search").val())
+	 			});
 	 		});
  		
 			function slideDown(fid) {
@@ -154,16 +158,18 @@
 				<h1>FAQ</h1>
 				<label>일룸 서비스에 대해 궁금한 사항을 FAQ로 신속하게 해결해보세요.</label>
 			</div>
-		    <div >
-		    	<input type="text" name="fqa_search">
-		    	<button type="button"><img src="http://localhost:9000/sist_project_2/images/search.png"></button> <br>
+		    <div>
+		    	<form name="searchFAQList" action="searchFAQListProc.jsp" method="get" id="searchFAQList">
+		    		<input type="text" name="faq_search" id="faq_search">
+			    	<button type="button" id="faq_searchBtn"><img src="http://localhost:9000/sist_project_2/images/search.png"></button><br>
+		    	</form>
 
 		    	<span>주문확인</span><div></div>
 		    	<span>배송확인</span><div></div>
 		    	<span>취소</span><div></div>
 		    	<span>반품신청</span><div></div>
 		    	<span>교환신청</span>
-                </div>
+            </div>
 		    <div>
 		       <table border="1">
 		       		<tr>
@@ -181,7 +187,7 @@
 		      <div>
 		    	<table class="faq_table">
 		    		<tr>
-		    			<td colspan="4">조회 결과 총 49건이 있습니다.</td>
+		    			<td colspan="4">조회 결과 총 <%= pageTotal %>건이 있습니다.</td>
 		    		</tr>	    		
 		    		<tr>
 		    			<th>구분</th>
