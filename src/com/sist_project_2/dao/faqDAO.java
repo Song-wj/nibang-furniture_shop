@@ -6,6 +6,55 @@ import com.sist_project_2.vo.faqVO;
 
 public class faqDAO extends DBConn{
 
+	
+	/**
+	 * 검색 결과
+	 */
+	public ArrayList<faqVO> searchResult(String content) {
+		ArrayList<faqVO> list = new ArrayList<faqVO>();
+		
+		try {
+			//String sql ="select * from (select rownum rno, fid, f_div, f_title, f_content, to_char(f_date,'yyyy.mm.dd'), f_views "
+			//		+ "from faq where f_title like '%"+content+"%' order by f_date desc) "
+			//		+ "where rno between "+start+" and " + end + " ";
+			String sql ="select fid, f_div, f_title, f_content, to_char(f_date,'yyyy.mm.dd'), f_views "
+					+ "from faq where f_title like '%"+content+"%' order by f_date desc";
+			getStatement();
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				faqVO vo = new faqVO();
+				vo.setFid(rs.getString(1));
+				vo.setF_div(rs.getString(2));
+				vo.setF_title(rs.getString(3));
+				vo.setF_content(rs.getString(4));
+				vo.setF_date(rs.getString(5));
+				vo.setF_views(rs.getInt(6));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public int getSearchCount(String content) {
+		int result = 0;
+		
+		try {
+			String sql = "select count(*) from faq where f_title like '%"+content+"%'";
+			getPreparedStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) result = rs.getInt(1);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
 	/**
 	 * 전체 리스트 카운트
 	 */
