@@ -3,20 +3,22 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.* "
     %>
 <%
-	String id = request.getParameter("id"); 
-	String sid = request.getParameter("sid");
+	/* String id = request.getParameter("id");  */
+	String mid = "a@naver.com";
 	messageDAO dao = new messageDAO();
 
-	int listAll_cnt = dao.getListCountAll(id);
-	int listProduct_cnt = dao.getListCountProduct(id);
-	int listOrder_cnt = dao.getListCountOrder(id);
-	int listDelivery_cnt = dao.getListCountDelivery(id);
-	int listExchange_cnt = dao.getListCountExchange(id);
-	int listEvent_cnt = dao.getListCountEvent(id);
-	int listEtc_cnt = dao.getListCountEtc(id);
-	int listMember_cnt = dao.getListCountMember(id);
-	int listSite_cnt = dao.getListCountSite(id);
-	ArrayList<messageVO> list =  dao.getInquiryList(id);
+	int listAll_cnt = dao.getListCountAll(mid);
+	int listProduct_cnt = dao.getListCountProduct(mid);
+	int listOrder_cnt = dao.getListCountOrder(mid);
+	int listDelivery_cnt = dao.getListCountDelivery(mid);
+	int listExchange_cnt = dao.getListCountExchange(mid);
+	int listEvent_cnt = dao.getListCountEvent(mid);
+	int listEtc_cnt = dao.getListCountEtc(mid);
+	int listMember_cnt = dao.getListCountMember(mid);
+	int listSite_cnt = dao.getListCountSite(mid);
+	
+	
+	ArrayList<messageVO> list =  dao.getInquiryList(mid);
 %>
 <!DOCTYPE html>
 <html>
@@ -103,7 +105,7 @@
 									style="padding-bottom: 20px; padding-left: 80px;">
 									
 									<span style="padding-left: 80px;">
-										<a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%=id%>#open"><button type="button" class="inquiry_btn">1:1문의하기</button></a>
+										<a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?mid=<%=mid%>#open"><button type="button" class="inquiry_btn">1:1문의하기</button></a>
 									</span>
 								</td>
 								<td rowspan="3" style="width:110px;"></td>

@@ -26,8 +26,8 @@
 	boolean result = dao.getMessageInsert(vo);
 	
 	if(result){
-		/* response.sendRedirect("../mypage/1-1_inquiry.jsp?id="+ vo.getMid());*/	
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect("../mypage/1-1_inquiry.jsp?sid="+ vo.getSid());
+	
 	}else{
 		System.out.println("error");
 	}
