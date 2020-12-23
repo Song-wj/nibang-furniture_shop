@@ -3,19 +3,37 @@
     
   <%
   		categoryDAO dao = new categoryDAO();
-  		String type="수납장";
-  		ArrayList<productVO> list = dao.categoryList(type);
+  		String type ="소파";
+		ArrayList<productVO> list = dao.priceList(type);
   		
   %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Nibang</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <link rel="stylesheet"	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
+<title>일룸</title>
+<style>
+
+	/* ----- hover image ----- */
+	#section1_category_bed ul li.product_list  a span:first-child {
+		display: inline-block;
+		width: 274px;
+		height: 274px;
+		margin-bottom:-5px;
+		background-image: url('http://localhost:9000/sist_project_2/images/루오바 2540000.jpg');
+		background-size:274px;
+		background-repeat: no-repeat;
+	}
+	#section1_category_bed ul li.product_list a span:first-child:hover {
+		background-image: url('http://localhost:9000/sist_project_2/images/루오바2.jpg');
+		background-size:274px;
+	}
+	
+</style>
 <script>
 function mover(pid,simg2){
 	var id = document.getElementById(pid);
@@ -39,19 +57,19 @@ function mout(pid,simg1){
 	<div class="content">
 		<section class="section1" id="section1_category_bed">
 			<div>
-				<p>수납장</p>
+				<p>소파</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="#" style="color:rgb(200,100,30)">인기순</a>
+					<a href="category_sofa.jsp">인기순</a>
 					<a href="#">신상품순</a>
-					<a href="category_storage_closet_price.jsp">가격순</a>
+					<a href="#" style="color:rgb(200,100,30)">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
-				<ul class="category_bed_list1">
-					<% for(productVO vo : list){ %>
+				<ul class="category_table_list1">
+				<% for(productVO vo : list){ %>
 					<% if( vo.getSimg2()==null){ %> 
 					<li class="product_list">
-						<a href="http://localhost:9000/sist_project_2/product_detail/storagecloset_<%=vo.getPname() %>.jsp">
+						<a href="http://localhost:9000/sist_project_2/product_detail/sofa_<%=vo.getPname() %>.jsp">
 						<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>">					
 						<span class="title"><%= vo.getPname()%></span>
 						<br>
@@ -62,8 +80,8 @@ function mout(pid,simg1){
 					</li>				
 					 <%}else{ %> 
 						<li class="product_list">
-						<a href="http://localhost:9000/sist_project_2/product_detail/storagecloset_<%=vo.getPname() %>.jsp">
-						<img src= "http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>" id="<%= vo.getPid()%>" onmouseover="mover('<%= vo.getPid()%>','<%=vo.getSimg2()%>')" onmouseout="mout('<%= vo.getPid()%>','<%=vo.getSimg1()%>')">					
+						<a href="http://localhost:9000/sist_project_2/product_detail/sofa_<%=vo.getPname() %>.jsp">
+						<img src= "http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1()%>" id="<%= vo.getPid()%>" onmouseover="mover('<%= vo.getPid()%>','<%=vo.getSimg2()%>')" onmouseout="mout('<%= vo.getPid()%>','<%=vo.getSimg1()%>')">					
 						<span class="title"><%= vo.getPname()%></span>
 						<br>
 						<span class="explain"><%= vo.getPinfo()%></span>
@@ -73,6 +91,7 @@ function mout(pid,simg1){
 					</li>		
 					<%} %> 
 					<%} %>
+					
 				</ul>
 				<ul class="category_page_num">
 					<li>1</li>

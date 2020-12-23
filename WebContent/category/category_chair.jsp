@@ -3,7 +3,8 @@
     
   <%
   		categoryDAO dao = new categoryDAO();
-  		ArrayList<productVO> list = dao.chairList();
+  		String type ="의자";
+  		ArrayList<productVO> list = dao.categoryList(type);
   		
   %>
 <!DOCTYPE html>
@@ -15,10 +16,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
 <title>일룸</title>
-<style>
+<script>
 
-	
-</style>
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -47,9 +47,9 @@
 						<span class="price"><%= vo.getPprice()%></span>
 						</a>
 					</li>				
-					 <%}else{ %> 
-					 <%} %>
-					 <%} %>
+					 
+					<%} %> 
+					<%} %>
 		
 				</ul>
 				<ul class="category_page_num">

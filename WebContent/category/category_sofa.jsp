@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
+    
+  <%
+  		categoryDAO dao = new categoryDAO();
+  		String type ="소파";
+		ArrayList<productVO> list = dao.categoryList(type);
+  		
+  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +34,22 @@
 	}
 	
 </style>
+<script>
+function mover(pid,simg2){
+	var id = document.getElementById(pid);
+	id.style.display='inline-block';
+	id.style.width= '274px';
+	id.style.height= '274px';
+	id.src= "http://localhost:9000/sist_project_2/upload/"+simg2;
+}
+function mout(pid,simg1){
+	var id = document.getElementById(pid);
+    id.style.display='inline-block';
+	id.style.width = '274px';
+	id.style.height = '274px';
+	id.src= "http://localhost:9000/sist_project_2/upload/"+simg1;
+}
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -37,92 +60,38 @@
 				<p>소파</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="#">인기순</a>
+					<a href="#" style="color:rgb(200,100,30)">인기순</a>
 					<a href="#">신상품순</a>
-					<a href="#">가격순</a>
+					<a href="category_sofa_price.jsp">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
-				<ul class="category_bed_list1">
+				<ul class="category_table_list1">
+				<% for(productVO vo : list){ %>
+					<% if( vo.getSimg2()==null){ %> 
 					<li class="product_list">
-					<a href ="../product_detail/sofa_캐스터네츠.jsp">						
-						<img src="http://localhost:9000/sist_project_2/images/캐스터네츠 1099000.jpg">						
-						<span class="title">캐스터네츠</span>
+						<a href="http://localhost:9000/sist_project_2/product_detail/sofa_<%=vo.getPname() %>.jsp">
+						<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>">					
+						<span class="title"><%= vo.getPname()%></span>
 						<br>
-						<span class="explain">펫 3인 SET(패브릭)(온라인 전용)</span>
+						<span class="explain"><%= vo.getPinfo()%></span>
 						<br>
-						<span class="price">1,099,000 원</span>
-					</a>
-					</li>
-					<li class="product_list">
-						<a href="../product_detail/sofa_루오바.jsp">
-						<span></span>			
-						<span class="title">루오바</span>
-						<br>
-						<span class="explain">코너(가죽)</span>
-						<br>
-						<span class="price">2,540,000 원</span>
+						<span class="price"><%= vo.getPprice()%></span>
 						</a>
-					</li>
-					<li class="product_list">		
-						<a href="">				
-						<img src="http://localhost:9000/sist_project_2/images/보스턴 2690000.jpg">
-						<span class="title">보스턴</span>
+					</li>				
+					 <%}else{ %> 
+						<li class="product_list">
+						<a href="http://localhost:9000/sist_project_2/product_detail/sofa_<%=vo.getPname() %>.jsp">
+						<img src= "http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1()%>" id="<%= vo.getPid()%>" onmouseover="mover('<%= vo.getPid()%>','<%=vo.getSimg2()%>')" onmouseout="mout('<%= vo.getPid()%>','<%=vo.getSimg1()%>')">					
+						<span class="title"><%= vo.getPname()%></span>
 						<br>
-						<span class="explain">카우치 우(가죽)</span>
+						<span class="explain"><%= vo.getPinfo()%></span>
 						<br>
-						<span class="price">505,000 원</span>
+						<span class="price"><%= vo.getPprice()%></span>
 						</a>
-					</li>
-					<li class="product_list">	
-						<a href="">				
-						<img src="http://localhost:9000/sist_project_2/images/스노우 970000.jpg">
-						<span class="title">스노우</span>
-						<br>
-						<span class="explain">1인 소파(가죽)</span>
-						<br>
-						<span class="price">970,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-				     	<img src="http://localhost:9000/sist_project_2/images/디즈니 120000.jpg">					
-						<span class="title">디즈니</span>
-						<br>
-						<span class="explain">설리_아코(온라인전용))</span>
-						<br>
-						<span class="price">120,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">	
-						<a href="">			
-     					<img src="http://localhost:9000/sist_project_2/images/아코 99000.jpg">
-						<span class="title">아코</span>
-						<br>
-						<span class="explain">플리아코</span>
-						<br>
-						<span class="price">99,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">
-						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/카이로 3290000.jpg">
-						<span class="title">카이로</span>
-						<br>
-						<span class="explain">4인 리클라이너 소파(가죽,전동2)</span>
-						<br>
-						<span class="price">3,290,000 원</span>
-						</a>
-					</li>
-					<li class="product_list">	
-						<a href="">					
-						<img src="http://localhost:9000/sist_project_2/images/코모 980000.jpg">
-						<span class="title">코모</span>
-						<br>
-						<span class="explain">3인(패브릭)</span>
-						<br>
-						<span class="price">980,000 원</span>
-						</a>
-					</li>
+					</li>		
+					<%} %> 
+					<%} %>
+					
 				</ul>
 				<ul class="category_page_num">
 					<li>1</li>
