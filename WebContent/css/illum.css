@@ -134,12 +134,19 @@
 		float: left;
 		padding-bottom: 4px;
 	}	
-	header .icons img {
+	header div.icons img {
 		width: 20px;
 		height: 20px;
 		margin-top: 8px;
 	}	
-	header .icons {
+	header div.icons button{
+		background-color: white;
+		background: transparent;
+		border:1px solid transparent;
+		border-radius: 15px;
+		outline:none;
+	}
+	header div.icons {
 		display: inline-block;
 		border: 2px solid #c80a1e;
 		width: 350px;

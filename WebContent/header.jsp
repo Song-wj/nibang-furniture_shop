@@ -15,9 +15,31 @@
 <script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
 <script src="http://localhost:9000/sist_project_2/js/am-pagination.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-<style>
-    
-</style>
+<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#search_btn").click(function(){
+			keywordCheck();
+		});
+		
+		 $("#search_text").keypress(function(e) {		 
+             if (e.keyCode == 13) {       
+            	 keywordCheck();
+               }
+
+	});
+		
+		 function keywordCheck(){
+			 if($("#search_text").val() != ""){
+					 location.href="category/search_list.jsp?keyword="+$("#search_text").val(); 
+				}else{
+					alert("검색어를 입력해주세요");
+				}
+		 }
+		 
+		 
+	})
+</script>
 </head>
 <body>
 	<header>
@@ -76,8 +98,8 @@
 					</div>
 				</div>			
 				<div class="icons">
-					<input type="text" name="se"> <img
-						src="http://localhost:9000/sist_project_2/images/search.png">
+					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
+						src="http://localhost:9000/sist_project_2/images/search.png"></button>
 				</div>
 				
 				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=id%>"><img id="logo"
