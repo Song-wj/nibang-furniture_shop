@@ -99,7 +99,7 @@
 					</li>
 					<li class="product_list">
 						<a href="">
-						<img src="http://localhost:9000/sist_project_2/images/테일러옷장800폭.jpg">
+						<img src="http://localhost:9000/sist_project_2/images/테일러 옷장800폭.jpg">
 						<span class="title">테일러</span>
 						<br>
 						<span class="explain">옷장 800폭(기본장)</span>
