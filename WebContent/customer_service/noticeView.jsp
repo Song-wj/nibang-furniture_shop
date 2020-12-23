@@ -4,7 +4,7 @@
     <%
     	String nid = request.getParameter("nid");
     	noticeDAO dao = new noticeDAO();
-    	/* dao.updateView(nid); */
+
     	int result = dao.getView(nid);
     	out.write(String.valueOf(result));
     %>

@@ -75,7 +75,7 @@
 	 		});
  		
 			function slideDown(fid) {
-				//$("#"+fid+" div").slideToggle();
+				
 				
 				$('.contents div').each(function(){
 					if($(this).css('display') == 'block')
@@ -85,20 +85,22 @@
 				if($("#"+fid+" div").css('display') == 'none') {
 					$("#"+fid+" div").css('display','block');
 					$("#"+fid+" div").slideDown('fast');
+					viewUpdate(fid);
 				} else {
 					$("#"+fid+" div").css('display','none');
 					$("#"+fid+" div").slideUp('fast');
 				}   
 				
-				//history.pushState(null, null, 'FAQ.jsp?fid='+fid);
+			
+				function viewUpdate(nid){
 				$.ajax({
 					url: "FAQ_Views.jsp?fid=" + fid,
 					success: function(data){
-						if($("#"+fid+" div").css('display') == 'block'){
 							$("."+fid).text(data);
-						}
+						
 					} 
 				});
+				}
 			}  
 			
 		</script> 

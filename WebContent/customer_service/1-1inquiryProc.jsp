@@ -14,7 +14,6 @@
 
 	//4. VO 객체 생성
 	messageVO vo = new messageVO();
-	
 	vo.setMid(multi.getParameter("mid"));
 	vo.setM_div(multi.getParameter("m_div"));
 	vo.setM_title(multi.getParameter("m_title"));
@@ -27,7 +26,8 @@
 	boolean result = dao.getMessageInsert(vo);
 	
 	if(result){
-		response.sendRedirect("../mypage/1-1_inquiry.jsp?id="+ vo.getMid());
+		response.sendRedirect("../mypage/1-1_inquiry.jsp?sid="+ vo.getSid());
+	
 	}else{
 		System.out.println("error");
 	}

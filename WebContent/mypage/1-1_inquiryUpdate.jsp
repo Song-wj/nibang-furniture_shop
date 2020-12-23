@@ -3,21 +3,29 @@
     import= "com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.*"
     %>
 <% 
-	String id = request.getParameter("id");
+	
 	String sid = request.getParameter("sid");
+	
+	
 	messageDAO dao = new messageDAO();
 	messageVO vo = dao.getContent(sid);
 	
-	int listAll_cnt = dao.getListCountAll(id);
-	int listProduct_cnt = dao.getListCountProduct(id);
-	int listOrder_cnt = dao.getListCountOrder(id);
-	int listDelivery_cnt = dao.getListCountDelivery(id);
-	int listExchange_cnt = dao.getListCountExchange(id);
-	int listEvent_cnt = dao.getListCountEvent(id);
-	int listEtc_cnt = dao.getListCountEtc(id);
-	int listMember_cnt = dao.getListCountMember(id);
-	int listSite_cnt = dao.getListCountSite(id);
-	ArrayList<messageVO> list =  dao.getInquiryList(id);
+	String mid =dao.getId(sid);
+	
+	System.out.println(sid);
+	System.out.println(mid);
+	
+	
+	int listAll_cnt = dao.getListCountAll(sid);
+	int listProduct_cnt = dao.getListCountProduct(sid);
+	int listOrder_cnt = dao.getListCountOrder(sid);
+	int listDelivery_cnt = dao.getListCountDelivery(sid);
+	int listExchange_cnt = dao.getListCountExchange(sid);
+	int listEvent_cnt = dao.getListCountEvent(sid);
+	int listEtc_cnt = dao.getListCountEtc(sid);
+	int listMember_cnt = dao.getListCountMember(sid);
+	int listSite_cnt = dao.getListCountSite(sid);
+	ArrayList<messageVO> list =  dao.getInquiryList(sid);
 %>
 <!DOCTYPE html>
 <html>
@@ -46,6 +54,17 @@
 			padding:2px 0 0 2px;
 		}
 </style>	
+<script>
+	$(document).ready(function(){
+		
+	$("#m_file").change(function(){
+		if(window.FileReader){
+			var fileName= $(this)[0].files[0].name;
+			$("#fname").text("").text(fileName);					
+		}
+	}) 
+	})
+</script>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
 	<div class="content">
@@ -59,7 +78,7 @@
 									<h3>문의 수정</h3>
 									<form name="inquiryform1" action="1-1inquiryUpdateProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
 										<input type="hidden" name="sid" value="<%=vo.getSid()%>"> 
-										<input type="text" name="id" value="<%= id %>"> 
+										<input type="text" name="id" value="<%= mid %>"> 
 										<ul>
 											<li>
 												<label>문의구분</label>
@@ -82,14 +101,14 @@
 											<li><textarea name="m_content" id="m_content"><%=vo.getM_content()%></textarea></li>
 											<li>	
 												<% if(vo.getM_file() != null){ %>
-													<input type="file" name="m_file"><span id="fname"><%=vo.getM_file() %></span>
+													<input type="file" name="m_file" id="m_file"><span id="fname"><%=vo.getM_file() %></span>
 												<% }else{ %>
-													<input type="file" name="m_file"><span id="fname">선택된 파일 없음</span>
+													<input type="file" name="m_file" id="m_file"><span id="fname">선택된 파일 없음</span>
 												<% } %>
 											</li>
 											<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 											<li>최대 5개 파일 업로드 가능</li>				
-											<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getMid()%>"><button type="submit">수정완료</button></a>
+											<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getSid()%>"><button type="submit">수정완료</button></a>
 										</ul>
 									</form>
 								</div>        

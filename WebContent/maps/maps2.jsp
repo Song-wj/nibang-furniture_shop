@@ -3,7 +3,7 @@
    
 <!DOCTYPE html>
 <html>
-<head>
+<head >
     <meta charset="utf-8">
     <title>키워드로 장소검색하고 목록으로 표출하기</title>
     <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
@@ -76,6 +76,7 @@
 		$(document).ready(function(){
 			
 			search_loc("일룸 서울");
+			store_list("서울");
 		
 			$('li').click(function(){
 				var a ="일룸"+$(this).attr("id");
@@ -124,15 +125,19 @@
 						$("#store_info").text(""); 		
 						var output="";
 						for(var i in jdata.jlist){
+							
+							
 							output += "<div class='list_line'>"
+							output += "<img src='../upload/"+jdata.jlist[i].mimg+"' id='store_img'>"
 							output += "<ul id='store_list'>";
-							output += "<li><img src='http:localhost:9000/sist_project_2/images/"+jdata.jlist[i].mimg+"'></li>"
 							output += "<li>"+jdata.jlist[i].mloc +"</li>"
 							output += "<li>"+jdata.jlist[i].maddr +"</li>"
 							output += "<li>"+jdata.jlist[i].mph +"</li>"
 							output += "<li>"+jdata.jlist[i].mpark +"</li>"
 							output += "<li>"+jdata.jlist[i].mtime +"</li>"
-							output += "<li>"+jdata.jlist[i].mholiday +"</li>"
+							if(jdata.jlist[i].mholiday != null){
+								output += "<li>"+jdata.jlist[i].mholiday +"</li>"
+							}								
 							output +="</ul>";	
 							output +="</div>";
 						}
@@ -213,60 +218,52 @@
 			height:385px;
 		}
 		div.label{
-			border:1px solid blue;
 			width:750px;
 			margin-top:-40px;
 			margin-bottom:50px;
 			font-size:25px;
 			text-align:center;
-		}
-		section.store_detail{
-			margin-bottom:200px;
-			height:250px;
-		}
-		section.store_detail div{
-			clear:both;
-			display:inline-block; 
-			width:50px; 
-			height:50px;
-			
 		}		
+		img#store_img{
+			width:300px; 
+			height:200px;			
+			margin-bottom:90px;
+			display:inline-block;		
+		}
+		section.store_detail div#store_info ul{		
+			list-style:none;
+			display:inline-block;
+			margin-left:100px;
+		}
+		section.store_detail div#store_info ul li{
+			margin-bottom:5px;  
+			width:150px; 
+		}
+		section.store_detail div#store_info ul li:nth-child(2){
+			margin-bottom:20px; 
+		}
+		section.store_detail div#store_info ul li:nth-child(1),
+		section.store_detail div#store_info ul li:nth-child(2){
+			font-size:10px;
+		}
+		section.store_detail div#store_info ul li:nth-child(3),
+		section.store_detail div#store_info ul li:nth-child(4),
+		section.store_detail div#store_info ul li:nth-child(5),
+		section.store_detail div#store_info ul li:nth-child(6){
+			font-size:8px;
+		}		
+		section.store_detail div#store_info{
+			margin-left:300px;
+			margin-bottom:50px;
+		}
 		section.store_detail div.list_line{
 			border-bottom:0.5px solid lightgray;
 			width:700px;
 			height:250px;
 			margin-left:-50px;
+			margin-bottom:30px;
 		}
-		section.store_detail div#store_info{
-			margin-left:300px;
-			margin-bottom:50px;
-		}
-		section.store_detail div#store_info ul{
-			display:inline-block;			
-			list-style:none;
-		}
-		section.store_detail div#store_info ul li{
-			margin-bottom:10px;
-			width:150px;
-		}
-		section.store_detail div#store_info li:nth-child(3){
-			margin-bottom:20px;
-		}
-		section.store_detail div#store_info li:nth-child(2),
-		section.store_detail div#store_info li:nth-child(3){
-			font-size:10px;
-		}
-		section.store_detail div#store_info li:nth-child(4),
-		section.store_detail div#store_info li:nth-child(5),
-		section.store_detail div#store_info li:nth-child(6),
-		section.store_detail div#store_info li:nth-child(7){
-			font-size:8px;
-		}
-		section.store_detail div#store_img img{
-			width:300px; 
-			height:200px;			
-			margin-bottom:90px;
-		}
+		
 		ul#gu li{
 			list-style:none;
 			font-size:10px;
@@ -283,7 +280,9 @@
 			margin-top:30px;
 		}
 
-		
+		footer{
+			margin-top:100px;
+		}
 </style>
 
 </head>

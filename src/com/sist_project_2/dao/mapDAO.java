@@ -38,7 +38,7 @@ public class mapDAO extends DBConn{
 		public ArrayList<locVO> getGu(String loc) {
 			ArrayList<locVO> list = new ArrayList<>();
 			try {
-				String sql ="select gu from nibangloc where loc like '%" + loc +"%'";
+				String sql ="select gu from gulist where loc like '%" + loc +"%'";
 				getStatement();
 				rs = stmt.executeQuery(sql);
 				while(rs.next()) {
