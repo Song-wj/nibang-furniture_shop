@@ -4,6 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
 <title>주문서 작성</title>
 <style>
 section.section1 {
@@ -20,6 +24,125 @@ div.content {
 }	
 
 </style>
+<script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
+<script>
+		$(document).ready(function(){
+			$("button#btn_pay").click(function (){
+				if($("#order_name").val() == ""){
+					alert("주문자명을 입력해주세요");
+					$("#order_name").focus();
+					return false;
+				}else if(!phoneCheck()){
+					return false;
+				}else if($("#order_email").val() == ""){
+					alert("이메일을 입력해주세요");
+					$("#order_email").focus();
+					return false;
+				}else if($("#order_email2").val() == ""){
+					alert("이메일을 입력해주세요");
+					$("#order_email2").focus();
+					return false;
+				}else if($("#recipient").val() == ""){
+					alert("받는 사람의 이름을 입력해주세요");
+					$("#recipient").focus();
+					return false;
+				}else if($("#recipient_addr1").val() == ""){
+					alert("우편번호를 입력해주세요");
+					$("#recipient_addr1").focus();
+					return false;
+				}else if($("#recipient_addr2").val() == ""){
+					alert("주소를 입력해주세요");
+					$("#recipient_addr2").focus();
+					return false;
+				}else if($("#recipient_addr3").val() == ""){
+					alert("상세주소를 입력해주세요");
+					$("#recipient_addr3").focus();
+					return false;
+				}else if($("#recipient_ph1").val() == ""){
+					alert("받는 분의 연락처를 입력해주세요");
+					$("#recipient_ph1").focus();
+					return false;
+				}else if($("#recipient_ph2").val() == ""){
+					alert("받는 분의 연락처를 입력해주세요");
+					$("#recipient_ph2").focus();
+					return false;
+				}else if($("#recipient_ph3").val() == ""){
+					alert("받는 분의 연락처를 입력해주세요");
+					$("#recipient_ph3").focus();
+					return false;
+				}else {
+					//서버 주소
+					orderForm.submit();
+				}
+					
+			});//btn_pay
+			
+			
+			$("#s_email").change(function(){
+				if($("#s_email").val() != "직접입력"){
+					$("#order_email2").val($(this).val());
+				}else{
+					$("#order_email2").val("");
+					$("#order_email2").focus();
+				}
+			});
+			
+			
+			function phoneCheck(){
+				var a = $("#order_ph1").val();
+				var b = $("#order_ph2").val();
+				var c = $("#order_ph3").val();
+				var ph = a + "-" + b + "-" +c;
+				var phrule = /^(01[016789]{1}|02|0[3-9]{1}[0-9]{1})-?[0-9]{3,4}-?[0-9]{4}$/;
+				if(a =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#order_ph1").focus();
+					return false;
+				}else if(b =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#order_ph2").focus();
+					return false;
+				}else if(c =="" ){
+					alert("휴대변호를 입력해주세요");
+					$("#order_ph3").focus();
+					return false;	
+				}else
+					if(phrule.test(ph)){
+						return true;
+					}else{
+						alert("휴대번호를 다시 입력해주세요");
+						$("#order_ph1").val("");
+						$("#order_ph2").val("");
+						$("#order_ph3").val("");
+						$("#order_ph1").focus();
+						return false;						
+					}
+			}//phoneCheck
+			
+		}); //ready
+		
+		function goPopup(){
+			// 주소검색을 수행할 팝업 페이지를 호출합니다.
+			// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+			var pop = window.open("../addr/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+			
+			// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+		    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+			}
+			function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn,detBdNmList,bdNm,bdKdcd,siNm,sggNm,emdNm,liNm,rn,udrtYn,buldMnnm,buldSlno,mtYn,lnbrMnnm,lnbrSlno,emdNo){
+				// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+				/* document.form.roadFullAddr.value = roadFullAddr; */
+				document.orderForm.recipient_addr1.value = zipNo;
+				document.orderForm.recipient_addr2.value = roadAddrPart1;
+				document.orderForm.recipient_addr3.value = addrDetail;
+				
+				document.getElementById("recipient_addr1").style.fontSize = "15px";
+			    document.getElementById("recipient_addr2").style.fontSize = "12px";
+				document.getElementById("recipient_addr3").style.fontSize = "12px";
+			
+			}
+		
+</script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -31,6 +154,7 @@ div.content {
 				<span>03 주문완료</span>
 			</div>
 			<div id="order_form_content">
+			<form name="orderForm" action="orderComplete.jsp" method="get" class="order_form">
 				<div id="order_form_title" style=" border-bottom: 1px solid white; ">주문서 작성</div>
 				<div class="title_2">배송/결제 정보를 정확히 입력해주세요.</div>
 				<div class="order_form_sub_title">주문 상품 정보</div>
@@ -81,14 +205,14 @@ div.content {
 					<div id="delivery_info_L">
 						<p class="delivery_info_title">주문자 정보</p>
 						<label>주문자명</label>
-						<input type="text" id="order_name" value="">
+						<input type="text" id="order_name">
 						<label>연락처</label>
-						<input type="text" id="order_form_ph1">
-						<input type="text" id="order_form_ph2">
-						<input type="text" id="order_form_ph3">
+						<input type="text" id="order_ph1">
+						<input type="text" id="order_ph2">
+						<input type="text" id="order_ph3">
 						<label>이메일</label>
-						<input type="text" id="order_form_email">
-						<input type="text" id="order_form_email2">
+						<input type="text" id="order_email">
+						<input type="text" id="order_email2">
 						<select id ="s_email">
 								<option value="직접입력">직접입력
 								<option value="@naver.com">naver.com
@@ -106,14 +230,14 @@ div.content {
 						<p style="font-size: 13px; margin: 30px 0px 14px 0px;">* 제주도, 울릉도 지역은 온라인 주문이 불가하오니, 대리점에 직접 방문해주세요</p>
 						<button type="button" class="DELIVERY_LIST1">내 배송지 목록</button>
 						<button type="button" class="DELIVERY_LIST2">최근 배송지 목록</button>
-						<input type="text" id="order_form_addr1">
-						<button type="button" class="find_addr">주소검색</button>
-						<input type="text" id="order_form_addr2">
-						<input type="text" id="order_form_addr3">
+						<input type="text" id="recipient_addr1">
+						<button type="button" class="find_addr" onClick="goPopup();">주소검색</button>
+						<input type="text" id="recipient_addr2">
+						<input type="text" id="recipient_addr3">
 						<label>연락처</label>
-						<input type="text" id="order_form_ph1">
-						<input type="text" id="order_form_ph2">
-						<input type="text" id="order_form_ph3">
+						<input type="text" id="recipient_ph1">
+						<input type="text" id="recipient_ph2">
+						<input type="text" id="recipient_ph3">
 					</div>
 					<div style="clear:both;"></div>	
 					<label>배송 시 요청사항</label>
@@ -150,10 +274,8 @@ div.content {
 					</div>
 					<div class="h80"></div>
 				
-				<div id="order_form_btn">
-					<a href="orderComplete.jsp">
-					<input type="button" class="btn_pay" value="결제하기"></a>
-				</div>
+					<button type="button" id="btn_pay">결제하기</button>
+				</form>
 			</div>
 		</section>
 	</div>

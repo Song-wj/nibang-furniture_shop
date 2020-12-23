@@ -3072,10 +3072,12 @@ div.order_lnb {
 .w130 {
     width: 130px;
 }
-.w100, #order_form_ph1, #order_form_ph2, #order_form_ph3 {
+.w100, #order_ph1, #order_ph2, #order_ph3, 
+#recipient_ph1, #recipient_ph2, #recipient_ph3 {
     width: 100px;
 }
-#order_form_ph1, #order_form_ph2, #order_form_ph3, #order_form_email, #order_form_email2{
+#order_ph1, #order_ph2, #order_ph3, #order_email, #order_email2,
+#recipient_ph1, #recipient_ph2, #recipient_ph3{
 	width:100px;
 }
 div#order_form_content tr.mainProduct {
@@ -3126,13 +3128,14 @@ span.f_bold {
     color: #c80a1e;
 }
 
-input.btn_pay {
+.order_form button#btn_pay {
 	width: 240px;
     height: 50px;
     font-size: 16px;
     border: none;
     background-color:#c80a1e;;
     color: #FFF;
+    margin: 0px 40% 70px 40%;
 }
 div.title_2 {
 	width: 100%;
@@ -3178,7 +3181,7 @@ div#delivery_info input[type=text] {
     border: solid 1px #aaaaaa;
     box-sizing: border-box;
 }
-.w420, #order_name, #order_form_addr2, #order_form_addr3, #recipient {
+.w420, #order_name, #recipient_addr2, #recipient_addr3, #recipient {
     width: 420px;
 }
 .w140 {
@@ -3273,7 +3276,7 @@ div#order_form_content button.find_addr {
     letter-spacing: -0.4px;
     color: #909090;
 }
-div#order_form_content #order_form_btn {
+.order_form #btn_pay {
 	margin:40px 15% 85px 15%; text-align:center;
 }
 div.h80 {
@@ -3283,7 +3286,7 @@ div.h140 {
 	height: 140px;
 }
 
-#order_form_addr1, #order_form_addr2, #order_form_addr3{
+#recipient_addr1, #recipient_addr2, #recipient_addr3{
 	margin: 9px 0px;
 }
 
