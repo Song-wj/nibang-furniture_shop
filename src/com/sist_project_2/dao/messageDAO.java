@@ -328,4 +328,20 @@ public class messageDAO extends DBConn {
 			return result;
 		}
 		
+		public String getId(String sid) {
+			String id ="";
+		try {
+			String sql = "select mid from message where sid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1,sid);
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()) id = rs.getString(1);
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return id;
+		}
 }
