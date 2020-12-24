@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
+    
+    <%
+    	String pid = request.getParameter("pid");
+    	productDAO dao = new productDAO();
+    	productVO vo = dao.getData(pid);
+ 		
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,34 +24,28 @@
 	function img_change(img_id){
 		var name = document.getElementById(img_id).getAttribute("src");
 		
-		if(name =="../images/다나_detail.jpg" ){
-			document.getElementById("change").src ="../images/다나_detail.jpg";
-		}else if (name == "../images/다나2_detail.jpg"){
-			document.getElementById("change").src ="../images/다나2_detail.jpg";
+		if(name =="../upload/<%= vo.getSimg1() %>" ){
+			document.getElementById("change").src ="../upload/<%= vo.getSimg1() %>";
+		}else if (name == "../upload/<%= vo.getSimg2() %>"){
+			document.getElementById("change").src ="../upload/<%= vo.getSimg2() %>";
 		}
 	}
 	
-	$(document).ready(function(){
-		$("#product_colors").change(function(){
-			var option_text = $("#product_colors option:selected").text().split(' '); 
-			var option_price = option_text[1].replace(/[^0-9]/g,"");
-			var sum_price = addComma(option_price);
-			
-			if($("#product_colors option:selected").val() != "선택"){
-				$("#total_price").replaceWith("<span id='total_price'>" + sum_price + " 원</span>");
-				$("#total_price").css("margin-left","300px");
-			} else {
-				$("#total_price").replaceWith("<span id='total_price'>" + 0 + " 원</span>");
-				$("#total_price").css("margin-left","354px");
-				return false;
-			}
-		});
-	});
 	
-	function addComma(value) {
-		var value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		return value;
-	}
+	$(document).ready(function(){
+		$("#product_colors").change(function(){		
+			var price = "<%= vo.getPprice()%>";	
+			if($("#product_colors option:selected").val() != "선택"){				
+				$("#total_price").text(price+"원"); 
+				$("#total_price").css("margin-left","300px");			
+			} else {
+				$("#total_price").text("0원"); 
+				$("#total_price").css("margin-left","354px");
+			}
+		})
+		
+	})
+	
 </script>
 <body>
 	<!-- header -->
@@ -54,30 +55,32 @@
 		<section class="section1" id="section1_pd">
 			<aside class="product_img">
 				<div class="productmain_img" id="productmain_img">
-					<img src = "../images/다나_detail.jpg" id="change" >
+					<img src = "../upload/<%= vo.getSimg1() %>" id="change" >
 		<!--돋보기 	<a href ="#"><img src = "http://localhost:9000/sist_project_2/images/magnify_grey.png"></a> -->
 				</div>
 				<div class="productmini_img" id="productmini_img">
-					<img src = "../images/다나_detail.jpg" id ="change1" onclick = "img_change('change1')">
-					<img src = "../images/다나2_detail.jpg" id ="change2" onclick = "img_change('change2')">
+					<img src = "../upload/<%= vo.getSimg1() %>" id ="change1" onclick = "img_change('change1')">
+					<%if( vo.getSimg2() != null ) {%>  
+						<img src = "../upload/<%= vo.getSimg2() %>" id ="change2" onclick = "img_change('change2')">
+					<% }%>
 					<hr>
 				</div>
 			</aside>
 			<div class="product_payInfo" id="product_payInfo">
 				<ul>
-<!--제품명 고치기--><li class="pname">다나</li>
-<!--고치기-->			<li class="pexplain">모션베드 캐주얼(라텍스,책상형)</li>
-<!--고치기-->			<li class="pprice" id="total">2,090,000원</li> 				
+<!--제품명 고치기--><li class="pname"><%= vo.getPname() %></li>
+<!--고치기-->			<li class="pexplain"><%= vo.getPinfo() %></li>
+<!--고치기-->			<li class="pprice" id="total"><%= vo.getPprice() %>원</li> 				
 					<hr>					
 					<li class="pcode">
 						배송기간 <span>약 10일</span> 배송비<span>무료배송</span>
-<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span>HSSE290L</span>
+<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span> <%= vo.getPid() %></span>
 					</li>
 					
 					<li>
 <!--고치기-->				<select name="product_colors" id="product_colors">
 					  		<option value="선택">[필수] 색상을 선택해주세요</option>
-					  		<option value="NCCGU">NCCGU 2,090,000원</option>
+					  		<option value="color"><%= vo.getColor() %> <%= vo.getPprice()%>원</option>
 					  	</select>
 				  	</li>
 				  	<hr>

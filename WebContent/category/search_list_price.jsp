@@ -52,7 +52,7 @@ function mout(pid,simg1){
 					<% for(productVO vo : list){ %>
 					<% if( vo.getSimg2()==null){ %> 
 					<li class="product_list">
-						<a href="http://localhost:9000/sist_project_2/product_detail/bed_<%=vo.getPname() %>.jsp">
+						<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%= vo.getPid()%>">
 						<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>">					
 						<span class="title"><%= vo.getPname()%></span>
 						<br>
@@ -63,7 +63,7 @@ function mout(pid,simg1){
 					</li>				
 					 <%}else{ %> 
 						<li class="product_list">
-						<a href="http://localhost:9000/sist_project_2/product_detail/bed_<%=vo.getPname() %>.jsp">
+						<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%= vo.getPid()%>">
 						<img src= "http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>" id="<%= vo.getPid()%>" onmouseover="mover('<%= vo.getPid()%>','<%=vo.getSimg2()%>')" onmouseout="mout('<%= vo.getPid()%>','<%=vo.getSimg1()%>')">					
 						<span class="title"><%= vo.getPname()%></span>
 						<br>
