@@ -437,8 +437,30 @@
 	
 	
 /* 
-	왼쪽 배너
+	오른쪽 배너
  */
+	div.js-weather-container {
+		text-align: right;
+		right: 10px;
+		position: fixed;
+		z-index: 900;
+		bottom: 470px;
+	}
+	
+	div.js-weather-container span.js-weather {
+		/* position: absolute;
+		right: 5%;
+		top: 80px; */
+		color: #aaa;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	
+/* 	div.js-weather-container .js-weather-icon {
+		position: absolute;
+		top: 60px;
+		right: 10px;
+	} */
 	
 	div.chatbot_banner_kakao {
 		background-color: #222222;
