@@ -16,10 +16,10 @@
 <style>
 table{
  	text-align:center;
-	width:800px;
+	width:840px;
 }
-table.notice_table tr td:nth-child(2){
-	padding-left:0px;
+table.notice_table tr th:nth-child(2){
+	padding-left:25px;
 }
 .section1 aside.sideMenuBar2 ul>li:first-child>a {
 	font-size: 15px;
@@ -29,6 +29,15 @@ table.notice_table tr img{
 	width:50px;
 	height:50px;
 }
+table.notice_table button{
+	font-size:10px;
+}
+
+table.notice_table tr th:nth-child(10),
+table.notice_table tr th:nth-child(11){
+	width:37px;
+}
+
 </style>
 </head>
 <body>
@@ -54,10 +63,10 @@ table.notice_table tr img{
 			<% for ( productVO vo : list)  {%>
 			<tr>
 				<td><%= vo.getPid() %></td>
-				<td><%= vo.getPname() %></td>
+				<td id="b"><%= vo.getPname() %></td>
 				<td><%= vo.getPinfo() %></td>
 				<td><%= vo.getPkind() %></td>
-				<td><%= vo.getPrice() %></td>
+				<td><%= vo.getPprice() %></td>
 				<td><%= vo.getColor() %></td>
 				<td><img src="../upload/<%= vo.getImg1() %>"></td>
 				<%if(vo.getImg2() == null) {%>

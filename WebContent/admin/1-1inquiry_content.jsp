@@ -26,9 +26,8 @@
 		width:400px;
 	}
 	
-	table.notice_table tr.table_header td{
-		text-align:left;
-		border:1px solid red;
+	table.notice_table tr.table_header td#a{
+		padding-left:0;
 	}
 	table.notice_table tr:nth-child(2) p{
 		text-align:left;
@@ -40,7 +39,7 @@
 	div.answer_div textarea{
 		margin-left:330px;
 		margin-top :70px;
-		width:500px;
+		width:400px;
 		height:200px;
 		resize:none;
 		font-size:15px;
@@ -49,7 +48,7 @@
 	}
 	div.answer_div button#insert_answer,
 	div.answer_div button#insert_update{
-		margin-left:700px;
+		margin-left:600px;
 	}
 	div.answer_div button#insert_answer{
 		width:100px;
@@ -79,11 +78,11 @@
 							<table class="notice_table">
 								<tr class="table_header">
 									<th>제목</th>
-									<td><%= vo.getM_title() %></td>
+									<td id="a"><%= vo.getM_title() %></td>
 									<th>구분</th>
-									<td><%= vo.getM_div() %></td>
+									<td id="a"><%= vo.getM_div() %></td>
 									<th>등록일</th>
-									<td><%= vo.getM_date() %></td>
+									<td id="a"><%= vo.getM_date() %></td>
 								</tr>
 								<tr>
 									<td colspan ='6'>
