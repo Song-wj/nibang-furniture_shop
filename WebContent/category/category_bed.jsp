@@ -3,7 +3,8 @@
     
   <%
   		categoryDAO dao = new categoryDAO();
-  		ArrayList<productVO> list = dao.bedList();
+  		String type="침대";
+  		ArrayList<productVO> list = dao.categoryList(type);
   		
   %>
 <!DOCTYPE html>
