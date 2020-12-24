@@ -31,7 +31,7 @@
 		
 		 function keywordCheck(){
 			 if($("#search_text").val() != ""){
-					 location.href="category/search_list.jsp?keyword="+$("#search_text").val(); 
+					 location.href="http://localhost:9000/sist_project_2/category/search_list.jsp?keyword="+$("#search_text").val(); 
 				}else{
 					alert("검색어를 입력해주세요");
 				}
