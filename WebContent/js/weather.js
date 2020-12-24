@@ -18,7 +18,7 @@ function getWeather(lat, lon) {
         const weather_icon = json.weather[0].icon;
         weather_img.src = `http://openweathermap.org/img/wn/${weather_icon}.png`;
         weatherIcon.appendChild(weather_img);
-        weather.innerText = `${temperature} @ ${place}`
+        weather.innerText = `${temperature}℃ / ${place}`
 
     });
 }

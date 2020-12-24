@@ -448,7 +448,7 @@
  */
 	div.js-weather-container {
 		text-align: right;
-		right: 10px;
+		right: 18px;
 		position: fixed;
 		z-index: 900;
 		bottom: 470px;
