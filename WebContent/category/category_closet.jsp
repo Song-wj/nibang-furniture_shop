@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
+    
+  <%
+  		categoryDAO dao = new categoryDAO();
+  		String type="옷장";
+  		ArrayList<productVO> list = dao.categoryList(type);
+  		
+  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,26 +16,22 @@
 <link rel="stylesheet"	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
-<style>
-
-	/* ----- hover image ----- */	
-	#section1_category_bed ul li.product_list:first-child a span:first-child {
-		display: inline-block;
-		width: 274px;
-		height: 274px;
-		margin-bottom: -5px;
-		background-image: url('http://localhost:9000/sist_project_2/images/컬렉트(아이템1).png');
-		background-size:274px 285px;
-		background-repeat: no-repeat;
-	}
-	#section1_category_bed ul li.product_list:first-child a span:first-child:hover {
-		background-image: url('http://localhost:9000/sist_project_2/images/컬렉트(아이템2).jpg');
-	}
-	 
-	
-	
-	
-</style>
+<script>
+function mover(pid,simg2){
+	var id = document.getElementById(pid);
+	id.style.display='inline-block';
+	id.style.width= '274px';
+	id.style.height= '274px';
+	id.src= "http://localhost:9000/sist_project_2/upload/"+simg2;
+}
+function mout(pid,simg1){
+	var id = document.getElementById(pid);
+    id.style.display='inline-block';
+	id.style.width = '274px';
+	id.style.height = '274px';
+	id.src= "http://localhost:9000/sist_project_2/upload/"+simg1;
+}
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -39,20 +42,22 @@
 				<p>옷장</p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="#">인기순</a>
+					<a href="#" style="color:rgb(200,100,30)">인기순</a>
 					<a href="#">신상품순</a>
-					<a href="#">가격순</a>
+					<a href="category_closet_price.jsp">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
 				<ul class="category_bed_list1">
+					<% for(productVO vo : list){ %>
+					<% if( vo.getSimg2()==null){ %> 
 					<li class="product_list">
-						<a href="http://localhost:9000/sist_project_2/product_detail/closet_컬렉트.jsp">
-						<span></span>
-						<span class="title">컬렉트</span>
+						<a href="http://localhost:9000/sist_project_2/product_detail/closet_<%=vo.getPname() %>.jsp">
+						<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>">					
+						<span class="title"><%= vo.getPname()%></span>
 						<br>
-						<span class="explain">아이템별 맞춤수납-부띠끄형PKG</span>
+						<span class="explain"><%= vo.getPinfo()%></span>
 						<br>
-						<span class="price">2,087,000원</span>
+						<span class="price"><%= vo.getPprice()%></span>
 						</a>
 					</li>
 					<li class="product_list">
@@ -121,12 +126,21 @@
 						<a href="">
 	            		<img src="http://localhost:9000/sist_project_2/images/테일러800폭옵션장.jpg">				
 						<span class="title">테일러</span>
+					</li>				
+					 <%}else{ %> 
+						<li class="product_list">
+						<a href="http://localhost:9000/sist_project_2/product_detail/closet_<%=vo.getPname() %>.jsp">
+						<img src= "http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>" id="<%= vo.getPid()%>" onmouseover="mover('<%= vo.getPid()%>','<%=vo.getSimg2()%>')" onmouseout="mout('<%= vo.getPid()%>','<%=vo.getSimg1()%>')">					
+						<span class="title"><%= vo.getPname()%></span>
 						<br>
-						<span class="explain">800폭 옵션장(3단서랍형)</span>
+						<span class="explain"><%= vo.getPinfo()%></span>
 						<br>
-						<span class="price">386,000 원</span>
+						<span class="price"><%= vo.getPprice()%></span>
 						</a>
-					</li>
+					</li>		
+					<%} %> 
+					<%} %>
+		
 				</ul>
 				<ul class="category_page_num">
 					<li>1</li>
