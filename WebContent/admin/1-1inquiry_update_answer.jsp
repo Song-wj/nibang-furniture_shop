@@ -2,7 +2,6 @@
     pageEncoding="UTF-8" import="com.sist_project_2.vo.*,com.sist_project_2.dao.*"%>
     
  <%
- 	request.setCharacterEncoding("utf-8");
  	String sid = request.getParameter("sid");
  	messageAnswerDAO dao = new messageAnswerDAO();
  	messageVO vo = dao.getContent(sid);
@@ -23,7 +22,7 @@
 		color: rgb(144, 144, 144);
 	}
 	table.notice_table{
-		width:400px;
+		width:600px;
 	}
 	
 	table.notice_table tr.table_header td{
@@ -47,26 +46,20 @@
 		border-radius:15px;
 		display:block;
 	}
-	div.answer_div button#insert_answer,
-	div.answer_div button#insert_update{
+	div.answer_div button#update_answer{
 		margin-left:700px;
-	}
-	div.answer_div button#insert_answer{
-		width:100px;
 	}
 	
 </style>
 <script>
-	$(document).ready(function(){
-		$("#insert_answer").click(function (){
-			if($("#answer_area").val() == ""){
-				alert("답변을 입력해주세요");
-			}else if($("#answer_area").attr("disabled") =='disabled'){
-				alert("이미 등록되었습니다.");
-			}else
-				insertAnswerForm.submit();
-		})
+$(document).ready(function(){
+	$("#update_answer").click(function (){
+		if($("#answer_area").val() == ""){
+			alert("답변을 입력해주세요");
+		}else
+			updateAnswerForm.submit();
 	})
+})
 </script>
 </head>
 <body>
@@ -100,20 +93,12 @@
 			</div>
 			
 			<div class ="answer_div">
-				<form name="insertAnswerForm" action="1-1inquiry_insert_answerProc.jsp?sid=<%= vo.getSid() %>"  method="post">
+				<form name="updateAnswerForm" action="1-1inquiry_update_answerProc.jsp?sid=<%= vo.getSid() %>"  method="post">
 				<div>
-					<%if(avo.getAcontent() !=null) {%>
-					<textarea name="acontent" id="answer_area" disabled><%=avo.getAcontent() %></textarea>
-			
-					<a href ="1-1inquiry_update_answer.jsp?sid=<%= vo.getSid() %>"><button type="button" id="insert_update">수정</button></a>
-					<a href="1-1inquiry_delete_answer.jsp?sid=<%= vo.getSid() %>"><button type="button" id="insertdelete">삭제</button></a>
-					<% }else {%>
-					<textarea name="acontent" id="answer_area" ></textarea>
-				
-					<button type="button" id="insert_answer">등록</button>				
-					
-					<%} %>
+					<textarea name="acontent" id="answer_area" ><%=avo.getAcontent() %></textarea>					
 				</div>
+				<button type="button" id="update_answer">수정하기</button>				
+				<button type="reset" >취소</button>
 				</form>
 			</div>
 		</section>
