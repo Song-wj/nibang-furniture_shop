@@ -2,14 +2,11 @@
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
     
   <%
-    	request.setCharacterEncoding("utf-8");
-    	String keyword = request.getParameter("keyword");
-    	categoryDAO dao = new categoryDAO();
-    	ArrayList<productVO> list =dao.searchList(keyword);
-    	int count = dao.getCount(keyword);
-    	
-    %>
-    
+  		String type = request.getParameter("type");
+  		categoryDAO dao = new categoryDAO();
+  		ArrayList<productVO> list = dao.categoryList(type);
+  		
+  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,9 +32,6 @@ function mout(pid,simg1){
 	id.src= "http://localhost:9000/sist_project_2/upload/"+simg1;
 }
 </script>
-<style>
-
-</style>
 </head>
 <body>
 	<!-- header -->
@@ -45,14 +39,12 @@ function mout(pid,simg1){
 	<div class="content">
 		<section class="section1" id="section1_category_bed">
 			<div>
-				<% if(!list.isEmpty()) {%>
-				<p><span>'<%= keyword %>'</span>의 검색 결과</p>
-				<div class="search_result"><%= count %>개의 상품이 검색되었습니다.</div>
+				<p><%= type %></p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
 					<a href="#" style="color:rgb(200,100,30)">인기순</a>
 					<a href="#">신상품순</a>
-					<a href="search_list_price.jsp?keyword=<%= keyword %>&count=<%= count%>">가격순</a>
+					<a href="category_price_list.jsp?type=<%= type %>" >가격순</a>
 					<a href="#">상품평순</a>
 				</div>
 				<ul class="category_bed_list1">
@@ -82,17 +74,6 @@ function mout(pid,simg1){
 					<%} %> 
 					<%} %>
 				</ul>
-				<%}else {%>
-					<p><span>'<%= keyword %>'</span>의 검색 결과</p>
-					<div class="search_result">0개의 상품이 검색되었습니다.</div>
-					<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
-					<div class="category_sort">
-					<a href="#" style="color:rgb(200,100,30)">인기순</a>
-					<a href="#">신상품순</a>
-					<a href="#">가격순</a>
-					<a href="#">상품평순</a>
-					</div>
-				<% }%>
 				<ul class="category_page_num">
 					<li>1</li>
 					<li>2</li>

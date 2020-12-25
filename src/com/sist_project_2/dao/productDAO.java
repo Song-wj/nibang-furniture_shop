@@ -202,4 +202,6 @@ public class productDAO extends DBConn{
 		}
 		return list;
 	}
+	
+	
 }

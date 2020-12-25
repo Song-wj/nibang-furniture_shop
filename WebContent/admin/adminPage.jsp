@@ -32,7 +32,9 @@ table.notice_table tr img{
 table.notice_table button{
 	font-size:10px;
 }
-
+table.notice_table tr th:nth-child(3){
+	width:200px;
+}
 table.notice_table tr th:nth-child(10),
 table.notice_table tr th:nth-child(11){
 	width:37px;

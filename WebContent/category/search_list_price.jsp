@@ -4,6 +4,7 @@
   <%
     	request.setCharacterEncoding("utf-8");
     	String keyword = request.getParameter("keyword");
+    	int count = Integer.parseInt(request.getParameter("count"));
     	categoryDAO dao = new categoryDAO();
     	ArrayList<productVO> list =dao.priceSearchList(keyword);
     %>
@@ -40,7 +41,8 @@ function mout(pid,simg1){
 	<div class="content">
 		<section class="section1" id="section1_category_bed">
 			<div>
-				<p>'<%= keyword %>'의 검색 결과</p>
+				<p><span>'<%= keyword %>'</span>의 검색 결과</p>
+				<div class="search_result"><%= count %>개의 상품이 검색되었습니다.</div>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
 					<a href="search_list.jsp?keyword=<%= keyword %>">인기순</a>
