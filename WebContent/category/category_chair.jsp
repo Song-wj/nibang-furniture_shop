@@ -38,7 +38,7 @@
 				<% for(productVO vo : list){ %>
 					<% if( vo.getSimg2()==null){ %> 
 					<li class="product_list">
-						<a href="http://localhost:9000/sist_project_2/product_detail/chair_<%=vo.getPname() %>.jsp">
+						<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%= vo.getPid()%>">
 						<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>">					
 						<span class="title"><%= vo.getPname()%></span>
 						<br>

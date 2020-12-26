@@ -65,11 +65,9 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> searchList(String keyword){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate  from (select * from product order by pdate desc) where pkind =? or pname =?";
-			getPreparedStatement(sql);
-			pstmt.setString(1, keyword);
-			pstmt.setString(2, keyword);
-			rs = pstmt.executeQuery();
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate  from (select * from product order by pdate desc) where pkind like '%"+keyword +"%' or pname like '%" +keyword+ "%'";
+			getStatement();			
+			rs = stmt.executeQuery(sql);
 
 			while(rs.next()) {
 				productVO vo = new productVO();
@@ -95,11 +93,10 @@ public class categoryDAO  extends DBConn{
 	public ArrayList<productVO> priceSearchList(String keyword){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate  from (select * from product order by price desc) where pkind =? or pname =?";
-			getPreparedStatement(sql);
-			pstmt.setString(1, keyword);
-			pstmt.setString(2, keyword);
-			rs = pstmt.executeQuery();
+			String sql = "select pid , pname,pinfo,pkind, to_char(price, '9,999,999'), color, simg1,simg2, to_char(pdate,'yy/mm/dd') pdate  from (select * from product order by price desc) where pkind like '%"+keyword +"%' or pname like '%" +keyword+ "%'";
+			getStatement();			
+			rs = stmt.executeQuery(sql);
+			
 			while(rs.next()) {
 				productVO vo = new productVO();
 				vo.setPid(rs.getString(1));
@@ -118,5 +115,22 @@ public class categoryDAO  extends DBConn{
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	public int getCount(String keyword) {
+		int result =0;
+		try {
+			String sql ="select count(*) from product where pkind like '%"+keyword +"%' or pname like '%" +keyword+ "%'";
+			getStatement();			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}	
+		return result;
 	}
 }

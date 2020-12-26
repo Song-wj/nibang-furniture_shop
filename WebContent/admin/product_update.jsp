@@ -25,6 +25,9 @@
 		margin-bottom:10px;
 		list-style:none;
 	}
+	form ul li input[type="text"]{
+		width:300px;
+	}
 	form ul li label{
 		margin-right:20px;
 	}
@@ -40,8 +43,10 @@
 	form ul li:nth-child(8) label{
 		margin-right:27px;
 	}
-	form ul li:nth-child(8) label{
-		margin-left:263px;
+	form ul li:nth-child(8) label,
+	form ul li:nth-child(6) label,
+	form ul li:nth-child(7) label{
+		margin-left:289px;
 	}
 	span.img_f1,
 	span.img_f2{
@@ -52,7 +57,7 @@
 		background-color:white;
 	}
 	button#pu_btn{
-		margin-left:400px;
+		margin-left:500px;
 	}
 </style>
 <script>
