@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-	import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
-    %>
+	pageEncoding="UTF-8" import="com.sist_project_2.vo.*"%>
 <%
 	String id = request.getParameter("id");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
 %>
 <!DOCTYPE html>
 <html>
@@ -105,6 +104,19 @@
 				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=id%>"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
+					<% if(svo != null) { %>
+					<ul>
+						<li><a href="#"><%=svo.getName() %>님</a>
+						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%= id%>">마이페이지</a>
+						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a>
+						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%= id%>">고객센터</a>
+						<div></div></li>
+						<li style="padding-right: 20px;"><a href="">매장안내</a></li>
+					</ul>
+					<% } else { %>
 					<ul>
 						<li><a href="http://localhost:9000/sist_project_2/login/login.jsp">로그인</a>
 						<div></div></li>
@@ -118,6 +130,7 @@
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="">매장안내</a></li>
 					</ul>
+					<% } %>
 				</nav>
 			</div>
 		</div>

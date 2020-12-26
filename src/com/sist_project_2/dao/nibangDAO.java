@@ -2,6 +2,7 @@ package com.sist_project_2.dao;
 
 import java.sql.ResultSet;
 
+import com.sist_project_2.vo.SessionVO;
 import com.sist_project_2.vo.joinVO;
 
 public class nibangDAO extends DBConn{
@@ -28,23 +29,27 @@ public class nibangDAO extends DBConn{
 		return result;
 	}
 	
-	public boolean login(String id,String pass) {
-		boolean result = false;
+	public SessionVO login(joinVO vo) {
+		SessionVO svo = new SessionVO(); 
+		
 		try {
-			String sql ="select count(*) from nibangmember where mid =? and pass=?";
+			//String sql ="select count(*), name from nibangmember where mid ='"+id + "' and pass='" + pass + "' group by name";
+			String sql =" select count(*), name from nibangmember where mid=? and pass=? group by name";
 			getPreparedStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.setString(2, pass);
+			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(2, vo.getPass());
+			//getStatement();
 			rs = pstmt.executeQuery();
 			
-			rs.next(); 
-			if(rs.getInt(1) !=0) result = true;
-			
+			if(rs.next()) {
+				svo.setResult(rs.getInt(1));
+				svo.setName(rs.getString(2));
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;
+		return svo;
 	}
 	
 	public int idCheck(String id) {
