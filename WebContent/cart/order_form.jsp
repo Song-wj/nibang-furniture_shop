@@ -18,7 +18,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
 <title>주문서 작성</title>
 <style>
@@ -272,7 +272,7 @@ div.content {
 					<hr style="border:1px solid #f0f0f0;">
 					<div>
 						<label>결제수단</label>
-						<button type="button">신용카드</button>
+						<button type="button" onclick="location.href='creditPayment.jsp?pid=<%=pid%>&id=<%=mid%>'">신용카드</button>
 						<button type="button">무통장 입금</button>
 						<button type="button">실시간 계좌이체</button>
 					</div>
