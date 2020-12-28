@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"
     import = "com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
-<% request.setCharacterEncoding("utf-8"); %>
+    
+    
 <!DOCTYPE html>
 <html>
 <head>
