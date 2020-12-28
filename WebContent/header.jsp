@@ -97,32 +97,37 @@
 							</ul>
 						</nav>
 					</div>
-				</div>			
+				</div>		
+		<% if( (svo !=null) && !(svo.getName().equals("관리자")) ){ %>
 				<div class="icons">
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
 						src="http://localhost:9000/sist_project_2/images/search.png"></button>
 				</div>
-				
 				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
-					<% if( (svo !=null) && !(svo.getName().equals("관리자")) ){ %>
 					<ul>
 						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=mid %>"><b><%= svo.getName()%></b> 님의 니방</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">로그아웃</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=<%=mid %>">이벤트</a>
+						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=">이벤트</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%=mid %>">고객센터</a>
+						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=">고객센터</a>
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="http://localhost:9000/sist_project_2/maps/maps2.jsp">매장안내</a></li>
 					</ul>
-					<% } else if((svo !=null) && svo.getName().equals("관리자")){ %>
+		<% } else if((svo !=null) && svo.getName().equals("관리자")){ %>
+			<div class="icons" style="visibility:hidden">
+					  <input type="text" name="se" id="search_text">
+			</div>
+				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
+					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
+				<nav class="second">
 					<ul>
 					  <li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">관리자 로그아웃</a>
 					  <div></div></li>
-	                  <li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">관리자 페이지</a>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">상품관리</a>
 	                  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/product_insert.jsp">상품등록</a>
 	                  <div></div></li>
@@ -132,7 +137,14 @@
 	                  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/1-1inquiry_list.jsp">1:1문의</a>
 	                 </ul>
-					<% }else{ %>
+				<% }else{ %>
+				<div class="icons">
+					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
+						src="http://localhost:9000/sist_project_2/images/search.png"></button>
+				</div>
+				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
+					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
+				<nav class="second">
 					<ul>
 						<li><a href="http://localhost:9000/sist_project_2/login/login.jsp">로그인</a>
 						<div></div></li>
@@ -146,7 +158,7 @@
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="http://localhost:9000/sist_project_2/maps/maps2.jsp">매장안내</a></li>
 					</ul>
-					<% } %>
+				<% } %>
 				</nav>
 			</div>
 		</div>

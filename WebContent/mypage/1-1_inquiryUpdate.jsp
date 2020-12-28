@@ -78,7 +78,6 @@
 									<h3>문의 수정</h3>
 									<form name="inquiryform1" action="1-1inquiryUpdateProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
 										<input type="hidden" name="sid" value="<%=vo.getSid()%>"> 
-										<input type="text" name="id" value="<%= mid %>"> 
 										<ul>
 											<li>
 												<label>문의구분</label>
