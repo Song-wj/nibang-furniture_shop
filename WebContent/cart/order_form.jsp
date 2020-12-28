@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    %>
+<%
+	String pid = request.getParameter("pid");
+	productDAO dao = new productDAO();
+	productVO vo = dao.getData(pid);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -168,14 +175,14 @@ div.content {
 					</tr>
 					<tr class="mainProduct">
 						<td>
-							<a href="http://localhost:9000/sist_project_2/product_detail/table_모리니.jsp">
-								<img class="product_img" src="http://localhost:9000/sist_project_2/images/table_모리니.jpg">
+							<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?=<%= pid%>">
+								<img src = "../upload/<%= vo.getSimg1() %>" id="change" >
 							</a>
 						</td>
 						<td class="productInfo">
-							<span class="f_bold">모리니</span>
+							<span class="f_bold"><%= vo.getPname() %></span>
 							<br>
-							<span>테이블 1700폭</span>
+							<span><%= vo.getPinfo() %></span>
 							<br>
 							<br>
 							<br>
@@ -184,12 +191,12 @@ div.content {
 							<span style="vertical-align: bottom;">
 								<b>[필수] &nbsp; &nbsp;</b>
 								색상 : 
-								<span>DIO</span>
+								<span><%= vo.getColor() %></span>
 							</span>
 						</td>
-						<td class="mainPrice">699,000원</td>
+						<td class="mainPrice"><%= vo.getPprice() %>원</td>
 						<td class="mainQty">1</td>
-						<td class="groupPrice">699,000원</td>
+						<td class="groupPrice"><%= vo.getPprice() %>원</td>
 						<td>-</td>
 					</tr>
 				</table>
@@ -197,7 +204,7 @@ div.content {
 					<span>*택배/시공 상품이 별도 배송될 수 있습니다.</span>
 					<span class="totalPrice">
 					총 상품금액
-					<span class="totalPrice"> &nbsp; &nbsp;699,000원</span>
+					<span class="totalPrice"> &nbsp; &nbsp;<%= vo.getPprice() %>원</span>
 					</span>	
 				</div>
 				<div class="order_form_sub_title">주문 정보</div>

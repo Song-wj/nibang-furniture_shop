@@ -3,7 +3,6 @@
 <%
 	productDAO dao = new productDAO();
 	ArrayList<productVO> list = dao.getRecommandList();
-	
 %>	
 
 <!DOCTYPE html>

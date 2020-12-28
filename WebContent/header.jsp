@@ -86,12 +86,12 @@
 								<li class="li_logo"><img id="li_logo"
 									src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></li>
 								<li><a href="#" onclick="document.getElementById('mw_temp2').style.display='block'">모든제품</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=책상">책상/식탁</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=침대">침대</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=의자">의자</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=소파">소파</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=수납장">수납장</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=옷장">옷장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=책상&id=<%=id%>">책상/식탁</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=침대&id=<%=id%>">침대</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=의자&id=<%=id%>">의자</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=소파&id=<%=id%>">소파</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=수납장&id=<%=id%>">수납장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=옷장&id=<%=id%>">옷장</a></li>
 							</ul>
 						</nav>
 					</div>
