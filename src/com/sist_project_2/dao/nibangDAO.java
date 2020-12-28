@@ -83,8 +83,13 @@ public class nibangDAO extends DBConn{
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-	
-				vo.setEmail(rs.getString(1));
+				
+				//vo.setEmail(rs.getString(1))
+				int eidx = rs.getString(1).indexOf("@");
+				String email1 = rs.getString(1).substring(0, eidx);
+				String email2 = rs.getString(1).substring(eidx);
+				vo.setEmail1(email1);
+				vo.setEmail2(email2);
 				vo.setPass(rs.getString(2));
 				vo.setName(rs.getString(3));
 				vo.setBirth1(rs.getString(4));
