@@ -131,6 +131,23 @@ div.content {
 					}
 			}//phoneCheck
 			
+			
+			$("#payBtn_area button:nth-child(2)").click(function(){
+				$(this).addClass('button-clicked');
+				$("#payBtn_area button:nth-child(3)").removeClass('button-clicked');
+				$("#payBtn_area button:nth-child(4)").removeClass('button-clicked');
+			});
+			$("#payBtn_area button:nth-child(3)").click(function(){
+				$(this).addClass('button-clicked');
+				$("#payBtn_area button:nth-child(2)").removeClass('button-clicked');
+				$("#payBtn_area button:nth-child(4)").removeClass('button-clicked');
+			});
+			$("#payBtn_area button:nth-child(4)").click(function(){
+				$(this).addClass('button-clicked');
+				$("#payBtn_area button:nth-child(2)").removeClass('button-clicked');
+				$("#payBtn_area button:nth-child(3)").removeClass('button-clicked');
+			});
+			
 		}); //ready
 		
 		function goPopup(){
@@ -155,6 +172,12 @@ div.content {
 			}
 		
 </script>
+<style>
+#payBtn_area button.button-clicked {
+    color: white;
+    background-color: rgb(99, 102, 106);
+}
+</style>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -166,7 +189,7 @@ div.content {
 				<span>03 주문완료</span>
 			</div>
 			<div id="order_form_content">
-			<form name="orderForm" action="orderComplete.jsp" method="get" class="order_form">
+			<form name="orderForm" action="orderProc.jsp" method="get" class="order_form">
 				<div id="order_form_title" style=" border-bottom: 1px solid white; ">주문서 작성</div>
 				<div class="title_2">배송/결제 정보를 정확히 입력해주세요.</div>
 				<div class="order_form_sub_title">주문 상품 정보</div>
@@ -270,9 +293,9 @@ div.content {
 					
 					<div style="clear:both;"></div>
 					<hr style="border:1px solid #f0f0f0;">
-					<div>
+					<div id="payBtn_area">
 						<label>결제수단</label>
-						<button type="button" onclick="location.href='creditPayment.jsp?pid=<%=pid%>&id=<%=mid%>'">신용카드</button>
+						<button type="button">신용카드</button>
 						<button type="button">무통장 입금</button>
 						<button type="button">실시간 계좌이체</button>
 					</div>

@@ -27,7 +27,7 @@
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : '주문명: <%= pvo.getPname()%>',
-	    amount : 1000, //판매 가격은 임시용으로 1000원으로 설정!
+	    amount : 100, //판매 가격은 임시용으로 1000원으로 설정!
 	    buyer_email : '<%= jvo.getEmail()%>',
 	    buyer_name : '<%= jvo.getName()%>',
 	    buyer_tel : '<%= jvo.getPh()%>',
