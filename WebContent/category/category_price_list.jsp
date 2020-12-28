@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
     
-  <%
+  <%	
+  		String type = request.getParameter("type");
   		categoryDAO dao = new categoryDAO();
-  		String type="침대";
-  		ArrayList<productVO> list = dao.categoryList(type);
+  		ArrayList<productVO> list = dao.priceList(type);
   		
   %>
 <!DOCTYPE html>
@@ -39,12 +39,12 @@ function mout(pid,simg1){
 	<div class="content">
 		<section class="section1" id="section1_category_bed">
 			<div>
-				<p>침대</p>
+				<p><%= type %></p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="#" style="color:rgb(200,100,30)">인기순</a>
+					<a href="category_list.jsp?type=<%= type %>" >인기순</a>
 					<a href="#">신상품순</a>
-					<a href="category_bed_price.jsp" >가격순</a>
+					<a href="#"  style="color:rgb(200,100,30)">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
 				<ul class="category_bed_list1">

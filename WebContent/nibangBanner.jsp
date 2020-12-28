@@ -20,6 +20,10 @@
 </style>
 </head>
 <body>
+	<div class="js-weather-container">
+       	<span class="js-weather"></span>
+       	<span class="js-weather-icon"></span>
+    </div>
 	<div class="chatbot_banner_kakao" onclick="window.open('http://pf.kakao.com/_laGxnK/chat')" >
 		<span >카톡문의</span>
 	</div>
@@ -60,5 +64,6 @@
 						</div>        
 					</div>
 				</div>
+<script src="http://localhost:9000/sist_project_2/js/weather.js"></script>
 </body>
 </html>

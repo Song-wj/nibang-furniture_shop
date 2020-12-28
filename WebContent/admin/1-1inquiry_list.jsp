@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.sist_project_2.vo.*,com.sist_project_2.dao.*,java.util.*"%>
+    
+ <%
+ 	messageAnswerDAO dao = new messageAnswerDAO();
+ 	ArrayList<messageVO> list =dao.getInquiryList();
+ %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,13 +34,15 @@
 									<th>등록일</th>
 									
 								</tr>
+								<% for(messageVO vo : list) {%>
 								<tr>
-									<td>NO</td>
-									<td><a href="1-1inquiry_content.jsp">가격이 비싸요</a></td>
-					    			<td>가격 문의</td>
-					    			<td>2018.03.13</td>
+									<td><%=vo.getRno() %></td>
+									<td><a href="1-1inquiry_content.jsp?sid=<%=vo.getSid() %>"><%=vo.getM_title() %></a></td>
+					    			<td><%=vo.getM_div() %></td>
+					    			<td><%=vo.getM_date() %></td>
 					    			
-								</tr>							
+								</tr>		
+								<%} %>					
 							</table>
 						</div>
 					</div>

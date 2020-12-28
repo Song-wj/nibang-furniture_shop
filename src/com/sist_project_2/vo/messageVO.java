@@ -1,7 +1,18 @@
 package com.sist_project_2.vo;
 
 public class messageVO {
-	String sid, mid, m_div, m_title, m_content, m_file, m_sfile, m_date;
+	String sid, mid, m_div, m_title, m_content, m_file, m_sfile, m_date ;
+
+	int rno;
+	
+	
+	public int getRno() {
+		return rno;
+	}
+
+	public void setRno(int rno) {
+		this.rno = rno;
+	}
 
 	public String getM_sfile() {
 		return m_sfile;

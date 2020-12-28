@@ -1,53 +1,51 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
+    
+    <%
+    	String pid = request.getParameter("pid");
+    	productDAO dao = new productDAO();
+    	productVO vo = dao.getData(pid);
+ 		
+    %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
-<link rel="stylesheet"	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
-<title>옷장- 컬렉트(아이템별 맞춤수납-부띠끄형PKG)</title>
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<title>일룸</title>
 </head>
 <style>
-	
 	
 </style>
 <script>
 	function img_change(img_id){
 		var name = document.getElementById(img_id).getAttribute("src");
 		
-		if(name =="../images/컬렉트_부띠크형1.jpg" ){
-			document.getElementById("change").src ="../images/컬렉트_부띠크형메인.jpg";
-		}else if (name == "../images/컬렉트_부띠크형2.jpg"){
-			document.getElementById("change").src ="../images/컬렉트_부띠크형2.jpg";
-		}else{
-			document.getElementById("change").src ="../images/컬렉트_부띠크형3.jpg";
+		if(name =="../upload/<%= vo.getSimg1() %>" ){
+			document.getElementById("change").src ="../upload/<%= vo.getSimg1() %>";
+		}else if (name == "../upload/<%= vo.getSimg2() %>"){
+			document.getElementById("change").src ="../upload/<%= vo.getSimg2() %>";
 		}
 	}
 	
-	$(document).ready(function(){
-		$("#product_colors").change(function(){
-			var option_text = $("#product_colors option:selected").text().split(' '); 
-			var option_price = option_text[1].replace(/[^0-9]/g,"");
-			var sum_price = addComma(option_price);
-			
-			if($("#product_colors option:selected").val() != "선택"){
-				$("#total_price").replaceWith("<span id='total_price'>" + sum_price + " 원</span>");
-				$("#total_price").css("margin-left","300px");
-			} else {
-				$("#total_price").replaceWith("<span id='total_price'>" + 0 + " 원</span>");
-				$("#total_price").css("margin-left","354px");
-				return false;
-			}
-		});
-	});
 	
-	function addComma(value) {
-		var value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		return value;
-	}
+	$(document).ready(function(){
+		$("#product_colors").change(function(){		
+			var price = "<%= vo.getPprice()%>";	
+			if($("#product_colors option:selected").val() != "선택"){				
+				$("#total_price").text(price+"원"); 
+				$("#total_price").css("margin-left","300px");			
+			} else {
+				$("#total_price").text("0원"); 
+				$("#total_price").css("margin-left","354px");
+			}
+		})
+		
+	})
+	
 </script>
 <body>
 	<!-- header -->
@@ -57,32 +55,32 @@
 		<section class="section1" id="section1_pd">
 			<aside class="product_img">
 				<div class="productmain_img" id="productmain_img">
-					<img src = "../images/컬렉트_부띠크형메인.jpg" id="change" >
+					<img src = "../upload/<%= vo.getSimg1() %>" id="change" >
 		<!--돋보기 	<a href ="#"><img src = "http://localhost:9000/sist_project_2/images/magnify_grey.png"></a> -->
 				</div>
 				<div class="productmini_img" id="productmini_img">
-					<img src = "../images/컬렉트_부띠크형1.jpg" id ="change1" onclick = "img_change('change1')">
-					<img src = "../images/컬렉트_부띠크형2.jpg" id ="change2" onclick = "img_change('change2')">
-					<img src = "../images/컬렉트_부띠크형3.jpg" id ="change3" onclick = "img_change('change3')">
+					<img src = "../upload/<%= vo.getSimg1() %>" id ="change1" onclick = "img_change('change1')">
+					<%if( vo.getSimg2() != null ) {%>  
+						<img src = "../upload/<%= vo.getSimg2() %>" id ="change2" onclick = "img_change('change2')">
+					<% }%>
 					<hr>
 				</div>
 			</aside>
 			<div class="product_payInfo" id="product_payInfo">
 				<ul>
-<!--제품명 고치기--><li class="pname">컬렉트</li>
-<!--고치기-->			<li class="pexplain">아이템별 맞춤수납-부띠끄형PKG</li>
-<!--고치기-->			<li class="pprice">2,087,000원</li> 				
+<!--제품명 고치기--><li class="pname"><%= vo.getPname() %></li>
+<!--고치기-->			<li class="pexplain"><%= vo.getPinfo() %></li>
+<!--고치기-->			<li class="pprice" id="total"><%= vo.getPprice() %>원</li> 				
 					<hr>					
 					<li class="pcode">
 						배송기간 <span>약 10일</span> 배송비<span>무료배송</span>
-<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span>HXXZ002015</span>
+<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span> <%= vo.getPid() %></span>
 					</li>
 					
 					<li>
 <!--고치기-->				<select name="product_colors" id="product_colors">
 					  		<option value="선택">[필수] 색상을 선택해주세요</option>
-					  		<option value="CGYA">CGYA 2,087,000원</option>
-					  		<option value="GYA">GYA 2,087,000원</option>
+					  		<option value="color"><%= vo.getColor() %> <%= vo.getPprice()%>원</option>
 					  	</select>
 				  	</li>
 				  	<hr>
@@ -337,21 +335,21 @@
 				<label>교환/환불안내</label>
 				<hr>
 				<div class="exchangrefund_notice">
-					<p>
+					
 						<span class ="fontW">교환 및 반품<br><br></span>
 						<span class="fontred">가구의 특성상 설치(조립)이 된 후에는 상품 가치가 하락하여<br>
 							재판매가 불가능한 상태이므로 교환/반품 기간이라도 교환/반품이 불가합니다.</span><br><br>	
 							공정거래위원회 표준 약관에 의거하여 납품 후, 7일 이내에 교환/반품 신청이 가능합니다.<br><br>
 						<hr>
 						<span class ="fontW">교환 및 반품 가능한 경우 <span class ="fontindent"> 교환 및 반품 불가능한 경우</span></span><br><br>						 
-							· 배송된 상품이 주문 내용과 상이한 경우 <span class ="fontindent"> · 상품을 설치(조립)한 경우</span><br>
-							· 상품에 오염이나 손상이 있는 경우 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class ="fontindent"> · 고객님의 사용 및 부주의로 인하여</span><br>
-							· 상품 자체의 이상 및 결함이 있는 경우 &nbsp;&nbsp;&nbsp;<span class ="fontindent"> · 상품 가치가 감소한 경우</span><br><br>
+							· 배송된 상품이 주문 내용과 상이한 경우 <span class ="fontindent">  · 상품을 설치(조립)한 경우</span><br>
+							· 상품에 오염이나 손상이 있는 경우 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class ="fontindent" > · 고객님의 사용 및 부주의로 인하여</span><br>
+							· 상품 자체의 이상 및 결함이 있는 경우&nbsp;&nbsp;&nbsp;<span class ="fontindent">· 상품 가치가 감소한 경우</span><br><br>
 						<hr>
 					
 				</div>
 				<div class="order_cancle_notice">
-					<p>
+					<p> 
 						<span class ="fontW">주문취소<br><br></span>
 						결제하신 상품의 주문취소를 원하시면 주문등록 전에는 쇼핑몰에서 직접 취소하실 수 있습니다.<br>
 						주문등록 후에는 평일 기준(주말 및 공휴일 제외) 3일 전까지 쇼핑몰 담당자 (1588-6792)에게<br>
