@@ -27,17 +27,7 @@
 	<body>
 		<jsp:include page="../header.jsp" />
 		<section class ="section1">
-			<aside class="sideMenuBar2">
-			<nav>
-				<ul>
-				    <li>고객센터</li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%= id%>">고객센터 안내</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp?id=<%= id%>">공지사항</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%= id%>">FAQ</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%= id%>">1:1문의</a></li>
-				</ul>	
-			</nav>
-		   </aside>
+		<jsp:include page="../sideMenuBar2.jsp"/>			
 		  	<div class="customer_service">
 				<div>
 					<h1>고객센터 안내</h1>
