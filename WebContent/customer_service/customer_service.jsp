@@ -31,9 +31,9 @@
 			<nav>
 				<ul>
 				    <li>고객센터</li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%= id%>">고객센터 안내</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp?id=<%= id%>">공지사항</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%= id%>">FAQ</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터 안내</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp">공지사항</a></li>
+					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp">FAQ</a></li>
 					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%= id%>">1:1문의</a></li>
 				</ul>	
 			</nav>

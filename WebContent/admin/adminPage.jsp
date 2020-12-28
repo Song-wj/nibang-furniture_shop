@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <title>Insert title here</title>
 <style>
+div h1{
+	padding-top: 100px;
+}
 table{
  	text-align:center;
 	width:800px;
@@ -32,6 +35,7 @@ table.notice_table tr img{
 </style>
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class ="section1">
 	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 	<div class="content">

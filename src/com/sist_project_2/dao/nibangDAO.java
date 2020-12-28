@@ -2,68 +2,71 @@ package com.sist_project_2.dao;
 
 import java.sql.ResultSet;
 
+import com.sist_project_2.vo.SessionVO;
 import com.sist_project_2.vo.joinVO;
 
-public class nibangDAO extends DBConn{
-	
+public class nibangDAO extends DBConn {
+
 	public boolean join(joinVO vo) {
 		boolean result = false;
 		try {
 			String sql = "insert into nibangmember values(?,?,?,?,?,?,?,?,sysdate)";
 			getPreparedStatement(sql);
-			pstmt.setString(1,vo.getEmail());
-			pstmt.setString(2,vo.getPass());
-			pstmt.setString(3,vo.getName());
-			pstmt.setString(4,vo.getBirth());
-			pstmt.setString(5,vo.getGender());
-			pstmt.setString(6,vo.getPh());
-			pstmt.setString(7,vo.getAddr_num());
-			pstmt.setString(8,vo.getAddr());
-			
-			int count =pstmt.executeUpdate();
-			if(count != 0) result = true;
+			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(2, vo.getPass());
+			pstmt.setString(3, vo.getName());
+			pstmt.setString(4, vo.getBirth());
+			pstmt.setString(5, vo.getGender());
+			pstmt.setString(6, vo.getPh());
+			pstmt.setString(7, vo.getAddr_num());
+			pstmt.setString(8, vo.getAddr());
+
+			int count = pstmt.executeUpdate();
+			if (count != 0)
+				result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
-	public boolean login(String id,String pass) {
+/*
+	public boolean login(String id, String pass) {
 		boolean result = false;
 		try {
-			String sql ="select count(*) from nibangmember where mid =? and pass=?";
+			String sql = "select count(*) from nibangmember where mid =? and pass=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, pass);
+
 			rs = pstmt.executeQuery();
-			
-			rs.next(); 
-			if(rs.getInt(1) !=0) result = true;
-			
-			
+			rs.next();
+			if (rs.getInt(1) != 0)
+				result = true;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-	
+*/
 	public int idCheck(String id) {
 		int result = 0;
 		try {
-			String sql =" select count(*) from nibangmember where mid =?";
+			String sql = " select count(*) from nibangmember where mid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, id);
-			rs= pstmt.executeQuery();
-			
-			if(rs.next()) {
-				if(rs.getInt(1) == 0) result =1;
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				if (rs.getInt(1) == 0)
+					result = 1;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return result;
 	}
-		
+
 	/**
 	 * MemberUpdate : 회원정보 수정
 	 */
@@ -76,9 +79,9 @@ public class nibangDAO extends DBConn{
 			getPreparedStatement(sql);
 			pstmt.setString(1, mid);
 			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-	
+
+			while (rs.next()) {
+
 				vo.setEmail(rs.getString(1));
 				vo.setPass(rs.getString(2));
 				vo.setName(rs.getString(3));
@@ -91,23 +94,23 @@ public class nibangDAO extends DBConn{
 				vo.setPh3(rs.getString(10));
 				vo.setAddr_num(rs.getString(11));
 				int idx = rs.getString(12).indexOf(",");
-				String addr2 = rs.getString(12).substring(0, idx);	  
-				String addr3 = rs.getString(12).substring(idx+1);
+				String addr2 = rs.getString(12).substring(0, idx);
+				String addr3 = rs.getString(12).substring(idx + 1);
 				vo.setAddr2(addr2);
 				vo.setAddr3(addr3);
-				System.out.println(addr2+ "," + addr3);
+				System.out.println(addr2 + "," + addr3);
 
 			}
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vo;
 	}
-	
-	public boolean getMemberUpdate(joinVO vo ,String id) {
+
+	public boolean getMemberUpdate(joinVO vo, String id) {
 		boolean result = false;
-		
+
 		try {
 			String sql = "update nibangmember set pass=?, name=?, birth=?, "
 					+ "gender=?, hp=?, addrnum=? , addr =? where mid=?";
@@ -120,38 +123,43 @@ public class nibangDAO extends DBConn{
 			pstmt.setString(6, vo.getAddr_num());
 			pstmt.setString(7, vo.getAddr());
 			pstmt.setString(8, id);
-			
+
 			int val = pstmt.executeUpdate();
-			if(val != 0) result = true;
+			if (val != 0)
+				result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return result;
-	}
-	             
-	//update
+	}// update
 
+	/**
+	 * login
+	 */
+	public SessionVO getLogin(joinVO vo) {
+		SessionVO svo = new SessionVO();
 
-
-	/** header에  name(OOO님) 가져오기 **/
-	public joinVO getName(String mid){
-		joinVO vo = new joinVO();
-		
 		try {
-			String sql = "select name from nibangmember where mid=?";
+			String sql = " SELECT count(*), name FROM NIBANGMEMBER " + " WHERE MID=? AND PASS=? group by name";
 			getPreparedStatement(sql);
-			pstmt.setString(1, mid);
+
+			pstmt.setString(1, vo.getEmail());
+			pstmt.setString(2, vo.getPass());
+
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next()) 
-				vo.setName(rs.getString(1));
-					
-		}catch (Exception e) {
+			if (rs.next()) {
+				svo.setResult(rs.getInt(1));
+				svo.setName(rs.getString(2));
+			}
+
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return vo;
+
+		return svo;
 	}
+
 	
-	
+
 }
