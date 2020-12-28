@@ -23,11 +23,11 @@
 	IMP.init('imp84143310');
 	
 	IMP.request_pay({
-	    pg : 'inicis', // version 1.1.0부터 지원.
+	    pg : 'inicis',
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : '주문명: <%= pvo.getPname()%>',
-	    amount : 1000, //판매 가격
+	    amount : 1000, //판매 가격은 임시용으로 1000원으로 설정!
 	    buyer_email : '<%= jvo.getEmail()%>',
 	    buyer_name : '<%= jvo.getName()%>',
 	    buyer_tel : '<%= jvo.getPh()%>',
@@ -40,6 +40,7 @@
 	        msg += '상점 거래ID : ' + rsp.merchant_uid;
 	        msg += '결제 금액 : ' + rsp.paid_amount;
 	        msg += '카드 승인번호 : ' + rsp.apply_num;
+	        location.href = "orderComplete.jsp?pid=<%=pid%>&id=<%=mid%>"
 	    } else {
 	        var msg = '결제에 실패하였습니다.';
 	        msg += '에러내용 : ' + rsp.error_msg;
