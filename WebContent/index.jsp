@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
+	pageEncoding="UTF-8" 
+	import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"
+%>
 <%
 	productDAO dao = new productDAO();
 	ArrayList<productVO> list = dao.getRecommandList();
-	
 %>	
 
 <!DOCTYPE html>
@@ -116,10 +117,10 @@
 			<img src="images/quick_menu.png" style="margin: 30px;">
 			<div>
 				<div class="quick">
-					<a href="" class="effect1"> <br><span>Store</span> <br> <span>매장안내</span> </a>
+					<a href="http://localhost:9000/sist_project_2/maps/maps2.jsp" class="effect1"> <br><span>Store</span> <br> <span>매장안내</span> </a>
 				</div>
 				<div class="quick">
-					<a href="" class="effect2"> <br><span>Notice</span><br><span>공지사항</span></a>
+					<a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp" class="effect2"> <br><span>Notice</span><br><span>공지사항</span></a>
 				</div>
 				<div class="quick">
 					<a href="" class="effect3"> <br><span>Refurb</span><br><span>전시품판매</span></a>

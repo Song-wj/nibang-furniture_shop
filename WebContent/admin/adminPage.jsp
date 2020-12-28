@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <title>Insert title here</title>
 <style>
+div.list_body{
+	margin: 3% 13%;
+}
 table{
  	text-align:center;
 	width:840px;
@@ -43,10 +46,10 @@ table.notice_table tr th:nth-child(11){
 </style>
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class ="section1">
-	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 	<div class="content">
-	<div><h1>상품관리</h1></div>
+	<div class="admin"><h1>상품관리</h1></div>
 	  <div class="list_body"style="height:500px; overflow:auto">
 		<table class="notice_table">
 			<tr>

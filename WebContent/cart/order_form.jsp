@@ -1,12 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    %>
+<%
+	String mid = request.getParameter("id");
+	String pid = request.getParameter("pid");
+	
+	productDAO pdao = new productDAO();
+	nibangDAO ndao = new nibangDAO();
+	
+	productVO pvo = pdao.getData(pid);
+	joinVO jvo = ndao.getMemberInfo(mid);
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script> 
 <title>주문서 작성</title>
 <style>
@@ -119,6 +131,23 @@ div.content {
 					}
 			}//phoneCheck
 			
+			
+			$("#payBtn_area button:nth-child(2)").click(function(){
+				$(this).addClass('button-clicked');
+				$("#payBtn_area button:nth-child(3)").removeClass('button-clicked');
+				$("#payBtn_area button:nth-child(4)").removeClass('button-clicked');
+			});
+			$("#payBtn_area button:nth-child(3)").click(function(){
+				$(this).addClass('button-clicked');
+				$("#payBtn_area button:nth-child(2)").removeClass('button-clicked');
+				$("#payBtn_area button:nth-child(4)").removeClass('button-clicked');
+			});
+			$("#payBtn_area button:nth-child(4)").click(function(){
+				$(this).addClass('button-clicked');
+				$("#payBtn_area button:nth-child(2)").removeClass('button-clicked');
+				$("#payBtn_area button:nth-child(3)").removeClass('button-clicked');
+			});
+			
 		}); //ready
 		
 		function goPopup(){
@@ -143,6 +172,12 @@ div.content {
 			}
 		
 </script>
+<style>
+#payBtn_area button.button-clicked {
+    color: white;
+    background-color: rgb(99, 102, 106);
+}
+</style>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -154,7 +189,7 @@ div.content {
 				<span>03 주문완료</span>
 			</div>
 			<div id="order_form_content">
-			<form name="orderForm" action="orderComplete.jsp" method="get" class="order_form">
+			<form name="orderForm" action="orderProc.jsp" method="get" class="order_form">
 				<div id="order_form_title" style=" border-bottom: 1px solid white; ">주문서 작성</div>
 				<div class="title_2">배송/결제 정보를 정확히 입력해주세요.</div>
 				<div class="order_form_sub_title">주문 상품 정보</div>
@@ -168,14 +203,14 @@ div.content {
 					</tr>
 					<tr class="mainProduct">
 						<td>
-							<a href="http://localhost:9000/sist_project_2/product_detail/table_모리니.jsp">
-								<img class="product_img" src="http://localhost:9000/sist_project_2/images/table_모리니.jpg">
+							<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?=<%= pid%>">
+								<img src = "../upload/<%= pvo.getSimg1() %>" id="change" >
 							</a>
 						</td>
 						<td class="productInfo">
-							<span class="f_bold">모리니</span>
+							<span class="f_bold"><%= pvo.getPname() %></span>
 							<br>
-							<span>테이블 1700폭</span>
+							<span><%= pvo.getPinfo() %></span>
 							<br>
 							<br>
 							<br>
@@ -184,12 +219,12 @@ div.content {
 							<span style="vertical-align: bottom;">
 								<b>[필수] &nbsp; &nbsp;</b>
 								색상 : 
-								<span>DIO</span>
+								<span><%= pvo.getColor() %></span>
 							</span>
 						</td>
-						<td class="mainPrice">699,000원</td>
+						<td class="mainPrice"><%= pvo.getPprice() %>원</td>
 						<td class="mainQty">1</td>
-						<td class="groupPrice">699,000원</td>
+						<td class="groupPrice"><%= pvo.getPprice() %>원</td>
 						<td>-</td>
 					</tr>
 				</table>
@@ -197,7 +232,7 @@ div.content {
 					<span>*택배/시공 상품이 별도 배송될 수 있습니다.</span>
 					<span class="totalPrice">
 					총 상품금액
-					<span class="totalPrice"> &nbsp; &nbsp;699,000원</span>
+					<span class="totalPrice"> &nbsp; &nbsp;<%= pvo.getPprice() %>원</span>
 					</span>	
 				</div>
 				<div class="order_form_sub_title">주문 정보</div>
@@ -205,14 +240,14 @@ div.content {
 					<div id="delivery_info_L">
 						<p class="delivery_info_title">주문자 정보</p>
 						<label>주문자명</label>
-						<input type="text" id="order_name">
+						<input type="text" id="order_name" value="<%= jvo.getName() %>">
 						<label>연락처</label>
-						<input type="text" id="order_ph1">
-						<input type="text" id="order_ph2">
-						<input type="text" id="order_ph3">
+						<input type="text" id="order_ph1" value="<%= jvo.getPh1() %>">
+						<input type="text" id="order_ph2" value="<%= jvo.getPh2() %>">
+						<input type="text" id="order_ph3" value="<%= jvo.getPh3() %>">
 						<label>이메일</label>
-						<input type="text" id="order_email">
-						<input type="text" id="order_email2">
+						<input type="text" id="order_email" value="<%= jvo.getEmail1()%>">
+						<input type="text" id="order_email2" value="<%= jvo.getEmail2()%>">
 						<select id ="s_email">
 								<option value="직접입력">직접입력
 								<option value="@naver.com">naver.com
@@ -226,18 +261,18 @@ div.content {
 					<div id="delivery_info_R">
 						<p class="delivery_info_title">배송지 정보</p>
 						<label>받는사람</label>
-						<input type="text" id="recipient">
+						<input type="text" id="recipient" value="<%= jvo.getName()%>">
 						<p style="font-size: 13px; margin: 30px 0px 14px 0px;">* 제주도, 울릉도 지역은 온라인 주문이 불가하오니, 대리점에 직접 방문해주세요</p>
 						<button type="button" class="DELIVERY_LIST1">내 배송지 목록</button>
 						<button type="button" class="DELIVERY_LIST2">최근 배송지 목록</button>
-						<input type="text" id="recipient_addr1">
+						<input type="text" id="recipient_addr1" value="<%= jvo.getAddr_num() %>">
 						<button type="button" class="find_addr" onClick="goPopup();">주소검색</button>
-						<input type="text" id="recipient_addr2">
-						<input type="text" id="recipient_addr3">
+						<input type="text" id="recipient_addr2" value="<%= jvo.getAddr2()%>">
+						<input type="text" id="recipient_addr3" value="<%= jvo.getAddr3()%>">
 						<label>연락처</label>
-						<input type="text" id="recipient_ph1">
-						<input type="text" id="recipient_ph2">
-						<input type="text" id="recipient_ph3">
+						<input type="text" id="recipient_ph1" value="<%= jvo.getPh1()%>">
+						<input type="text" id="recipient_ph2" value="<%= jvo.getPh2()%>">
+						<input type="text" id="recipient_ph3" value="<%=jvo.getPh3() %>">
 					</div>
 					<div style="clear:both;"></div>	
 					<label>배송 시 요청사항</label>
@@ -249,16 +284,16 @@ div.content {
 					
 					<div class="total_price">
 						총 상품금액
-						<span>&nbsp;&nbsp;699,000원</span>
+						<span>&nbsp;&nbsp;<%= pvo.getPprice() %>원</span>
 					</div>
 					<div class="total_price_red">
 						총 결제금액
-						<span>&nbsp;&nbsp;699,000원</span>
+						<span>&nbsp;&nbsp;<%= pvo.getPprice() %>원</span>
 					</div>
 					
 					<div style="clear:both;"></div>
 					<hr style="border:1px solid #f0f0f0;">
-					<div>
+					<div id="payBtn_area">
 						<label>결제수단</label>
 						<button type="button">신용카드</button>
 						<button type="button">무통장 입금</button>

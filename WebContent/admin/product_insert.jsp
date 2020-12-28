@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" %>
-    
- 
- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +8,9 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <style>
-	.section1 aside.sideMenuBar2 ul>li:first-child>a {
-		font-size: 15px;
-		color: rgb(144, 144, 144);
-	}
+	div.content form{
+		margin: 3% 28%; 
+	} 
 	form ul li{
 		margin-bottom:10px;
 		list-style:none;
@@ -25,7 +21,7 @@
 	form ul li label{
 		margin-right:20px;
 	}
-	form ul li:nth-child(2) label{
+ 	form ul li:nth-child(2) label{
 		margin-right:36px;
 	}
 	form ul li:nth-child(4) label,
@@ -37,14 +33,10 @@
 	form ul li:nth-child(8) label{
 		margin-right:27px;
 	}
-	form ul li:nth-child(8) label,
-	form ul li:nth-child(6) label,
-	form ul li:nth-child(7) label{
-		margin-left:289px;
-	}
 	button#pi_btn { 
-		margin-left:500px;
-	}
+		margin-left:200px;
+		margin-right:40px;
+	} 
 </style>
 <script>
 	$(document).ready(function(){
@@ -76,10 +68,10 @@
 </script>
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class ="section1">
-	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 				<div class="content">
-					<div><h1>상품 등록</h1></div>
+					<div class="admin"><h1>상품 등록</h1></div>
 	  				<form name ="productInsertForm" action="productInsertProc.jsp" method="post" enctype ="multipart/form-data">
 	  					<ul>
 	  						<li><label>상품번호</label>

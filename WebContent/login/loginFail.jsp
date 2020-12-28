@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<%
-	String id = request.getParameter("id");	
-%>
-
+	pageEncoding="UTF-8"
+	import = "com.sist_project_2.vo.*, com.sist_project_2.dao.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -55,7 +51,7 @@ div.login_msg{
 				<h3>로그인</h3>
 				<form name="loginForm" action="loginProc.jsp" method="get" class="loginform">
 					<ul>
-						<li><input type="text" name="id" placeholder="아이디(이메일)" class="textfield" id="id" value = <%= id %>>
+						<li><input type="text" name="id" placeholder="아이디(이메일)" class="textfield" id="id">
 						</li>
 						<li><input type="password" name="pass" placeholder="비밀번호" class="textfield" id="pass">
 						<div class="login_msg" >일룸ID 혹은 비밀번호를 잘못 입력하셨거나 등록되지 않은 일룸ID 입니다. </div>

@@ -16,10 +16,6 @@
 	href="http://localhost:9000/sist_project_2/css/illum.css">
 </head>
 <style>
-.section1 aside.sideMenuBar2 ul>li:first-child>a {
-	font-size: 15px;
-	color: rgb(144, 144, 144);
-}
 
 form ul li label {
 	float: left;
@@ -32,12 +28,10 @@ form ul li {
 }
 </style>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class="section1">
-		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 		<div class="content">
-			<div>
-				<h1>FAQ 수정</h1>
-			</div>
+			<div class="admin"><h1>FAQ 수정</h1></div>
 			<form name="noticeUpdateForm" action="faq_updateProc.jsp"
 				method="post">
 				<input type="hidden" name="fid" value="<%=vo.getFid()%>">

@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-	import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
-    %>
+	pageEncoding="UTF-8" import="com.sist_project_2.vo.*"%>
 <%
+	String mid = request.getParameter("id");
 	String id = request.getParameter("id");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
 %>
 <!DOCTYPE html>
 <html>
@@ -87,22 +87,61 @@
 								<li class="li_logo"><img id="li_logo"
 									src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></li>
 								<li><a href="#" onclick="document.getElementById('mw_temp2').style.display='block'">모든제품</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=책상">책상/식탁</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=침대">침대</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=의자">의자</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=소파">소파</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=수납장">수납장</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=옷장">옷장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=책상&id=<%=id%>">책상/식탁</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=침대&id=<%=id%>">침대</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=의자&id=<%=id%>">의자</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=소파&id=<%=id%>">소파</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=수납장&id=<%=id%>">수납장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=옷장&id=<%=id%>">옷장</a></li>
 							</ul>
 						</nav>
 					</div>
-				</div>			
+				</div>		
+		<% if( (svo !=null) && !(svo.getName().equals("관리자")) ){ %>
 				<div class="icons">
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
 						src="http://localhost:9000/sist_project_2/images/search.png"></button>
 				</div>
-				
-				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=id%>"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
+					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
+				<nav class="second">
+					<ul>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=mid %>"><b><%= svo.getName()%></b> 님의 니방</a>
+						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">로그아웃</a>
+						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=">이벤트</a>
+						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=">고객센터</a>
+						<div></div></li>
+						<li style="padding-right: 20px;"><a href="http://localhost:9000/sist_project_2/maps/maps2.jsp">매장안내</a></li>
+					</ul>
+		<% } else if((svo !=null) && svo.getName().equals("관리자")){ %>
+			<div class="icons" style="visibility:hidden">
+					  <input type="text" name="se" id="search_text">
+			</div>
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
+					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
+				<nav class="second">
+					<ul>
+					  <li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">관리자 로그아웃</a>
+					  <div></div></li>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">상품관리</a>
+	                  <div></div></li>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/product_insert.jsp">상품등록</a>
+	                  <div></div></li>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/notice_list.jsp">공지사항</a>
+	                  <div></div></li>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/faq_list.jsp">FAQ</a>
+	                  <div></div></li>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/1-1inquiry_list.jsp">1:1문의</a>
+	                 </ul>
+			<% }else{ %>
+				<div class="icons">
+					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
+						src="http://localhost:9000/sist_project_2/images/search.png"></button>
+				</div>
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
@@ -112,12 +151,13 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%= id%>">마이페이지</a>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">마이페이지</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%= id%>">고객센터</a>
+						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터</a>
 						<div></div></li>
-						<li style="padding-right: 20px;"><a href="">매장안내</a></li>
+						<li style="padding-right: 20px;"><a href="http://localhost:9000/sist_project_2/maps/maps2.jsp">매장안내</a></li>
 					</ul>
+				<% } %>
 				</nav>
 			</div>
 		</div>

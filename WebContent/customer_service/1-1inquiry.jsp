@@ -3,7 +3,6 @@
     import= "com.sist_project_2.dao.*, com.sist_project_2.vo.*"
     %>
 <% 
-	String id = request.getParameter("id");
 	messageVO vo = new messageVO();
 %>
 <!DOCTYPE html>
@@ -37,17 +36,7 @@
 	<jsp:include page="../header.jsp"></jsp:include>
 	
 	<section class ="section1">
-			<aside class="sideMenuBar2">
-			<nav>
-				<ul>
-				    <li>고객센터</li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%=id%>">고객센터 안내</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/notice.jsp?id=<%=id%>">공지사항</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%=id%>">FAQ</a></li>
-					<li><a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%=id%>">1:1문의</a></li>
-				</ul>	
-			</nav>
-		   </aside>
+		<jsp:include page="../sideMenuBar2.jsp"/>
 		  	<div class ="inquiry">
 				<div>
 					<h1>1 : 1 문의</h1>
@@ -60,7 +49,7 @@
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="1-1inquiryProc.jsp?mid=a@naver.com" method="post" class="inquiryform1" enctype="multipart/form-data">
+							<form name="inquiryform1" action="1-1inquiryProc.jsp?mid=jy@naver.com" method="post" class="inquiryform1" enctype="multipart/form-data">
 								<%-- <input type="hidden" name="mid" value="<%=id%>">   --%>
 								<ul>
 									<li>

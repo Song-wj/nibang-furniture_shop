@@ -4,7 +4,7 @@
     %>
 <%
 	/* String id = request.getParameter("id");  */
-	String mid = "a@naver.com";
+	String mid = "jy@naver.com";
 	messageDAO dao = new messageDAO();
 
 	int listAll_cnt = dao.getListCountAll(mid);

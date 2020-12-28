@@ -59,6 +59,73 @@ function mout(pid,simg1){
 						<br>
 						<span class="price"><%= vo.getPprice()%></span>
 						</a>
+					</li>
+					<li class="product_list">
+						<a href="http://localhost:9000/sist_project_2/product_detail/closet_테일러.jsp">
+						<span></span>
+						<img src="http://localhost:9000/sist_project_2/images/테일러 테일러코너형드레스룸세트.jpg">						
+						<span class="title">테일러</span>
+						<br>
+						<span class="explain">테일러 코너형 드레스룸 세트 2400폭</span>
+						<br>
+						<span class="price">892,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/미엘 미니옷장.jpg">						
+						<span class="title">미엘</span>
+						<br>
+						<span class="explain">미니옷장 800폭</span>
+						<br>
+						<span class="price">387,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<span></span>
+						<img src="http://localhost:9000/sist_project_2/images/컬렉트2.png">					
+						<span class="title">컬렉트</span>
+						<br>
+						<span class="explain">자유로운 수납-실속형PKG</span>
+						<br>
+						<span class="price">1,832,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/에디키즈 서랍형옷장.png">						
+						<span class="title">에디키즈</span>
+						<br>
+						<span class="explain">서랍형 옷장 800폭</span>
+						<br>
+						<span class="price">449,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+						<img src="http://localhost:9000/sist_project_2/images/테일러 옷장800폭.jpg">
+						<span class="title">테일러</span>
+						<br>
+						<span class="explain">옷장 800폭(기본장)</span>
+						<br>
+						<span class="price">199,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+	            		<img src="http://localhost:9000/sist_project_2/images/테일러 코너장.jpg">				
+						<span class="title">테일러</span>
+						<br>
+						<span class="explain">코너장 800폭(포인트수납형)</span>
+						<br>
+						<span class="price">327,000 원</span>
+						</a>
+					</li>
+					<li class="product_list">
+						<a href="">
+	            		<img src="http://localhost:9000/sist_project_2/images/테일러800폭옵션장.jpg">				
+						<span class="title">테일러</span>
 					</li>				
 					 <%}else{ %> 
 						<li class="product_list">
