@@ -17,5 +17,4 @@ public class SessionVO {
 		this.name = name;
 	}
 	
-	
-}
+}	

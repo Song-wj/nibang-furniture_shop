@@ -27,6 +27,7 @@
 	<body>
 		<jsp:include page="../header.jsp" />
 		<section class ="section1">
+<<<<<<< HEAD
 			<aside class="sideMenuBar2">
 			<nav>
 				<ul>
@@ -38,6 +39,9 @@
 				</ul>	
 			</nav>
 		   </aside>
+=======
+		<jsp:include page="../sideMenuBar2.jsp"/>			
+>>>>>>> 35d2cfdb7730d5a9705fc0dd02a764e2c76f2765
 		  	<div class="customer_service">
 				<div>
 					<h1>고객센터 안내</h1>

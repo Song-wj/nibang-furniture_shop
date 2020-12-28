@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
     
   <%
+  		String mid = request.getParameter("id");
   		String type = request.getParameter("type");
   		categoryDAO dao = new categoryDAO();
   		ArrayList<productVO> list = dao.categoryList(type);
@@ -51,7 +52,7 @@ function mout(pid,simg1){
 					<% for(productVO vo : list){ %>
 					<% if( vo.getSimg2()==null){ %> 
 					<li class="product_list">
-						<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%= vo.getPid()%>">
+						<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%= vo.getPid()%>&id=<%= mid%>">
 						<img src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1() %>">					
 						<span class="title"><%= vo.getPname()%></span>
 						<br>
