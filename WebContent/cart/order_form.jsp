@@ -240,14 +240,14 @@ div.content {
 					<div id="delivery_info_L">
 						<p class="delivery_info_title">주문자 정보</p>
 						<label>주문자명</label>
-						<input type="text" id="order_name" value="<%= jvo.getName() %>">
+						<input type="text" id="order_name" name="o_name" value="<%= jvo.getName() %>">
 						<label>연락처</label>
-						<input type="text" id="order_ph1" value="<%= jvo.getPh1() %>">
-						<input type="text" id="order_ph2" value="<%= jvo.getPh2() %>">
-						<input type="text" id="order_ph3" value="<%= jvo.getPh3() %>">
+						<input type="text" id="order_ph1" name="o_ph1" value="<%= jvo.getPh1() %>">
+						<input type="text" id="order_ph2" name="o_ph2" value="<%= jvo.getPh2() %>">
+						<input type="text" id="order_ph3" name="o_ph3" value="<%= jvo.getPh3() %>">
 						<label>이메일</label>
-						<input type="text" id="order_email" value="<%= jvo.getEmail1()%>">
-						<input type="text" id="order_email2" value="<%= jvo.getEmail2()%>">
+						<input type="text" id="order_email" name="o_email1" value="<%= jvo.getEmail1()%>">
+						<input type="text" id="order_email2" name="o_email2" value="<%= jvo.getEmail2()%>">
 						<select id ="s_email">
 								<option value="직접입력">직접입력
 								<option value="@naver.com">naver.com
@@ -261,22 +261,22 @@ div.content {
 					<div id="delivery_info_R">
 						<p class="delivery_info_title">배송지 정보</p>
 						<label>받는사람</label>
-						<input type="text" id="recipient" value="<%= jvo.getName()%>">
+						<input type="text" id="recipient" name="o_s_name" value="<%= jvo.getName()%>">
 						<p style="font-size: 13px; margin: 30px 0px 14px 0px;">* 제주도, 울릉도 지역은 온라인 주문이 불가하오니, 대리점에 직접 방문해주세요</p>
 						<button type="button" class="DELIVERY_LIST1">내 배송지 목록</button>
 						<button type="button" class="DELIVERY_LIST2">최근 배송지 목록</button>
-						<input type="text" id="recipient_addr1" value="<%= jvo.getAddr_num() %>">
+						<input type="text" id="recipient_addr1" name="o_s_addrnum" value="<%= jvo.getAddr_num() %>">
 						<button type="button" class="find_addr" onClick="goPopup();">주소검색</button>
-						<input type="text" id="recipient_addr2" value="<%= jvo.getAddr2()%>">
-						<input type="text" id="recipient_addr3" value="<%= jvo.getAddr3()%>">
+						<input type="text" id="recipient_addr2" name="o_s_addr2" value="<%= jvo.getAddr2()%>">
+						<input type="text" id="recipient_addr3" name="o_s_addr3" value="<%= jvo.getAddr3()%>">
 						<label>연락처</label>
-						<input type="text" id="recipient_ph1" value="<%= jvo.getPh1()%>">
-						<input type="text" id="recipient_ph2" value="<%= jvo.getPh2()%>">
-						<input type="text" id="recipient_ph3" value="<%=jvo.getPh3() %>">
+						<input type="text" id="recipient_ph1" name="o_s_ph1" value="<%= jvo.getPh1()%>">
+						<input type="text" id="recipient_ph2" name="o_s_ph2" value="<%= jvo.getPh2()%>">
+						<input type="text" id="recipient_ph3" name="o_s_ph3" value="<%=jvo.getPh3() %>">
 					</div>
 					<div style="clear:both;"></div>	
 					<label>배송 시 요청사항</label>
-					<input type="text" placeholder="200자 이내로 작성해주세요." style="width: 900px;">		
+					<input type="text" name="o_request" placeholder="200자 이내로 작성해주세요." style="width: 900px;">		
 				</div>
 				<div class="h140"></div>
 				<div class="order_form_sub_title">결제 정보</div>
