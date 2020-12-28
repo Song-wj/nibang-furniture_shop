@@ -11,8 +11,30 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#btn_1-1inquiry").click(function(){
+			if($("#m_div").val() == "선택"){
+				alert("문의 구분을 선택해주세요");
+				$("#m_div").focus();
+				return false;
+			}else if($("#m_title").val() == ""){
+				alert("제목을 입력해주세요");
+				$("#m_title").focus();
+				return false;
+			}else if($("#m_content").val() == ""){
+				alert("내용을 입력해주세요");
+				$("#m_content").focus();
+				return false;
+			}else{
+				inquiryform1.submit();
+			}
+			
+		});
+	});
+</script>
 <title>1:1 문의</title>
 </head>
 <style>
@@ -50,7 +72,6 @@
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
 							<form name="inquiryform1" action="1-1inquiryProc.jsp?mid=jy@naver.com" method="post" class="inquiryform1" enctype="multipart/form-data">
-								<%-- <input type="hidden" name="mid" value="<%=id%>">   --%>
 								<ul>
 									<li>
 										<label>문의구분</label>
@@ -81,7 +102,7 @@
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 									<li>최대 5개 파일 업로드 가능</li>				
 								</ul>
-									<button type="submit">신청하기</button>
+									<button type="submit" id="btn_1-1inquiry">신청하기</button>
 							</form>
 						</div>        
 					</div>
