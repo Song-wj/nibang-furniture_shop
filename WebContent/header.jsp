@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="com.sist_project_2.vo.*"%>
 <%
-<<<<<<< HEAD
 	String mid = request.getParameter("id");
-=======
 	String id = request.getParameter("id");
->>>>>>> 35d2cfdb7730d5a9705fc0dd02a764e2c76f2765
 	SessionVO svo = (SessionVO)session.getAttribute("svo");
 %>
 <!DOCTYPE html>
@@ -139,7 +136,7 @@
 	                  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/1-1inquiry_list.jsp">1:1문의</a>
 	                 </ul>
-				<% }else{ %>
+			<% }else{ %>
 				<div class="icons">
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
 						src="http://localhost:9000/sist_project_2/images/search.png"></button>
@@ -147,19 +144,6 @@
 				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
-					<% if(svo != null) { %>
-					<ul>
-						<li><a href="#"><%=svo.getName() %>님</a>
-						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%= id%>">마이페이지</a>
-						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a>
-						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%= id%>">고객센터</a>
-						<div></div></li>
-						<li style="padding-right: 20px;"><a href="">매장안내</a></li>
-					</ul>
-					<% } else { %>
 					<ul>
 						<li><a href="http://localhost:9000/sist_project_2/login/login.jsp">로그인</a>
 						<div></div></li>
@@ -173,11 +157,7 @@
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="http://localhost:9000/sist_project_2/maps/maps2.jsp">매장안내</a></li>
 					</ul>
-<<<<<<< HEAD
 				<% } %>
-=======
-					<% } %>
->>>>>>> 35d2cfdb7730d5a9705fc0dd02a764e2c76f2765
 				</nav>
 			</div>
 		</div>
