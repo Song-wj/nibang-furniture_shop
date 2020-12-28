@@ -261,11 +261,11 @@ div.content {
 					
 					<div class="total_price">
 						총 상품금액
-						<span>&nbsp;&nbsp;699,000원</span>
+						<span>&nbsp;&nbsp;<%= pvo.getPprice() %>원</span>
 					</div>
 					<div class="total_price_red">
 						총 결제금액
-						<span>&nbsp;&nbsp;699,000원</span>
+						<span>&nbsp;&nbsp;<%= pvo.getPprice() %>원</span>
 					</div>
 					
 					<div style="clear:both;"></div>
