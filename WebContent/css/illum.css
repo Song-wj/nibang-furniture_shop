@@ -3291,8 +3291,12 @@ div#order_form_content button.find_addr {
     font-size: 16px;
     border: solid 1px #AAA;
     background-color: white;
-    color: #333;
+    color: rgb(99, 102, 106);
 }
+#pay_info button:focus {
+	outline: none;
+}
+
 .discription {
 	width:90%;
     border: 1px solid #aaaaaa;

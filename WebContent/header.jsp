@@ -102,7 +102,7 @@
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
 						src="http://localhost:9000/sist_project_2/images/search.png"></button>
 				</div>
-				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
@@ -120,7 +120,7 @@
 			<div class="icons" style="visibility:hidden">
 					  <input type="text" name="se" id="search_text">
 			</div>
-				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
@@ -141,7 +141,7 @@
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
 						src="http://localhost:9000/sist_project_2/images/search.png"></button>
 				</div>
-				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
