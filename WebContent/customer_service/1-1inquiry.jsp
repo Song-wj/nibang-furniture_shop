@@ -49,7 +49,7 @@
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="1-1inquiryProc.jsp?mid=a@naver.com" method="post" class="inquiryform1" enctype="multipart/form-data">
+							<form name="inquiryform1" action="1-1inquiryProc.jsp?mid=jy@naver.com" method="post" class="inquiryform1" enctype="multipart/form-data">
 								<%-- <input type="hidden" name="mid" value="<%=id%>">   --%>
 								<ul>
 									<li>

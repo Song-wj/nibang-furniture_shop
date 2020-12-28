@@ -7,7 +7,6 @@
 	productDAO dao = new productDAO(); 
 	productVO vo = dao.getData(pid);
 	
-	
 %>  
 <!DOCTYPE html>
 <html>
@@ -17,10 +16,9 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <style>
-	.section1 aside.sideMenuBar2 ul>li:first-child>a {
-		font-size: 15px;
-		color: rgb(144, 144, 144);
-	}
+	div.content form{
+		margin: 3% 28%; 
+	} 
 	form ul li{
 		margin-bottom:10px;
 		list-style:none;
@@ -43,11 +41,6 @@
 	form ul li:nth-child(8) label{
 		margin-right:27px;
 	}
-	form ul li:nth-child(8) label,
-	form ul li:nth-child(6) label,
-	form ul li:nth-child(7) label{
-		margin-left:289px;
-	}
 	span.img_f1,
 	span.img_f2{
 		margin-left:-178px;
@@ -57,7 +50,8 @@
 		background-color:white;
 	}
 	button#pu_btn{
-		margin-left:500px;
+		margin-left:200px;
+		margin-right:40px;
 	}
 </style>
 <script>
@@ -102,10 +96,10 @@
 </script>
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 <section class ="section1">
-	<jsp:include page="../sideMenuBarAdmin.jsp"/>
 				<div class="content">
-					<div><h1>상품수정</h1></div>
+					<div class="admin"><h1>상품수정</h1></div>
 	  				<form name ="productUpdateForm" action="productUpdateProc.jsp?pid=<%= pid %>" method="post" enctype="multipart/form-data">
 	  					<ul>
 	  						<li><label>상품번호</label>

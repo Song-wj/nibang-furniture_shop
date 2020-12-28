@@ -3620,3 +3620,8 @@ td.productInfo {
 		margin-bottom: 50px;
 	}
 	
+/** 관리자 전체 공통 **/
+div.admin h1{
+	padding-top: 100px;
+	text-align:center;
+}	

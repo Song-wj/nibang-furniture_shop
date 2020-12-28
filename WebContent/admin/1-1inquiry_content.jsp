@@ -18,10 +18,6 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <style>
-	.section1 aside.sideMenuBar2 ul>li:first-child>a {
-		font-size: 15px;
-		color: rgb(144, 144, 144);
-	}
 	table.notice_table{
 		width:400px;
 	}
@@ -70,10 +66,9 @@
 </head>
 <body>
 	<section class="section1">
-		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 			<div>
 					<div class="content">
-						<div><h1>1:1 문의</h1></div>
+						<div class="admin"><h1>1:1 문의</h1></div>
 						<div class="list_body">
 							<table class="notice_table">
 								<tr class="table_header">

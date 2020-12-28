@@ -13,16 +13,17 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <style>
-
+	div.list_body{
+		margin: 3% 33%;
+	}
 </style>
 </head>
-
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 		<section class="section1">
-		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 			<div>
-					<div class="content">
-						<div><h1>FAQ</h1></div>
+				<div class="content">
+					<div class="admin"><h1>F A Q</h1></div>
 						<div class="list_body">
 							<table class="notice_table">
 								<tr class="table_header">
@@ -49,9 +50,7 @@
 							</table>
 						</div>
 					</div>
-			</div>
+				</div>
 		</section>
-	
-
 </body>
 </html>

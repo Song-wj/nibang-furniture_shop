@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
- 
-  
- 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +10,6 @@
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 </head>
 <style>   
-   .section1 aside.sideMenuBar2 ul>li:first-child>a {
-      font-size: 15px;
-      color: rgb(144, 144, 144);
-   }
    form ul li label {      
       float:left;
       margin-right:10px;
@@ -47,20 +41,10 @@
    })
 </script>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 <section class ="section1">
-            <aside class="sideMenuBar2">
-            <nav>
-               <ul>
-                  <li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">상품 리스트</a></li>
-                  <li><a href="http://localhost:9000/sist_project_2/admin/product_insert.jsp">상품등록</a></li>
-                  <li><a href="http://localhost:9000/sist_project_2/admin/notice_list.jsp">공지사항</a></li>
-                  <li><a href="http://localhost:9000/sist_project_2/admin/faq_list.jsp">FAQ</a></li>
-                  <li><a href="http://localhost:9000/sist_project_2/admin/1-1inquiry_list.jsp">1:1문의</a></li>
-               </ul>   
-            </nav>
-            </aside>
             <div class="content">
-            <div><h1>공지사항 등록</h1></div>
+            <div class="admin"><h1>공지사항 등록</h1></div>
               <form name ="noticeWriteForm" action="noticeWriteProc.jsp" method="post" enctype="multipart/form-data">
                  <ul>
                     <li><label>제목</label>

@@ -25,10 +25,9 @@
 </script>
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class="section1" id="faq_write_section1">
-	<jsp:include page="../sideMenuBarAdmin.jsp"/>
-		<div>
-			<h1>FAQ</h1>
+		<div class="admin"><h1>FAQ</h1></div>
 			<form name="faqWriteForm" action="faq_writeProc.jsp" method="post"
 				class="faq_write">
 				<ul>
@@ -57,8 +56,6 @@
 					</li>
 				</ul>
 			</form>
-
-		</div>
 	</section>
 </body>
 </html>

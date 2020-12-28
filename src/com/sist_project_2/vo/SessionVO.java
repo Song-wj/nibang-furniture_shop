@@ -4,7 +4,6 @@ public class SessionVO {
 	int result;
 	String name;
 	
-	
 	public int getResult() {
 		return result;
 	}
@@ -17,6 +16,5 @@ public class SessionVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 	
 }	

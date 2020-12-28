@@ -18,11 +18,6 @@ noticeVO vo = dao.getContent(nid);
 <script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 </head>
 <style>
-.section1 aside.sideMenuBar2 ul>li:first-child>a {
-	font-size: 15px;
-	color: rgb(144, 144, 144);
-}
-
 form ul li label {
 	float: left;
 	margin-right: 10px;
@@ -65,12 +60,10 @@ button#nu_btn{
 	})	
 </script>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class="section1">
-		<jsp:include page="../sideMenuBarAdmin.jsp"/>
 		<div class="content">
-			<div>
-				<h1>공지사항 수정</h1>
-			</div>
+			<div class="admin"><h1>공지사항 수정</h1></div>
 			<form name="noticeUpdateForm" action="noticeUpdateProc.jsp?nid=<%=nid%>" method="post" enctype="multipart/form-data">
 				<ul>
 					<li><label>제목</label> <input type="text" name="ntitle" value="<%=vo.getNtitle()%>"></li>
