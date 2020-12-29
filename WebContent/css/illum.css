@@ -3329,8 +3329,8 @@ div.h140 {
 	cart
 */
 #cart_btn {
-	margin:40px 15% 85px 15%; 
-	text-align:center;
+   margin:40px 15% 85px 15%; 
+   text-align:center;
 }
 
 .order_lnb {
@@ -3349,9 +3349,9 @@ div.h140 {
     vertical-align: middle;}
     
 div#cart_content #title {
-	margin-top: 20px;
+   margin-top: 20px;
     margin-bottom: 40px;
-   	padding-left:51%;
+      padding-left:51%;
     width: 100%;
     padding: 60px 0px 50px 0px;
     text-align: center;
@@ -3371,8 +3371,8 @@ div#cart_content #sub_title {
     color: #333333;
     }
 table.order_product {
-	width:90%;
-	margin:auto;
+   width:90%;
+   margin:auto;
 }
 table.order_product th {
     padding: 14px 20px;
@@ -3432,16 +3432,16 @@ div#cart_content .totalPrice {
     letter-spacing: -0.7px;
     color: #c80a1e;
 }
-div#cart_content .btn_select_order {
-	width: 240px;
+div#cart_content #select_order {
+   width: 240px;
     height: 50px;
     font-size: 16px;
     border: none;
     background-color: #63666A;
     color: #FFF;
 }
-div#cart_content .btn_all_order {
-	width: 240px;
+div#cart_content #all_oreder {
+   width: 240px;
     height: 50px;
     font-size: 16px;
     border: none;
