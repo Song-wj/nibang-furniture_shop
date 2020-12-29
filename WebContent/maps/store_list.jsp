@@ -4,8 +4,9 @@
     <%
     	request.setCharacterEncoding("utf-8");
     	String loc = request.getParameter("loc");
+    	String loc2 = request.getParameter("loc2");
     	mapDAO dao = new mapDAO();
-    	ArrayList<mapVO> list = dao.getStoreList(loc);
+    	ArrayList<mapVO> list = dao.getStoreList(loc ,loc2);
     	
     	
     	JsonArray jarry = new JsonArray();
