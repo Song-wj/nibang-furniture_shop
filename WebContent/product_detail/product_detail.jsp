@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
     
-    <%
+    <%	
     	String mid = request.getParameter("id");
     	String pid = request.getParameter("pid");
     	productDAO dao = new productDAO();
     	productVO vo = dao.getData(pid);
  		
+    	
     %>
 <!DOCTYPE html>
 <html>
@@ -35,7 +36,7 @@
 	}
 	#optionCtn .cnt{
    		float: left;
-   		padding: 3px 8px;
+   		padding: 3px 7px;
 		border: solid 1px #aaaaaa;
 	}
 	
@@ -156,6 +157,10 @@
 			$("#opPrice").text(comma(total+" 원"));
 			$("#total_price span").text("0원");
 		});
+		
+		$("#payBtn").click(function(){
+			location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+		});
 	}); // ready
 	function triggerChange(){
 	    $("#product_colors").val('선택').trigger('change');
@@ -186,7 +191,7 @@
 					<hr>
 				</div>
 			</aside>
-			<div class="product_payInfo" id="product_payInfo">
+			<div class="product_payInfo" id="product_payInfo" >
 				<ul>
 					<li class="pname"><%= vo.getPname() %></li>
 					<li class="pexplain"><%= vo.getPinfo() %></li>
@@ -219,6 +224,7 @@
 			  			</div>
 			  			<div id="opPrice"><%= vo.getPprice() %> 원</div>
 						<button type="button" id="opDelete">❌</button>
+					  	<hr style="margin-top:65px;">
 			  		</li>
 				  	<li class=total_price>
 				  		<div id="total_price">
@@ -226,7 +232,7 @@
 				  		</div>
 				  	</li>
 				  	<li class="btn_productPay">
-				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">결제하기</button>
+				  		<button type="button" id="payBtn">결제하기</button>
 				  		<%-- <button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cart.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button> --%>
 				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button>
 				  		<a href="" class="wish"></a>
