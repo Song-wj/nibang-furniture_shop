@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
 <%
+	String mid = request.getParameter("id");
 	productDAO dao = new productDAO();
 	ArrayList<productVO> list = dao.getRecommandList();
 %>	
@@ -32,6 +33,9 @@
 		all: unset;
 		font-size:30px;
 	}
+	.nibang_chat > button:active {
+		opacity: 0.6;
+	}
 	.nibang_chat > button:focus {
 		outline: none;
 	}
@@ -43,6 +47,7 @@
         width: 100%;
         height: 100%;
         display: block;
+        
         /*justify-content: center;
         align-items: center; */
 	}
@@ -69,26 +74,48 @@
 	.nibang_chat .modal_content form textarea{
 		position:fixed;
 		bottom:5px;
-		right:5px;
-		border:1px solid red;
+		right:4px;
 		resize:none;
-		font-size:12px;
-		width:315px;
+		font-size:14px;
+		width:316px;
 		height: 70px;
 		overflow: hidden;
 	}
 	
 	#sendChat {
+		all: unset;
 		font-size: 12px;
 		position: fixed;
-		bottom: 45px;
-		right: 10px;
+		bottom: 40px;
+		right: 15px;
+		border: rgb(99, 102, 106);
+		background-color: #c80a1e;
+		color: white;
+		border-radius: 5px;
+		padding: 5px 7px;
+		opacity: 0.5;
 	}
-	
+	#sendChat:active {
+		opacity: 0.6;
+	}
 	.nibang_chat .hidden {
 		display: none;
 	}
 	
+	.chat_content {
+	}
+	
+	.chat_content span {
+		margin-left: 10px;
+		margin-top: 10px;
+		color: white;
+		font-size: 13px;
+		background-color: #c80a1e;
+		opacity: 0.5;
+		padding: 7px;
+		border-radius: 5px;
+		display: inline-block;
+	}
 	
 </style>
 <script>
@@ -102,6 +129,8 @@
 		$(".modal_overlay").click(function(){
 			$(".modal").addClass("hidden");
 		});
+		
+		
 	});
 </script>
 </head>
@@ -156,9 +185,14 @@
 			<div class="modal_overlay"></div>
 			<div class="modal_content">
 				<!-- <button id="closeBtn">❌</button> -->
-				<p></p>
-				<form name="chatForm" action="#" method="get">
-					<textarea placeholder="내용을 입력해주세요"></textarea>					
+				<div class="chat_content">
+					<span>관리자: 채팅방 구현중.</span>
+					<span>사용자1: 기대하겠습니다.</span>
+					<span>사용자2: 재밌을꺼 같아요.</span>
+				</div>
+				<form name="chatForm" action="chatProc.jsp" method="get">
+					<input name="mid" type="text" value="<%=mid %>">
+					<textarea name="chatcontent"placeholder="내용을 입력해주세요"></textarea>					
 				</form>
 				<button type="button" id="sendChat">전송</button>
 			</div>
