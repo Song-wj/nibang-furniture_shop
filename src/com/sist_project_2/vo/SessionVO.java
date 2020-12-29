@@ -2,8 +2,14 @@ package com.sist_project_2.vo;
 
 public class SessionVO {
 	int result;
-	String name;
+	String name ,id;
 	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public int getResult() {
 		return result;
 	}
