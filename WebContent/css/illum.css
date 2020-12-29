@@ -3247,6 +3247,15 @@ div#order_form_content label {
     font-size: 14px;
 }
 
+.DELIVERY_LIST1:focus, .DELIVERY_LIST2:focus {
+	outline:none;
+}
+.DELIVERY_LIST1:active, .DELIVERY_LIST2:active {
+	color: white;
+	background-color: rgb(99, 102, 106);
+	border: none;
+}
+
 div#order_form_content button.find_addr {
 	margin-left: 10px;
 	border: none;
