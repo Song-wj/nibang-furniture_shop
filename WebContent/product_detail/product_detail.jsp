@@ -88,7 +88,7 @@
 				  	<li class=total_price>총 구매가 <span id="total_price"> 0 원</span></li>
 				  	<li class="btn_productPay">
 				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">결제하기</button>
-				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cart.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button>
+				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button>
 				  		<a href="" class="wish"></a>
 				  	</li>
 					<li class="btn_Events" id="btn_Events">
