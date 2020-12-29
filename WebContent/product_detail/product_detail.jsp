@@ -108,6 +108,8 @@
 	
 	
 	$(document).ready(function(){
+		
+		
 		$("#product_colors").change(function(){		
 			var price = "<%= vo.getPprice()%>";	
 			if($("#product_colors option:selected").val() != "선택"){				
@@ -118,10 +120,6 @@
 				$("#total_price span").text("0원"); 
 				//$("#total_price").css("margin-left","354px");
 			}
-		})
-		
-		$("#opDelete").click(function(){
-			$(".add_content").css("display","none");			
 		});
 		
 		const price = parseInt($("#opPrice").text().replace(/ /gi,"").replace(/,/gi,""));
@@ -149,7 +147,19 @@
 				$("#total_price span").text(comma(total+" 원"));
 		});
 		
+		$("#opDelete").click(function(){
+			$(".add_content").css("display","none");	
+			triggerChange();
+			cnt = 1;
+			$(".cnt").text(cnt);
+			total = price * cnt;
+			$("#opPrice").text(comma(total+" 원"));
+			$("#total_price span").text("0원");
+		});
 	}); // ready
+	function triggerChange(){
+	    $("#product_colors").val('선택').trigger('change');
+	}
 	
     function comma(str) {
         str = String(str);
