@@ -903,7 +903,7 @@
 		width: 470px;
 		height:40px;
 	}
-	.product_detail div#product_payInfo ul li.total_price{
+	.product_detail div#product_payInfo ul li.total_price {
 		font-size:16px;
 		font-weight:600;
 		margin-bottom: 40px;
@@ -3247,6 +3247,15 @@ div#order_form_content label {
     font-size: 14px;
 }
 
+.DELIVERY_LIST1:focus, .DELIVERY_LIST2:focus {
+	outline:none;
+}
+.DELIVERY_LIST1:active, .DELIVERY_LIST2:active {
+	color: white;
+	background-color: rgb(99, 102, 106);
+	border: none;
+}
+
 div#order_form_content button.find_addr {
 	margin-left: 10px;
 	border: none;
@@ -3261,12 +3270,13 @@ div#order_form_content button.find_addr {
 	margin:auto;
 }
 #pay_info div.total_price {
-    padding: 41px 0px 36px 0px;
-    display: inline-block;
+    /* padding: 41px 0px 36px 0px; */
+    padding: 0;
+    display: block;
     font-size: 25px;
     font-weight: 500;
     letter-spacing: -0.7px;
-    
+    /* margin: 5px 0px 65px 0px; */
 }
 #pay_info div.total_price_red {
     padding-left: 50px;

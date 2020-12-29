@@ -148,6 +148,15 @@ div.content {
 				$("#payBtn_area button:nth-child(3)").removeClass('button-clicked');
 			});
 			
+			$("#DELIVERY_LIST1").click(function(){
+				$("#recipient_addr1").val("<%= jvo.getAddr_num() %>");
+				$("#recipient_addr2").val("<%= jvo.getAddr2()%>");
+				$("#recipient_addr3").val("<%= jvo.getAddr3()%>");
+				$("#recipient_ph1").val("<%= jvo.getPh1()%>");
+				$("#recipient_ph2").val("<%= jvo.getPh2()%>");
+				$("#recipient_ph3").val("<%= jvo.getPh3()%>");
+			});
+			
 		}); //ready
 		
 		function goPopup(){
@@ -177,6 +186,8 @@ div.content {
     color: white;
     background-color: rgb(99, 102, 106);
 }
+
+
 </style>
 </head>
 <body>
@@ -261,18 +272,18 @@ div.content {
 					<div id="delivery_info_R">
 						<p class="delivery_info_title">배송지 정보</p>
 						<label>받는사람</label>
-						<input type="text" id="recipient" value="<%= jvo.getName()%>">
+						<input type="text" id="recipient">
 						<p style="font-size: 13px; margin: 30px 0px 14px 0px;">* 제주도, 울릉도 지역은 온라인 주문이 불가하오니, 대리점에 직접 방문해주세요</p>
-						<button type="button" class="DELIVERY_LIST1">내 배송지 목록</button>
-						<button type="button" class="DELIVERY_LIST2">최근 배송지 목록</button>
-						<input type="text" id="recipient_addr1" value="<%= jvo.getAddr_num() %>">
+						<button type="button" class="DELIVERY_LIST1" id="DELIVERY_LIST1">내 배송지 목록</button>
+						<button type="button" class="DELIVERY_LIST2" id="DELIVERY_LIST2">최근 배송지 목록</button>
+						<input type="text" id="recipient_addr1">
 						<button type="button" class="find_addr" onClick="goPopup();">주소검색</button>
-						<input type="text" id="recipient_addr2" value="<%= jvo.getAddr2()%>">
-						<input type="text" id="recipient_addr3" value="<%= jvo.getAddr3()%>">
+						<input type="text" id="recipient_addr2">
+						<input type="text" id="recipient_addr3">
 						<label>연락처</label>
-						<input type="text" id="recipient_ph1" value="<%= jvo.getPh1()%>">
-						<input type="text" id="recipient_ph2" value="<%= jvo.getPh2()%>">
-						<input type="text" id="recipient_ph3" value="<%=jvo.getPh3() %>">
+						<input type="text" id="recipient_ph1" >
+						<input type="text" id="recipient_ph2" >
+						<input type="text" id="recipient_ph3" >
 					</div>
 					<div style="clear:both;"></div>	
 					<label>배송 시 요청사항</label>
