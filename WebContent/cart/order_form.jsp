@@ -1,16 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.text.DecimalFormat"
     %>
 <%
+	DecimalFormat formatter = new DecimalFormat("###,###");
+	String cnt = request.getParameter("cnt");
 	String mid = request.getParameter("id");
 	String pid = request.getParameter("pid");
+	
+	int parseCnt = Integer.parseInt(cnt);
 	
 	productDAO pdao = new productDAO();
 	nibangDAO ndao = new nibangDAO();
 	
 	productVO pvo = pdao.getData(pid);
 	joinVO jvo = ndao.getMemberInfo(mid);
+	
+	String price = pvo.getPprice().replaceAll(" " , "").replaceAll(",","");
+	int parsePrice = Integer.parseInt(price);
+	
+	int total = parsePrice * parseCnt;
+	//String parseTotal = Integer.toString(total);
+	String parseTotal = formatter.format(total);
 %>
 <!DOCTYPE html>
 <html>
@@ -234,8 +245,8 @@ div.content {
 							</span>
 						</td>
 						<td class="mainPrice"><%= pvo.getPprice() %>원</td>
-						<td class="mainQty">1</td>
-						<td class="groupPrice"><%= pvo.getPprice() %>원</td>
+						<td class="mainQty"><%=cnt %></td>
+						<td class="groupPrice"><%= parseTotal%>원</td>
 						<td>-</td>
 					</tr>
 				</table>
@@ -243,7 +254,7 @@ div.content {
 					<span>*택배/시공 상품이 별도 배송될 수 있습니다.</span>
 					<span class="totalPrice">
 					총 상품금액
-					<span class="totalPrice"> &nbsp; &nbsp;<%= pvo.getPprice() %>원</span>
+					<span class="totalPrice"> &nbsp; &nbsp;<%= parseTotal %>원</span>
 					</span>	
 				</div>
 				<div class="order_form_sub_title">주문 정보</div>

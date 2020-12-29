@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
     
-    <%
+    <%	
     	String mid = request.getParameter("id");
     	String pid = request.getParameter("pid");
     	productDAO dao = new productDAO();
     	productVO vo = dao.getData(pid);
  		
+    	
     %>
 <!DOCTYPE html>
 <html>
@@ -156,6 +157,10 @@
 			$("#opPrice").text(comma(total+" 원"));
 			$("#total_price span").text("0원");
 		});
+		
+		$("#payBtn").click(function(){
+			location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+		});
 	}); // ready
 	function triggerChange(){
 	    $("#product_colors").val('선택').trigger('change');
@@ -227,7 +232,7 @@
 				  		</div>
 				  	</li>
 				  	<li class="btn_productPay">
-				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">결제하기</button>
+				  		<button type="button" id="payBtn">결제하기</button>
 				  		<%-- <button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cart.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button> --%>
 				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button>
 				  		<a href="" class="wish"></a>
