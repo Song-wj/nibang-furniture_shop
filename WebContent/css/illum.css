@@ -831,13 +831,14 @@
 	}
 	.product_detail aside {
 		width: 600px;
-		height:650px;
+		height:680px;
 		margin-left:50px;
 		float:left;
 	}
+	
 	.product_detail section.section1 div#product_payInfo{
 		width: 530px;
-		height: 650px;
+		height: 680px;
 		float:right;
 		margin-right:70px; 
 	}

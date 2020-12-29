@@ -35,7 +35,7 @@
 	}
 	#optionCtn .cnt{
    		float: left;
-   		padding: 3px 8px;
+   		padding: 3px 7px;
 		border: solid 1px #aaaaaa;
 	}
 	
@@ -186,7 +186,7 @@
 					<hr>
 				</div>
 			</aside>
-			<div class="product_payInfo" id="product_payInfo">
+			<div class="product_payInfo" id="product_payInfo" >
 				<ul>
 					<li class="pname"><%= vo.getPname() %></li>
 					<li class="pexplain"><%= vo.getPinfo() %></li>
@@ -219,6 +219,7 @@
 			  			</div>
 			  			<div id="opPrice"><%= vo.getPprice() %> 원</div>
 						<button type="button" id="opDelete">❌</button>
+					  	<hr style="margin-top:65px;">
 			  		</li>
 				  	<li class=total_price>
 				  		<div id="total_price">
