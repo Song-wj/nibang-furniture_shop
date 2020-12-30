@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 	            String password = "";//자신의 네이버 패스워드
 	            
 	            //메일 받을 주소
-				/* String to_email = vo.getEmail(); */
+				String to_email = vo.getEmail(); 
 	            
 	            //SMTP 서버 정보를 설정한다.
 	            Properties props = new Properties();
@@ -109,7 +109,8 @@ public class LoginServlet extends HttpServlet {
 	            try {
 	                MimeMessage msg = new MimeMessage(session);
 	                msg.setFrom(new InternetAddress(user));
-	                msg.addRecipient(Message.RecipientType.TO, new InternetAddress("jhg2817@naver.com"));
+
+	                msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to_email));
 	                
 	                //메일 제목
 	                msg.setSubject("안녕하세요 니방 인증 메일입니다.");
