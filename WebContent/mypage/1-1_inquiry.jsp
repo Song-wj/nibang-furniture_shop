@@ -3,8 +3,7 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.* "
     %>
 <%
-	/* String id = request.getParameter("id");  */
-	String mid = "jy@naver.com";
+	String mid = request.getParameter("mid");  
 	messageDAO dao = new messageDAO();
 
 	int listAll_cnt = dao.getListCountAll(mid);

@@ -829,13 +829,14 @@
 	}
 	.product_detail aside {
 		width: 600px;
-		height:650px;
+		height:680px;
 		margin-left:50px;
 		float:left;
 	}
+	
 	.product_detail section.section1 div#product_payInfo{
 		width: 530px;
-		height: 650px;
+		height: 680px;
 		float:right;
 		margin-right:70px; 
 	}
@@ -901,7 +902,7 @@
 		width: 470px;
 		height:40px;
 	}
-	.product_detail div#product_payInfo ul li.total_price{
+	.product_detail div#product_payInfo ul li.total_price {
 		font-size:16px;
 		font-weight:600;
 		margin-bottom: 40px;
@@ -3245,6 +3246,15 @@ div#order_form_content label {
     font-size: 14px;
 }
 
+.DELIVERY_LIST1:focus, .DELIVERY_LIST2:focus {
+	outline:none;
+}
+.DELIVERY_LIST1:active, .DELIVERY_LIST2:active {
+	color: white;
+	background-color: rgb(99, 102, 106);
+	border: none;
+}
+
 div#order_form_content button.find_addr {
 	margin-left: 10px;
 	border: none;
@@ -3259,12 +3269,13 @@ div#order_form_content button.find_addr {
 	margin:auto;
 }
 #pay_info div.total_price {
-    padding: 41px 0px 36px 0px;
-    display: inline-block;
+    /* padding: 41px 0px 36px 0px; */
+    padding: 0;
+    display: block;
     font-size: 25px;
     font-weight: 500;
     letter-spacing: -0.7px;
-    
+    /* margin: 5px 0px 65px 0px; */
 }
 #pay_info div.total_price_red {
     padding-left: 50px;
@@ -3327,8 +3338,8 @@ div.h140 {
 	cart
 */
 #cart_btn {
-	margin:40px 15% 85px 15%; 
-	text-align:center;
+   margin:40px 15% 85px 15%; 
+   text-align:center;
 }
 
 .order_lnb {
@@ -3347,9 +3358,9 @@ div.h140 {
     vertical-align: middle;}
     
 div#cart_content #title {
-	margin-top: 20px;
+   margin-top: 20px;
     margin-bottom: 40px;
-   	padding-left:51%;
+      padding-left:51%;
     width: 100%;
     padding: 60px 0px 50px 0px;
     text-align: center;
@@ -3369,8 +3380,8 @@ div#cart_content #sub_title {
     color: #333333;
     }
 table.order_product {
-	width:90%;
-	margin:auto;
+   width:90%;
+   margin:auto;
 }
 table.order_product th {
     padding: 14px 20px;
@@ -3430,16 +3441,16 @@ div#cart_content .totalPrice {
     letter-spacing: -0.7px;
     color: #c80a1e;
 }
-div#cart_content .btn_select_order {
-	width: 240px;
+div#cart_content #select_order {
+   width: 240px;
     height: 50px;
     font-size: 16px;
     border: none;
     background-color: #63666A;
     color: #FFF;
 }
-div#cart_content .btn_all_order {
-	width: 240px;
+div#cart_content #all_oreder {
+   width: 240px;
     height: 50px;
     font-size: 16px;
     border: none;

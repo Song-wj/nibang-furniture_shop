@@ -110,12 +110,15 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">로그아웃</a>
 						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">마이페이지</a>
+						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=">이벤트</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=">고객센터</a>
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="http://localhost:9000/sist_project_2/maps/maps2.jsp">매장안내</a></li>
 					</ul>
+				</nav>
 		<% } else if((svo !=null) && svo.getName().equals("관리자")){ %>
 			<div class="icons" style="visibility:hidden">
 					  <input type="text" name="se" id="search_text">
@@ -136,6 +139,7 @@
 	                  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/1-1inquiry_list.jsp">1:1문의</a>
 	                 </ul>
+	                </nav>
 			<% }else{ %>
 				<div class="icons">
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img

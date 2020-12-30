@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
     
-    <%
+    <%	
     	String mid = request.getParameter("id");
     	String pid = request.getParameter("pid");
     	productDAO dao = new productDAO();
     	productVO vo = dao.getData(pid);
  		
+    	
     %>
 <!DOCTYPE html>
 <html>
@@ -19,6 +20,80 @@
 <title>일룸</title>
 </head>
 <style>
+	#product_payInfo .add {
+		margin: 10px 0px;
+  		width: 230px;
+  	  	float: left;
+  	  	font-size: 13px;
+  	  	line-height: 17px;
+  	  	display: block;
+	}
+	
+	#optionCtn {
+		margin-top: 15px; 
+   		float: left;
+    	width: 85px;
+	}
+	#optionCtn .cnt{
+   		float: left;
+   		padding: 3px 7px;
+		border: solid 1px #aaaaaa;
+	}
+	
+	#optionCtn .downBtn {
+		all:unset;
+		float: left;
+		border-top: solid 1px #aaaaaa;
+		border-bottom: solid 1px #aaaaaa;
+		border-left: solid 1px #aaaaaa;
+		padding: 4px 4px 5px 4px;
+		text-align: center;
+		font-size: 14px;
+		color: #aaaaaa;
+		font-weight: bold;
+	}
+	
+	#optionCtn .upBtn {
+		all:unset;
+		float: left;
+		border-top: solid 1px #aaaaaa;
+		border-bottom: solid 1px #aaaaaa;
+		border-right: solid 1px #aaaaaa;
+		padding: 4px 4px 5px 4px;
+		text-align: center;
+		font-size: 14px;
+		color: #aaaaaa;
+		font-weight: bold;
+	}
+	
+	 #opPrice {
+		font-size: 14px;
+   		color: #c80a1e;
+    	margin: 16px 15px 0px 0px;
+    	width: 85px;
+    	line-height: 20px;
+    	float: left;
+    	text-align: right;
+	}
+	
+	#total_price {
+		margin-top:30px;
+		width:460px;
+	} 
+		
+	#opDelete {
+	    background-color: white;
+	    width: 20px;
+	    height: 20px;
+	    margin-top: 16px;
+	    margin-left: 30px;
+	    border: none;	
+	    font-size: 13px;
+	    text-align: center;
+	}
+	#opDelete:focus {
+		outline: none;
+	}
 	
 </style>
 <script>
@@ -34,18 +109,67 @@
 	
 	
 	$(document).ready(function(){
+		
+		
 		$("#product_colors").change(function(){		
 			var price = "<%= vo.getPprice()%>";	
 			if($("#product_colors option:selected").val() != "선택"){				
-				$("#total_price").text(price+"원"); 
-				$("#total_price").css("margin-left","300px");			
+				$("#total_price span").text(price+"원"); 
+				//$("#total_price").css("margin-left","300px");		
+				$(".add_content").css("display","block");
 			} else {
-				$("#total_price").text("0원"); 
-				$("#total_price").css("margin-left","354px");
+				$("#total_price span").text("0원"); 
+				//$("#total_price").css("margin-left","354px");
 			}
-		})
+		});
 		
-	})
+		const price = parseInt($("#opPrice").text().replace(/ /gi,"").replace(/,/gi,""));
+		let cnt = 1;
+		let total = 0;
+		
+		$(".downBtn").click(function(){
+			if(cnt == 1) {
+				alert("최소 주문수량은 1개 이상입니다.");
+				return;
+			} else {
+				cnt = cnt - 1;
+				$(".cnt").text(cnt);
+				total = price * cnt;
+				$("#opPrice").text(comma(total+" 원"));
+				$("#total_price span").text(comma(total+" 원"));
+			}
+		});
+		
+		$(".upBtn").click(function(){
+			cnt = cnt + 1;
+			$(".cnt").text(cnt);
+			total = price * cnt;
+			$("#opPrice").text(comma(total+" 원"));
+				$("#total_price span").text(comma(total+" 원"));
+		});
+		
+		$("#opDelete").click(function(){
+			$(".add_content").css("display","none");	
+			triggerChange();
+			cnt = 1;
+			$(".cnt").text(cnt);
+			total = price * cnt;
+			$("#opPrice").text(comma(total+" 원"));
+			$("#total_price span").text("0원");
+		});
+		
+		$("#payBtn").click(function(){
+			location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+		});
+	}); // ready
+	function triggerChange(){
+	    $("#product_colors").val('선택').trigger('change');
+	}
+	
+    function comma(str) {
+        str = String(str);
+        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+    }
 	
 </script>
 <body>
@@ -67,28 +191,50 @@
 					<hr>
 				</div>
 			</aside>
-			<div class="product_payInfo" id="product_payInfo">
+			<div class="product_payInfo" id="product_payInfo" >
 				<ul>
-<!--제품명 고치기--><li class="pname"><%= vo.getPname() %></li>
-<!--고치기-->			<li class="pexplain"><%= vo.getPinfo() %></li>
-<!--고치기-->			<li class="pprice" id="total"><%= vo.getPprice() %>원</li> 				
-					<hr>					
+					<li class="pname"><%= vo.getPname() %></li>
+					<li class="pexplain"><%= vo.getPinfo() %></li>
+					<li class="pprice" id="total"><%= vo.getPprice() %>원</li> 				
+				  	<li><hr style="margin:20px 0px;"></li>
 					<li class="pcode">
 						배송기간 <span>약 10일</span> 배송비<span>무료배송</span>
-<!-- 제품코드만 고치기! -->	배송방법 <span>설치배송</span> 제품코드<span> <%= vo.getPid() %></span>
+						배송방법 <span>설치배송</span> 제품코드<span> <%= vo.getPid() %></span>
 					</li>
 					
 					<li>
-<!--고치기-->				<select name="product_colors" id="product_colors">
+						<select name="product_colors" id="product_colors">
 					  		<option value="선택">[필수] 색상을 선택해주세요</option>
 					  		<option value="color"><%= vo.getColor() %> <%= vo.getPprice()%>원</option>
 					  	</select>
 				  	</li>
-				  	<hr>
-				  	<li class=total_price>총 구매가 <span id="total_price"> 0 원</span></li>
+				  	<li><hr style="margin:20px 0px;"></li>
+				  	<li class="add_content" style="display: none;">
+				  		<div class="add">
+				  			<b>[필수]</b>
+			 				&nbsp;&nbsp;
+			 				<span style="line-height: 20px"><%=vo.getPinfo() %></span>
+			 				<br>
+			 				<span style="color:#AAAAAA; line-height:20px;"> 색상 : <%= vo.getColor() %></span>
+			  			</div>
+			  			<div id="optionCtn">
+			  				<button class="downBtn"><</button>
+			  				<div class="cnt">1</div>
+			  				<button class="upBtn">></button>
+			  			</div>
+			  			<div id="opPrice"><%= vo.getPprice() %> 원</div>
+						<button type="button" id="opDelete">❌</button>
+					  	<hr style="margin-top:65px;">
+			  		</li>
+				  	<li class=total_price>
+				  		<div id="total_price">
+					  		총 구매가<span style="float:right;"> 0 원</span>
+				  		</div>
+				  	</li>
 				  	<li class="btn_productPay">
-				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">결제하기</button>
-				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cart.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button>
+				  		<button type="button" id="payBtn">결제하기</button>
+				  		<%-- <button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cart.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button> --%>
+				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button>
 				  		<a href="" class="wish"></a>
 				  	</li>
 					<li class="btn_Events" id="btn_Events">
@@ -100,15 +246,6 @@
 			</div>
 		</section> 
 		<section class="section2" id="section2_pd">
-			<!-- <div class="product_recommend" id="product_recommend">    우선은 생략했어요
-				<label>함께 본 제품 추천</label>
-랜덤			<a href=""><img src=""></a>
-					<a href=""><img src=""></a>
-					<a href=""><img src=""></a>
-					<a href=""><img src=""></a>
-					<a href=""><img src=""></a>
-			</div>
-			<hr> -->
 			<div class="product_detail_info" id="product_detail_info">
 				<label>상품필수정보</label>
 				<div class="detail_info1">

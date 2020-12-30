@@ -7,10 +7,11 @@ import com.sist_project_2.vo.mapVO;
 
 public class mapDAO extends DBConn{
 
-	public ArrayList<mapVO> getStoreList(String loc) {
+	public ArrayList<mapVO> getStoreList(String loc , String loc2) {
 		ArrayList<mapVO> list = new ArrayList<>();
 		try {
-			String sql ="select mimg,mloc,maddr,mph,mpark,mtime,mholiday from map where maddr like '%"+loc+"%'";
+			System.out.println(loc);
+			String sql ="select mimg,mloc,maddr,mph,mpark,mtime,mholiday from map where maddr like '"+loc+"%' and maddr like '%"+loc2+"%'";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {

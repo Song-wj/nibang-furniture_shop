@@ -140,7 +140,7 @@ public class nibangDAO extends DBConn {
 		SessionVO svo = new SessionVO();
 
 		try {
-			String sql = " SELECT count(*), name FROM NIBANGMEMBER " + " WHERE MID=? AND PASS=? group by name";
+			String sql = " SELECT count(*), name, mid FROM NIBANGMEMBER " + " WHERE MID=? AND PASS=? group by name ,mid";
 			getPreparedStatement(sql);
 
 			pstmt.setString(1, vo.getEmail());
@@ -150,6 +150,8 @@ public class nibangDAO extends DBConn {
 			if (rs.next()) {
 				svo.setResult(rs.getInt(1));
 				svo.setName(rs.getString(2));
+				svo.setId(rs.getString(3));
+
 			}
 
 		} catch (Exception e) {
