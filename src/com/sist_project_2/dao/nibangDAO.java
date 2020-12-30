@@ -97,7 +97,7 @@ public class nibangDAO extends DBConn {
 				String addr3 = rs.getString(12).substring(idx + 1);
 				vo.setAddr2(addr2);
 				vo.setAddr3(addr3);
-				System.out.println(addr2 + "," + addr3);
+				
 
 			}
 
@@ -161,6 +161,37 @@ public class nibangDAO extends DBConn {
 		return svo;
 	}
 
+	public joinVO findPass(String email, String name) {
+		joinVO vo = new joinVO();
+		try {
+			String sql="select mid ,name from nibangmember where mid=? and name=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, email);
+			pstmt.setString(2, name);
+			rs =pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setEmail(rs.getString(1));
+				vo.setName(rs.getString(2));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 	
-
+	public boolean changePass(String email, String pass) {
+		boolean result = false;
+		try {
+			String sql = "update nibangmember set pass=? where mid = ?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, pass);
+			pstmt.setString(2, email);
+			
+			int count = pstmt.executeUpdate();
+			if(count != 0) result = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 }
