@@ -194,4 +194,23 @@ public class nibangDAO extends DBConn {
 		}
 		return result;
 	}
+	
+	public joinVO findId(String ph) {
+		joinVO vo = new joinVO();
+		try {
+			String sql="select mid ,name from nibangmember where hp=? ";
+			getPreparedStatement(sql);
+			pstmt.setString(1, ph);
+			
+			rs =pstmt.executeQuery();
+			if(rs.next()) {
+				vo.setEmail(rs.getString(1));
+				vo.setName(rs.getString(2));
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+	}
 }

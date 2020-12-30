@@ -215,10 +215,10 @@
 					success:function(data){
 						
 						if(data == 0){
-							$("#chkmsg").text("이미 사용중인 아이디입니다.").css("color","red");
+							$("#chkmsg").text("이미 사용중인 아이디입니다.").css("color","red").css("font-size","12px").css("margin-left","350px");
 							$("#email").focus();
 						}else{
-							$("#chkmsg").text("사용가능한 아이디입니다.").css("color","blue");
+							$("#chkmsg").text("사용가능한 아이디입니다.").css("color","blue").css("font-size","12px").css("margin-left","360px");
 							idchknum =1;
 						}
 						
