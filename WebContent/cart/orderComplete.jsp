@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    %>
+<%
+	orderDAO odao = new orderDAO();
+	orderVO vo = odao.getOrder();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +42,7 @@ div.content {
 				<div class="title_2">주문 상품 및 내용을 확인해주세요..</div>
 				<p>구매해주셔서 감사합니다.</p>
 				<span class="order_num" style="margin:0px 10px 0px 510px ;">주문번호</span>
-				<span class="order_num">OIL201208168</span>
+				<span class="order_num"><%= vo.getOid() %></span>
 				<div class="event_img">
 					<hr>
 					<a href="http://localhost:9000/sist_project_2/event/event_main.jsp">
@@ -52,11 +58,11 @@ div.content {
 							<th class="w200">연락처 2</th>
 						</tr>
 						<tr>
-							<td>홍길동</td>
-							<td>홍길동</td>
-							<td style="text-align: left; padding-left: 40px;">[06253]<br>서울 강남구 강남대로 310 역삼동 유니온센터오피스텔</td>
-							<td>010-2222-2222</td>
-							<td>02-2222-2222</td>
+							<td><%= vo.getName() %></td>
+							<td><%= vo.getRname() %></td>
+							<td style="text-align: left; padding-left: 40px;"><%=vo.getRaddrnum() %><br><%=vo.getRaddr() %></td>
+							<td><%=vo.getHp() %></td>
+							<td><%=vo.getRph() %></td>
 						</tr>
 				</table>
 				<div class="h90"></div>
@@ -71,14 +77,14 @@ div.content {
 					</tr>
 					<tr class="mainProduct">
 						<td>
-							<a href="http://localhost:9000/sist_project_2/product_detail/table_모리니.jsp">
-								<img class="product_img" src="http://localhost:9000/sist_project_2/images/table_모리니.jpg">
+							<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%=vo.getPid()%>&mid=<%=vo.getMid()%>">
+								<img class="product_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg()%>">
 							</a>
 						</td>
 						<td class="productInfo">
-							<span class="f_bold">모리니</span>
+							<span class="f_bold"><%= vo.getPname() %></span>
 							<br>
-							<span>테이블 1700폭</span>
+							<span><%=vo.getPinfo() %></span>
 							<br>
 							<br>
 							<br>
@@ -87,12 +93,12 @@ div.content {
 							<span style="vertical-align: bottom;">
 								<b>[필수] &nbsp; &nbsp;</b>
 								색상 : 
-								<span>DIO</span>
+								<span><%=vo.getColor() %></span>
 							</span>
 						</td>
-						<td class="mainPrice">699,000원</td>
-						<td class="mainQty">1</td>
-						<td class="groupPrice">699,000원</td>
+						<td class="mainPrice"><%=vo.getPrice() %></td>
+						<td class="mainQty"><%=vo.getPcnt() %></td>
+						<td class="groupPrice"><%=vo.getTotal() %></td>
 						<td>-</td>
 					</tr>
 				</table>
@@ -100,7 +106,7 @@ div.content {
 					<span>*상품 구매 시, 별도의 배송비가 발생하지 않습니다.</span>
 					<span class="totalPrice">
 					총 상품금액
-					<span class="totalPrice"> &nbsp; &nbsp;699,000원</span>
+					<span class="totalPrice"> &nbsp; &nbsp;<%=vo.getTotal() %></span>
 					</span>	
 				</div>
 				<div id="bottom_btn">

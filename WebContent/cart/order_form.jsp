@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.text.DecimalFormat"
+    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.text.DecimalFormat, java.util.Random"
     %>
 <%
 	DecimalFormat formatter = new DecimalFormat("###,###");
@@ -22,6 +22,10 @@
 	int total = parsePrice * parseCnt;
 	//String parseTotal = Integer.toString(total);
 	String parseTotal = formatter.format(total);
+	
+	Random rd = new Random();
+	String oid = "NIB" + rd.nextInt(100000);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -281,24 +285,30 @@ div.content {
 						</select>
 					</div>	
 					<div id="delivery_info_R">
+						<input type="hidden" name="oid" value="<%= oid%>">
+						<input type="hidden" name="mid" value="<%= jvo.getEmail()%>">
+						<input type="hidden" name="pid" value="<%= pvo.getPid()%>">
+						<input type="hidden" name="pcnt" value="<%= cnt%>">
+						<input type="hidden" name="total" value="<%= parseTotal%>">
+						<input type="hidden" name="order_chk" value="o">
 						<p class="delivery_info_title">배송지 정보</p>
 						<label>받는사람</label>
-						<input type="text" id="recipient">
+						<input type="text" id="recipient" name="rname">
 						<p style="font-size: 13px; margin: 30px 0px 14px 0px;">* 제주도, 울릉도 지역은 온라인 주문이 불가하오니, 대리점에 직접 방문해주세요</p>
 						<button type="button" class="DELIVERY_LIST1" id="DELIVERY_LIST1">내 배송지 목록</button>
 						<button type="button" class="DELIVERY_LIST2" id="DELIVERY_LIST2">최근 배송지 목록</button>
-						<input type="text" id="recipient_addr1">
+						<input type="text" id="recipient_addr1" name="raddrnum">
 						<button type="button" class="find_addr" onClick="goPopup();">주소검색</button>
-						<input type="text" id="recipient_addr2">
-						<input type="text" id="recipient_addr3">
+						<input type="text" id="recipient_addr2" name="raddr2">
+						<input type="text" id="recipient_addr3" name="raddr3">
 						<label>연락처</label>
-						<input type="text" id="recipient_ph1" >
-						<input type="text" id="recipient_ph2" >
-						<input type="text" id="recipient_ph3" >
+						<input type="text" id="recipient_ph1" name="rph1">
+						<input type="text" id="recipient_ph2" name="rph2">
+						<input type="text" id="recipient_ph3" name="rph3">
 					</div>
 					<div style="clear:both;"></div>	
 					<label>배송 시 요청사항</label>
-					<input type="text" placeholder="200자 이내로 작성해주세요." style="width: 900px;">		
+					<input type="text" placeholder="200자 이내로 작성해주세요." style="width: 900px;" name="rrequest">		
 				</div>
 				<div class="h140"></div>
 				<div class="order_form_sub_title">결제 정보</div>
@@ -306,11 +316,11 @@ div.content {
 					
 					<div class="total_price">
 						총 상품금액
-						<span>&nbsp;&nbsp;<%= pvo.getPprice() %>원</span>
+						<span>&nbsp;&nbsp;<%= parseTotal %>원</span>
 					</div>
 					<div class="total_price_red">
 						총 결제금액
-						<span>&nbsp;&nbsp;<%= pvo.getPprice() %>원</span>
+						<span>&nbsp;&nbsp;<%= parseTotal %>원</span>
 					</div>
 					
 					<div style="clear:both;"></div>
