@@ -9,35 +9,56 @@ import com.sist_project_2.vo.messageVO;
 
 public class messageAnswerDAO extends DBConn{
 
-	public ArrayList<messageVO> getInquiryList() {
-		ArrayList<messageVO> list = new ArrayList<messageVO>();
-
-		try {
-			String sql = " select rownum rno ,sid, m_div, m_title, m_content, m_file,"
-					+ " to_char(m_date,'yyyy.mm.dd') from (select * from message order by m_date desc)";
-					
-			getStatement();
-			rs = stmt.executeQuery(sql);
-
-			while (rs.next()) {
-				messageVO vo = new messageVO();
-				vo.setRno(rs.getInt(1));
-				vo.setSid(rs.getString(2));
-				vo.setM_div(rs.getString(3));
-				vo.setM_title(rs.getString(4));
-				vo.setM_content(rs.getString(5));
-				vo.setM_file(rs.getString(6));
-				vo.setM_date(rs.getString(7));
-
-				list.add(vo);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return list;
-	}
 	
+	 public ArrayList<messageVO> getInquiryList() {
+		ArrayList<messageVO> list = new ArrayList<messageVO>();
+	 
+		try { 
+			String sql = " select rownum rno ,sid, m_div, m_title, m_content, m_file," +
+					" to_char(m_date,'yyyy.mm.dd') from (select * from message order by m_date desc)"  ;
+	  
+			getStatement(); rs = stmt.executeQuery(sql);
+	  
+			while (rs.next()) {
+			  messageVO vo = new messageVO(); 
+			  vo.setRno(rs.getInt(1));
+			  vo.setSid(rs.getString(2)); 
+			  vo.setM_div(rs.getString(3));
+			  vo.setM_title(rs.getString(4)); 
+			  vo.setM_content(rs.getString(5));
+			  vo.setM_file(rs.getString(6)); 
+			  vo.setM_date(rs.getString(7));
+	  
+			  list.add(vo); 
+			  } 
+		} catch (Exception e) { e.printStackTrace(); }
+	  
+			return list; 
+	  }
+	 
+
+		/*
+		 * public ArrayList<messageVO> getInquiryList(int start , int end) {
+		 * ArrayList<messageVO> list = new ArrayList<messageVO>();
+		 * 
+		 * try { String sql =
+		 * " select rownum rno ,sid, m_div, m_title, m_content, m_file," +
+		 * " to_char(m_date,'yyyy.mm.dd') from (select * from message order by m_date desc) where rownum between ? and ?"
+		 * ;
+		 * 
+		 * getPreparedStatement(sql); pstmt.setInt(1, start); pstmt.setInt(2, end); rs =
+		 * pstmt.executeQuery();
+		 * 
+		 * while (rs.next()) { messageVO vo = new messageVO(); vo.setRno(rs.getInt(1));
+		 * vo.setSid(rs.getString(2)); vo.setM_div(rs.getString(3));
+		 * vo.setM_title(rs.getString(4)); vo.setM_content(rs.getString(5));
+		 * vo.setM_file(rs.getString(6)); vo.setM_date(rs.getString(7));
+		 * 
+		 * list.add(vo); } } catch (Exception e) { e.printStackTrace(); }
+		 * 
+		 * return list; }
+		 */
+	 
 	
 	public messageVO getContent(String sid) {
 		messageVO vo = new messageVO();
@@ -150,5 +171,21 @@ public class messageAnswerDAO extends DBConn{
 		}
 		
 		return vo;
+	}
+	
+	public int getListCount() {
+		int result = 0;
+		try {
+			String sql ="select count(*) from message";
+			getStatement();
+			rs = stmt.executeQuery(sql);
+			if(rs.next()) {
+				result = rs.getInt(1);
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 }

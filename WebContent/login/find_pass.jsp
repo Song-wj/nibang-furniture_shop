@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="java.io.*"%>
+<%
+	String msg = (String)request.getAttribute("msg");
+
+
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,27 +19,46 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 	$(document).ready(function(){
+		
+		
 		$("button#btn_login").click(function(){
 			//id, pass 유효성 체크(validation check)
-			if($("#id").val() == ""){
+			if($("#email").val() == ""){
 				alert("아이디를 입력해주세요.");
-				$("#id").focus();
+				$("#email").focus();
 				return false;
-			}else if($("#pass").val() == ""){
-				alert("비밀번호를 입력해주세요.");
-				$("#pass").focus();
+			}else if($("#name").val() == ""){
+				alert("이름을 입력해주세요.");
+				$("#name").focus();
 				return false;
 			}else {
-				loginForm.submit();
+				find_pass_Form.submit();
 			}
 		});
+		
+		
 	});
 </script>
 <style>
  div.content {
 	border: 1px solid white;
 }
+section.section1 form.find_pass_form input[type='text']{
+	width:300px;
+	margin-left:10px;
+}
+section.section1 form.find_pass_form li:first-child label{
+	margin-left:-17px;
+}
 
+section.section1 div.login{
+	height:410px;
+}
+section.section1 form.find_pass_form li:nth-child(2) span{
+	font-size:10px;
+	display:block;
+	color:rgb(200, 10, 30);
+}
 </style>
 </head>
 <body>
@@ -42,29 +67,19 @@
 	<div class="content">
 		<section class="section1" id="section1_login">
 			<div class="login">
-				<h3>로그인</h3>
-				<form name="loginForm" action="loginProc.jsp" method="post" class="loginform">
+				<h3>비밀번호 찾기</h3>
+				<form name="find_pass_Form" action="http://localhost:9000/sist_project_2/LoginServlet" method="post" class="find_pass_form">
 					<ul>
-						<li><input type="text" name="email" placeholder="아이디(이메일)" class="textfield" id="id">
+						<li><label>아이디 : </label><input type="text" name="email"  class="textfield" id="email">
 						</li>
-						<li><input type="password" name="pass" placeholder="비밀번호" class="textfield" id="pass">		
+						<li><label>이름 : </label><input type="text" name="name"  class="textfield" id="name">
+							<%if(msg !=null) {%>
+							<span ><%= msg %></span>
+							<% }%>		
 						</li>
+					
 						<li>
-							<div class="all">
-								<div class="idCheckbox">
-								<input type="checkbox" class="checkbox">
-								<div style="margin-left:10px; font-size:14px;">아이디저장</div>
-								</div>
-								<div class="link">
-									<a href="http://localhost:9000/sist_project_2/join/join.jsp">회원가입</a>
-									<div
-										style="background-color: lightgray; width: 2px; height: 15px; margin: 0 10px;"></div>
-									<a href="find_id_pass.jsp">아이디,패스워드 찾기</a>
-								</div>
-							</div>
-						</li>
-						<li>
-							<button type="button" class="btn_style" id="btn_login">로그인</button>
+							<button type="button" class="btn_style" id="btn_login">비밀번호 찾기</button>
 						</li>
 					</ul>
 				</form>
