@@ -8,8 +8,13 @@
      
    productDAO pdao = new productDAO();
    nibangDAO ndao = new nibangDAO();
+   cartDAO cdao = new cartDAO();
    
-   productVO pvo = pdao.getData(pid);
+   ArrayList<cartVO> cartList = cdao.getCart();
+   int totalcount = 0;
+   for(int i = 0; i < cartList.size(); i++){
+      totalcount += (cartList.get(i).getPrice() * cartList.get(i).getC_qty());
+   }
 %>
 <!DOCTYPE html>
 <html>
@@ -60,19 +65,20 @@ div.content {
                   <th class="w130">상품금액</th>         
                   <th class="w100">주문</th>         
                </tr>
+               <% for (cartVO vo : cartList) {%>
                <tr class="mainProduct">
                   <td class="w10_checkBox">
                      <img class="img_checkBox" id="allCheck" src="http://localhost:9000/sist_project_2/images/checkBox_w21_red.png">
                   </td>
                   <td>
                      <a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?=<%= pid%>">
-                        <img src = "../upload/<%= pvo.getSimg1() %>" id="change" >
+                        <img src = "../upload/<%= vo.getSimg1() %>" id="change" >
                </a>
                   </td>
                   <td class="productInfo">
-                     <span class="f_bold"><%= pvo.getPname() %></span>
+                     <span class="f_bold"><%= vo.getPname() %></span>
                      <br>
-                     <span><%= pvo.getPinfo() %></span>
+                     <span><%= vo.getPinfo() %></span>
                      <br>
                      <br>
                      <br>
@@ -81,23 +87,24 @@ div.content {
                      <span style="vertical-align: bottom;">
                         <b>[필수] &nbsp; &nbsp;</b>
                         색상 : 
-                        <span><%= pvo.getColor() %></span>
+                        <span><%= vo.getColor() %></span>
                      </span>
                   </td>
-                  <td class="mainPrice"><%= pvo.getPprice() %>원</td>
-                  <td class="mainQty">1</td>
-                  <td class="groupPrice"><%= pvo.getPprice() %>원</td>
+                  <td class="mainPrice"><%= vo.getPrice() %>원</td>
+                  <td class="mainQty"><%= vo.getC_qty() %></td>
+                  <td class="groupPrice"><%= vo.getPrice() %>원</td>
                   <td>
                      <input type="button" class="btn_buynow" value="바로구매">
                      <input type="button" class="btn_delete" value="삭제하기">
                   </td>
                </tr>
+               <% } %>
             </table>
             <div style="padding:70px 70px;">
                <input type="button" class="btn_delete" value="선택상품삭제">
                <span class="totalPrice">
                총 상품금액
-               <span class="totalPrice"> &nbsp; &nbsp;<%= pvo.getPprice() %>원</span>
+               <span class="totalPrice"> &nbsp; &nbsp;<%= totalcount %>원</span>
                </span>   
             </div>
             <div id="cart_btn">
