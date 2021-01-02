@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.io.*"%>
 <%
-	String msg = (String)request.getAttribute("msg");
+	request.setCharacterEncoding("utf-8");
+	String msg= request.getParameter("msg");
 
 
 
@@ -23,16 +24,14 @@
 		
 		$("button#btn_login").click(function(){
 			//id, pass 유효성 체크(validation check)
-			if($("#email").val() == ""){
-				alert("아이디를 입력해주세요.");
-				$("#email").focus();
-				return false;
-			}else if($("#name").val() == ""){
+			if($("#name").val() == ""){
 				alert("이름을 입력해주세요.");
-				$("#name").focus();
-				return false;
+				$("#email").focus();
+			}else if($("#ph1").val() == "" || $("#ph2").val() == "" || $("#ph3").val() == ""){
+				alert("휴대폰 번호를 입력해주세요.");
+				$("#ph1").focus();
 			}else {
-				find_pass_Form.submit();
+				find_id_Form.submit();
 			}
 		});
 		
@@ -43,21 +42,26 @@
  div.content {
 	border: 1px solid white;
 }
-section.section1 form.find_pass_form input[type='text']{
-	width:300px;
+section.section1 form.find_id_form input[type='text']{
+	width:230px;
 	margin-left:10px;
-}
-section.section1 form.find_pass_form li:first-child label{
-	margin-left:-17px;
 }
 
 section.section1 div.login{
 	height:410px;
 }
-section.section1 form.find_pass_form li:nth-child(2) span{
+section.section1 form.find_id_form li:nth-child(2) span{
 	font-size:10px;
 	display:block;
 	color:rgb(200, 10, 30);
+}
+section.section1 form.find_id_form li:nth-child(2) #ph1{
+	
+	width:50px;
+}
+section.section1 form.find_id_form li:nth-child(2) input#ph2,
+section.section1 form.find_id_form li:nth-child(2) input#ph3{
+	width:60px;
 }
 </style>
 </head>
@@ -67,19 +71,19 @@ section.section1 form.find_pass_form li:nth-child(2) span{
 	<div class="content">
 		<section class="section1" id="section1_login">
 			<div class="login">
-				<h3>비밀번호 찾기</h3>
-				<form name="find_pass_Form" action="http://localhost:9000/sist_project_2/LoginServlet" method="post" class="find_pass_form">
+				<h3>아이디 찾기</h3>
+				<form name="find_id_Form" action="findIdProc.jsp" method="post" class="find_id_form">
 					<ul>
-						<li><label>아이디 : </label><input type="text" name="email"  class="textfield" id="email">
-						</li>
-						<li><label>이름 : </label><input type="text" name="name"  class="textfield" id="name">
-							<%if(msg !=null) {%>
-							<span ><%= msg %></span>
-							<% }%>		
-						</li>
-					
+						<li><label>이름 :&nbsp;</label><input type="text" name="name"  class="textfield" id="name"></li>
+
+						<li><label>번호 :&nbsp;</label><input type="text" name="ph1"  class="textfield" id="ph1"> &nbsp;-
+						<input type="text" name="ph2"  class="textfield" id="ph2">&nbsp; - <input type="text" name="ph3"  class="textfield" id="ph3">
+						<%if(msg!= null) {%>
+						<span id="msg" ><%= msg %></span>
+						<%} %>
+						</li>		
 						<li>
-							<button type="button" class="btn_style" id="btn_login">비밀번호 찾기</button>
+							<button type="button" class="btn_style" id="btn_login">아이디 찾기</button>
 						</li>
 					</ul>
 				</form>

@@ -167,6 +167,12 @@
 				location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
 			}
 		});
+		
+		$("#cartBtn").click(function(){
+            location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+         });
+
+		
 	}); // ready
 	function triggerChange(){
 	    $("#product_colors").val('선택').trigger('change');
@@ -239,8 +245,7 @@
 				  	</li>
 				  	<li class="btn_productPay">
 				  		<button type="button" id="payBtn">결제하기</button>
-				  		<%-- <button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cart.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button> --%>
-				  		<button type="button" onclick="location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>'">장바구니</button>
+				  		<button type="button" id="cartBtn">장바구니</button>
 				  		<a href="" class="wish"></a>
 				  	</li>
 					<li class="btn_Events" id="btn_Events">
