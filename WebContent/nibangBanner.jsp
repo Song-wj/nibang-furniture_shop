@@ -143,7 +143,7 @@
 					data: $("#chatForm").serialize(),
 					success: function(result) {
 						if(result) {
-							$("#chat_content").load(document.URL + ' #chat_content')
+							//setInterval(reload, 1000);
 						}
 					}
 				});  
@@ -151,14 +151,12 @@
 			} 
 		});
 		
-		showChat function() {
-			var str = ""
-			<% for(chatVO vo : clist) {%>
-			str += "<span><%= vo.getMid() %> : <%= vo.getChatcontent() %> <%= vo.getChatdate() %></span>";
-			<% } %> 
-			$("#chat_content").prepend(str);
-		}
-	});
+	});//ready
+	
+	function reload() {
+		$("#chat_content").load(document.URL + ' #chat_content');
+	}
+	
 </script>
 </head>
 <body>
