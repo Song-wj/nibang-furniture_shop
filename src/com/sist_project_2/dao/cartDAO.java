@@ -112,34 +112,29 @@ public class cartDAO extends DBConn{
       /**
        * 업데이트
        */
-      public boolean insertCart(cartVO vo) {
-          boolean result = false;
-          
-            try {
-               
- 	           String sql = "MERGE INTO cart USING DUAL ON (pid = ?) " + 
- 	           		" WHEN MATCHED THEN " + 
- 	           		" UPDATE SET " + 
- 	           		" C_QTY = C_QTY + ? " + 
- 	           		" WHEN NOT MATCHED THEN " + 
- 	           		" INSERT (MID,PID,C_QTY,C_DATE) VALUES (?,?,?,sysdate)";
- 	           
- 	           getPreparedStatement(sql); 
- 	           pstmt.setString(1, vo.getPid());
- 	           pstmt.setInt(2, vo.getC_qty());
- 	           pstmt.setString(3, "jy@naver.com");
- 	           pstmt.setString(4, vo.getPid()); 
- 	           pstmt.setInt(5, vo.getC_qty());
- 	           
- 	           int val = pstmt.executeUpdate();
- 	           if (val != 0) result = true;
-            
-            } catch (Exception e) { 
-         	   e.printStackTrace(); 
-            }
 
-          return result;
-       }
+		
+		  public boolean insertCart(cartVO vo) { boolean result = false;
+		  
+		  try {
+		  
+		  String sql = "MERGE INTO cart USING DUAL ON (pid = ?) " +
+		  " WHEN MATCHED THEN " + " UPDATE SET " + " C_QTY = C_QTY + ? " +
+		  " WHEN NOT MATCHED THEN " +
+		  " INSERT (MID,PID,C_QTY,C_DATE) VALUES (?,?,?,sysdate)";
+		  
+		  getPreparedStatement(sql); pstmt.setString(1, vo.getPid()); pstmt.setInt(2,
+		  vo.getC_qty()); pstmt.setString(3, vo.getMid()); pstmt.setString(4,
+		  vo.getPid()); pstmt.setInt(5, vo.getC_qty());
+		  
+		  int val = pstmt.executeUpdate(); if (val != 0) result = true;
+		  
+		  } catch (Exception e) { e.printStackTrace(); }
+		  
+		  return result; }
+		 
       
+      
+	
       
 }//cartDAO

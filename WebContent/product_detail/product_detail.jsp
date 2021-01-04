@@ -2,7 +2,9 @@
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
     
     <%	
-    	String mid = request.getParameter("id");
+   	    SessionVO svo = (SessionVO)session.getAttribute("svo");	
+  			String mid = svo.getId();
+    	
     	String pid = request.getParameter("pid");
     	productDAO dao = new productDAO();
     	productVO vo = dao.getData(pid);
