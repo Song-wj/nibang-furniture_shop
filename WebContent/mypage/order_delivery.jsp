@@ -88,6 +88,7 @@
 								<th>총 가격</th>
 								<th>주문날짜</th>
 								<th>주문취소</th>
+								<th>리뷰작성</th>
 							<tr>
 							<% for(orderVO vo : list) { %>
 								<tr>
@@ -95,7 +96,12 @@
 									<td><%= vo.getPname()%></td>
 									<td><%= vo.getTotal() %></td>
 									<td><%= vo.getRdate()%></td>
+<<<<<<< HEAD
 									<td><button type="button" onclick="cancel('<%=vo.getOid()%>')">취소</button></td>
+=======
+									<td><button type="button">취소</button></td>
+									<td><button type="button">리뷰</button></td>
+>>>>>>> 4db865549386b40e3c6a83e24e8dadfdf58ef72e
 								</tr>
 							<% } %>
  						<% } %> 
