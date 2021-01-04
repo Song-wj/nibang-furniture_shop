@@ -18,11 +18,13 @@
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <style>
 	table.notice_table{
-		width:600px;
+		width:500px;
+		margin:50px 0 0 400px;
 	}
 	
 	table.notice_table tr.table_header td#a{
-		padding-left:0;
+		padding-left:10px;
+		text-align:left;
 	}
 	table.notice_table tr:nth-child(2) p{
 		text-align:left;
@@ -32,7 +34,7 @@
 		margin-top:200px;
 	}
 	div.answer_div textarea{
-		margin-left:330px;
+		margin-left:400px;
 		margin-top :70px;
 		width:400px;
 		height:200px;
@@ -42,7 +44,7 @@
 		display:block;
 	}
 	div.answer_div button#update_answer{
-		margin-left:600px;
+		margin-left:650px;
 	}
 	
 </style>
@@ -58,6 +60,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class="section1">
 			<div>
 					<div class="content">

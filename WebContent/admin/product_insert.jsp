@@ -35,7 +35,7 @@
 	}
 	button#pi_btn { 
 		margin-left:200px;
-		margin-right:40px;
+		
 	} 
 </style>
 <script>

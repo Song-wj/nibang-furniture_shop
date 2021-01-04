@@ -12,8 +12,8 @@
 	
 	String mid =dao.getId(sid);
 	
-//	System.out.println(sid);
-System.out.println(mid);
+
+
 	
 	
 	int listAll_cnt = dao.getListCountAll(sid);

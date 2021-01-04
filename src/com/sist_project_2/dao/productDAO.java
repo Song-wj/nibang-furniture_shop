@@ -59,7 +59,7 @@ public class productDAO extends DBConn{
 	public productVO getData(String pid) {
 		productVO vo = new productVO();
 		try {
-			String sql = "select pid ,pname, pinfo, pkind, to_char(price, '9,999,999'), color ,img1, img2 ,simg1, simg2 from product where pid =?";
+			String sql = "select pid ,pname, pinfo, pkind,price, to_char(price, '9,999,999'), color ,img1, img2 ,simg1, simg2 from product where pid =?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, pid);
 			rs=pstmt.executeQuery();
@@ -68,12 +68,13 @@ public class productDAO extends DBConn{
 				vo.setPname(rs.getString(2));
 				vo.setPinfo(rs.getString(3));
 				vo.setPkind(rs.getString(4));
-				vo.setPprice(rs.getString(5));
-				vo.setColor(rs.getString(6));	
-				vo.setImg1(rs.getString(7));	
-				vo.setImg2(rs.getString(8));
-				vo.setSimg1(rs.getString(9));	
-				vo.setSimg2(rs.getString(10));
+				vo.setPrice(Integer.parseInt(rs.getString(5)));
+				vo.setPprice(rs.getString(6));
+				vo.setColor(rs.getString(7));	
+				vo.setImg1(rs.getString(8));	
+				vo.setImg2(rs.getString(9));
+				vo.setSimg1(rs.getString(10));	
+				vo.setSimg2(rs.getString(11));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

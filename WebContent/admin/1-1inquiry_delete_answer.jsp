@@ -14,6 +14,7 @@
 img{
 	width:200px;
 	height:200px;
+	margin-left:300px;
 }
 div.content button.product_del{
 	margin-left:300px;

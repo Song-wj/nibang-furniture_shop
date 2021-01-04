@@ -43,15 +43,15 @@
 	}
 	span.img_f1,
 	span.img_f2{
-		margin-left:-178px;
+		margin-left:-204.5px;
 		display:inline-block;
 		width:180px;
-		font-size:13px;
+		font-size:16px;
 		background-color:white;
 	}
 	button#pu_btn{
 		margin-left:200px;
-		margin-right:40px;
+		
 	}
 </style>
 <script>
