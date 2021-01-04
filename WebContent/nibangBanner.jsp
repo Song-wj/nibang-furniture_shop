@@ -2,8 +2,13 @@
 	pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
 <%
 	String mid = request.getParameter("id");
+
 	productDAO dao = new productDAO();
+	chatDAO cdao = new chatDAO();
+	
 	ArrayList<productVO> list = dao.getRecommandList();
+	ArrayList<chatVO> clist = cdao.getChat();
+	
 %>	
 
 <!DOCTYPE html>
@@ -102,10 +107,7 @@
 		display: none;
 	}
 	
-	.chat_content {
-	}
-	
-	.chat_content span {
+	#chat_content span {
 		margin-left: 10px;
 		margin-top: 10px;
 		color: white;
@@ -130,7 +132,32 @@
 			$(".modal").addClass("hidden");
 		});
 		
+		$("#sendChat").click(function(){
+			var str = "";
+			if($("#chat").val() == "") {
+				alert("채팅할 내용을 입력해주세요.");
+				return;
+			} else {
+ 			 	$.ajax({
+					url: "chatProc.jsp",
+					data: $("#chatForm").serialize(),
+					success: function(result) {
+						if(result) {
+							$("#chat_content").load(document.URL + ' #chat_content')
+						}
+					}
+				});  
+				//chatForm.submit();
+			} 
+		});
 		
+		showChat function() {
+			var str = ""
+			<% for(chatVO vo : clist) {%>
+			str += "<span><%= vo.getMid() %> : <%= vo.getChatcontent() %> <%= vo.getChatdate() %></span>";
+			<% } %> 
+			$("#chat_content").prepend(str);
+		}
 	});
 </script>
 </head>
@@ -185,14 +212,14 @@
 			<div class="modal_overlay"></div>
 			<div class="modal_content">
 				<!-- <button id="closeBtn">❌</button> -->
-				<div class="chat_content">
-					<span>관리자: 채팅방 구현중.</span>
-					<span>사용자1: 기대하겠습니다.</span>
-					<span>사용자2: 재밌을꺼 같아요.</span>
+				<div id="chat_content">
+					<% for(chatVO vo : clist) {%>
+					<span><%= vo.getMid() %> : <%= vo.getChatcontent() %> <%= vo.getChatdate() %></span>
+					<% } %> 
 				</div>
-				<form name="chatForm" action="chatProc.jsp" method="get">
-					<input name="mid" type="text" value="<%=mid %>">
-					<textarea name="chatcontent"placeholder="내용을 입력해주세요"></textarea>					
+				<form id="chatForm" name="chatForm" action="chatProc.jsp" method="get">
+					<input name="mid" type="hidden" value="<%=mid %>">
+					<textarea id="chat" name="chatcontent"placeholder="내용을 입력해주세요"></textarea>					
 				</form>
 				<button type="button" id="sendChat">전송</button>
 			</div>

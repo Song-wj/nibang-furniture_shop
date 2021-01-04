@@ -4,17 +4,10 @@
     %>
 <% request.setCharacterEncoding("utf-8"); %>
 <jsp:useBean id="vo" class="com.sist_project_2.vo.chatVO"/>
-<jsp:getProperty name="vo" property="*"/>
+<jsp:setProperty name="vo" property="*"/>
 <%
-	
+	//String mid = request.getParameter("id");
+	chatDAO dao = new chatDAO();
+	boolean result = dao.insertChat(vo);
+	out.write(String.valueOf(result));
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
