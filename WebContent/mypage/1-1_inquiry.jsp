@@ -74,7 +74,7 @@
 </style>
 <script>
 	function slideDown(sid) {
-		<% answerVO vo = adao.getAnswerContent(sid); %>
+		
 		$('.contents div').each(function(){
 			if($(this).css('display') == 'block')
 				$(this).slideUp('fast');

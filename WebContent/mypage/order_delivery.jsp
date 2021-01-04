@@ -24,6 +24,14 @@
     }
 	
 </style>
+<script>
+				
+	function cancel(oid){
+		alert("정말 취소하시겠습니까?");
+		location.href="search_order_cancelProc.jsp?oid="+oid;
+	}
+	
+</script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -87,7 +95,7 @@
 									<td><%= vo.getPname()%></td>
 									<td><%= vo.getTotal() %></td>
 									<td><%= vo.getRdate()%></td>
-									<td><button type="button">취소</button></td>
+									<td><button type="button" onclick="cancel('<%=vo.getOid()%>')">취소</button></td>
 								</tr>
 							<% } %>
  						<% } %> 

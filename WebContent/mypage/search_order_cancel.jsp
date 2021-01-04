@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"
+    import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.*"
+    %>
+    
+  <%
+ 	 String mid = request.getParameter("mid");
+	 orderDAO dao = new orderDAO();
+	 ArrayList<orderVO> list = dao.getCancelList();
+  %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -59,13 +67,30 @@
 			<button type="button" id="duration_btn2">3개월</button>
 			<button type="button" id="duration_btn3">6개월</button>
 			<button type="button" id="duration_btn4">전체</button>
-			<table class="order_table" id="order_table">
-				<tbody>
-					<tr>
-						<td>취소내역이 없습니다.</td>
-					</tr>
-				</tbody>
-			</table>
+			<table class="order_table">
+					<tbody>
+ 						<% if(list.size() == 0) {%>
+							<tr>
+								<td class="nolist">취소내역이 없습니다.</td>
+							</tr>
+						<% } else { %> 
+							<tr>
+								<th>주문번호</th>
+								<th>상품명</th>
+								<th>총 가격</th>
+								<th>취소날짜</th>
+							<tr>
+							<% for(orderVO vo : list) { %>
+								<tr>
+									<td><%= vo.getOid() %></td>
+									<td><%= vo.getPname()%></td>
+									<td><%= vo.getTotal() %></td>
+									<td><%= vo.getRdate()%></td>
+								</tr>
+							<% } %>
+ 						<% } %> 
+					</tbody>
+				</table>
 		</div>
 	</div>
 	

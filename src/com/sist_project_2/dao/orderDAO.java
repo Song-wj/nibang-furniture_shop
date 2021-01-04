@@ -15,8 +15,49 @@ public class orderDAO extends DBConn{
 		try {
 			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(o.rdate, 'yyyy/mm/dd') "
 					+ "from nibangmember m, nibangorder o, product p "
-					+ "where o.mid = m.mid and o.pid = p.pid";
+					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ?";
 			getPreparedStatement(sql);
+			pstmt.setString(1, "o");
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				orderVO vo = new orderVO(); 
+				vo.setOid(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setRname(rs.getString(3));
+				vo.setRaddrnum(rs.getString(4));
+				vo.setRaddr(rs.getString(5));
+				vo.setHp(rs.getString(6));
+				vo.setRph(rs.getString(7));
+				vo.setSimg(rs.getString(8));
+				vo.setPname(rs.getString(9));
+				vo.setPinfo(rs.getString(10));
+				vo.setColor(rs.getString(11));
+				vo.setPrice(rs.getString(12));
+				vo.setPcnt(rs.getInt(13));
+				vo.setTotal(rs.getString(14));
+				vo.setRdate(rs.getString(15));
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	public ArrayList<orderVO> getCancelList() {
+		ArrayList<orderVO> list = new ArrayList<>();
+		
+		
+		try {
+			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(sysdate, 'yyyy/mm/dd') "
+					+ "from nibangmember m, nibangorder o, product p "
+					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, "x");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -81,18 +122,37 @@ public class orderDAO extends DBConn{
 		return vo;
 	}
 	
-	public void orderDelete(String oid) {
+	public boolean orderDelete(String oid) {
+		boolean result = false;
 		try {
 			String sql = "delete from nibangorder where oid=?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, oid);
-			pstmt.executeUpdate();
+			
+			int count  =pstmt.executeUpdate();
+			if(count !=0) result = true;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 	
+	public boolean orderCancel(String oid) {
+		boolean result = false;
+		try {
+			String sql = "update nibangorder set order_chk = ? where oid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, "x");
+			pstmt.setString(2, oid);
+			int count  =pstmt.executeUpdate();
+			if(count !=0) result = true;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	public boolean orderWrite(orderVO vo) {
 		boolean result = false;
 		
