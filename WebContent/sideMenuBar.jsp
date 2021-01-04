@@ -23,15 +23,15 @@
 					<ul>
 						<li>마이페이지</li>
 						<li>나의 쇼핑내역</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?mid=<%=mid %>">주문/배송 조회</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/search_order_cancel.jsp?mid=<%=mid %>">주문/취소 조회</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/cancel_refund_info.jsp?mid=<%=mid %>">교환/반품/환불 안내</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=mid %>">주문/배송 조회</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/search_order_cancel.jsp?id=<%=mid %>">주문/취소 조회</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/cancel_refund_info.jsp?id=<%=mid %>">교환/반품/환불 안내</a></li>
 						<li>나의 게시글 답변</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiry.jsp?mid=<%=mid %>" >1:1문의</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/myReview.jsp?mid=<%=mid %>">상품평 관리</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiry.jsp?id=<%=mid %>" >1:1문의</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/myReview.jsp?id=<%=mid %>">상품평 관리</a></li>
 						<li>회원정보</li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/member_update.jsp?mid=<%=mid %>" class="h_side">회원정보수정</a></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/member_withdrawal.jsp?mid=<%=mid %>" class="h_side">회원탈퇴</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/member_update.jsp?id=<%=mid %>" class="h_side">회원정보수정</a></li>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/member_withdrawal.jsp?id=<%=mid %>" class="h_side">회원탈퇴</a></li>
 					</ul>
 				</nav>
 </aside>

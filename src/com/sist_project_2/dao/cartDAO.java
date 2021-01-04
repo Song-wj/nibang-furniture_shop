@@ -123,9 +123,12 @@ public class cartDAO extends DBConn{
 		  " WHEN NOT MATCHED THEN " +
 		  " INSERT (MID,PID,C_QTY,C_DATE) VALUES (?,?,?,sysdate)";
 		  
-		  getPreparedStatement(sql); pstmt.setString(1, vo.getPid()); pstmt.setInt(2,
-		  vo.getC_qty()); pstmt.setString(3, vo.getMid()); pstmt.setString(4,
-		  vo.getPid()); pstmt.setInt(5, vo.getC_qty());
+		  getPreparedStatement(sql);
+		  pstmt.setString(1, vo.getPid());
+		  pstmt.setInt(2,vo.getC_qty());
+		  pstmt.setString(3, vo.getMid());
+		  pstmt.setString(4,vo.getPid());
+		  pstmt.setInt(5, vo.getC_qty());
 		  
 		  int val = pstmt.executeUpdate(); if (val != 0) result = true;
 		  
