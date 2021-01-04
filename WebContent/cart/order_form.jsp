@@ -28,7 +28,7 @@
 	String oid = "NIB" + rd.nextInt(100000);
 	
 %>
-<%if(mid ==""){ %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -352,6 +352,3 @@ div.content {
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
-<%}else {%>
-<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
-out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 
