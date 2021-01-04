@@ -3,7 +3,13 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.* "
     %>
 <%
-	String mid = request.getParameter("mid");  
+
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
+
 	messageDAO dao = new messageDAO();
 	messageAnswerDAO adao = new messageAnswerDAO();
 	
@@ -22,6 +28,7 @@
 	
 	ArrayList<messageVO> list =  dao.getInquiryList(mid);
 %>
+<%if(svo != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,7 +113,7 @@
 <body>
 	<jsp:include page="../header.jsp" />
 	<div class="content">
-		<jsp:include page="../sideMenuBar.jsp"/>
+	<jsp:include page="../sideMenuBar.jsp"/>
 		<div>
 			<div class="right_content">
 				<div class="title">1:1문의</div>
@@ -259,3 +266,7 @@
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}else %>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 
+

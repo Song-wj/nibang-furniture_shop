@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"
 	import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
     %>
-<%
-	String mid = request.getParameter("mid");
-%>
+
 <!DOCTYPE html>
 <html>
 	<head>

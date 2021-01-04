@@ -3,8 +3,13 @@
 	import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
     %>
 <%
-	String mid = request.getParameter("id");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
 %>
+<%if(svo != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,3 +91,6 @@
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}else %>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 

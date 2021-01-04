@@ -107,7 +107,7 @@
 											</li>
 											<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 											<li>최대 5개 파일 업로드 가능</li>				
-											<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getSid()%>"><button type="submit">수정완료</button></a>
+											<li><a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getSid()%>"><button type="submit">수정완료</button></a></li>
 										</ul>
 									</form>
 								</div>        

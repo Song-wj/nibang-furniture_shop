@@ -3,10 +3,15 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
 <%
-	String id= request.getParameter("id");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String id ="";
+	if(svo != null){
+		 id = svo.getId();
+	}
 	nibangDAO dao = new nibangDAO();
 	joinVO vo = dao.getMemberInfo(id);
 %>
+<%if(svo != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -347,3 +352,6 @@
 	<jsp:include page="../footer.jsp"></jsp:include>
 </body>
 </html>
+<%}else %>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 
