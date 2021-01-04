@@ -231,7 +231,7 @@ div.content {
 					<tr class="mainProduct">
 						<td>
 							<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?=<%= pid%>">
-								<img src = "../upload/<%= pvo.getSimg1() %>" id="change" width='220px' height='220px'>
+								<img src = "../upload/<%= pvo.getSimg1() %>" id="change" width='200px' height='200px'>
 							</a>
 						</td>
 						<td class="productInfo">
