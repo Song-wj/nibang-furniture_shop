@@ -80,6 +80,7 @@
 								<th>총 가격</th>
 								<th>주문날짜</th>
 								<th>주문취소</th>
+								<th>리뷰작성</th>
 							<tr>
 							<% for(orderVO vo : list) { %>
 								<tr>
@@ -88,6 +89,7 @@
 									<td><%= vo.getTotal() %></td>
 									<td><%= vo.getRdate()%></td>
 									<td><button type="button">취소</button></td>
+									<td><button type="button">리뷰</button></td>
 								</tr>
 							<% } %>
  						<% } %> 
