@@ -112,6 +112,8 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=svo.getId()%>">마이페이지</a>
 						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/cart/cart.jsp?id=<%=svo.getId()%>">장바구니</a>
+						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=<%=svo.getId()%>">이벤트</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%=svo.getId()%>">고객센터</a>

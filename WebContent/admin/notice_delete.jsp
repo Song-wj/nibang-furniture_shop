@@ -21,9 +21,11 @@
 img{
 	width:200px;
 	height:200px;
+	
 }
 div.content button.notice_del{
-	margin-left:300px;
+	margin-top: 50px;
+	margin-left: 550px;
 }
 
 </style>
@@ -33,14 +35,14 @@ div.content button.notice_del{
 	<section class ="section1">
 			   <div class="content">
 					<div class="admin"><h1>공지사항 삭제</h1></div>
-						<img src ="../images/delete.jpg">
-		  				<div>삭제하시겠습니까?</div>
-		  				<a href="noticeDeleteProc.jsp?nid=<%=nid %>"><button type="button" class="notice_del">삭제</button></a>
-		  				<button type ="button">목록으로</button>
+					<img src ="../images/delete.jpg" style="margin-left:530px;">
+		  			<div style="margin-left:560px;">삭제하시겠습니까?</div>
+		  			<a href="noticeDeleteProc.jsp?nid=<%=nid %>"><button type="button" class="notice_del">삭제</button></a>
+		  			<button type ="button">목록으로</button>
 		  		</div>
 	</section>
 </body>
 </html>
-<%}else %>
+<%}else {%>
 <%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
-out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

@@ -10,13 +10,14 @@
    nibangDAO ndao = new nibangDAO();
    cartDAO cdao = new cartDAO();
    
-   ArrayList<cartVO> cartList = cdao.getCart();
+   ArrayList<cartVO> cartList = cdao.getCart(mid);
   int totalcount = 0;
    for(int i = 0; i < cartList.size(); i++){
       totalcount += (cartList.get(i  ).getPrice() * cartList.get(i).getC_qty());
    } 
    
 %>
+<%if(mid != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -177,3 +178,6 @@ div.content {
    <jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%>

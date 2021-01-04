@@ -99,6 +99,6 @@
 		
 	</body>
 </html>
-<%}else %>
+<%}else {%>
 <%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
-out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>");} %> 

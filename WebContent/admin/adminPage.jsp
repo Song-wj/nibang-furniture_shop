@@ -98,6 +98,6 @@ table.notice_table tr th:nth-child(11){
 	</section>
 </body>
 </html>
-<%}else %>
+<%}else {%>
 <%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
-out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 
