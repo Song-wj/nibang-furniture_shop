@@ -8,6 +8,7 @@ public class cartDAO extends DBConn{
       /**
        * insertCart : cart µî·Ï
        */
+		
 		/*
 		 * public boolean insertCart(cartVO vo) { boolean result = false;
 		 * 
@@ -25,6 +26,7 @@ public class cartDAO extends DBConn{
 		 * 
 		 * return result; }
 		 */
+		
       
       /**
        * getCart
@@ -125,7 +127,7 @@ public class cartDAO extends DBConn{
  	           getPreparedStatement(sql); 
  	           pstmt.setString(1, vo.getPid());
  	           pstmt.setInt(2, vo.getC_qty());
- 	           pstmt.setString(3, "dd@gmail.com");
+ 	           pstmt.setString(3, "jy@naver.com");
  	           pstmt.setString(4, vo.getPid()); 
  	           pstmt.setInt(5, vo.getC_qty());
  	           

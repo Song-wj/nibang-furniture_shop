@@ -102,19 +102,19 @@
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
 						src="http://localhost:9000/sist_project_2/images/search.png"></button>
 				</div>
-				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=svo.getId()%>"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=mid %>"><b><%= svo.getName()%></b> 님의 니방</a>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=svo.getId() %>"><b><%= svo.getName()%></b> 님의 니방</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">로그아웃</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">마이페이지</a>
+						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=svo.getId()%>">마이페이지</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=">이벤트</a>
+						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=<%=svo.getId()%>">이벤트</a>
 						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=">고객센터</a>
+						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%=svo.getId()%>">고객센터</a>
 						<div></div></li>
 						<li style="padding-right: 20px;"><a href="http://localhost:9000/sist_project_2/maps/maps2.jsp">매장안내</a></li>
 					</ul>

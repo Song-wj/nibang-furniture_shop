@@ -60,7 +60,7 @@ public class LoginServlet extends HttpServlet {
 	    
 	            //mail server 설정
 	           
-	            String user = "jhg2817@naver.com"; //자신의 네이버 계정
+	            String user = ""; //자신의 네이버 계정
 	            String password = "";//자신의 네이버 패스워드
 	            
 	            //메일 받을 주소
