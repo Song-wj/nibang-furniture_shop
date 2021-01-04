@@ -3,10 +3,18 @@
     
    
 <%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
+	
+	
 	productDAO dao = new productDAO(); 
 	ArrayList<productVO> list = dao.getList();
 	
 %>   
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,3 +98,6 @@ table.notice_table tr th:nth-child(11){
 	</section>
 </body>
 </html>
+<%}else %>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 

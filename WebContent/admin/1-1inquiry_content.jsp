@@ -3,13 +3,20 @@
     
  <%
  	request.setCharacterEncoding("utf-8");
+ 
+ 	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
+	
  	String sid = request.getParameter("sid");
  	messageAnswerDAO dao = new messageAnswerDAO();
  	messageVO vo = dao.getContent(sid);
  	answerVO avo = dao.getAnswerContent(sid);
  %>
     
-  
+ <%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -117,3 +124,6 @@
 		</section>
 </body>
 </html>
+<%}else %>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 

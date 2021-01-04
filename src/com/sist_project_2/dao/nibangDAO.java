@@ -151,6 +151,7 @@ public class nibangDAO extends DBConn {
 				svo.setResult(rs.getInt(1));
 				svo.setName(rs.getString(2));
 				svo.setId(rs.getString(3));
+				
 
 			}
 

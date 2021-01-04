@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<% String fid = request.getParameter("fid"); %>
+	pageEncoding="UTF-8" import ="com.sist_project_2.vo.*"%>
+<% 
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
+	String fid = request.getParameter("fid"); 
+%>
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,3 +41,6 @@ div.content button.faq_del {
 	</section>
 </body>
 </html>
+<%}else %>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); %> 
