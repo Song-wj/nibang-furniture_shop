@@ -143,7 +143,7 @@
 					data: $("#chatForm").serialize(),
 					success: function(result) {
 						if(result) {
-							//setInterval(reload, 1000);
+							setInterval('reload()', 1000);
 						}
 					}
 				});  
@@ -154,7 +154,8 @@
 	});//ready
 	
 	function reload() {
-		$("#chat_content").load(document.URL + ' #chat_content');
+		//$("#chat_content").load(document.URL + ' #chat_content');
+		$("#chat_content").load(window.location + ' #chat_content');
 	}
 	
 </script>
