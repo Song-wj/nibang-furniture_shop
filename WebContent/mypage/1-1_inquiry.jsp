@@ -5,6 +5,8 @@
 <%
 	String mid = request.getParameter("mid");  
 	messageDAO dao = new messageDAO();
+	messageAnswerDAO adao = new messageAnswerDAO();
+	
 
 	int listAll_cnt = dao.getListCountAll(mid);
 	int listProduct_cnt = dao.getListCountProduct(mid);
@@ -15,6 +17,7 @@
 	int listEtc_cnt = dao.getListCountEtc(mid);
 	int listMember_cnt = dao.getListCountMember(mid);
 	int listSite_cnt = dao.getListCountSite(mid);
+	
 	
 	
 	ArrayList<messageVO> list =  dao.getInquiryList(mid);
@@ -71,7 +74,7 @@
 </style>
 <script>
 	function slideDown(sid) {
-		
+		<% answerVO vo = adao.getAnswerContent(sid); %>
 		$('.contents div').each(function(){
 			if($(this).css('display') == 'block')
 				$(this).slideUp('fast');
@@ -222,17 +225,15 @@
 																	<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 																	<li>최대 5개 파일 업로드 가능</li>				
 																	<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getMid()%>"><button type="submit" style="color:white; text-decoration:none;">수정완료</button></a>
-																</ul> --%>
-														</form>
-													</div>        
-												</div>
+																</ul> --%>												    										
 											</div>
-										</div>
 									</td>
 					    		</tr>
                         		<% } %>
                         	<% }else{ %>
+                        		<tr>
 								<td colspan="4" style="color:#aaa;font-size:18px;padding-top:100px;">조회 결과가 없습니다.</td>
+								</tr>
 							<% } %>
 							</tbody>
 						</table>
