@@ -127,7 +127,7 @@ div.content {
                <% for (cartVO vo : cartList) {%>
                <tr class="mainProduct">
                   <td class="w10_checkBox">
-                  	 <input type="checkbox" name="chk" value=<%= vo.getPid() %>>>
+                  	 <input type="checkbox" name="chk" value=<%= vo.getPid() %>>
                   </td>
                   <td>
                      <a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?=<%= pid%>">
@@ -151,9 +151,8 @@ div.content {
                   </td>
                   <td class="mainPrice"><%= vo.getPrice() %>원</td>
                   <td class="mainQty"><%= vo.getC_qty() %></td>
-                  <td class="groupPrice"><%= vo.getPrice() %>원</td>
+                  <td class="groupPrice"><%= vo.getPrice() * vo.getC_qty() %>원</td>
                   <td>
-                     <input type="button" class="btn_buynow" value="바로구매">
                      <button type="button" class="btn_delete" value=<%= vo.getPid()%>>삭제하기</button>
                   </td>
                </tr>
