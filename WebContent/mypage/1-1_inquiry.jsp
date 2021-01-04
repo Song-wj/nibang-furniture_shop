@@ -71,6 +71,7 @@
 		background-color:white;
 		padding:2px 0 0 2px;
 	}	
+	
 </style>
 <script>
 	function slideDown(sid) {
@@ -78,11 +79,23 @@
 		$('.contents div').each(function(){
 			if($(this).css('display') == 'block')
 				$(this).slideUp('fast');
+			
 		}); 
 		
 		if($("#"+sid+" div").css('display') == 'none') {
 			$("#"+sid+" div").css('display','block');
 			$("#"+sid+" div").slideDown('fast');
+			$.ajax({
+				url:"1-1answerProc.jsp?sid="+sid,
+				success:function(answer){
+					var output="<hr>";
+					output+= "<p style='text-align:left;padding-left:95px;'>"
+					output += answer;
+					output += "</p>"
+					$("#1-1answer").text("");
+					$("#1-1answer").append(output);
+				}
+			})
 		} else {
 			$("#"+sid+" div").css('display','none');
 			$("#"+sid+" div").slideUp('fast');
@@ -187,7 +200,8 @@
 										<div style="display: none;" id="btn_inquiry_upde">
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:652px;">수정</button></a>
 	                           				<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a>
-					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>										
+					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
+					    					<p id="1-1answer"></p>								
 											<!-- <a href="#open"><button type="button" style="margin-left:650px;">수정</button></a> -->
 												<%-- <div class="white_content" id="open">
 													<div class="inquiry_content2"  id="inquiry_content2">
