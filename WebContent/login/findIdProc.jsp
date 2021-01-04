@@ -5,7 +5,7 @@
  <jsp:setProperty property="*" name="vo"/>
  
  <%
- 	 request.setCharacterEncoding("utf-8");
+ 	 /* request.setCharacterEncoding("utf-8"); */
  	 nibangDAO dao = new nibangDAO();
  
  	 joinVO jvo= dao.findId(vo.getPh());

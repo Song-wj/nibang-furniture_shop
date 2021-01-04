@@ -122,20 +122,19 @@ public class orderDAO extends DBConn{
 		return vo;
 	}
 	
-	public boolean orderDelete(String oid) {
-		boolean result = false;
+	public void orderDelete(String oid) {
+		
 		try {
 			String sql = "delete from nibangorder where oid=?";
 			getPreparedStatement(sql);
-			pstmt.setString(1, oid);
+			pstmt.setString(1, oid);			
+			pstmt.executeUpdate();
 			
-			int count  =pstmt.executeUpdate();
-			if(count !=0) result = true;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;
+		
 	}
 	
 	public boolean orderCancel(String oid) {
