@@ -3,7 +3,8 @@
 	import= "com.sist_project_2.dao.*, com.sist_project_2.vo.*"
     %>
 <% 
-	String id = request.getParameter("id");
+//	String id = request.getParameter("id");
+	String mid = request.getParameter("id");
 %>
 <!DOCTYPE html>
 <html>
@@ -40,8 +41,8 @@
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
-								<input type="hidden" name="mid" value="<%=id%>">  
+							<form name="inquiryform1" action="1-1inquiryProc.jsp?id=<%=mid %>" method="post" class="inquiryform1" enctype="multipart/form-data">
+								<input type="hidden" name="mid" value="<%=mid%>">  
 								<ul>
 									<li>
 										<label>문의구분</label>

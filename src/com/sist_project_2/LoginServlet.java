@@ -109,6 +109,7 @@ public class LoginServlet extends HttpServlet {
 	            try {
 	                MimeMessage msg = new MimeMessage(session);
 	                msg.setFrom(new InternetAddress(user));
+
 	                msg.addRecipient(Message.RecipientType.TO, new InternetAddress(to_email));
 	                
 	                //메일 제목

@@ -10,7 +10,7 @@
 	if(svo.getResult() != 0){
 		
 		session.setAttribute("svo", svo);
-		response.sendRedirect("../index.jsp?id="+ vo.getEmail());
+		response.sendRedirect("../index.jsp?id=" + vo.getEmail());
 	}else {
 		response.sendRedirect("loginFail.jsp?id=" + vo.getEmail());
 	}

@@ -188,4 +188,23 @@ public class messageAnswerDAO extends DBConn{
 		}
 		return result;
 	}
+	
+	public String getAnswer(String sid) {
+		String an ="";
+		try {
+			String sql="select acontent from messageanswer where sid=?";
+			getPreparedStatement(sql);
+			pstmt.setString(1, sid);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				an= rs.getString(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return an;
+	}
+	
+	
 }

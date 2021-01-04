@@ -14,7 +14,7 @@ public class messageDAO extends DBConn {
 		boolean result = false;
 
 		try {
-			String sql = "insert into message values('m_'||sqe_nibang_message.nextval,?,?,?,?,?,sysdate,?)";
+			String sql = "insert into message values('m_'||sqe_nibang_message.nextval,?,?,?,?,?,?,sysdate)";
 			getPreparedStatement(sql);
 
 			pstmt.setString(1, vo.getMid());

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
+    import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.*"
     %>
 <%
 	String mid = request.getParameter("mid");
+	orderDAO dao = new orderDAO();
+	ArrayList<orderVO> list = dao.getOrderList();
 %>
 <!DOCTYPE html>
 <html>
@@ -13,7 +15,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-<title>주문/배송조회</title>
+<title>주문 조회</title>
 <style>
 	div.content {
 	    border: 1px solid white;
@@ -21,15 +23,22 @@
     	margin: auto;
     }
 	
-	
 </style>
+<script>
+				
+	function cancel(oid){
+		alert("정말 취소하시겠습니까?");
+		location.href="search_order_cancelProc.jsp?oid="+oid;
+	}
+	
+</script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
 	<div class="content">
 		<jsp:include page="../sideMenuBar.jsp"/>
 			<div class="search_order">
-				<div class="title">주문/배송 조회</div>
+				<div class="title">주문 조회</div>
 				<div class="order_status_div" style="margin-bottom:20px;  padding: 23px 53px;">
 					<div class="status_item">
 						<img src="http://localhost:9000/sist_project_2/images/orderStatus1.png" class="status_img">
@@ -68,9 +77,32 @@
 				</div>
 				<table class="order_table">
 					<tbody>
-						<tr>
-							<td class="nolist">주문내역이 없습니다.</td>
-						</tr>
+ 						<% if(list.size() == 0) {%>
+							<tr>
+								<td class="nolist">주문내역이 없습니다.</td>
+							</tr>
+						<% } else { %> 
+							<tr>
+								<th>주문번호</th>
+								<th>상품명</th>
+								<th>총 가격</th>
+								<th>주문날짜</th>
+								<th>주문취소</th>
+								<th>리뷰작성</th>
+							<tr>
+							<% for(orderVO vo : list) { %>
+								<tr>
+									<td><%= vo.getOid() %></td>
+									<td><%= vo.getPname()%></td>
+									<td><%= vo.getTotal() %></td>
+									<td><%= vo.getRdate()%></td>
+
+									<td><button type="button" onclick="cancel('<%=vo.getOid()%>')">취소</button></td>
+									<td><button type="button">리뷰</button></td>
+
+								</tr>
+							<% } %>
+ 						<% } %> 
 					</tbody>
 				</table>
 			</div>  
