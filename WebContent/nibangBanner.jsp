@@ -170,6 +170,7 @@
 		});
 		
 	});//ready
+	
 </script>
 </head>
 <body>
@@ -236,7 +237,7 @@
 	//var webSocket = new WebSocket("ws://localhost:9000/sist_project_2/broadsocket");
 	var messageTextArea = document.querySelector("#chat_content");
 	
-	function connectWebSocket(url, message, open, close, error) {
+	function connectWebSocket(url, message, openn, close, error) {
 		let webSocket = new WebSocket(url);
 		
 		function call(cb,msg) {
@@ -246,7 +247,7 @@
 		}
 		
 		webSocket.onopen = function() {
-			call(open);
+			call(openn);
 		};
 		
 		webSocket.onclose = function() {
@@ -264,7 +265,7 @@
 		return webSocket;
 	}
 	
-	var open = function() {
+	var openn = function() {
 		//messageTextArea.value += "nibang 채팅에 오신 것을 환영합니다. \n";		
 	}
 	
@@ -272,7 +273,7 @@
 		//messageTextArea.value += "nibang 채팅을 종료합니다. \n";
 		//messageTextArea.value = "";
 		setTimeout(function() {
-			webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, open, close, error);
+			webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, openn, close, error);
 		});
 	}
 	
@@ -284,7 +285,7 @@
 		messageTextArea.value += msg.data + "\n";
 	}
 	
-	var webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, open, close, error);
+	var webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, openn, close, error);
 	
 	function sendMessage() {
 		var user = "<%= username%>";
