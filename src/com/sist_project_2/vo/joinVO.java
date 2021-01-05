@@ -2,7 +2,16 @@ package com.sist_project_2.vo;
 
 public class joinVO {
 	String email1, email2, pass, name, birth1, birth2, birth3, gender, ph1, ph2, ph3, addr_num, addr2, addr3;
-	String email, birth, ph, addr;
+	String email, birth, ph, addr, mdate;
+
+	
+	public String getMdate() {
+		return mdate;
+	}
+
+	public void setMdate(String mdate) {
+		this.mdate = mdate;
+	}
 
 	public String getEmail() {
 		String str = "";

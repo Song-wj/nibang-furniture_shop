@@ -2,9 +2,15 @@
 	pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
 	
 <%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
 	noticeDAO dao = new noticeDAO();
 	ArrayList<noticeVO> list = dao.getList();
 %>
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,3 +62,6 @@
 
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

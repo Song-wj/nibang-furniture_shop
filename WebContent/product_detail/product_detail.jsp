@@ -3,8 +3,10 @@
     
     <%	
    	    SessionVO svo = (SessionVO)session.getAttribute("svo");	
-  			String mid = svo.getId();
-    	
+  		String mid="";
+        if(svo != null){
+    		mid = svo.getId();
+  		}
     	String pid = request.getParameter("pid");
     	productDAO dao = new productDAO();
     	productVO vo = dao.getData(pid);
@@ -165,13 +167,28 @@
 				alert("주문 옵션을 선택해주세요.");
 				return;
 			} else {
+				<%if(mid !="") {%>
 				alert("주문확인 페이지로 이동합니다.");		
 				location.href='http://localhost:9000/sist_project_2/cart/order_form.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+				<%}else {%>
+				alert("로그인 해주세요!");
+				<%}%>
 			}
 		});
 		
 		$("#cartBtn").click(function(){
-            location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+			if($("#product_colors option:selected").val() == "선택"){	
+				alert("장바구니에 넣을 옵션을 선택해주세요.");
+				return;
+			} else {
+				<%if(mid !="") {%>
+				alert("장바구니 페이지로 이동합니다.");
+				location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+				<%}else {%>
+				alert("로그인 해주세요!");
+				<%}%>
+			}
+            
          });
 
 		

@@ -112,6 +112,8 @@
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=svo.getId()%>">마이페이지</a>
 						<div></div></li>
+						<li><a href="http://localhost:9000/sist_project_2/cart/cart.jsp?id=<%=svo.getId()%>">장바구니</a>
+						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp?id=<%=svo.getId()%>">이벤트</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp?id=<%=svo.getId()%>">고객센터</a>
@@ -130,6 +132,8 @@
 					  <li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">관리자 로그아웃</a>
 					  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">상품관리</a>
+	                  <div></div></li>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/member_list.jsp">회원관리</a>
 	                  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/product_insert.jsp">상품등록</a>
 	                  <div></div></li>
@@ -154,8 +158,6 @@
 						<li><a href="http://localhost:9000/sist_project_2/join/join.jsp">회원가입</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a>
-						<div></div></li>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp">마이페이지</a>
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp">고객센터</a>
 						<div></div></li>

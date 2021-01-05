@@ -31,17 +31,17 @@ public class cartDAO extends DBConn{
       /**
        * getCart
        */
-      public ArrayList<cartVO> getCart() {
+      public ArrayList<cartVO> getCart(String pid) {
         ArrayList<cartVO>  list = new ArrayList<cartVO>(); 
         
-      
         try {
            
            String sql = "select p.pname, p.pinfo, p.price, p.color, p.simg1, c.c_qty, c.c_date, p.pid"
                              + " from nibangmember m, cart c, product p " +
-                             " where c.mid = m.mid and c.pid = p.pid";
+                             " where c.mid = m.mid and c.pid = p.pid and c.mid=?";
           
            getPreparedStatement(sql); 
+           pstmt.setString(1, pid);
            rs = pstmt.executeQuery();
            
            while(rs.next()) { 

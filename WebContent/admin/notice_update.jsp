@@ -3,11 +3,16 @@
 	import="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
 
 <%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
 	String nid = request.getParameter("nid");
-noticeDAO dao = new noticeDAO();
-noticeVO vo = dao.getContent(nid);
+	noticeDAO dao = new noticeDAO();
+	noticeVO vo = dao.getContent(nid);
 %>
-
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +23,10 @@ noticeVO vo = dao.getContent(nid);
 <script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 </head>
 <style>
+form ul{
+	margin-left:350px;
+	margin-top:50px;
+}
 form ul li label {
 	float: left;
 	margin-right: 10px;
@@ -30,8 +39,8 @@ form ul li {
 form span.nfileName{
 	display:inline-block;
 	width:230px;
-	margin-left:-177px;
-	font-size:13px;
+	margin-left:-207px;
+	font-size:15px;
 	background-color:white;
 }
 button#nu_btn{
@@ -83,3 +92,6 @@ button#nu_btn{
 	</section>
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

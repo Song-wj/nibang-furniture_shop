@@ -3,13 +3,20 @@
     
  <%
  	request.setCharacterEncoding("utf-8");
+ 
+ 	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
+	
  	String sid = request.getParameter("sid");
  	messageAnswerDAO dao = new messageAnswerDAO();
  	messageVO vo = dao.getContent(sid);
  	answerVO avo = dao.getAnswerContent(sid);
  %>
     
-  
+ <%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +25,11 @@
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 <style>
+	
+	
 	table.notice_table{
 		width:400px;
+		margin:50px 0 0 400px;
 	}
 	
 	table.notice_table tr.table_header td#a{
@@ -33,8 +43,8 @@
 		margin-top:200px;
 	}
 	div.answer_div textarea{
-		margin-left:330px;
-		margin-top :70px;
+		margin-left:400px;
+		margin-top :50px;
 		width:400px;
 		height:200px;
 		resize:none;
@@ -44,7 +54,7 @@
 	}
 	div.answer_div button#insert_answer,
 	div.answer_div button#insert_update{
-		margin-left:600px;
+		margin-left:700px;
 	}
 	div.answer_div button#insert_answer{
 		width:100px;
@@ -65,6 +75,7 @@
 </script>
 </head>
 <body>
+<jsp:include page="../header.jsp"></jsp:include>
 	<section class="section1">
 			<div>
 					<div class="content">
@@ -113,3 +124,6 @@
 		</section>
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

@@ -3,9 +3,16 @@
 	import = "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"    
     %>
 <%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
+
 	faqDAO dao = new faqDAO();
 	ArrayList<faqVO> list = dao.getFAQList();
 %>
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,3 +61,6 @@
 		</section>
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

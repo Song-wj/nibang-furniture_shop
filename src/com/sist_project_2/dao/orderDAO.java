@@ -8,16 +8,17 @@ public class orderDAO extends DBConn{
 	
 	
 	
-	public ArrayList<orderVO> getOrderList() {
+	public ArrayList<orderVO> getOrderList(String mid) {
 		ArrayList<orderVO> list = new ArrayList<>();
 		
 		
 		try {
 			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(o.rdate, 'yyyy/mm/dd') "
 					+ "from nibangmember m, nibangorder o, product p "
-					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ?";
+					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=? order by o.rdate desc";
 			getPreparedStatement(sql);
 			pstmt.setString(1, "o");
+			pstmt.setString(2, mid);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -88,14 +89,15 @@ public class orderDAO extends DBConn{
 		return list;
 	}
 	
-	public orderVO getOrder() {
+	public orderVO getOrder(String pid) {
 		orderVO vo = new orderVO(); 
 		
 		try {
 			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total "
 					+ "from nibangmember m, nibangorder o, product p "
-					+ "where o.mid = m.mid and o.pid = p.pid";
+					+ "where o.mid = m.mid and o.pid = p.pid and o.pid=?";
 			getPreparedStatement(sql);
+			pstmt.setString(1, pid);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -122,20 +124,19 @@ public class orderDAO extends DBConn{
 		return vo;
 	}
 	
-	public boolean orderDelete(String oid) {
-		boolean result = false;
+	public void orderDelete(String oid) {
+		
 		try {
 			String sql = "delete from nibangorder where oid=?";
 			getPreparedStatement(sql);
-			pstmt.setString(1, oid);
+			pstmt.setString(1, oid);			
+			pstmt.executeUpdate();
 			
-			int count  =pstmt.executeUpdate();
-			if(count !=0) result = true;
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return result;
+		
 	}
 	
 	public boolean orderCancel(String oid) {

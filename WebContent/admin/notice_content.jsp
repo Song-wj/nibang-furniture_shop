@@ -2,11 +2,16 @@
     pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*"%>
  
  <% 
+ 	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
  	String nid = request.getParameter("nid");
  	noticeDAO dao = new noticeDAO();
  	noticeVO vo = dao.getContent(nid);
  %>
-
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +21,8 @@
 <style>
 	.section1 table.notice_table{
 		width:500px;
+		margin-left:350px;
+		margin-top:50px;
 	}
 	.section1 table.notice_table tr:first-child td{
 		text-align:center;
@@ -56,3 +63,6 @@
 	</section>
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

@@ -5,18 +5,20 @@
 <%
    String mid = request.getParameter("id");
    String pid = request.getParameter("pid");
-     
+   System.out.println(mid);
+   
    productDAO pdao = new productDAO();
    nibangDAO ndao = new nibangDAO();
    cartDAO cdao = new cartDAO();
    
-   ArrayList<cartVO> cartList = cdao.getCart();
+   ArrayList<cartVO> cartList = cdao.getCart(mid);
   int totalcount = 0;
    for(int i = 0; i < cartList.size(); i++){
       totalcount += (cartList.get(i  ).getPrice() * cartList.get(i).getC_qty());
    } 
    
 %>
+<%if(mid != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,7 +85,7 @@ div.content {
 			}
 		}
 		console.log(pidList);
-		location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList;
+		location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList+"&id=<%=mid%>";
 	}
 	
 	
@@ -93,7 +95,7 @@ div.content {
 		$(".btn_delete").click(function() {
 			console.log("test22");
 			console.log(this.value);
-			location.href = 'http://localhost:9000/sist_project_2/cart/cartDeleteProc.jsp?pid='+this.value;
+			location.href = 'http://localhost:9000/sist_project_2/cart/cartDeleteProc.jsp?pid='+this.value+"&id=<%=mid%>";
 		});
 	}); 
 	
@@ -131,7 +133,7 @@ div.content {
                   </td>
                   <td>
                      <a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?=<%= pid%>">
-                        <img src = "../upload/<%= vo.getSimg1() %>" id="change" >
+                        <img src = "../upload/<%= vo.getSimg1() %>" id="change" width='200px' height='200px;' >
                </a>
                   </td>
                   <td class="productInfo">
@@ -177,3 +179,6 @@ div.content {
    <jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%>

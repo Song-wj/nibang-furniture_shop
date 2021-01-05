@@ -3,10 +3,15 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.*"
     %>
 <%
-	String mid = request.getParameter("mid");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
 	orderDAO dao = new orderDAO();
-	ArrayList<orderVO> list = dao.getOrderList();
+	ArrayList<orderVO> list = dao.getOrderList(mid);
 %>
+<%if(svo != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -110,3 +115,6 @@
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 
