@@ -22,8 +22,10 @@
 <script src="http://localhost:9000/sist_project_2/js/am-pagination.js"></script>
 <link rel="stylesheet" href ="http://localhost:9000/sist_project_2/css/am-pagination.css">
 <style>
-	div.list_body{
-		margin: 3% 29%;
+	table.notice_table{
+		width:500px;
+		margin-left:360px;;
+		margin-top:50px;
 	}
 </style>
 <script>

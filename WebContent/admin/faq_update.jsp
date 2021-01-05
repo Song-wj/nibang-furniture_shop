@@ -22,7 +22,10 @@
 	href="http://localhost:9000/sist_project_2/css/illum.css">
 </head>
 <style>
-
+form ul{
+	margin-left:360px;
+	margin-top:50px;
+}
 form ul li label {
 	float: left;
 	margin-right: 10px;
