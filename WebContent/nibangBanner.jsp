@@ -3,6 +3,9 @@
 <%
 	String mid = request.getParameter("id");
 
+	int idx = mid.indexOf("@");
+	String username = mid.substring(0, idx);
+
 	productDAO dao = new productDAO();
 	chatDAO cdao = new chatDAO();
 	
@@ -79,12 +82,13 @@
 	.nibang_chat .modal_content form textarea{
 		position:fixed;
 		bottom:5px;
-		right:4px;
+		right:60px;
 		resize:none;
-		font-size:14px;
-		width:316px;
+		font-size:12px;
+		width:260px;
 		height: 70px;
 		overflow: hidden;
+		border: none;
 	}
 	
 	#chat_content {
@@ -93,8 +97,11 @@
 		width: 316px;
 		height: 245px;	
 		resize:none;
-		border: none;
-		font-size: 14px;
+		border-bottom: 2px solid #aaa;
+		border-left: 1px solid white;
+		border-right: 1px solid white;
+		border-top: 1px solid white;
+		font-size: 12px;
 	}
 	
 	#sendChat {
@@ -115,18 +122,6 @@
 	}
 	.nibang_chat .hidden {
 		display: none;
-	}
-	
-	#chat_content span {
-		margin-left: 10px;
-		margin-top: 10px;
-		color: white;
-		font-size: 13px;
-		background-color: #c80a1e;
-		opacity: 0.5;
-		padding: 7px;
-		border-radius: 5px;
-		display: inline-block;
 	}
 	
 	#closeBtn {
@@ -154,65 +149,22 @@
 		});
 		$("#closeBtn").click(function(){
 			$(".modal").addClass("hidden");
+			disconnect();
 		});
 		$(".modal_overlay").click(function(){
 			$(".modal").addClass("hidden");
+			disconnect();
 		});
 		
-		/* $("#sendChat").click(function(){
-			var str = "";
-			if($("#chat").val() == "") {
-				alert("채팅할 내용을 입력해주세요.");
-				return;
-			} else {
-				$("#chat").val() == "";
- 			 	$.ajax({
-					url: "chatProc.jsp",
-					data: $("#chatForm").serialize(),
-					success: function(result) {
-						if(result) {
-							setInterval('reload()', 1000);
-						}
-					}
-				});  
-				//chatForm.submit();
-			} 
-		}); */
-		var webSocket = new WebSocket("ws://localhost:9000/sist_project_2/broadsocket");
-		//var messageTextArea = $("#chat_content").val();
+		$("#chat").keydown(function(key){
+			if (key.keyCode == 13) {
+				key.preventDefault();
+				$("#sendChat").click();
+				sendMessage();
+			}
+		});
 		
-		webSocket.onopen = function(msg) {
-			//messageTextArea.value += "Server connect...\n";
-			$("#chat_content").val("Server connect...\n");
-		};
-		
-		webSocket.onclose = function(msg) {
-			//messageTextArea.value += "Server Disconnect...\n";
-			$("#chat_content").val("Server Disconnect...\n");
-		};
-		
-		webSocket.onerror = function(msg) {
-			//messageTextArea.value += "error...\n";
-			$("#chat_content").val("error...\n");
-		};
-		
-		webSocket.onmessage = function(msg) {
-			//messageTextArea.value += msg.data + "\n";
-			$("#chat_content").val();
-		};
 	});//ready
-	
-	/* function reload() {
-		//$("#chat_content").load(document.URL + ' #chat_content');
-		$("#chat_content").load(window.location + ' #chat_content');
-	} */
-	
-	function sendMessage() {
-		var user = <%= mid%>;
-		//var message = $("#chat");
-		messageTextArea.value += user + "(me) : " + $("#chat").val() + "\n";
-	}
-	
 </script>
 </head>
 <body>
@@ -266,11 +218,6 @@
 			<div class="modal_overlay"></div>
 			<div class="modal_content">
 				<button id="closeBtn">x</button>
-				<%-- <div id="chat_content">
-					<% for(chatVO vo : clist) {%>
-					<span><%= vo.getMid() %> : <%= vo.getChatcontent() %> <%= vo.getChatdate() %></span>
-					<% } %> 
-				</div> --%>
 				<textarea id="chat_content"></textarea>
 				<form id="chatForm" name="chatForm" action="chatProc.jsp" method="get">
 					<input name="mid" type="hidden" value="<%=mid %>">
@@ -280,12 +227,71 @@
 			</div>
 		</div>
 	</div>
-
 <script type="text/javascript">
+	//var webSocket = new WebSocket("ws://localhost:9000/sist_project_2/broadsocket");
+	var messageTextArea = document.querySelector("#chat_content");
+	
+	function connectWebSocket(url, message, open, close, error) {
+		let webSocket = new WebSocket(url);
 		
-
+		function call(cb,msg) {
+			if (cb !== undefined && typeof cb === "function") {
+				cb.call(null, msg);
+			}
+		}
+		
+		webSocket.onopen = function() {
+			call(open);
+		};
+		
+		webSocket.onclose = function() {
+			call(close);
+		};
+		
+		webSocket.onerror = function() {
+			call(error);
+		};
+		
+		webSocket.onmessage = function(msg) {
+			call(message,msg);
+		};
 	
+		return webSocket;
+	}
 	
+	var open = function() {
+		//messageTextArea.value += "nibang 채팅에 오신 것을 환영합니다. \n";		
+	}
+	
+	var close = function() {
+		//messageTextArea.value += "nibang 채팅을 종료합니다. \n";
+		//messageTextArea.value = "";
+		setTimeout(function() {
+			webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, open, close, error);
+		});
+	}
+	
+	var error = function() {
+		messageTextArea.value += "nibang chatting error. \n";
+	}
+	
+	var message = function(msg) {
+		messageTextArea.value += msg.data + "\n";
+	}
+	
+	var webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, open, close, error);
+	
+	function sendMessage() {
+		var user = "<%= username%>";
+		var message = document.querySelector("#chat");
+		messageTextArea.value += user + "(me) : " + message.value + "\n";
+		webSocket.send("{{" + user + "}}" + message.value);
+		message.value = "";
+	}
+	
+	function disconnect() {
+		webSocket.close();
+	}
 </script>
 <script src="http://localhost:9000/sist_project_2/js/weather.js"></script>
 </body>
