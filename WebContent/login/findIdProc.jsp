@@ -5,16 +5,17 @@
  <jsp:setProperty property="*" name="vo"/>
  
  <%
- 	 /* request.setCharacterEncoding("utf-8"); */
+ 	
  	 nibangDAO dao = new nibangDAO();
  
  	 joinVO jvo= dao.findId(vo.getPh());
- 	 String msg="없는 번호입니다.";
+ 	/*  String msg="없는 번호입니다."; */
  	 
  	 if(jvo.getEmail() != null){	
  		  String name = URLEncoder.encode(jvo.getName(),"utf-8");	  	
- 		  response.sendRedirect("id_check.jsp?mid="+jvo.getEmail()+"&name="+jvo.getName()); 		 
+ 		  response.sendRedirect("id_check.jsp?mid="+jvo.getEmail()+"&name="+name); 		 
  	 }else{
+ 	     String msg = URLEncoder.encode("없는 번호입니다.","utf-8");	  
  		 response.sendRedirect("find_id.jsp?msg="+msg);
  	 }
  %>
