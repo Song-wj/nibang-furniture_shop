@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
 <%
 	String mid = request.getParameter("id");
+	String username = ""; 
+	if(mid != null) {
+		int idx = mid.indexOf("@");
+		username = mid.substring(0, idx);
+	}
+	
 
 	productDAO dao = new productDAO();
 	
@@ -140,7 +146,11 @@
 <script>
 	$(document).ready(function() {
 		$("#openChat").click(function(){
-			$(".modal").removeClass('hidden');
+			<% if(mid != null) { %>
+				$(".modal").removeClass('hidden');
+			<% } else { %>
+				alert("로그인 후 사용 가능합니다.");
+			<% } %>
 		});
 		$("#closeBtn").click(function(){
 			$(".modal").addClass("hidden");
@@ -277,13 +287,11 @@
 	var webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, open, close, error);
 	
 	function sendMessage() {
-		//int idx = mid.indexOf("@");
-		//String username = mid.substring(0, idx);
-		var user = "<%= mid%>";
-		var idx = user.indexOf("@");
-		var username = user.substring(0, idx);
+		var user = "<%= username%>";
+		//var idx = user.indexOf("@");
+		//var username = user.substring(0, idx);
 		var message = document.querySelector("#chat");
-		messageTextArea.value += username + "(me) : " + message.value + "\n";
+		messageTextArea.value += user + "(me) : " + message.value + "\n";
 		webSocket.send("{{" + user + "}}" + message.value);
 		message.value = "";
 	}
