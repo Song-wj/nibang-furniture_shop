@@ -19,35 +19,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/iloom_admin.css">
 <title>Insert title here</title>
 <style>
 div.list_body{
-	margin: 3% 13%;
+	margin-left:180px;
 }
-table{
+div.list_body table.ntable{
  	text-align:center;
-	width:840px;
+	width:900px;
 }
-table.notice_table tr th:nth-child(2){
-	padding-left:25px;
+table.ntable  td#a{
+	padding-left:0px; 
+	text-align:center;
 }
-.section1 aside.sideMenuBar2 ul>li:first-child>a {
-	font-size: 15px;
-	color: rgb(144, 144, 144);
-}
-table.notice_table tr img{
+table.ntable tr img{
 	width:50px;
 	height:50px;
 }
-table.notice_table button{
+table.ntable button{
 	font-size:10px;
 }
-table.notice_table tr th:nth-child(3){
+table.ntable tr th:nth-child(3){
 	width:200px;
 }
-table.notice_table tr th:nth-child(10),
-table.notice_table tr th:nth-child(11){
+table.ntable tr th:nth-child(10),
+table.ntable tr th:nth-child(11){
 	width:37px;
 }
 
@@ -59,7 +56,13 @@ table.notice_table tr th:nth-child(11){
 	<div class="content">
 	<div class="admin"><h1>상품관리</h1></div>
 	  <div class="list_body"style="height:500px; overflow:auto">
-		<table class="notice_table">
+		<table class="ntable">
+			<tr>
+				<td colspan="11">									
+						<input type="text" placeholder="상품번호/상품명">
+						<a href="notice_write.jsp"><button type="button">검색</button></a>										
+				</td>
+		   </tr>			
 			<tr>
 				<th>상품번호</th>
 				<th>상품명</th>
@@ -76,7 +79,7 @@ table.notice_table tr th:nth-child(11){
 			<% for ( productVO vo : list)  {%>
 			<tr>
 				<td><%= vo.getPid() %></td>
-				<td id="b"><%= vo.getPname() %></td>
+				<td id="a"><%= vo.getPname() %></td>
 				<td><%= vo.getPinfo() %></td>
 				<td><%= vo.getPkind() %></td>
 				<td><%= vo.getPprice() %></td>
