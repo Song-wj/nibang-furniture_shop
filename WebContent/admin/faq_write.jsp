@@ -31,6 +31,20 @@
 		});
 	});
 </script>
+<style>
+form ul{
+	margin-left:370px;
+	margin-top:50px
+}
+form ul li label {      
+      float:left;
+      margin-right:10px;
+   }
+form ul li{
+      margin-bottom:15px;
+      list-style:none;
+   }
+</style>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
@@ -58,7 +72,7 @@
 					<li>
 						<button type="button" id="faqWriter">등록</button>
 						<button type="reset" >취소</button> <a
-						href="notice_list.jsp">
+						href="faq_list.jsp">
 							<button type="button">목록으로</button>
 					</a>
 					</li>

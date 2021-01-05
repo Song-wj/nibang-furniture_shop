@@ -21,6 +21,8 @@
 <style>
 	.section1 table.notice_table{
 		width:500px;
+		margin-left:350px;
+		margin-top:50px;
 	}
 	.section1 table.notice_table tr:first-child td{
 		text-align:center;

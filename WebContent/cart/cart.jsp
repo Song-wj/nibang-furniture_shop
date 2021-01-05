@@ -5,7 +5,8 @@
 <%
    String mid = request.getParameter("id");
    String pid = request.getParameter("pid");
-     
+   System.out.println(mid);
+   
    productDAO pdao = new productDAO();
    nibangDAO ndao = new nibangDAO();
    cartDAO cdao = new cartDAO();
@@ -84,7 +85,7 @@ div.content {
 			}
 		}
 		console.log(pidList);
-		location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList;
+		location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList+"&id=<%=mid%>";
 	}
 	
 	
@@ -94,7 +95,7 @@ div.content {
 		$(".btn_delete").click(function() {
 			console.log("test22");
 			console.log(this.value);
-			location.href = 'http://localhost:9000/sist_project_2/cart/cartDeleteProc.jsp?pid='+this.value;
+			location.href = 'http://localhost:9000/sist_project_2/cart/cartDeleteProc.jsp?pid='+this.value+"&id=<%=mid%>";
 		});
 	}); 
 	

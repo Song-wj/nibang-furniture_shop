@@ -7,6 +7,7 @@
 
 
 <%
+	String mid = request.getParameter("id");
 	String pidListString = request.getParameter("pidList");
 	String[] pidList = pidListString.split(","); 
      
@@ -14,7 +15,7 @@
    boolean result = dao.cartCheckedDelete(pidList);
    
   if (result) {
-      response.sendRedirect("cart.jsp");
+      response.sendRedirect("cart.jsp?id="+mid);
    } else {
       response.sendRedirect("errorPage.jsp");
    } 

@@ -20,9 +20,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <style>
-	div.list_body{
-		margin: 3% 40%; 
+
+	table.notice_table{
+		width:500px;
+		margin-left:360px;;
+		margin-top:50px;
 	}
+	
 </style>
 </head>
 <body>

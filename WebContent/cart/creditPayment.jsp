@@ -3,6 +3,7 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
 <%
+	
 	String mid = request.getParameter("id");
 	String pid = request.getParameter("pid");
 	String cnt = request.getParameter("cnt");

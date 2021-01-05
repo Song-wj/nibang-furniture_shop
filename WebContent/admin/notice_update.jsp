@@ -23,6 +23,10 @@
 <script src="http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
 </head>
 <style>
+form ul{
+	margin-left:350px;
+	margin-top:50px;
+}
 form ul li label {
 	float: left;
 	margin-right: 10px;
@@ -35,8 +39,8 @@ form ul li {
 form span.nfileName{
 	display:inline-block;
 	width:230px;
-	margin-left:-177px;
-	font-size:13px;
+	margin-left:-207px;
+	font-size:15px;
 	background-color:white;
 }
 button#nu_btn{

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.io.*"%>
 <%
-	request.setCharacterEncoding("utf-8");
+	
 	String msg= request.getParameter("msg");
 
 
@@ -79,7 +79,7 @@ section.section1 form.find_id_form li:nth-child(2) input#ph3{
 						<li><label>번호 :&nbsp;</label><input type="text" name="ph1"  class="textfield" id="ph1"> &nbsp;-
 						<input type="text" name="ph2"  class="textfield" id="ph2">&nbsp; - <input type="text" name="ph3"  class="textfield" id="ph3">
 						<%if(msg!= null) {%>
-						<span id="msg" ><%= msg %></span>
+						<span id="msg"  style="font-size:13px;margin-left:10px;margin-top:10px;"><%= msg %></span>
 						<%} %>
 						</li>		
 						<li>
