@@ -3,8 +3,9 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
     %>
 <%
+	String pid = request.getParameter("pid");
 	orderDAO odao = new orderDAO();
-	orderVO vo = odao.getOrder();
+	orderVO vo = odao.getOrder(pid);
 %>
 <!DOCTYPE html>
 <html>

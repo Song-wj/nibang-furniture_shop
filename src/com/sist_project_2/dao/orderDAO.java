@@ -88,14 +88,15 @@ public class orderDAO extends DBConn{
 		return list;
 	}
 	
-	public orderVO getOrder() {
+	public orderVO getOrder(String pid) {
 		orderVO vo = new orderVO(); 
 		
 		try {
 			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total "
 					+ "from nibangmember m, nibangorder o, product p "
-					+ "where o.mid = m.mid and o.pid = p.pid";
+					+ "where o.mid = m.mid and o.pid = p.pid and o.pid=?";
 			getPreparedStatement(sql);
+			pstmt.setString(1, pid);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
