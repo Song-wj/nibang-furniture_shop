@@ -1,6 +1,7 @@
 package com.sist_project_2.dao;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.sist_project_2.vo.SessionVO;
 import com.sist_project_2.vo.joinVO;
@@ -61,6 +62,33 @@ public class nibangDAO extends DBConn {
 		return result;
 	}
 
+	public ArrayList<joinVO> getMember() {
+		ArrayList<joinVO> list = new ArrayList<>();
+		
+		try {
+			String sql = "select mid, name, birth, gender, hp, addrnum, addr, to_char(mdate,'yyyy/mm/dd') from nibangmember";
+			getPreparedStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				joinVO vo = new joinVO();
+				vo.setEmail(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setBirth(rs.getString(3));
+				vo.setGender(rs.getString(4));
+				vo.setPh(rs.getString(5));
+				vo.setAddr_num(rs.getString(6));
+				vo.setAddr(rs.getString(7));
+				vo.setMdate(rs.getString(8));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
 	/**
 	 * MemberUpdate : 회원정보 수정
 	 */

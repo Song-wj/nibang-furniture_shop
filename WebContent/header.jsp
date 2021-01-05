@@ -133,6 +133,8 @@
 					  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/adminPage.jsp">상품관리</a>
 	                  <div></div></li>
+	                  <li><a href="http://localhost:9000/sist_project_2/admin/member_list.jsp">회원관리</a>
+	                  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/product_insert.jsp">상품등록</a>
 	                  <div></div></li>
 	                  <li><a href="http://localhost:9000/sist_project_2/admin/notice_list.jsp">공지사항</a>

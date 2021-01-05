@@ -1,10 +1,18 @@
 package com.sist_project_2.vo;
 
 public class withdrawalVO {
-	String did, d_content, d_reason;
+	String did, d_content, d_reason, ddate;
 	String[] reason;
 	int rno;
 	
+	
+	
+	public String getDdate() {
+		return ddate;
+	}
+	public void setDdate(String ddate) {
+		this.ddate = ddate;
+	}
 	public String getDid() {
 		return did;
 	}
