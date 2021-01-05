@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="com.sist_project_2.vo.*"%>
 <%
-	String mid = request.getParameter("id");
-	String id = request.getParameter("id");
+	//String mid = request.getParameter("id");
+	//String id = request.getParameter("id");
 	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -87,12 +91,12 @@
 								<li class="li_logo"><img id="li_logo"
 									src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></li>
 								<li><a href="#" onclick="document.getElementById('mw_temp2').style.display='block'">모든제품</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=책상&id=<%=id%>">책상/식탁</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=침대&id=<%=id%>">침대</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=의자&id=<%=id%>">의자</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=소파&id=<%=id%>">소파</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=수납장&id=<%=id%>">수납장</a></li>
-								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=옷장&id=<%=id%>">옷장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=책상&id=<%=mid%>">책상/식탁</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=침대&id=<%=mid%>">침대</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=의자&id=<%=mid%>">의자</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=소파&id=<%=mid%>">소파</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=수납장&id=<%=mid%>">수납장</a></li>
+								<li><a href="http://localhost:9000/sist_project_2/category/category_list.jsp?type=옷장&id=<%=mid%>">옷장</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -149,7 +153,7 @@
 					<input type="text" name="se" id="search_text"> <button type="button" id="search_btn"><img
 						src="http://localhost:9000/sist_project_2/images/search.png"></button>
 				</div>
-				<a href="http://localhost:9000/sist_project_2/index.jsp?id=<%=mid%>"><img id="logo"
+				<a href="http://localhost:9000/sist_project_2/index.jsp"><img id="logo"
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
