@@ -3,14 +3,12 @@
 <%
 	String mid = request.getParameter("id");
 
-	int idx = mid.indexOf("@");
-	String username = mid.substring(0, idx);
-
+	//int idx = mid.indexOf("@");
+	//String username = mid.substring(0, idx);
+	
 	productDAO dao = new productDAO();
-	chatDAO cdao = new chatDAO();
 	
 	ArrayList<productVO> list = dao.getRecommandList();
-	ArrayList<chatVO> clist = cdao.getChat();
 	
 %>	
 
@@ -282,7 +280,7 @@
 	var webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, open, close, error);
 	
 	function sendMessage() {
-		var user = "<%= username%>";
+		var user = "<%= mid%>";
 		var message = document.querySelector("#chat");
 		messageTextArea.value += user + "(me) : " + message.value + "\n";
 		webSocket.send("{{" + user + "}}" + message.value);
