@@ -4,6 +4,7 @@
     %>
 <%
 	String pid = request.getParameter("pid");
+	//String oid = request.getParameter("oid");
 	orderDAO odao = new orderDAO();
 	orderVO vo = odao.getOrder(pid);
 %>
