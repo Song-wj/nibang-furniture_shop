@@ -79,7 +79,7 @@ div.content {
 					<tr class="mainProduct">
 						<td>
 							<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%=vo.getPid()%>&mid=<%=vo.getMid()%>">
-								<img class="product_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg()%>">
+								<img class="product_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg()%>" width='200px' height='200px'>
 							</a>
 						</td>
 						<td class="productInfo">
