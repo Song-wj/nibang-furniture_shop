@@ -40,8 +40,8 @@ public class chatDAO extends DBConn{
 			pstmt.setString(1, vo.getMid());
 			pstmt.setString(2, vo.getChatcontent());
 			pstmt.executeUpdate();
-			//int val = pstmt.executeUpdate();
-			//if(val != 0) result = true;
+			int val = pstmt.executeUpdate();
+			if(val != 0) result = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

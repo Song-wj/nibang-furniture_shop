@@ -87,6 +87,16 @@
 		overflow: hidden;
 	}
 	
+	#chat_content {
+		position: fixed;
+		bottom: 75px;
+		width: 316px;
+		height: 245px;	
+		resize:none;
+		border: none;
+		font-size: 14px;
+	}
+	
 	#sendChat {
 		all: unset;
 		font-size: 12px;
@@ -119,6 +129,23 @@
 		display: inline-block;
 	}
 	
+	#closeBtn {
+		all:unset;
+		color: #aaa;
+		font-size: 14px;
+		border: 1px solid #aaa;
+		border-radius: 5px;
+		padding: 0px 5px 3px 5px;
+		text-align: center;
+		position: fixed;
+		right: 15px;
+		bottom: 320px;
+	}
+	#closeBtn:hover {
+		color: #c80a1e;
+		border: 1px solid #c80a1e;
+	}
+	
 </style>
 <script>
 	$(document).ready(function() {
@@ -132,12 +159,13 @@
 			$(".modal").addClass("hidden");
 		});
 		
-		$("#sendChat").click(function(){
+		/* $("#sendChat").click(function(){
 			var str = "";
 			if($("#chat").val() == "") {
 				alert("채팅할 내용을 입력해주세요.");
 				return;
 			} else {
+				$("#chat").val() == "";
  			 	$.ajax({
 					url: "chatProc.jsp",
 					data: $("#chatForm").serialize(),
@@ -149,13 +177,40 @@
 				});  
 				//chatForm.submit();
 			} 
-		});
+		}); */
+		var webSocket = new WebSocket("ws://localhost:9000/sist_project_2/broadsocket");
+		//var messageTextArea = $("#chat_content").val();
 		
+		webSocket.onopen = function(msg) {
+			//messageTextArea.value += "Server connect...\n";
+			$("#chat_content").val("Server connect...\n");
+		};
+		
+		webSocket.onclose = function(msg) {
+			//messageTextArea.value += "Server Disconnect...\n";
+			$("#chat_content").val("Server Disconnect...\n");
+		};
+		
+		webSocket.onerror = function(msg) {
+			//messageTextArea.value += "error...\n";
+			$("#chat_content").val("error...\n");
+		};
+		
+		webSocket.onmessage = function(msg) {
+			//messageTextArea.value += msg.data + "\n";
+			$("#chat_content").val();
+		};
 	});//ready
 	
-	function reload() {
+	/* function reload() {
 		//$("#chat_content").load(document.URL + ' #chat_content');
 		$("#chat_content").load(window.location + ' #chat_content');
+	} */
+	
+	function sendMessage() {
+		var user = <%= mid%>;
+		//var message = $("#chat");
+		messageTextArea.value += user + "(me) : " + $("#chat").val() + "\n";
 	}
 	
 </script>
@@ -210,12 +265,13 @@
 		<div class="modal hidden">
 			<div class="modal_overlay"></div>
 			<div class="modal_content">
-				<!-- <button id="closeBtn">❌</button> -->
-				<div id="chat_content">
+				<button id="closeBtn">x</button>
+				<%-- <div id="chat_content">
 					<% for(chatVO vo : clist) {%>
 					<span><%= vo.getMid() %> : <%= vo.getChatcontent() %> <%= vo.getChatdate() %></span>
 					<% } %> 
-				</div>
+				</div> --%>
+				<textarea id="chat_content"></textarea>
 				<form id="chatForm" name="chatForm" action="chatProc.jsp" method="get">
 					<input name="mid" type="hidden" value="<%=mid %>">
 					<textarea id="chat" name="chatcontent"placeholder="내용을 입력해주세요"></textarea>					
@@ -225,6 +281,12 @@
 		</div>
 	</div>
 
+<script type="text/javascript">
+		
+
+	
+	
+</script>
 <script src="http://localhost:9000/sist_project_2/js/weather.js"></script>
 </body>
 </html>
