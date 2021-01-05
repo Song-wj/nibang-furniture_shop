@@ -8,14 +8,14 @@
 
 <%
    String pid = request.getParameter("pid");
-   
+   String mid = request.getParameter("id");
    //System.out.println(parseCnt);
    
    cartDAO dao = new cartDAO();
    boolean result = dao.cartDelete(pid);
    
    if (result) {
-      response.sendRedirect("cart.jsp");
+      response.sendRedirect("cart.jsp?id="+mid);
    } else {
       response.sendRedirect("errorPage.jsp");
    }
