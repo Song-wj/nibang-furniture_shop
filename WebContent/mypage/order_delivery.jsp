@@ -9,7 +9,7 @@
 		 mid = svo.getId();
 	}
 	orderDAO dao = new orderDAO();
-	ArrayList<orderVO> list = dao.getOrderList();
+	ArrayList<orderVO> list = dao.getOrderList(mid);
 %>
 <%if(svo != null) {%>
 <!DOCTYPE html>
