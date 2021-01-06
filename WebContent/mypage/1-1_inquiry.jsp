@@ -108,6 +108,27 @@
 			$("#"+sid+" div").slideUp('fast');
 		}   
 	} 
+	
+	function deleteReview(sid) {
+		var doDelete = confirm("정말로 삭제하시겠습니까?");
+			if(doDelete) {
+				$.ajax({
+					url : '1-1inquiryDeleteProc.jsp?sid='+sid,
+					success: function(result){
+						if(result) {
+							console.log("1-1Delete success");
+						} else {
+							console.log("fail!@");
+						}
+					}
+				 });
+				alert("삭제가 완료되었습니다.");
+				location.reload();
+				
+			} else {
+				alert("삭제를 취소했습니다.");
+			}
+		}
 </script>
 </head>
 <body>
