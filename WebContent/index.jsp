@@ -23,6 +23,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<!-- carousel -->
+	
 	<div class="carousel-slide">
 		<div id="carouselExampleControls" class="carousel slide"
 			data-ride="carousel">

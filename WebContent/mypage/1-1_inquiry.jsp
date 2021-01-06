@@ -3,8 +3,16 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.* "
     %>
 <%
-	String mid = request.getParameter("mid");  
+
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
+
 	messageDAO dao = new messageDAO();
+	messageAnswerDAO adao = new messageAnswerDAO();
+	
 
 	int listAll_cnt = dao.getListCountAll(mid);
 	int listProduct_cnt = dao.getListCountProduct(mid);
@@ -17,8 +25,10 @@
 	int listSite_cnt = dao.getListCountSite(mid);
 	
 	
+	
 	ArrayList<messageVO> list =  dao.getInquiryList(mid);
 %>
+<%if(svo != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -68,6 +78,7 @@
 		background-color:white;
 		padding:2px 0 0 2px;
 	}	
+	
 </style>
 <script>
 	function slideDown(sid) {
@@ -75,11 +86,23 @@
 		$('.contents div').each(function(){
 			if($(this).css('display') == 'block')
 				$(this).slideUp('fast');
+			
 		}); 
 		
 		if($("#"+sid+" div").css('display') == 'none') {
 			$("#"+sid+" div").css('display','block');
 			$("#"+sid+" div").slideDown('fast');
+			$.ajax({
+				url:"1-1answerProc.jsp?sid="+sid,
+				success:function(answer){
+					var output="<hr>";
+					output+= "<p style='text-align:left;padding-left:95px;'>"
+					output += answer;
+					output += "</p>"
+					$("#1-1answer").text("");
+					$("#1-1answer").append(output);
+				}
+			})
 		} else {
 			$("#"+sid+" div").css('display','none');
 			$("#"+sid+" div").slideUp('fast');
@@ -90,7 +113,7 @@
 <body>
 	<jsp:include page="../header.jsp" />
 	<div class="content">
-		<jsp:include page="../sideMenuBar.jsp"/>
+	<jsp:include page="../sideMenuBar.jsp"/>
 		<div>
 			<div class="right_content">
 				<div class="title">1:1문의</div>
@@ -184,7 +207,8 @@
 										<div style="display: none;" id="btn_inquiry_upde">
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:652px;">수정</button></a>
 	                           				<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a>
-					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>										
+					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
+					    					<p id="1-1answer"></p>								
 											<!-- <a href="#open"><button type="button" style="margin-left:650px;">수정</button></a> -->
 												<%-- <div class="white_content" id="open">
 													<div class="inquiry_content2"  id="inquiry_content2">
@@ -222,17 +246,15 @@
 																	<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
 																	<li>최대 5개 파일 업로드 가능</li>				
 																	<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getMid()%>"><button type="submit" style="color:white; text-decoration:none;">수정완료</button></a>
-																</ul> --%>
-														</form>
-													</div>        
-												</div>
+																</ul> --%>												    										
 											</div>
-										</div>
 									</td>
 					    		</tr>
                         		<% } %>
                         	<% }else{ %>
+                        		<tr>
 								<td colspan="4" style="color:#aaa;font-size:18px;padding-top:100px;">조회 결과가 없습니다.</td>
+								</tr>
 							<% } %>
 							</tbody>
 						</table>
@@ -244,3 +266,7 @@
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 
+

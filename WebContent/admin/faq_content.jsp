@@ -3,10 +3,16 @@
     import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*" 
     %>
 <%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
 	String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
 	faqVO vo = dao.getFAQContent(fid);
 %>
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +20,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
 <style>
-	div.list_body{
-		margin: 3% 40%; 
+
+	table.notice_table{
+		width:500px;
+		margin-left:360px;;
+		margin-top:50px;
 	}
+	
 </style>
 </head>
 <body>
@@ -55,3 +65,6 @@
 		</section>
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

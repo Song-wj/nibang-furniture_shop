@@ -3,11 +3,16 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.*"
     %>
 <%
-	String mid = request.getParameter("id");
 	String oid = request.getParameter("oid");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
 	orderDAO dao = new orderDAO();
 	ArrayList<orderVO> list = dao.getOrderList(mid);
 %>
+<%if(svo != null) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +30,14 @@
     }
 	
 </style>
+<script>
+				
+	function cancel(oid){
+		alert("정말 취소하시겠습니까?");
+		location.href="search_order_cancelProc.jsp?oid="+oid;
+	}
+	
+</script>
 </head>
 <body>
 	<jsp:include page="../header.jsp" />
@@ -84,14 +97,17 @@
 								<th>리뷰작성</th>
 							<tr>
 							<% for(orderVO vo : list) { %>
-									<tr>
-										<td><%= vo.getOid() %></td>
-										<td><%= vo.getPname()%></td>
-										<td><%= vo.getTotal() %></td>
-										<td><%= vo.getRdate()%></td>
-										<td><button type="button">취소</button></td>
-										<td><button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/myReview.jsp?oid=<%=vo.getOid()%>&id=<%=vo.getMid()%>'">리뷰</button></td>
-									</tr>
+
+								<tr>
+									<td><%= vo.getOid() %></td>
+									<td><%= vo.getPname()%></td>
+									<td><%= vo.getTotal() %></td>
+									<td><%= vo.getRdate()%></td>
+
+									<td><button type="button" onclick="cancel('<%=vo.getOid()%>')">취소</button></td>
+									<td><button type="button">리뷰</button></td>
+
+								</tr>
 							<% } %>
  						<% } %> 
 					</tbody>
@@ -101,3 +117,6 @@
 	<jsp:include page="../footer.jsp" />
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('로그인 후 사용가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

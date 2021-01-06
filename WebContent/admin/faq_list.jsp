@@ -3,18 +3,25 @@
 	import = "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"    
     %>
 <%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
+
 	faqDAO dao = new faqDAO();
 	ArrayList<faqVO> list = dao.getFAQList();
 %>
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
+<link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/iloom_admin.css">
 <style>
 	div.list_body{
-		margin: 3% 33%;
+		margin-left:350px;	
 	}
 </style>
 </head>
@@ -25,7 +32,14 @@
 				<div class="content">
 					<div class="admin"><h1>F A Q</h1></div>
 						<div class="list_body">
-							<table class="notice_table">
+							<table class="ntable">
+								<tr>
+									<td colspan="5">
+										<a href="http://localhost:9000/sist_project_2/admin/faq_write.jsp">
+											<button type="button">글쓰기</button>
+										</a>
+									</td>
+								</tr>							
 								<tr class="table_header">
 									<th>구분</th>
 									<th>제목</th>
@@ -40,13 +54,6 @@
 					    			<td><%= vo.getF_views() %></td>
 								</tr>
 								<% } %>							
-								<tr>
-									<td colspan="5">
-										<a href="http://localhost:9000/sist_project_2/admin/faq_write.jsp">
-											<button type="button">글쓰기</button>
-										</a>
-									</td>
-								</tr>
 							</table>
 						</div>
 					</div>
@@ -54,3 +61,6 @@
 		</section>
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 

@@ -13,10 +13,9 @@
 	boolean result = dao.withdrawal(mid);
 	
 	if(result) {
+		session.invalidate();
 		response.sendRedirect("../index.jsp");
 	} else {
 		response.sendRedirect("../errorPage.jsp");
-		System.out.println("Error! , " + mid);
-		
 	}
 %>

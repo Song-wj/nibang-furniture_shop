@@ -23,7 +23,7 @@
    boolean result = dao.insertCart(vo);
    
    if (result) {
-      response.sendRedirect("cart.jsp");
+      response.sendRedirect("cart.jsp?id="+mid);
    } else {
       response.sendRedirect("errorPage.jsp");
    }

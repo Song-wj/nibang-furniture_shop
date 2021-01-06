@@ -2,11 +2,17 @@
 	pageEncoding="UTF-8"
 	import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"%>
 <%
+	SessionVO svo = (SessionVO)session.getAttribute("svo");	
+	String name="";
+	if(svo != null){
+		name = svo.getName();
+	}
 	String fid = request.getParameter("fid");
 
 	faqDAO dao = new faqDAO();
 	faqVO vo = dao.getFAQContent(fid);
 %>
+<%if(name.equals("관리자")) {%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +22,10 @@
 	href="http://localhost:9000/sist_project_2/css/illum.css">
 </head>
 <style>
-
+form ul{
+	margin-left:360px;
+	margin-top:50px;
+}
 form ul li label {
 	float: left;
 	margin-right: 10px;
@@ -64,3 +73,6 @@ form ul li {
 
 </body>
 </html>
+<%}else {%>
+<%out.println("<script>alert('관리자만 접근 가능합니다.');</script>");
+out.println("<script>location.href='http://localhost:9000/sist_project_2/login/login.jsp'</script>"); }%> 
