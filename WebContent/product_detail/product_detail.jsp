@@ -446,7 +446,7 @@
 		</section>
 		<section class="section4_product_notice" id="section4_product_notice">
 			<div class="product_review_QnA" id="product_review_QnA">
-				<label>한줄 상품평</label>
+				<label>포토 상품평</label>
 				<label class="btnNselect">
 					<button type="button">리뷰등록</button>
 					<select name="product_review_sort" id="product_review_sort">
@@ -458,7 +458,7 @@
 				<hr>
 				<table class="1line_review" id="1line_review">
 					<tr>
-						<td>작성된 한줄 상품평이 없습니다.</td>
+						<td>작성된 상품평이 없습니다.</td>
 					</tr>
 				</table>
 				<hr>
