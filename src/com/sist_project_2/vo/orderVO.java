@@ -1,7 +1,7 @@
 package com.sist_project_2.vo;
 
 public class orderVO {
-	String oid, mid, pid, rname, raddrnum, raddr, raddr2, raddr3, rph, rph1, rph2, rph3, rrequest, order_chk, total, rdate;
+	String oid, mid, pid, rname, raddrnum, raddr, raddr2, raddr3, rph, rph1, rph2, rph3, rrequest, review_chk, total, rdate;
 	int pcnt;
 
 	String name, hp, simg, pname, pinfo, color, price;
@@ -188,12 +188,12 @@ public class orderVO {
 		this.rrequest = rrequest;
 	}
 
-	public String getOrder_chk() {
-		return order_chk;
+	public String getReview_chk() {
+		return review_chk;
 	}
 
-	public void setOrder_chk(String order_chk) {
-		this.order_chk = order_chk;
+	public void setReview_chk(String review_chk) {
+		this.review_chk = review_chk;
 	}
 
 	public int getPcnt() {

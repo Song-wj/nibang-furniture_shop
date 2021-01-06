@@ -31,11 +31,6 @@
 				return false;
 			}else{
 				inquiryform1.submit();
-				//$.ajax({
-					//url: "1-1inquiryProc.jsp",
-					//data: $("inquiryform1").serialize(),
-					
-				//});
 			}
 			
 		});

@@ -3,9 +3,10 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.*"
     %>
 <%
-	String mid = request.getParameter("mid");
+	String mid = request.getParameter("id");
+	String oid = request.getParameter("oid");
 	orderDAO dao = new orderDAO();
-	ArrayList<orderVO> list = dao.getOrderList();
+	ArrayList<orderVO> list = dao.getOrderList(mid);
 %>
 <!DOCTYPE html>
 <html>
@@ -83,14 +84,14 @@
 								<th>리뷰작성</th>
 							<tr>
 							<% for(orderVO vo : list) { %>
-								<tr>
-									<td><%= vo.getOid() %></td>
-									<td><%= vo.getPname()%></td>
-									<td><%= vo.getTotal() %></td>
-									<td><%= vo.getRdate()%></td>
-									<td><button type="button">취소</button></td>
-									<td><button type="button">리뷰</button></td>
-								</tr>
+									<tr>
+										<td><%= vo.getOid() %></td>
+										<td><%= vo.getPname()%></td>
+										<td><%= vo.getTotal() %></td>
+										<td><%= vo.getRdate()%></td>
+										<td><button type="button">취소</button></td>
+										<td><button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/myReview.jsp?oid=<%=vo.getOid()%>&id=<%=vo.getMid()%>'">리뷰</button></td>
+									</tr>
 							<% } %>
  						<% } %> 
 					</tbody>
