@@ -9,8 +9,8 @@
 	if(svo != null){
 		 mid = svo.getId();
 	}
-	 orderDAO dao = new orderDAO();
-	 ArrayList<orderVO> list = dao.getCancelList();
+	 /* orderDAO dao = new orderDAO();
+	 ArrayList<orderVO> list = dao.getCancelList(); */
   %>
   <%if(svo != null) {%>
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
 		</style>
 		<script>
 			$(document).ready(function(){
-				$("#duration_btn1").click(function(){
+				/* $("#duration_btn1").click(function(){
 					var str = "최근 1개월 내 취소내역이 없습니다.";
 					$("#order_table tr:eq(0) td:eq(0)").html(str);
 				});
@@ -47,7 +47,81 @@
 				$("#duration_btn4").click(function(){
 					var str = "취소내역이 없습니다.";
 					$("#order_table tr:eq(0) td:eq(0)").html(str);
-				});
+				}); */
+				
+				uploadTable(4);
+				
+				$("#duration_btn1").click(function(){
+					changeColor(1);
+					uploadTable(1);
+				})
+				$("#duration_btn2").click(function(){
+					changeColor(2);
+					uploadTable(2);
+					
+				})
+				$("#duration_btn3").click(function(){
+					changeColor(3);
+					uploadTable(3);
+					
+				})
+				$("#duration_btn4").click(function(){
+					changeColor(4);
+					uploadTable(0);
+				})
+				
+				
+				
+				
+				
+				function uploadTable(num){
+					$.ajax({
+						url:"search_order_cancelAjax.jsp?mid=<%=mid%>"+"&period="+num,
+						success:function(data){
+							
+							var jdata = JSON.parse(data);
+							var output="";
+							if(jdata.jlist.size == 0){
+								output+="취소내역이 없습니다.";
+							}else{
+							for(var i in jdata.jlist){
+								
+								output+="<tr class='all'>"
+								output+="<td>"+jdata.jlist[i].oid+"</td>";
+								output+="<td>"+jdata.jlist[i].name+"</td>";
+								output+="<td>"+jdata.jlist[i].price+"</td>";
+								output+="<td>"+jdata.jlist[i].date+"</td>";
+								output+="</tr>"							
+						   		
+							}
+							}
+							
+							
+							$("table.order_table tbody tr.all").remove();
+							$("table.order_table tr.otable_header").after(output);
+							
+							
+						}
+					
+						
+					})
+				}
+				
+		
+				function changeColor(num){
+					$("#duration_btn"+num).css("border","1px solid rgb(200, 10, 30)");
+					if(num ==1){
+						$("#duration_btn2,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+					}else if(num ==2){			
+						$("#duration_btn1,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+					}else if(num ==3){
+						$("#duration_btn1,#duration_btn2,#duration_btn4").css("border","1px solid lightgray");
+					}else if(num ==4){
+						$("#duration_btn1,#duration_btn2,#duration_btn3").css("border","1px solid lightgray");
+					}
+				}
+				
+				
 			});
 		</script>
 	</head>
@@ -68,32 +142,21 @@
 				<span>∙  &nbsp;매장에서 구매하신 제품의 경우, 쇼핑몰을 통한 주문 취소 신청이 불가하오니 매장으로 문의하시기 바랍니다.</span><br>
 			</div>
 			<div class="subtitle">취소 내역 조회</div>
-			<button type="button" id="duration_btn1">1개월</button>
-			<button type="button" id="duration_btn2">3개월</button>
-			<button type="button" id="duration_btn3">6개월</button>
+			<button type="button" id="duration_btn1">1일</button>
+			<button type="button" id="duration_btn2">2일</button>
+			<button type="button" id="duration_btn3">7일</button>
 			<button type="button" id="duration_btn4">전체</button>
 			<table class="order_table">
 					<tbody>
- 						<% if(list.size() == 0) {%>
-							<tr>
-								<td class="nolist">취소내역이 없습니다.</td>
-							</tr>
-						<% } else { %> 
-							<tr>
+ 						
+							<tr class="otable_header">
 								<th>주문번호</th>
 								<th>상품명</th>
 								<th>총 가격</th>
 								<th>취소날짜</th>
 							<tr>
-							<% for(orderVO vo : list) { %>
-								<tr>
-									<td><%= vo.getOid() %></td>
-									<td><%= vo.getPname()%></td>
-									<td><%= vo.getTotal() %></td>
-									<td><%= vo.getRdate()%></td>
-								</tr>
-							<% } %>
- 						<% } %> 
+							
+ 						
 					</tbody>
 				</table>
 		</div>

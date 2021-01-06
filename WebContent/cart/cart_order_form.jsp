@@ -311,7 +311,7 @@ div.content {
                   <input type="hidden" name="total" value="<%= parseTotal %>">
                   <input type="hidden" name="review_chk" value="x">
 
-                  <% } %>
+               <% } %>
                   <p class="delivery_info_title">배송지 정보</p>
                   <label>받는사람</label>
                   <input type="text" id="recipient" name="rname">

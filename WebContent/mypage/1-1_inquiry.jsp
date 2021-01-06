@@ -129,6 +129,87 @@
 				alert("삭제를 취소했습니다.");
 			}
 		}
+	
+<%-- $(document).ready(function(){
+		
+		uploadTable(4);
+		
+		$("#duration_btn1").click(function(){
+			changeColor(1);
+			uploadTable(1);
+		})
+		$("#duration_btn2").click(function(){
+			changeColor(2);
+			uploadTable(2);
+			
+		})
+		$("#duration_btn3").click(function(){
+			changeColor(3);
+			uploadTable(3);
+			
+		})
+		$("#duration_btn4").click(function(){
+			changeColor(4);
+			uploadTable(0);
+		})
+		
+	
+		function uploadTable(num){
+			$.ajax({
+				url:"1-1inquiry_ajax.jsp?mid=<%=mid%>"+"&period="+num,
+				success:function(data){
+					
+					var jdata = JSON.parse(data);
+					var output="";
+					if(jdata.jlist.size==0){
+						output+="<tr><td colspna='4'>";
+						output+="문의내역이 없습니다.";
+						output+="</td></tr>"
+					}else{
+					for(var i in jdata.jlist){
+						
+						output+="<tr class='abc' id='"+jdata.jlist[i].sid+"'>"
+						output+="<td>"+jdata.jlist[i].sid+"</td>";
+						output+="<td>"+jdata.jlist[i].div+"</td>";
+						output+="<td>"+jdata.jlist[i].title+"</td>";
+						output+="<td>"+jdata.jlist[i].date+"</td>";
+						output+="</tr>"
+						
+				   		
+					}
+					}
+					
+					
+				    $("table.inquiry_table tbody tr.abc").remove();
+					$("table.inquiry_table tr.noto").after(output); 
+					
+					$(".abc").click(function (){
+						var sid = $(".abc").attr("id");
+						slideDown(sid);
+					})
+					
+				}
+			
+				
+			})
+		}
+		
+
+		
+		function changeColor(num){
+			$("#duration_btn"+num).css("border","1px solid rgb(200, 10, 30)");
+			if(num ==1){
+				$("#duration_btn2,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==2){			
+				$("#duration_btn1,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==3){
+				$("#duration_btn1,#duration_btn2,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==4){
+				$("#duration_btn1,#duration_btn2,#duration_btn3").css("border","1px solid lightgray");
+			}
+		}
+		
+	}) --%>
 </script>
 </head>
 <body>
@@ -196,10 +277,10 @@
 				</div>
 				<div class="body1">
 					<div class="duration_btn" style="margin-top: 30px;">
-						<button type="button" class="duration_btn1">1개월</button>
-						<button type="button" class="duration_btn2">3개월</button>
-						<button type="button" class="duration_btn3">6개월</button>
-						<button type="button" class="duration_btn4">전체</button>
+						<button type="button" id="duration_btn1">1일</button>
+						<button type="button" id="duration_btn2">2일</button>
+						<button type="button" id="duration_btn3">7일</button>
+						<button type="button" id="duration_btn4">전체</button>
 					</div>
 					<p style="text-align:center; color: #aaaaaa;
 							 margin:40px;	font-size: 15px;">
@@ -207,7 +288,7 @@
 				</div>
 				<div class="body2" style="margin-bottom: 100px;">
 					<div>
-						<table  style="width:100%">
+						<table  style="width:100%" class="inquiry_table">
 							<tbody>
 								<tr class="noto" style="border:1px solid lightgray">
 									<td style="width:100px;">문의번호</td>
@@ -215,7 +296,7 @@
 									<td style="width:380px;">제목</td>
 									<td>문의날짜</td>
 								</tr>
-							<% if(listAll_cnt != 0){ %>
+							 <% if(listAll_cnt != 0){ %>
 								<% for(messageVO vo : list){ %>
 					    		<tr class="subject" onclick="slideDown('<%= vo.getSid() %>')">  
 					    			<td><%= vo.getSid() %></td>
@@ -226,11 +307,58 @@
 					    		<tr class="contents" id="<%=vo.getSid() %>">
 					    			<td colspan="4" id="faq_content">
 										<div style="display: none;" id="btn_inquiry_upde">
+<<<<<<< HEAD
+											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:652px;">수정</button></a>
+	                           				<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a>
+	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button>
+					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
+					    					<p id="1-1answer"></p>	 						
+											<!-- <a href="#open"><button type="button" style="margin-left:650px;">수정</button></a> -->
+												<%-- <div class="white_content" id="open">
+													<div class="inquiry_content2"  id="inquiry_content2">
+														<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
+														<h3>문의 수정</h3>
+														<form name="inquiryform1" action="1-1inquiryUpdateProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
+															<input type="hidden" name="sid" value="<%=vo.getSid()%>"> 
+																<ul>
+																	<li>
+																		<label>문의구분</label>
+																		<select name="m_div" id="m_div">
+															  				<option value="<%=vo.getM_div()%>"><%=vo.getM_div()%></option>
+															  				<option value="선택">선택</option>
+															  				<option value="상품문의">상품문의</option>
+															  				<option value="주문/결제/취소">주문/결제/취소</option>
+															  				<option value="배송">배송</option>
+															  				<option value="교환/반품">교환/반품</option>
+															  				<option value="회원정보">회원정보</option>
+															  				<option value="사이트이용">사이트이용</option>
+															  				<option value="이벤트/프로모션">이벤트/프로모션</option>
+															  				<option value="기타문의">기타문의</option>
+																		</select>
+																	</li>
+																	<li>제목</li>
+																	<li><input type="text" name="m_title" id="m_title" value="<%=vo.getM_title()%>"></li>
+																	<li>상세 내용</li>
+																	<li><textarea name="m_content" id="m_content"><%=vo.getM_content()%></textarea></li>
+																	<li>	
+																		<% if(vo.getM_file() != null){ %>
+																			<input type="file" name="m_file"><span id="fname"><%=vo.getM_file() %></span>
+																		<% }else{ %>
+																			<input type="file" name="m_file"><span id="fname">선택된 파일 없음</span>
+																		<% } %>
+																	</li>
+																	<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
+																	<li>최대 5개 파일 업로드 가능</li>				
+																	<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getMid()%>"><button type="submit" style="color:white; text-decoration:none;">수정완료</button></a>
+																</ul> --%>												    										
+											</div>
+=======
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:652px;">수정</button></a>
 	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button></a>
 					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
 					    					<p id="1-1answer"></p>								
 										</div>
+>>>>>>> 4234bfc258e258222c4bcf0cb7182a524e8475f4
 									</td>
 					    		</tr>
                         		<% } %>
@@ -238,7 +366,7 @@
                         		<tr>
 								<td colspan="4" style="color:#aaa;font-size:18px;padding-top:100px;">조회 결과가 없습니다.</td>
 								</tr>
-							<% } %>
+							<% } %> 
 							</tbody>
 						</table>
 					</div>

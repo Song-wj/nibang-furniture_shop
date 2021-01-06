@@ -448,7 +448,7 @@
 			<div class="product_review_QnA" id="product_review_QnA">
 				<label>포토 상품평</label>
 				<label class="btnNselect">
-					<button type="button">리뷰등록</button>
+					<a href=""><button type="button">리뷰등록</button></a>
 					<select name="product_review_sort" id="product_review_sort">
 						<option value="최근 리뷰순"> 최근 리뷰순</option>
 						<option value="평점 높은순"> 평점 높은순</option>
