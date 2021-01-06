@@ -6,9 +6,8 @@
 	if(mid != null) {
 		int idx = mid.indexOf("@");
 		username = mid.substring(0, idx);
-	}
+	} 
 	
-
 	productDAO dao = new productDAO();
 	
 	ArrayList<productVO> list = dao.getRecommandList();
@@ -300,7 +299,7 @@
 	function disconnect() {
 		webSocket.close();
 	}
-</script>
+</script> 
 <script src="http://localhost:9000/sist_project_2/js/weather.js"></script>
 </body>
 </html>

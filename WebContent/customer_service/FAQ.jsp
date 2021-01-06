@@ -65,7 +65,7 @@
 	 			});
 	 			
 	 			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
-	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?rpage=' + e.page);
+	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%=mid%>&rpage=' + e.page);
 	 				//location.href('이동페이지'); -> javascript
 	 			}); 
 	 			
@@ -152,7 +152,7 @@
 				<label>일룸 서비스에 대해 궁금한 사항을 FAQ로 신속하게 해결해보세요.</label>
 			</div>
 		    <div>
-		    	<form name="searchFAQList" action="searchFAQListProc.jsp" method="get" id="searchFAQList">
+		    	<form name="searchFAQList" action="#" method="get" id="searchFAQList">
 		    		<input type="text" name="faq_search" id="faq_search">
 			    	<button type="button" id="faq_searchBtn"><img src="http://localhost:9000/sist_project_2/images/search.png"></button><br>
 		    	</form>
