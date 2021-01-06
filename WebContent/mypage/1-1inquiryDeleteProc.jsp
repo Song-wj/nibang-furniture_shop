@@ -3,6 +3,7 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*"
     %>
 <%
+	String mid = request.getParameter("id");
 	String sid = request.getParameter("sid");
 	messageDAO dao = new messageDAO();
 	messageVO vo = new messageVO();

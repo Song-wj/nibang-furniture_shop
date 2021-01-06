@@ -1420,7 +1420,12 @@
     }
 	div.body1 {
 		padding: 40px 0 35px 0;
-	}	
+	}
+	tr.subject td{
+		padding: 15px 0;
+		border-bottom: 1px solid #aaa;
+	}
+		
 	tr.noto td{
 		border-top: 1px #aaa solid;
 	    border-bottom: 1px solid #f0f0f0;
@@ -1428,6 +1433,12 @@
 	    font-size: 13px;
 	    color: #aaa;
 	    text-align: center;
+	}
+	tr.contents button:focus {
+		outline:none;
+	}
+	tr.contents button:hover{
+		opacity:0.7;	
 	}
 
 /* 
@@ -1856,7 +1867,7 @@
 	div.content div.my_review table.review_table2 {
 		margin: 50px 0 200px 40px;
 		width: 670px;
-		height: 300px;
+		height: 150px;
 		border-bottom: 1px solid rgb(224, 224, 224);
 		border-top: 1px solid rgb(140, 140, 140);
 		color: rgb(170, 170, 170);

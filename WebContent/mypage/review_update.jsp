@@ -63,19 +63,37 @@
 	.review #btn_reviewUpdate:hover {
 		background-color: rgb(160, 14, 43);
 	}	
-	
-</style>
+	span#fname {
+		display:inline-block;
+		width:320px;
+		margin-left:-205px; 
+		font-size:15px;
+		background-color:white;
+		padding:2px 0 0 2px;
+	}
+</style>s
 </head>
 <script>
 	 $(document).ready(function(){
 		
-	$("#r_file").change(function(){
-		if(window.FileReader){
-			var fileName= $(this)[0].files[0].name;
-			$("#fname").text("").text(fileName);					
-		}
-	}); 
-	}); 
+		$("#r_file").change(function(){
+			if(window.FileReader){
+				var fileName= $(this)[0].files[0].name;
+				$("#fname").text("").text(fileName);					
+			}
+		}); 
+		
+		
+		$("#btn_reviewUpdate").click(function(){
+			 if($("#r_satis").val() == "선택"){
+					alert("만족도를 선택해주세요");
+					$("#r_satis").focus();
+					return false;
+				}else{
+					reviewform1.submit();
+				}
+			});
+	});
 </script>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -84,7 +102,7 @@
 		<div class ="content">
 		<jsp:include page="../sideMenuBar.jsp"/>
 		  	<div class ="review">
-				<h1>상품평</h1>
+				<h1>상품평 수정</h1>
 					<form id="reviewform1" name="reviewform1" action="reviewUpdateProc.jsp?id=<%=mid %>" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="rid" value="<%=rid%>"> 
 						<input type="hidden" name="mid" value="<%=mid%>"> 
@@ -96,7 +114,7 @@
 								<li><textarea name="r_content" id="r_content"><%=vo.getR_content()%></textarea></li>
 								<li>만족도
 									<select name="r_satis" id="r_satis" style="margin-left:30px;">
-										<option value="<%=vo.getR_satis()%>"><%=vo.getR_satis()%></option>
+										<option value="선택">선택<%-- <%=vo.getR_satis()%> --%></option>
 										<option value="1">👍</option>
 										<option value="2">👍👍</option>
 										<option value="3">👍👍👍</option>
@@ -106,11 +124,10 @@
 								</li>
 								<li>
 								<% if(vo.getR_file() != null){ %>
-									<%-- <input type="file" name="r_file" id="r_file"><span id="fname"><%=vo.getR_file() %></span>
-								<% }else{ %>
-									<input type="file" name="m_file" id="m_file"><span id="fname">선택된 파일 없음</span>
-								<% } %> --%>
-								<% } %> 
+                                    <input type="file" name="r_file" id="r_file"><span id="fname"><%=vo.getR_file() %></span>
+                        		<% }else{ %>
+                           			<input type="file" name="r_file" id="r_file"><span id="fname">선택된 파일 없음</span>
+                        		<% } %> 
 								</li>
 								<li>
 									<button type="submit" id="btn_reviewUpdate">수정 완료</button>

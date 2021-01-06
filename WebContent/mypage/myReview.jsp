@@ -79,7 +79,7 @@
 				 });
 			 }
 			 
-			function deleteReview(rid) {
+			/* function deleteReview(rid) {
 			var doDelete = confirm("정말로 삭제하시겠습니까?");
 				if(doDelete) {
 					$.ajax({
@@ -99,7 +99,7 @@
 				} else {
 					alert("삭제를 취소했습니다.");
 				}
-			}
+			} */
 			
 		</script>
 	</head>
@@ -154,7 +154,7 @@
                   <td>제목</td>
                   <td>내용</td>
                   <td>만족도</td>
-                  <td>수정/삭제</td>
+                  <td>수정</td>
                </tr>
             <% if( list.size() == 0){ %>
                <tr>
@@ -168,8 +168,8 @@
                   <td><%=vo.getR_title() %></td>
                   <td><%=vo.getR_content() %></td>
                   <td><% for(int i=0; i<Integer.parseInt(vo.getR_satis()); i++ ) { out.write(good+" "); }%></td> 
-                  <td colspan="2"><button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/review_update.jsp?rid=<%=vo.getRid()%>&id=<%=mid%>&oid=<%=vo.getOid()%>'">수정</button>
-                              &nbsp;<button type="button" onclick="deleteReview('<%=vo.getRid()%>')">삭제</button></td>
+                  <td><button type="button" onclick="location.href='http://localhost:9000/sist_project_2/mypage/review_update.jsp?rid=<%=vo.getRid()%>&id=<%=mid%>&oid=<%=vo.getOid()%>'">수정</button>
+                              <%-- &nbsp;<button type="button" onclick="deleteReview('<%=vo.getRid()%>')">삭제</button></td> --%>
                </tr>   
                <% } %>
             <% } %>
