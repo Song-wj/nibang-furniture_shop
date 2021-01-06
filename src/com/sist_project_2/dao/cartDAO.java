@@ -45,13 +45,13 @@ public class cartDAO extends DBConn{
            rs = pstmt.executeQuery();
            
            while(rs.next()) { 
-              cartVO vo = new cartVO();
+        	  cartVO vo = new cartVO();
               vo.setPname(rs.getString(1));
               vo.setPinfo(rs.getString(2));
-              vo.setPrice(rs.getInt(3));
+              vo.setPrice(rs.getString(3));
               vo.setColor(rs.getString(4));
               vo.setSimg1(rs.getString(5));
-              vo.setC_qty(rs.getInt(6));
+              vo.setC_qty(rs.getString(6));
               vo.setC_date(rs.getString(7));
               vo.setPid(rs.getString(8));
               list.add(vo);
@@ -112,28 +112,33 @@ public class cartDAO extends DBConn{
       /**
        * 업데이트
        */
-
-      
-        public boolean insertCart(cartVO vo) { boolean result = false;
-        
-        try {
-        
-        String sql = "MERGE INTO cart USING DUAL ON (pid = ?) " +
-        " WHEN MATCHED THEN " + " UPDATE SET " + " C_QTY = C_QTY + ? " +
-        " WHEN NOT MATCHED THEN " +
-        " INSERT (MID,PID,C_QTY,C_DATE) VALUES (?,?,?,sysdate)";
-        
-        getPreparedStatement(sql); pstmt.setString(1, vo.getPid()); pstmt.setInt(2,
-        vo.getC_qty()); pstmt.setString(3, vo.getMid()); pstmt.setString(4,
-        vo.getPid()); pstmt.setInt(5, vo.getC_qty());
-        
-        int val = pstmt.executeUpdate(); if (val != 0) result = true;
-        
-        } catch (Exception e) { e.printStackTrace(); }
-        
-        return result; }
-       
-      
+        public boolean insertCart(cartVO vo) { 
+           boolean result = false;
+           
+           try {
+           
+              String sql = "MERGE INTO cart USING DUAL ON (pid = ? and mid = ?) " +
+              " WHEN MATCHED THEN " + " UPDATE SET " + " C_QTY = C_QTY + ? " +
+              " WHEN NOT MATCHED THEN " +
+              " INSERT (MID,PID,C_QTY,C_DATE) VALUES (?,?,?,sysdate)";
+              
+              getPreparedStatement(sql); 
+              pstmt.setString(1, vo.getPid());
+              pstmt.setString(2, vo.getMid());
+              pstmt.setString(3,vo.getC_qty()); 
+              pstmt.setString(4, vo.getMid()); 
+              pstmt.setString(5,vo.getPid()); 
+              pstmt.setString(6, vo.getC_qty());
+              
+              int val = pstmt.executeUpdate(); 
+              if (val != 0) result = true;
+           
+           } catch (Exception e) { 
+              e.printStackTrace();
+           }
+           
+           return result; 
+        }
       
    
       

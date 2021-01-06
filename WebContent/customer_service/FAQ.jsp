@@ -71,7 +71,7 @@
 	 			
 	 			$("#faq_searchBtn").click(function(){
 	 				//alert($("#faq_search").val());
-	 				window.location.replace("FAQ_searchResult.jsp?searchContent="+$("#faq_search").val())
+	 				window.location.replace("FAQ_searchResult.jsp?id=<%=mid%>&searchContent="+$("#faq_search").val())
 	 			});
 	 		});
  		

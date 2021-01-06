@@ -8,7 +8,7 @@
 	faqDAO dao = new faqDAO();
 	int pageTotal = dao.getSearchCount(content);
 
-	//1. 선택한 페이지값
+	/* //1. 선택한 페이지값
 	String rpage= request.getParameter("rpage");
 	
 	//2-1. 페이지 값에 따라서 start, end count 구하기
@@ -36,7 +36,7 @@
 	}else{
 	   start = reqPage;
 	   end = pageSize;
-	} 
+	}  */
 	
 	ArrayList<faqVO> list = dao.searchResult(content);
 	//dao.nibangViews(fid);
@@ -52,7 +52,7 @@
 		<script src="http://localhost:9000/sist_project_2/js/am-pagination.js"></script> <!-- 제이쿼리 라이브러리 -->
 		<script>
 	 		$(document).ready(function(){
-	 			// 페이지 번호 및 링크
+	 			<%-- // 페이지 번호 및 링크
  	 			const pager = jQuery("#ampaginationsm").pagination({
 	 				maxSize : 5,
 	 				totals : <%=dbCount%>,
@@ -68,7 +68,7 @@
 	 			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
 	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ_searchResult.jsp?id=<%=mid%>&rpage=' + e.page);
 	 				//location.href('이동페이지'); -> javascript
-	 			}); 
+	 			});  --%>
 	 			
 	 			$("#faq_searchBtn").click(function(){
 	 				//alert($("#faq_search").val());
@@ -166,14 +166,14 @@
 		    <div>
 		       <table border="1">
 		       		<tr>
-		       			<td onClick="location.href='FAQ_hits.jsp'">자주 묻는 질문</td>
-				    	<td onClick="location.href='FAQ_product.jsp'">상품</td>
-				    	<td onClick="location.href='FAQ_order.jsp'">주문/결제/취소</td>
-				    	<td onClick="location.href='FAQ_delivery.jsp'">배송/시공</td>
-				    	<td onClick="location.href='FAQ_exchange.jsp'">교환/반품</td>
-				    	<td onClick="location.href='FAQ_as.jsp'">A/S</td>
-				    	<td onClick="location.href='FAQ_member.jsp'">회원정보</td>
-				    	<td onClick="location.href='FAQ_site.jsp'">사이트이용</td>
+		       			<td onClick="location.href='FAQ_hits.jsp?id=<%= mid%>'">자주 묻는 질문</td>
+				    	<td onClick="location.href='FAQ_product.jsp?id=<%= mid%>'">상품</td>
+				    	<td onClick="location.href='FAQ_order.jsp?id=<%= mid%>'">주문/결제/취소</td>
+				    	<td onClick="location.href='FAQ_delivery.jsp?id=<%= mid%>'">배송/시공</td>
+				    	<td onClick="location.href='FAQ_exchange.jsp?id=<%= mid%>'">교환/반품</td>
+				    	<td onClick="location.href='FAQ_as.jsp?id=<%= mid%>'">A/S</td>
+				    	<td onClick="location.href='FAQ_member.jsp?id=<%= mid%>'">회원정보</td>
+				    	<td onClick="location.href='FAQ_site.jsp?id=<%= mid%>'">사이트이용</td>
 		       		</tr>
 		       </table>	    	
 		    </div>

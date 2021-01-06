@@ -15,7 +15,7 @@
    ArrayList<cartVO> cartList = cdao.getCart(mid);
   int totalcount = 0;
    for(int i = 0; i < cartList.size(); i++){
-      totalcount += (cartList.get(i).getPrice() * cartList.get(i).getC_qty());
+      totalcount += (Integer.parseInt(cartList.get(i).getPrice()) * Integer.parseInt(cartList.get(i).getC_qty()));
    } 
    String parseTotal = formatter.format(totalcount);
    
@@ -173,9 +173,9 @@ div.content {
                         <span><%= vo.getColor() %></span>
                      </span>
                   </td>
-                  <td class="mainPrice"><%=formatter.format(vo.getPrice()) %>원</td>
+                  <td class="mainPrice"><%=formatter.format(Integer.parseInt(vo.getPrice())) %>원</td>
                   <td class="mainQty"><%= vo.getC_qty() %></td>
-                  <td class="groupPrice"><%= formatter.format(vo.getPrice() * vo.getC_qty()) %>원</td>
+                  <td class="groupPrice"><%= formatter.format(Integer.parseInt(vo.getPrice()) * Integer.parseInt(vo.getC_qty())) %>원</td>
                   <td>
                      <button type="button" class="btn_delete" value=<%= vo.getPid()%>>삭제하기</button>
                   </td>
