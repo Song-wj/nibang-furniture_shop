@@ -221,7 +221,7 @@ public class productDAO extends DBConn{
 	public ArrayList<productVO> getRecommandList(){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {
-			String sql ="select simg1,pinfo,to_char(price, '9,999,999') from( select * from product order by DBMS_RANDOM.RANDOM) where rownum < 7";
+			String sql ="select simg1,pinfo,to_char(price, '9,999,999'), pid from( select * from product order by DBMS_RANDOM.RANDOM) where rownum < 7";
 			getStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -229,6 +229,7 @@ public class productDAO extends DBConn{
 				vo.setSimg1(rs.getString(1));
 				vo.setPinfo(rs.getString(2));
 				vo.setPprice(rs.getString(3));
+				vo.setPid(rs.getString(4));
 				list.add(vo);
 			}
 		} catch (Exception e) {

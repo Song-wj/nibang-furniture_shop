@@ -32,7 +32,7 @@
 					<img src="http://localhost:9000/sist_project_2/images/1.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>1 of 6</h5>
+						<h6>1 of 6</h6>
 
 					</div>
 				</div>
@@ -40,35 +40,35 @@
 					<img src="http://localhost:9000/sist_project_2/images/2.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>2 of 6</h5>
+						<h6>2 of 6</h6>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/3.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>3 of 6</h5>
+						<h6>3 of 6</h6>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/4.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>4 of 6</h5>
+						<h6>4 of 6</h6>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/5.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>5 of 6</h5>
+						<h6>5 of 6</h6>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/6.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h5>6 of 6</h5>
+						<h6>6 of 6</h6>
 					</div>
 				</div>
 			</div>
@@ -91,7 +91,8 @@
 			<div class="recommand">
 				<%for(productVO vo : list) {%>
 				<div>
-					<img class="recommand_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1()%>"><br>
+					<img class="recommand_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg1()%>"
+					onclick="location.href='http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%=vo.getPid()%>'"><br>
 					<label class="title"><%= vo.getPinfo() %></label><br>
 					<label class="price"><%= vo.getPprice() %></label>
 				</div>
