@@ -6,7 +6,7 @@
 <head >
     <meta charset="utf-8">
     <title>키워드로 장소검색하고 목록으로 표출하기</title>
-    <script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
+    <script src = "http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7ce94d4dd9c22ccad809655bc3ab74f&libraries=services"></script>
 	<script>
 	

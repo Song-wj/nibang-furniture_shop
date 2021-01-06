@@ -51,7 +51,6 @@ function mout(pid,simg1){
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
 					<a href="#" style="color:rgb(200,100,30)">인기순</a>
-					<a href="#">신상품순</a>
 					<a href="search_list_price.jsp?keyword=<%= keyword %>&count=<%= count%>">가격순</a>
 					<a href="#">상품평순</a>
 				</div>
@@ -88,7 +87,6 @@ function mout(pid,simg1){
 					<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 					<div class="category_sort">
 					<a href="#" style="color:rgb(200,100,30)">인기순</a>
-					<a href="#">신상품순</a>
 					<a href="#">가격순</a>
 					<a href="#">상품평순</a>
 					</div>

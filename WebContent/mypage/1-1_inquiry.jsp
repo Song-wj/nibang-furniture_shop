@@ -170,7 +170,7 @@
 								<td style="width:53px">
 									<span class="cNum"><%=listDelivery_cnt %></span>
 								</td>
-								<td class="">교환/반품/환불</td>
+								<td class="">교환/반품</td>
 								<td style="width:53px">
 									<span class="cNum"><%=listExchange_cnt %></span>
 								</td>
