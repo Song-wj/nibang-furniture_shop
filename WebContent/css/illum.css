@@ -137,7 +137,7 @@
 	header div.icons img {
 		width: 20px;
 		height: 20px;
-		margin-top: 8px;
+		margin-top: 5px;
 	}	
 	header div.icons button{
 		background-color: white;
@@ -177,10 +177,19 @@
 	header div nav.second>ul>li {
 		display: inline;
 		font-size: 12px;
-	}	
+	}
+	header div nav.second>ul>li:first-child {
+		color: rgb(87,88,83);
+		font-weight: bold;
+	}
 	header div nav.second ul li a {
 		text-decoration: none;
-		color: black;
+		color: rgb(87,88,83);
+		font-weight: bold;
+	}	
+	header div nav.second ul li a:hover {
+		color: #c80a1e; 
+		opacity: 0.8;
 	}	
 	header div nav.second ul {
 		float: right;
@@ -296,19 +305,22 @@
 		display: inline-block;
 		width: 200px;
 		height: 200px;
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_3.png')
+		color: #aaa;
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_3.png');
 	}	
 	.section4 .effect2 {
 		display: inline-block;
 		width: 200px;
 		height: 200px;
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_4.png')
+		color: #aaa;
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_4.png');
 	}	
 	.section4 .effect3 {
 		display: inline-block;
 		width: 200px;
 		height: 200px;
-		background: url('http://localhost:9000/sist_project_2/images/quick_menu_2.png')
+		color: #aaa;
+		background: url('http://localhost:9000/sist_project_2/images/quick_menu_2.png');
 	}
 	.section4 .effect1 span:nth-child(2),
 	.section4 .effect2 span:nth-child(2),
@@ -331,9 +343,9 @@
 		color:rgb(200,10,30);
 		text-decoration:none;
 	}	
-	div.carousel-slide h5 {
-		color: black;
-		text-align:right;
+	div.carousel-slide h6 {
+		color: white;
+		text-align:left;
 	}	
 	.white_content4:target {
 		opacity:1;

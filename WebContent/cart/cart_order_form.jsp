@@ -36,7 +36,7 @@
    }
    int totalPrice = 0;
    for(int i = 0; i < displayedCartList.size(); i++){
-      totalPrice += (displayedCartList.get(i).getPrice() * displayedCartList.get(i).getC_qty());
+      totalPrice += (Integer.parseInt(displayedCartList.get(i).getPrice()) * Integer.parseInt(displayedCartList.get(i).getC_qty()));
    } 
    String parseTotal = formatter.format(totalPrice);
 
@@ -265,9 +265,9 @@ div.content {
                         <span><%= vo.getColor() %></span>
                      </span>
                   </td>
-                  <td class="mainPrice"><%= formatter.format(vo.getPrice()) %>원</td>
+                  <td class="mainPrice"><%= formatter.format(Integer.parseInt(vo.getPrice())) %>원</td>
                   <td class="mainQty"><%= vo.getC_qty() %></td>
-                  <td class="groupPrice"><%=formatter.format( vo.getPrice() * vo.getC_qty()) %>원</td>
+                  <td class="groupPrice"><%=formatter.format( Integer.parseInt(vo.getPrice()) * Integer.parseInt(vo.getC_qty())) %>원</td>
                   <td>-</td>
                </tr>
                <% } %>
@@ -310,6 +310,7 @@ div.content {
                   <input type="hidden" name="pcnt" value="<%= vo.getC_qty()%>">
                   <input type="hidden" name="total" value="<%= parseTotal %>">
                   <input type="hidden" name="order_chk" value="x">
+
                   <% } %>
                   <p class="delivery_info_title">배송지 정보</p>
                   <label>받는사람</label>
@@ -362,6 +363,7 @@ div.content {
                <div class="h80"></div>
             
                <button type="button" id="btn_pay">결제하기</button>
+               
             </form>
          </div>
       </section>
