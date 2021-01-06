@@ -69,7 +69,6 @@
 								<li class="li_logo"><img id="li_logo"
 									src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></li>
 								<li><a href="#" onclick="document.getElementById('mw_temp2').style.display='block'">모든제품</a></li>
-								<li><a href="#">신제품</a></li>
 								<li><a href="http://localhost:9000/sist_project_2/event/event_main.jsp">이벤트</a></li>
 							</ul>
 						</nav>
@@ -110,7 +109,7 @@
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
-						<li><a href="http://localhost:9000/sist_project_2/mypage/order_delivery.jsp?id=<%=svo.getId() %>"><b><%= svo.getName()%></b> 님의 니방</a>
+						<li><%= svo.getName()%> 님의 니방
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">로그아웃</a>
 						<div></div></li>

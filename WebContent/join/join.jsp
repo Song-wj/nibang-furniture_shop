@@ -299,7 +299,7 @@
 						<li><input type="text" name="ph1" placeholder="전화번호" id="ph1">
 							<input type="text" name="ph2" id="ph2"> 
 							<input type="text" name="ph3" id="ph3">
-							<div ><a href="#" id=pchk>중복확인</a></div></li>
+							
 						<li><input type="text" name="addr_num" placeholder="우편번호" id="addr1">
 							<button type="button" class="btn_style" onClick="goPopup();" >찾기</button> <br>
 						<br> <input type="text" name="addr2" placeholder="도로명주소"	class="a" id="addr2">
