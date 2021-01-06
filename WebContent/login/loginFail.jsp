@@ -52,9 +52,9 @@ div.login_msg{
 		<section class="section1" id="section1_login">
 			<div class="login">
 				<h3>로그인</h3>
-				<form name="loginForm" action="loginProc.jsp" method="get" class="loginform">
+				<form name="loginForm" action="loginProc.jsp?mid=<%=mid %>" method="get" class="loginform">
 					<ul>
-						<li><input type="text" name="id" placeholder="아이디(이메일)" class="textfield" id="id" value="<%= mid%>">
+						<li><input type="text" name="email" placeholder="아이디(이메일)" class="textfield" id="id" value="<%= mid%>">
 						</li>
 						<li><input type="password" name="pass" placeholder="비밀번호" class="textfield" id="pass">
 						<div class="login_msg" >일룸ID 혹은 비밀번호를 잘못 입력하셨거나 등록되지 않은 일룸ID 입니다. </div>

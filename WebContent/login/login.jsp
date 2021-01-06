@@ -14,19 +14,27 @@
 <script>
 	$(document).ready(function(){
 		$("button#btn_login").click(function(){
-			//id, pass 유효성 체크(validation check)
-			if($("#id").val() == ""){
-				alert("아이디를 입력해주세요.");
-				$("#id").focus();
-				return false;
-			}else if($("#pass").val() == ""){
-				alert("비밀번호를 입력해주세요.");
-				$("#pass").focus();
-				return false;
-			}else {
-				loginForm.submit();
-			}
-		});
+			 loginCheck();
+		});	
+		$("#pass").keypress(function(e) {		 
+             if (e.keyCode == 13) {       
+            	 loginCheck();
+               }
+		});    
+         function loginCheck(){
+        	 if($("#id").val() == ""){
+ 				alert("아이디를 입력해주세요.");
+ 				$("#id").focus();
+ 				return false;
+ 			}else if($("#pass").val() == ""){
+ 				alert("비밀번호를 입력해주세요.");
+ 				$("#pass").focus();
+ 				return false;
+ 			}else {
+ 				loginForm.submit();
+ 			}
+         }
+         
 	});
 </script>
 <style>
