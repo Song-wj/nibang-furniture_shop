@@ -45,7 +45,7 @@ public class cartDAO extends DBConn{
            rs = pstmt.executeQuery();
            
            while(rs.next()) { 
-              cartVO vo = new cartVO();
+        	  cartVO vo = new cartVO();
               vo.setPname(rs.getString(1));
               vo.setPinfo(rs.getString(2));
               vo.setPrice(rs.getString(3));
@@ -130,7 +130,8 @@ public class cartDAO extends DBConn{
               pstmt.setString(5,vo.getPid()); 
               pstmt.setString(6, vo.getC_qty());
               
-              int val = pstmt.executeUpdate(); if (val != 0) result = true;
+              int val = pstmt.executeUpdate(); 
+              if (val != 0) result = true;
            
            } catch (Exception e) { 
               e.printStackTrace();
