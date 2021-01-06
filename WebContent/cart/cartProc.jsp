@@ -12,11 +12,11 @@
    String pid = request.getParameter("pid");
    
    	
-   int parseCnt = Integer.parseInt(cnt);
+  /*  int parseCnt = Integer.parseInt(cnt); */
    
    vo.setMid(mid);
    vo.setPid(pid);
-   vo.setC_qty(parseCnt);
+   vo.setC_qty(cnt);
    //System.out.println(parseCnt);
    
    cartDAO dao = new cartDAO();
