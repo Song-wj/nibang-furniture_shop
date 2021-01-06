@@ -14,6 +14,28 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	$(document).ready(function(){	
+		$("#btn_review").click(function(){
+			if($("#r_title").val() == ""){
+				alert("제목을 입력해주세요");
+				$("#r_title").focus();
+				return false;
+			} else if($("#r_content").val() == ""){
+				alert("내용을 입력해주세요");
+				$("#r_content").focus();
+				return false;
+			}else if($("#r_satis").val() == "선택"){
+				alert("만족도를 선택해주세요");
+				$("#r_satis").focus();
+				return false;
+			}else{
+				reviewform1.submit();
+			}
+		});
+	});
+
+</script>
 <title>상품평 작성</title>
 <style>
 	div.content {

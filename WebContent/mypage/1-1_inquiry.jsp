@@ -95,7 +95,7 @@
 			$.ajax({
 				url:"1-1answerProc.jsp?sid="+sid,
 				success:function(answer){
-					var output="<hr>";
+					var output="";
 					output+= "<p style='text-align:left;padding-left:95px;'>"
 					output += answer;
 					output += "</p>"
@@ -247,7 +247,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="">배송/시공</td>
+								<td class="">배송</td>
 								<td style="width:53px">
 									<span class="cNum"><%=listDelivery_cnt %></span>
 								</td>
@@ -291,9 +291,9 @@
 						<table  style="width:100%" class="inquiry_table">
 							<tbody>
 								<tr class="noto" style="border:1px solid lightgray">
-									<td>문의번호</td>
-									<td style="width:150px;">구분</td>
-									<td style="width:400px;">제목</td>
+									<td style="width:100px;">문의번호</td>
+									<td style="width:180px;">구분</td>
+									<td style="width:380px;">제목</td>
 									<td>문의날짜</td>
 								</tr>
 							 <% if(listAll_cnt != 0){ %>
@@ -307,6 +307,7 @@
 					    		<tr class="contents" id="<%=vo.getSid() %>">
 					    			<td colspan="4" id="faq_content">
 										<div style="display: none;" id="btn_inquiry_upde">
+<<<<<<< HEAD
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:652px;">수정</button></a>
 	                           				<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a>
 	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button>
@@ -351,6 +352,13 @@
 																	<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getMid()%>"><button type="submit" style="color:white; text-decoration:none;">수정완료</button></a>
 																</ul> --%>												    										
 											</div>
+=======
+											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:652px;">수정</button></a>
+	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button></a>
+					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
+					    					<p id="1-1answer"></p>								
+										</div>
+>>>>>>> 4234bfc258e258222c4bcf0cb7182a524e8475f4
 									</td>
 					    		</tr>
                         		<% } %>

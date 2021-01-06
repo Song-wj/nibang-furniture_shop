@@ -46,14 +46,7 @@
 		 padding-top:10%;
 		 margin-bottom:100px;
 	}		 	
-	span#fname {
-		display:inline-block;
-		width:320px;
-		margin-left:-180px; 
-		font-size:12px;
-		background-color:white;
-		padding:2px 0 0 2px;
-	}	
+
 </style>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
@@ -73,7 +66,7 @@
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
 							<form id="inquiryform1" name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
-								<input type="text" name="mid" value="<%=mid%>"> 
+								<input type="hidden" name="mid" value="<%=mid%>"> 
 								<ul>
 									<li>
 										<label>문의구분</label>
@@ -93,16 +86,8 @@
 									<li><input type="text" name="m_title" id="m_title"></li>
 									<li>상세 내용</li>
 									<li><textarea name="m_content" id="m_content"></textarea></li>
-									<li>	
-										<input type="file" name="m_file" id="m_file">
-										<%-- <% if(vo.getM_file() != null){ %>
-											<input type="file" name="m_file"><span id="fname"><%=vo.getM_file() %></span>
-										<% }else{ %>
-											<input type="file" name="m_file"><span id="fname">선택된 파일 없음</span>
-										<% } %> --%>
-									</li>
+									<li><input type="file" name="m_file" id="m_file"></li>
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
-									<li>최대 5개 파일 업로드 가능</li>				
 								</ul>
 									<button type="submit" id="btn_1-1inquiry">신청하기</button>
 							</form>

@@ -108,7 +108,7 @@ public class messageDAO extends DBConn {
 		messageVO vo = new messageVO();
 		
 		try {
-			String sql = "select sid, m_div, m_title, m_content, m_file, m_sfile from message where sid=?";
+			String sql = "select sid, m_div, m_title, m_content, m_file, m_sfile, mid from message where sid=?";
 			
 			  getPreparedStatement(sql);
 			  pstmt.setString(1,sid);
@@ -121,6 +121,7 @@ public class messageDAO extends DBConn {
 				  vo.setM_content(rs.getString(4));
 				  vo.setM_file(rs.getString(5));
 				  vo.setM_sfile(rs.getString(6));
+				  vo.setMid(rs.getString(7));
 			  }
 		} catch (Exception e) {
 			e.printStackTrace();
