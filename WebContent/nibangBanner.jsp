@@ -140,6 +140,9 @@
 		color: #c80a1e;
 		border: 1px solid #c80a1e;
 	}
+	#a:focus{
+		outline:none;
+	}
 	
 </style>
 <script>
@@ -168,6 +171,25 @@
 			}
 		});
 		
+		$("#a").click(function(){
+				if($("#m_div").val() == "선택"){
+					alert("문의 구분을 선택해주세요");
+					$("#m_div").focus();
+					return false;
+				}else if($("#m_title").val() == ""){
+					alert("제목을 입력해주세요");
+					$("#m_title").focus();
+					return false;
+				}else if($("#m_content").val() == ""){
+					alert("내용을 입력해주세요");
+					$("#m_content").focus();
+					return false;
+				}else{
+					inquiryform1.submit();
+				}
+				
+			});
+		
 	});//ready
 	
 </script>
@@ -186,11 +208,12 @@
 			<div class="inquiry_content1"  id="inquiry_content1">
 					<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 						<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="#" method="get" class="inquiryform1">
+							<form name="inquiryform1" action="http://localhost:9000/sist_project_2/customer_service/1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
+								<input type="hidden" name="mid" value="<%=mid%>"> 
 								<ul>
 									<li>
 										<label>문의구분</label>
-										<select name="inquiry_kinds" id="inquiry_kinds">
+										<select name="m_div" id="m_div">
 							  				<option value="선택">선택</option>
 							  				<option value="상품문의">상품문의</option>
 							  				<option value="주문/결제/취소">주문/결제/취소</option>
@@ -203,16 +226,13 @@
 										</select>
 									</li>
 									<li>제목</li>
-									<li><input type="text" name="ititle"></li>
+									<li><input type="text" name="m_title" id="m_title"></li>
 									<li>상세 내용</li>
-									<li><textarea name="icontent"></textarea></li>
-									<li>	
-										<input type="file" name="ifile">
-									</li>
+									<li><textarea name="m_content" id="m_content"></textarea></li>
+									<li><input type="file" name="m_file" id="m_file"></li>
 									<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
-									<li>최대 5개 파일 업로드 가능</li>				
 								</ul>
-									<button type="button" id="a">신청하기</button>
+									<button type="submit" id="a">신청하기</button>
 							</form>
 						</div>        
 					</div>

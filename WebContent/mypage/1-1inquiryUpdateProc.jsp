@@ -6,7 +6,7 @@
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>    
 
 <%		
-		String mid = request.getParameter("mid");
+		String mid = request.getParameter("id");
     	String save_path = request.getServletContext().getRealPath("/upload"); 
     	
 		int max_size = 1024*1024*100;
@@ -28,6 +28,7 @@
     		vo.setM_content(multi.getParameter("m_content"));
     		vo.setM_file(multi.getOriginalFileName("m_file"));
     		vo.setM_sfile(multi.getFilesystemName("m_file"));
+    		vo.setMid(multi.getParameter("id"));
     		
     		//DB연동 --> 새로운 파일 있는 경우
     		result = dao.getUpdate(vo);
@@ -36,6 +37,7 @@
     		vo.setM_div(multi.getParameter("m_div"));
     		vo.setM_title(multi.getParameter("m_title"));
     		vo.setM_content(multi.getParameter("m_content"));
+    		vo.setMid(multi.getParameter("id"));
     		
     		//DB연동 ---> 새로운 파일 없음 : 기존 파일 유지!!
     		System.out.println("-----------> 파일선택 X, 기존 파일 유지");
@@ -43,7 +45,7 @@
     	}		
     	
     	if(result){
-    		response.sendRedirect("1-1_inquiry.jsp?id="+mid);
+    		response.sendRedirect("1-1_inquiry.jsp");
     	}else{
     		System.out.println("error");
     	}

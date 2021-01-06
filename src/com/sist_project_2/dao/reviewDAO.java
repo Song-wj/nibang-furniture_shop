@@ -113,7 +113,7 @@ public class reviewDAO extends DBConn{
 	  
 		  try { 
 			  String sql ="update nibangreview set r_title=?, r_content=? , r_satis=? " +
-					  		"r_file=?, r_sfile=? where rid=?";
+					  		" r_file=?, r_sfile=? where rid=?";
 			  
 			  	  getPreparedStatement(sql);
 				  pstmt.setString(1, vo.getR_title());
@@ -159,24 +159,7 @@ public class reviewDAO extends DBConn{
 		
 	  
 	  
-	  /**∏Æ∫‰ ªË¡¶**/
-		public boolean getDelete(String rid) {
-			boolean result = false;
-			
-			try {
-				String sql = "delete from nibangreview where rid=?";
-				getPreparedStatement(sql);
-				pstmt.setString(1, rid);
-				int val = pstmt.executeUpdate();
-				if(val != 0) result = true;
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			return result;
-		}
-	
+
 	
 	
 }
