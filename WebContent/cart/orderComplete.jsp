@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*"
+    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*,  java.text.DecimalFormat"
     %>
 <%
 	String pid = request.getParameter("pid");
+	DecimalFormat formatter = new DecimalFormat("###,###");
 	//String oid = request.getParameter("oid");
 	orderDAO odao = new orderDAO();
 	orderVO vo = odao.getOrder(pid);
@@ -98,7 +99,7 @@ div.content {
 								<span><%=vo.getColor() %></span>
 							</span>
 						</td>
-						<td class="mainPrice"><%=vo.getPrice() %></td>
+						<td class="mainPrice"><%=formatter.format(Integer.parseInt(vo.getPrice())) %></td>
 						<td class="mainQty"><%=vo.getPcnt() %></td>
 						<td class="groupPrice"><%=vo.getTotal() %></td>
 						<td>-</td>

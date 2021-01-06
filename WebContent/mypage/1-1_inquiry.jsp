@@ -307,58 +307,11 @@
 					    		<tr class="contents" id="<%=vo.getSid() %>">
 					    			<td colspan="4" id="faq_content">
 										<div style="display: none;" id="btn_inquiry_upde">
-<<<<<<< HEAD
-											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:652px;">수정</button></a>
-	                           				<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a>
-	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button>
-					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
-					    					<p id="1-1answer"></p>	 						
-											<!-- <a href="#open"><button type="button" style="margin-left:650px;">수정</button></a> -->
-												<%-- <div class="white_content" id="open">
-													<div class="inquiry_content2"  id="inquiry_content2">
-														<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-														<h3>문의 수정</h3>
-														<form name="inquiryform1" action="1-1inquiryUpdateProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
-															<input type="hidden" name="sid" value="<%=vo.getSid()%>"> 
-																<ul>
-																	<li>
-																		<label>문의구분</label>
-																		<select name="m_div" id="m_div">
-															  				<option value="<%=vo.getM_div()%>"><%=vo.getM_div()%></option>
-															  				<option value="선택">선택</option>
-															  				<option value="상품문의">상품문의</option>
-															  				<option value="주문/결제/취소">주문/결제/취소</option>
-															  				<option value="배송">배송</option>
-															  				<option value="교환/반품">교환/반품</option>
-															  				<option value="회원정보">회원정보</option>
-															  				<option value="사이트이용">사이트이용</option>
-															  				<option value="이벤트/프로모션">이벤트/프로모션</option>
-															  				<option value="기타문의">기타문의</option>
-																		</select>
-																	</li>
-																	<li>제목</li>
-																	<li><input type="text" name="m_title" id="m_title" value="<%=vo.getM_title()%>"></li>
-																	<li>상세 내용</li>
-																	<li><textarea name="m_content" id="m_content"><%=vo.getM_content()%></textarea></li>
-																	<li>	
-																		<% if(vo.getM_file() != null){ %>
-																			<input type="file" name="m_file"><span id="fname"><%=vo.getM_file() %></span>
-																		<% }else{ %>
-																			<input type="file" name="m_file"><span id="fname">선택된 파일 없음</span>
-																		<% } %>
-																	</li>
-																	<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
-																	<li>최대 5개 파일 업로드 가능</li>				
-																	<a href="http://localhost:9000/sist_project_2/mypage/1-1inquiryUpdateProc.jsp?id=<%=vo.getMid()%>"><button type="submit" style="color:white; text-decoration:none;">수정완료</button></a>
-																</ul> --%>												    										
-											</div>
-=======
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:652px;">수정</button></a>
-	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button></a>
+	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button>
 					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
 					    					<p id="1-1answer"></p>								
 										</div>
->>>>>>> 4234bfc258e258222c4bcf0cb7182a524e8475f4
 									</td>
 					    		</tr>
                         		<% } %>
