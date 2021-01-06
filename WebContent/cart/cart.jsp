@@ -14,7 +14,7 @@
    ArrayList<cartVO> cartList = cdao.getCart(mid);
   int totalcount = 0;
    for(int i = 0; i < cartList.size(); i++){
-      totalcount += (cartList.get(i  ).getPrice() * cartList.get(i).getC_qty());
+      totalcount += (cartList.get(i).getPrice() * cartList.get(i).getC_qty());
    } 
    
 %>
@@ -44,62 +44,82 @@ div.content {
 
 </style>
 <script>
-	/**
-	장바구니 전체 선택
-	*/
-	function allCheck() {
-		var all = document.getElementById("all"); //true, false 값 가져오기 체크 되었는지
-		var chkList = document.getElementsByName("chk"); //배열
-		if (all.checked) {
-			for ( var i in chkList) { //확장 포문
-				chkList[i].checked = true;
-			}
-		} else {
-			for ( var i in chkList) {
-				chkList[i].checked = false;
-			}
-		}
-	}
-	
-	/**
-	 체크박스 유효성 체크
-	 */
-	function valCheck() {
-		var chkList = document.getElementsByName("chk");
-		var count = 0;
-		for ( var i in chkList) {
-			if (chkList[i].checked)
-				count++;
-		}
+   /**
+   장바구니 전체 선택
+   */
+   function allCheck() {
+      var all = document.getElementById("all"); //true, false 값 가져오기 체크 되었는지
+      var chkList = document.getElementsByName("chk"); //배열
+      if (all.checked) {
+         for ( var i in chkList) { //확장 포문
+            chkList[i].checked = true;
+         }
+      } else {
+         for ( var i in chkList) {
+            chkList[i].checked = false;
+         }
+      }
+   }
+   
+   /**
+    체크박스 유효성 체크
+    */
+   function valCheck() {
+      var chkList = document.getElementsByName("chk");
+      var count = 0;
+      for ( var i in chkList) {
+         if (chkList[i].checked)
+            count++;
+      }
 
-		return count;
-	}//valCheck
-	
-	
-	function deleteCheckedProduct() {
-		var chkList = document.getElementsByName("chk");
-		var pidList = [];
-		for ( var i in chkList) {
-			if ((chkList[i].checked)  && (chkList[i].value != null)){
-				pidList.push(chkList[i].value);
-			}
-		}
-		console.log(pidList);
-		location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList+"&id=<%=mid%>";
-	}
-	
-	
-	
-	 $(document).ready(function(){
-	
-		$(".btn_delete").click(function() {
-			console.log("test22");
-			console.log(this.value);
-			location.href = 'http://localhost:9000/sist_project_2/cart/cartDeleteProc.jsp?pid='+this.value+"&id=<%=mid%>";
-		});
-	}); 
-	
-	
+      return count;
+   }//valCheck
+   
+   /**
+      주문하기
+   */
+   function exec_order(){
+      if(valCheck() == 0){
+         alert("상품을 한 개 이상 선택하셔야 주문이 가능합니다.");
+         return false;
+      }else {
+         var pidList = getChecktedProduct();
+         console.log(pidList);
+         location.href = 'http://localhost:9000/sist_project_2/cart/cart_order_form.jsp?pidList='+pidList+"&id=<%=mid%>"+"&type=selected";
+      }
+   }
+   
+   function getChecktedProduct() {
+      var chkList = document.getElementsByName("chk");
+      var pidList = [];
+      for ( var i in chkList) {
+         if ((chkList[i].checked)  && (chkList[i].value != null)){
+            pidList.push(chkList[i].value);
+         }
+      }
+      return pidList;
+   }
+   
+   function deleteCheckedProduct() {
+      var pidList = getChecktedProduct();
+      location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList+"&id=<%=mid%>";
+   }
+   
+   
+   
+    $(document).ready(function(){
+   
+      $(".btn_delete").click(function() {
+         location.href = 'http://localhost:9000/sist_project_2/cart/cartDeleteProc.jsp?pid='+this.value+"&id=<%=mid%>";
+      });
+      
+      $("#all_oreder").click(function() {
+            location.href = 'http://localhost:9000/sist_project_2/cart/cart_order_form.jsp?pid='+this.value+"&id=<%=mid%>"+"&type=all";
+      });
+   
+    });//ready 
+   
+   
 </script>
 </head>
 <body>
@@ -118,7 +138,7 @@ div.content {
             <table class="order_product">
                <tr>
                   <th class="w10">
-                  	 <input type="checkbox" id="all" onchange="allCheck()">
+                      <input type="checkbox" id="all" onchange="allCheck()">
                   </th>   
                   <th colspan="2">상품정보</th>      
                   <th class="w130">단가</th>      
@@ -129,7 +149,7 @@ div.content {
                <% for (cartVO vo : cartList) {%>
                <tr class="mainProduct">
                   <td class="w10_checkBox">
-                  	 <input type="checkbox" name="chk" value=<%= vo.getPid() %>>
+                      <input type="checkbox" name="chk" value=<%= vo.getPid() %>>
                   </td>
                   <td>
                      <a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?=<%= pid%>">
@@ -168,7 +188,7 @@ div.content {
                </span>   
             </div>
             <div id="cart_btn">
-               <button type="button" id="select_order">선택상품 주문</button>
+               <button type="button" id="select_order" onClick='exec_order()'>선택상품 주문</button>
                <button type="button" id="all_oreder">전체상품 주문</button>
             </div>
             </form>
