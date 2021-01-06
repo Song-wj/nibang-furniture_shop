@@ -129,6 +129,87 @@
 				alert("삭제를 취소했습니다.");
 			}
 		}
+	
+<%-- $(document).ready(function(){
+		
+		uploadTable(4);
+		
+		$("#duration_btn1").click(function(){
+			changeColor(1);
+			uploadTable(1);
+		})
+		$("#duration_btn2").click(function(){
+			changeColor(2);
+			uploadTable(2);
+			
+		})
+		$("#duration_btn3").click(function(){
+			changeColor(3);
+			uploadTable(3);
+			
+		})
+		$("#duration_btn4").click(function(){
+			changeColor(4);
+			uploadTable(0);
+		})
+		
+	
+		function uploadTable(num){
+			$.ajax({
+				url:"1-1inquiry_ajax.jsp?mid=<%=mid%>"+"&period="+num,
+				success:function(data){
+					
+					var jdata = JSON.parse(data);
+					var output="";
+					if(jdata.jlist.size==0){
+						output+="<tr><td colspna='4'>";
+						output+="문의내역이 없습니다.";
+						output+="</td></tr>"
+					}else{
+					for(var i in jdata.jlist){
+						
+						output+="<tr class='abc' id='"+jdata.jlist[i].sid+"'>"
+						output+="<td>"+jdata.jlist[i].sid+"</td>";
+						output+="<td>"+jdata.jlist[i].div+"</td>";
+						output+="<td>"+jdata.jlist[i].title+"</td>";
+						output+="<td>"+jdata.jlist[i].date+"</td>";
+						output+="</tr>"
+						
+				   		
+					}
+					}
+					
+					
+				    $("table.inquiry_table tbody tr.abc").remove();
+					$("table.inquiry_table tr.noto").after(output); 
+					
+					$(".abc").click(function (){
+						var sid = $(".abc").attr("id");
+						slideDown(sid);
+					})
+					
+				}
+			
+				
+			})
+		}
+		
+
+		
+		function changeColor(num){
+			$("#duration_btn"+num).css("border","1px solid rgb(200, 10, 30)");
+			if(num ==1){
+				$("#duration_btn2,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==2){			
+				$("#duration_btn1,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==3){
+				$("#duration_btn1,#duration_btn2,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==4){
+				$("#duration_btn1,#duration_btn2,#duration_btn3").css("border","1px solid lightgray");
+			}
+		}
+		
+	}) --%>
 </script>
 </head>
 <body>
@@ -196,10 +277,10 @@
 				</div>
 				<div class="body1">
 					<div class="duration_btn" style="margin-top: 30px;">
-						<button type="button" class="duration_btn1">1개월</button>
-						<button type="button" class="duration_btn2">3개월</button>
-						<button type="button" class="duration_btn3">6개월</button>
-						<button type="button" class="duration_btn4">전체</button>
+						<button type="button" id="duration_btn1">1일</button>
+						<button type="button" id="duration_btn2">2일</button>
+						<button type="button" id="duration_btn3">7일</button>
+						<button type="button" id="duration_btn4">전체</button>
 					</div>
 					<p style="text-align:center; color: #aaaaaa;
 							 margin:40px;	font-size: 15px;">
@@ -207,7 +288,7 @@
 				</div>
 				<div class="body2" style="margin-bottom: 100px;">
 					<div>
-						<table  style="width:100%">
+						<table  style="width:100%" class="inquiry_table">
 							<tbody>
 								<tr class="noto" style="border:1px solid lightgray">
 									<td>문의번호</td>
@@ -215,7 +296,7 @@
 									<td style="width:400px;">제목</td>
 									<td>문의날짜</td>
 								</tr>
-							<% if(listAll_cnt != 0){ %>
+							 <% if(listAll_cnt != 0){ %>
 								<% for(messageVO vo : list){ %>
 					    		<tr class="subject" onclick="slideDown('<%= vo.getSid() %>')">  
 					    			<td><%= vo.getSid() %></td>
@@ -227,10 +308,10 @@
 					    			<td colspan="4" id="faq_content">
 										<div style="display: none;" id="btn_inquiry_upde">
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:652px;">수정</button></a>
-	                           				<%-- <a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a> --%>
-	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button></a>
+	                           				<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a>
+	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button>
 					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
-					    					<p id="1-1answer"></p>								
+					    					<p id="1-1answer"></p>	 						
 											<!-- <a href="#open"><button type="button" style="margin-left:650px;">수정</button></a> -->
 												<%-- <div class="white_content" id="open">
 													<div class="inquiry_content2"  id="inquiry_content2">
@@ -277,7 +358,7 @@
                         		<tr>
 								<td colspan="4" style="color:#aaa;font-size:18px;padding-top:100px;">조회 결과가 없습니다.</td>
 								</tr>
-							<% } %>
+							<% } %> 
 							</tbody>
 						</table>
 					</div>

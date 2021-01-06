@@ -9,8 +9,8 @@
 	if(svo != null){
 		 mid = svo.getId();
 	}
-	orderDAO dao = new orderDAO();
-	ArrayList<orderVO> list = dao.getOrderList(mid);
+	/* orderDAO dao = new orderDAO();
+	ArrayList<orderVO> list = dao.getOrderList(mid); */
 %>
 <%if(svo != null) {%>
 <!DOCTYPE html>
@@ -32,11 +32,90 @@
 </style>
 <script>
 				
-	function cancel(oid){
-		alert("정말 취소하시겠습니까?");
-		location.href="search_order_cancelProc.jsp?oid="+oid;
-	}
 	
+	$(document).ready(function(){
+		
+		uploadTable(4);
+		
+		$("#duration_btn1").click(function(){
+			changeColor(1);
+			uploadTable(1);
+		})
+		$("#duration_btn2").click(function(){
+			changeColor(2);
+			uploadTable(2);
+			
+		})
+		$("#duration_btn3").click(function(){
+			changeColor(3);
+			uploadTable(3);
+			
+		})
+		$("#duration_btn4").click(function(){
+			changeColor(4);
+			uploadTable(0);
+		})
+		
+		function cancel(oid){
+			
+			alert("정말 취소하시겠습니까?");
+			location.href="search_order_cancelProc.jsp?oid="+oid; 
+		}
+		
+	
+		function uploadTable(num){
+			$.ajax({
+				url:"order_deliveryAjax.jsp?mid=<%=mid%>"+"&period="+num,
+				success:function(data){
+					
+					var jdata = JSON.parse(data);
+					var output="";
+					if(jdata.jlist.size == 0){
+						output+="취소내역이 없습니다.";
+					}else{
+					for(var i in jdata.jlist){
+						
+						output+="<tr class='all'>"
+						output+="<td>"+jdata.jlist[i].oid+"</td>";
+						output+="<td>"+jdata.jlist[i].name+"</td>";
+						output+="<td>"+jdata.jlist[i].price+"</td>";
+						output+="<td>"+jdata.jlist[i].date+"</td>";
+						output+="<td><button type='button' id='"+jdata.jlist[i].oid+"' class='cancel'>취소</button></td>";
+						output+="</tr>"
+						
+				   		
+					}
+					}
+					
+					
+					$("table.order_table tbody tr.all").remove();
+					$("table.order_table tr.otable_header").after(output);
+					
+					$("button.cancel").click(function(){
+						   var oid = $(this).attr("id");
+						   cancel(oid);
+						});
+				}
+			
+				
+			})
+		}
+		
+
+		function changeColor(num){
+			$("#duration_btn"+num).css("border","1px solid rgb(200, 10, 30)");
+			if(num ==1){
+				$("#duration_btn2,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==2){			
+				$("#duration_btn1,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==3){
+				$("#duration_btn1,#duration_btn2,#duration_btn4").css("border","1px solid lightgray");
+			}else if(num ==4){
+				$("#duration_btn1,#duration_btn2,#duration_btn3").css("border","1px solid lightgray");
+			}
+		}
+		
+	})
 </script>
 </head>
 <body>
@@ -73,40 +152,30 @@
 						</ul>
 				</div>
 				<div class="duration_btn">
-					<button type="button" class="duration_btn1">1개월</button>
-					<button type="button" class="duration_btn2">3개월</button>
-					<button type="button" class="duration_btn3">6개월</button>
-					<button type="button" class="duration_btn4">전체</button>
+					<button type="button" id="duration_btn1">1일</button>
+					<button type="button" id="duration_btn2">2일</button>
+					<button type="button" id="duration_btn3">7일</button>
+					<button type="button" id="duration_btn4">전체</button>
 				</div>
 				<div style="margin:40px; text-align:center;">
 						<span style="color:#aaa; font-size: 16px; ">최대 3년 이내 주문내역만 조회하실 수 있습니다.</span>
 				</div>
 				<table class="order_table">
 					<tbody>
- 						<% if(list.size() == 0) {%>
+ 						<%-- <% if(list.size() == 0) {%>
 							<tr>
 								<td class="nolist">주문내역이 없습니다.</td>
 							</tr>
-						<% } else { %> 
-							<tr>
+						<% } else { %>  --%>
+							<tr class="otable_header">
 								<th>주문번호</th>
 								<th>상품명</th>
 								<th>총 가격</th>
 								<th>주문날짜</th>
 								<th>주문취소</th>
 							<tr>
-							<% for(orderVO vo : list) { %>
-
-								<tr>
-									<td><%= vo.getOid() %></td>
-									<td><%= vo.getPname()%></td>
-									<td><%= vo.getTotal() %></td>
-									<td><%= vo.getRdate()%></td>
-									<td><button type="button" onclick="cancel('<%=vo.getOid()%>')">취소</button></td>
-
-								</tr>
-							<% } %>
- 						<% } %> 
+							
+ 						<%-- <% } %>  --%>
 					</tbody>
 				</table>
 			</div>  

@@ -67,6 +67,42 @@ public class messageDAO extends DBConn {
 		return list;
 	}
 	
+	public ArrayList<messageVO> getInquiryList(int period ,String mid) {
+		ArrayList<messageVO> list = new ArrayList<messageVO>();
+
+		try {
+			String str="";
+			if(period ==0) {
+				str = "order by m_date desc";
+			}else {
+				str = "and m_date>=sysdate-"+period+" order by m_date desc";
+			}
+			String sql = " select sid, m_div, m_title, m_content, m_file,"
+					+ " to_char(m_date,'yyyy.mm.dd') from (select * from message order by m_date desc)"
+					+ " where mid=?"+str;
+
+			getPreparedStatement(sql);
+			pstmt.setString(1, mid);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				messageVO vo = new messageVO();
+				vo.setSid(rs.getString(1));
+				vo.setM_div(rs.getString(2));
+				vo.setM_title(rs.getString(3));
+				vo.setM_content(rs.getString(4));
+				vo.setM_file(rs.getString(5));
+				vo.setM_date(rs.getString(6));
+
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return list;
+	}
+	
 	/** 1:1문의 수정시 내용 가져오기**/
 	public messageVO getContent(String sid) {
 		messageVO vo = new messageVO();
