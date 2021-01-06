@@ -29,46 +29,39 @@
 			data-ride="carousel">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="http://localhost:9000/sist_project_2/images/1.jpg"
-						class="d-block w-100" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h6>1 of 6</h6>
-
-					</div>
-				</div>
-				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/2.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h6>2 of 6</h6>
+						<h6>1 of 5</h6>
+
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/3.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h6>3 of 6</h6>
+						<h6>2 of 5</h6>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/4.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h6>4 of 6</h6>
+						<h6>3 of 5</h6>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/5.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h6>5 of 6</h6>
+						<h6>4 of 5</h6>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<img src="http://localhost:9000/sist_project_2/images/6.jpg"
 						class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
-						<h6>6 of 6</h6>
+						<h6>5 of 5</h6>
 					</div>
 				</div>
 			</div>
@@ -104,13 +97,13 @@
 	<section class="section3">
 		<div>
 			<div class="simple">
-				<a href=""><img src="images/a.jpg" class="simple_img"></a>
+				<a href="http://localhost:9000/sist_project_2/event/event_main.jsp"><img src="images/a.jpg" class="simple_img"></a>
 			</div>
 			<div class="simple">
 				<a href=""><img src="images/b.jpg" class="simple_img"></a>
 			</div>
 			<div class="simple">
-				<a href=""><img src="images/c.jpg" class="simple_img"></a>
+				<a href="http://localhost:9000/sist_project_2/event/event1.jsp"><img src="images/c.jpg" class="simple_img"></a>
 			</div>
 		</div>
 	</section>

@@ -177,10 +177,19 @@
 	header div nav.second>ul>li {
 		display: inline;
 		font-size: 12px;
-	}	
+	}
+	header div nav.second>ul>li:first-child {
+		color: rgb(87,88,83);
+		font-weight: bold;
+	}
 	header div nav.second ul li a {
 		text-decoration: none;
-		color: black;
+		color: rgb(87,88,83);
+		font-weight: bold;
+	}	
+	header div nav.second ul li a:hover {
+		color: #c80a1e; 
+		opacity: 0.8;
 	}	
 	header div nav.second ul {
 		float: right;
