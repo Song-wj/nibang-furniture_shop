@@ -27,4 +27,5 @@
    } else {
       response.sendRedirect("errorPage.jsp");
    }
+   out.write(String.valueOf(result));
 %>

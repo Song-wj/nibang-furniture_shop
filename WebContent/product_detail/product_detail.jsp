@@ -182,8 +182,22 @@
 				return;
 			} else {
 				<%if(mid !="") {%>
-				alert("장바구니 페이지로 이동합니다.");
-				location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+					var info = confirm("장바구니 페이지로 이동할까요?");
+					if(info) {
+						alert("장바구니 페이지로 이동합니다.");
+						location.href='http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt;
+					} else {
+						$.ajax({
+							url : 'http://localhost:9000/sist_project_2/cart/cartProc.jsp?pid=<%= vo.getPid()%>&id=<%=mid%>&cnt='+cnt,
+							success : function(result) {
+								if(result) {
+									alert("장바구니에 상품이 등록되었습니다.");
+								} else {
+									alert("장바구니에 상품이 등록되지 않았습니다.")
+								}
+							}
+						});
+					}
 				<%}else {%>
 				alert("로그인 해주세요!");
 				<%}%>

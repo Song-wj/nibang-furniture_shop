@@ -127,7 +127,7 @@
 									style="padding-bottom: 20px; padding-left: 80px;">
 									
 									<span style="padding-left: 80px;">
-										<a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?mid=<%=mid%>#open"><button type="button" class="inquiry_btn">1:1문의하기</button></a>
+										<a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%=mid%>#open"><button type="button" class="inquiry_btn">1:1문의하기</button></a>
 									</span>
 								</td>
 								<td rowspan="3" style="width:110px;"></td>
@@ -206,7 +206,8 @@
 					    			<td colspan="4" id="faq_content">
 										<div style="display: none;" id="btn_inquiry_upde">
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>#open"><button type="button" style="margin-left:652px;">수정</button></a>
-	                           				<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a>
+	                           				<%-- <a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryDelete.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:-10px;">삭제</button></a> --%>
+	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button></a>
 					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
 					    					<p id="1-1answer"></p>								
 											<!-- <a href="#open"><button type="button" style="margin-left:650px;">수정</button></a> -->

@@ -73,7 +73,7 @@
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
 							<h3>쪽지 문의</h3>
 							<form id="inquiryform1" name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
-								<input type="hidden" name="mid" value="<%=mid%>"> 
+								<input type="text" name="mid" value="<%=mid%>"> 
 								<ul>
 									<li>
 										<label>문의구분</label>

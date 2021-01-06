@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"
+    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*, java.text.DecimalFormat"
     %>
 <%
    String type = request.getParameter("type"); 
+   DecimalFormat formatter = new DecimalFormat("###,###");
    String mid = request.getParameter("id");
    
    productDAO pdao = new productDAO();
@@ -37,6 +38,7 @@
    for(int i = 0; i < displayedCartList.size(); i++){
       totalPrice += (displayedCartList.get(i).getPrice() * displayedCartList.get(i).getC_qty());
    } 
+   String parseTotal = formatter.format(totalPrice);
 
    
 %>
@@ -263,9 +265,9 @@ div.content {
                         <span><%= vo.getColor() %></span>
                      </span>
                   </td>
-                  <td class="mainPrice"><%= vo.getPrice() %>원</td>
+                  <td class="mainPrice"><%= formatter.format(vo.getPrice()) %>원</td>
                   <td class="mainQty"><%= vo.getC_qty() %></td>
-                  <td class="groupPrice"><%= vo.getPrice() * vo.getC_qty() %>원</td>
+                  <td class="groupPrice"><%=formatter.format( vo.getPrice() * vo.getC_qty()) %>원</td>
                   <td>-</td>
                </tr>
                <% } %>
@@ -274,7 +276,7 @@ div.content {
                <span>*택배/시공 상품이 별도 배송될 수 있습니다.</span>
                <span class="totalPrice">
                총 상품금액
-               <span class="totalPrice"> &nbsp; &nbsp;<%= totalPrice %>원</span>
+               <span class="totalPrice"> &nbsp; &nbsp;<%= parseTotal %>원</span>
                </span>   
             </div>
             <div class="order_form_sub_title">주문 정보</div>
@@ -306,7 +308,7 @@ div.content {
                   <input type="hidden" name="mid" value="<%= jvo.getEmail()%>">
                   <input type="hidden" name="pid" value="<%= vo.getPid()%>">
                   <input type="hidden" name="pcnt" value="<%= vo.getC_qty()%>">
-                  <input type="hidden" name="total" value="<%= totalPrice %>">
+                  <input type="hidden" name="total" value="<%= parseTotal %>">
                   <input type="hidden" name="order_chk" value="o">
                   <% } %>
                   <p class="delivery_info_title">배송지 정보</p>
@@ -334,11 +336,11 @@ div.content {
                
                <div class="total_price">
                   총 상품금액
-                  <span>&nbsp;&nbsp;<%= totalPrice %>원</span>
+                  <span>&nbsp;&nbsp;<%= parseTotal %>원</span>
                </div>
                <div class="total_price_red">
                   총 결제금액
-                  <span>&nbsp;&nbsp;<%= totalPrice %>원</span>
+                  <span>&nbsp;&nbsp;<%= parseTotal %>원</span>
                </div>
                
                <div style="clear:both;"></div>

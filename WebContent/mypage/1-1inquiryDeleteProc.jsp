@@ -8,10 +8,5 @@
 	messageVO vo = new messageVO();
 		
 	boolean result = dao.getDelete(sid);
-	
-	if(result){
-		response.sendRedirect("1-1_inquiry.jsp?id=");
-	}else{
-		out.write("error");
-	}
+	out.write(String.valueOf(result));
 %>    

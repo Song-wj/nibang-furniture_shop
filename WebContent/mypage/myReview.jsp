@@ -156,9 +156,9 @@
                   <td>만족도</td>
                   <td>수정/삭제</td>
                </tr>
-            <% if(list == null){ %>
+            <% if( list.size() == 0){ %>
                <tr>
-                  <td colspan="3" rowspan="3">리뷰 내역이 없습니다.</td>
+                  <td colspan="6" rowspan="2">리뷰 내역이 없습니다.</td>
                </tr>
             <% }else{%>
                <% for(reviewVO vo : list){ %>

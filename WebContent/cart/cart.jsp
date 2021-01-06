@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"
+    import= "com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*, java.text.DecimalFormat"
     %>
 <%
+   DecimalFormat formatter = new DecimalFormat("###,###");
    String mid = request.getParameter("id");
    String pid = request.getParameter("pid");
    System.out.println(mid);
@@ -16,6 +17,7 @@
    for(int i = 0; i < cartList.size(); i++){
       totalcount += (cartList.get(i).getPrice() * cartList.get(i).getC_qty());
    } 
+   String parseTotal = formatter.format(totalcount);
    
 %>
 <%if(mid != null) {%>
@@ -171,9 +173,9 @@ div.content {
                         <span><%= vo.getColor() %></span>
                      </span>
                   </td>
-                  <td class="mainPrice"><%= vo.getPrice() %>원</td>
+                  <td class="mainPrice"><%= formatter.format(vo.getPrice()) %>원</td>
                   <td class="mainQty"><%= vo.getC_qty() %></td>
-                  <td class="groupPrice"><%= vo.getPrice() * vo.getC_qty() %>원</td>
+                  <td class="groupPrice"><%= formatter.format(vo.getPrice() * vo.getC_qty()) %>원</td>
                   <td>
                      <button type="button" class="btn_delete" value=<%= vo.getPid()%>>삭제하기</button>
                   </td>
@@ -184,7 +186,7 @@ div.content {
                <input type="button" value="선택상품삭제" onClick='deleteCheckedProduct()'>
                <span class="totalPrice">
                총 상품금액
-               <span class="totalPrice"> &nbsp; &nbsp;<%= totalcount %>원</span>
+               <span class="totalPrice"> &nbsp; &nbsp;<%= parseTotal %>원</span>
                </span>   
             </div>
             <div id="cart_btn">
