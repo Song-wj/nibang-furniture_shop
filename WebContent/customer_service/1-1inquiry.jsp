@@ -65,7 +65,7 @@
 					<label>궁금하신 사항을 남겨주세요.</label>
 				</div>
 				<div >
-					<div class="kdiv"><a href="" class="kakao" > <br><span>카톡문의</span></a></div>
+					<div class="kdiv" onclick="window.open('http://pf.kakao.com/_laGxnK/chat')"><a href="" class="kakao" > <br><span>카톡문의</span></a></div>
 					<div class="mdiv"><a href="#open"  class="message"><br><span>쪽지문의</span></a></div>					  
 						<div class="white_content" id="open">
 						<div class="inquiry_content"  id="inquiry_content">

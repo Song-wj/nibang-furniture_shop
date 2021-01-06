@@ -35,7 +35,7 @@
 					<label>서비스 신청 및 다양한 문의를 실시간으로 편리하게 해결하실 수 있습니다.</label>
 				</div>
 				<div >
-					<div class="kdiv"><a href="" class="kakao" > <br><span>카톡문의</span></a></div>
+					<div class="kdiv" onclick="window.open('http://pf.kakao.com/_laGxnK/chat')"><a href="" class="kakao" > <br><span>카톡문의</span></a></div>
 					<div class="mdiv"><a href="#open"  class="message"><br><span>쪽지문의</span></a></div>					  
 						<div class="white_content" id="open">
 						<div class="inquiry_content"  id="inquiry_content">
