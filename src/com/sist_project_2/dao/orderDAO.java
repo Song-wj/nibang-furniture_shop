@@ -233,7 +233,7 @@ public class orderDAO extends DBConn{
       boolean result = false;
       
       try {
-         String sql = "insert into nibangorder values (?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+         String sql = "insert into nibangorder values (?,?,?,?,?,?,?,?,?,?,?,sysdate,?)";
          getPreparedStatement(sql);
          pstmt.setString(1, vo.getOid());
          pstmt.setString(2, vo.getMid());
@@ -246,6 +246,7 @@ public class orderDAO extends DBConn{
          pstmt.setString(9, vo.getRph());
          pstmt.setString(10, vo.getRrequest());
          pstmt.setString(11, vo.getReview_chk());
+         pstmt.setString(12, "o");
          
          int val = pstmt.executeUpdate();
          
