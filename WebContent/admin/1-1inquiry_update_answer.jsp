@@ -21,7 +21,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/illum.css">
-<script src = "http://localhost:9000/MyWeb/js/jquery-3.5.1.min.js"></script>
+<script src = "http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
 <style>
 	table.notice_table{
 		width:500px;

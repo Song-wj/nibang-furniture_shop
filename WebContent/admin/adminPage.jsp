@@ -20,18 +20,20 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="http://localhost:9000/sist_project_2/css/iloom_admin.css">
+<script src="http://localhost:9000/sist_project_2/js/jquery-3.5.1.min.js"></script>
 <title>Insert title here</title>
 <style>
 div.list_body{
 	margin-left:180px;
+	
+	
 }
 div.list_body table.ntable{
  	text-align:center;
 	width:900px;
 }
-table.ntable  td#a{
-	padding-left:0px; 
-	text-align:center;
+table.ntable tr.all td.a{
+	padding-left:50px; 
 }
 table.ntable tr img{
 	width:50px;
@@ -49,21 +51,80 @@ table.ntable tr th:nth-child(11){
 }
 
 </style>
+<script>
+	$(document).ready(function(){
+		$("#search_product").click(function(){
+			search();
+			
+		})
+		
+		 $("#pkey").keypress(function(e) {		 
+             if (e.keyCode == 13) {       
+            	 search();
+               }
+		 })
+             
+		function search(){
+			$.ajax({
+				url:"searchProductProc.jsp?keyword="+$("#pkey").val(),
+				success:function(data){
+				
+					var jdata = JSON.parse(data);
+					var output="";
+					
+					
+					for(var i in jdata.jlist){
+					    output+="<tr class='all'>";
+						output+="<td>"+jdata.jlist[i].pid+"</td>";
+						output+="<td class ='a'>"+jdata.jlist[i].pname+"</td>";
+						output+="<td>"+jdata.jlist[i].pinfo+"</td>";
+						output+="<td>"+jdata.jlist[i].pkind+"</td>";
+						output+="<td>"+jdata.jlist[i].price+"</td>";
+						output+="<td>"+jdata.jlist[i].color+"</td>";
+						output+="<td><img src='http://localhost:9000/sist_project_2/upload/"+jdata.jlist[i].img1+"'></td>";
+						
+						if(jdata.jlist[i].img2 !=null){ 
+							output+="<td><img src='http://localhost:9000/sist_project_2/upload/"+jdata.jlist[i].img2+"'></td>";
+						}else{
+							output+="<td>x</td>";
+						}
+						
+						output+="<td>"+jdata.jlist[i].pdate+"</td>";	
+						output+="<td><a href='product_update.jsp?pid="+jdata.jlist[i].pid+"'><button type='button'>수정</button></td>";	
+						output+="<td><a href='product_delete.jsp?pid="+jdata.jlist[i].pid+"'><button type='button'>삭제</button></td>";	 
+						output+="</tr>"
+						}
+					
+					
+					output+="</table>";
+					$(".ntable tr.all").remove();
+					
+					$(".ntable_header").after(output); 
+				
+					
+			
+					
+				}
+			})
+		}
+		
+	})
+</script>
 </head>
 <body>
 <jsp:include page="../header.jsp"></jsp:include>
 	<section class ="section1">
 	<div class="content">
 	<div class="admin"><h1>상품관리</h1></div>
-	  <div class="list_body"style="height:500px; overflow:auto">
-		<table class="ntable">
+	  <div class="list_body" style="height:400px;overflow:auto">
+		<table class="ntable" >
 			<tr>
 				<td colspan="11">									
-						<input type="text" placeholder="상품번호/상품명">
-						<a href="notice_write.jsp"><button type="button">검색</button></a>										
+						<input type="text" placeholder="상품번호/상품명/종류" id="pkey">
+						<button type="button" id="search_product">검색</button>									
 				</td>
 		   </tr>			
-			<tr>
+			<tr class="ntable_header" >
 				<th>상품번호</th>
 				<th>상품명</th>
 				<th>상품정보</th>
@@ -77,9 +138,9 @@ table.ntable tr th:nth-child(11){
 				<th>삭제</th>
 			</tr>
 			<% for ( productVO vo : list)  {%>
-			<tr>
+			<tr class="all">
 				<td><%= vo.getPid() %></td>
-				<td id="a"><%= vo.getPname() %></td>
+				<td class="a"><%= vo.getPname() %></td>
 				<td><%= vo.getPinfo() %></td>
 				<td><%= vo.getPkind() %></td>
 				<td><%= vo.getPprice() %></td>

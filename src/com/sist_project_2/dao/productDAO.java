@@ -55,6 +55,39 @@ public class productDAO extends DBConn{
 		}
 		return list;
 	}
+	public ArrayList<productVO> getList(String keyword){
+		ArrayList<productVO> list = new ArrayList<>();		
+		try {
+			String str="";
+			if(keyword != "") {
+				str="where pid='"+keyword+"' or pname='"+keyword+"' or pkind='"+keyword+"'";
+			}
+			
+			String sql = "select pid , pname, to_char(price, '9,999,999'), color, img1,img2, to_char(pdate,'yy/mm/dd') pdate , pinfo, pkind, simg1,simg2 from (select * from product order by pdate desc) "+str ;
+			getStatement();
+			
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				productVO vo = new productVO();
+				vo.setPid(rs.getString(1));
+				vo.setPname(rs.getString(2));
+				vo.setPprice(rs.getString(3));
+				vo.setColor(rs.getString(4));
+				vo.setImg1(rs.getString(5));
+				vo.setImg2(rs.getString(6));
+				vo.setPdate(rs.getString(7));
+				vo.setPinfo(rs.getString(8));
+				vo.setPkind(rs.getString(9));
+				vo.setSimg1(rs.getString(10));
+				vo.setSimg2(rs.getString(11));
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
 	public productVO getData(String pid) {
 		productVO vo = new productVO();

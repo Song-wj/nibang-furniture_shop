@@ -22,7 +22,7 @@ img{
 	height:200px;
 }
 div.content button.product_del{
-	margin-left:300px;
+	margin-left:550px;
 }
 
 </style>
@@ -32,8 +32,8 @@ div.content button.product_del{
 	<section class="section1">
 			   <div class="content">
 				 <div class="admin"><h1>상품 삭제</h1></div>			
-					<img src ="../images/delete.jpg">
-	  				<div>삭제하시겠습니까?</div>
+					<img src ="../images/delete.jpg" style="margin-left:530px;">
+	  				<div style="margin-left:550px;">삭제하시겠습니까?</div>
 	  				<a href="productDeleteProc.jsp?pid=<%=pid %>"><button type="button" class="product_del">삭제</button></a>
 	  				<button type ="button">목록으로</button>
 	  			</div>
