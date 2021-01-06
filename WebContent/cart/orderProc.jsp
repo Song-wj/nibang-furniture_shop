@@ -11,9 +11,9 @@
 	boolean result = dao.orderWrite(vo);
 		
 	if(result){
-		//response.sendRedirect("creditPayment.jsp?id="+vo.getMid()+"&pid="+vo.getPid()+"&cnt="+vo.getPcnt()+"&oid="+vo.getOid());
-		response.sendRedirect("creditPayment.jsp?id="+vo.getMid()+"&pid="+vo.getPid()+"&cnt="+vo.getPcnt());
-		//response.sendRedirect("orderComplete.jsp?id="+vo.getMid()+"&pid="+vo.getPid()+"&cnt="+vo.getPcnt()+"&oid="+vo.getOid());
+		//response.sendRedirect("creditPayment.jsp?id="+vo.getMid()+"&pid="+vo.getPid()+"&cnt="+vo.getPcnt());
+		response.sendRedirect("orderComplete.jsp?id="+vo.getMid()+"&pid="+vo.getPid());
+
 	}else{
 		response.sendRedirect("errorPage.jsp");
 	}

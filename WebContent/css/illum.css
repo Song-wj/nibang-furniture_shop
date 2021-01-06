@@ -1805,7 +1805,8 @@
 		font-weight: 548;
 		margin-bottom: 50px;
 	}
-	div.content div.my_review table.r_btn, div.content div.my_review table.r_btn td{
+	div.content div.my_review table.r_btn,
+	div.content div.my_review table.r_btn td{
 		border: 1px solid rgb(144, 144, 144);
 	}
 	div.content div.my_review table.r_btn {
@@ -1815,7 +1816,8 @@
 		border: 1px solid rgb(200, 10, 30);
 		color: rgb(200, 10, 30);
 	}
-	div.content div.my_review table.r_btn tr td:first-child button, div.content div.my_review table.r_btn tr td:last-child button
+	div.content div.my_review table.r_btn tr td:first-child button,
+	div.content div.my_review table.r_btn tr td:last-child button
 		{
 		width: 330px;
 		height: 50px;
@@ -1823,12 +1825,14 @@
 		border: 1px solid white;
 		outline: none;
 	}
-	div.content div.my_review table.r_btn tr td:first-child, div.content div.my_review table.r_btn tr td:last-child{
+	div.content div.my_review table.r_btn tr td:first-child,
+    div.content div.my_review table.r_btn tr td:last-child{
 		width: 350px;
 		height: 50px;
 		font-size: 13px;
 	}	
-	div.content div.my_review div:nth-child(3), div.content div.my_review div:nth-child(4){
+	div.content div.my_review div:nth-child(3),
+	div.content div.my_review div:nth-child(4){
 		text-align: center;
 		font-size: 10px;
 		color: rgb(170, 170, 170);
@@ -1836,7 +1840,8 @@
 	div.content div.my_review div:nth-child(3) {
 		margin-top: 50px;
 	}
-	div.content div.my_review table.review_table {
+	div.content div.my_review table.review_table,
+	div.content div.my_review table.review_table2 {
 		margin: 50px 0 200px 40px;
 		width: 670px;
 		height: 300px;
@@ -1844,25 +1849,67 @@
 		border-top: 1px solid rgb(140, 140, 140);
 		color: rgb(170, 170, 170);
 	}	
-	div.content div.my_review table.review_table tr:first-child {
+	div.content div.my_review table.review_table tr td,
+	div.content div.my_review table.review_table2 tr td{
+		font-size: 12px;
+		font-weight:600;
+		border-bottom: 1px solid rgb(224, 224, 224);
+	}
+	div.content div.my_review table.review_table tr:first-child ,
+	div.content div.my_review table.review_table2 tr:first-child {
 		text-align: center;
 		height: 30px;
 		border-bottom: 1px solid rgb(224, 224, 224);
 	}	
-	div.content div.my_review table.review_table tr:first-child td:first-child{
-		width: 320px;
-		padding-left: 130px;
-		font-size: 12px;
+	div.content div.my_review table.review_table tr:first-child td:first-child,
+	div.content div.my_review table.review_table2 tr:first-child td:first-child {
+		width: 50px;
 	}	
-	div.content div.my_review table.review_table tr:first-child td:nth-child(2){
+	div.content div.my_review table.review_table tr:first-child td:nth-child(2),
+	div.content div.my_review table.review_table2 tr:first-child td:nth-child(2){
+		width: 100px;
+	}
+	div.content div.my_review table.review_table tr:first-child td:nth-child(3),
+	div.content div.my_review table.review_table2 tr:first-child td:nth-child(3){
 		width: 150px;
-		font-size: 12px;
 	}
-	div.content div.my_review table.review_table tr:first-child td:nth-child(3){
-		width: 180px;
-		padding-left: 50px;
-		font-size: 12px;
+	div.content div.my_review table.review_table tr:first-child td:nth-child(4),
+	div.content div.my_review table.review_table2 tr:first-child td:nth-child(4){
+		width: 200px;
 	}
+	div.content div.my_review table.review_table2 tr:first-child td:nth-child(5){
+		width: 120px;
+	}
+	div.content div.my_review table.review_table2 tr:first-child td:nth-child(6){
+		width: 40px;
+	}
+	div.content div.my_review table.review_table button{
+		all:unset;
+		width:35px;
+		border: 1px solid #aaa;
+		font-size: 13px;
+		color: #aaa;
+		font-weight: 300;
+		padding: 5px;
+		border-radius: 5px;
+	}
+	div.content div.my_review table.review_table2 button{
+		all:unset;
+		width:35px;
+		border: 1px solid #aaa;
+		font-size: 13px;
+		color: #aaa;
+		border-radius: 5px;
+	}
+	
+	div.content div.my_review table.review_table button:hover,
+	div.content div.my_review table.review_table2 button:hover{
+		color: #c80a1e;
+		border: 1px solid #c80a1e;
+	}
+	
+	
+	
 	
 	
 /*
@@ -1923,7 +1970,8 @@
 		position: relative;
 		z-index: 0;
 		outline: 1px solid #aaa;
-		margin-right: -3px;}
+		margin-right: -3px;
+	}
 	button.duration_btn1 {
 		color: #c80a1e;
 		outline: 1px solid #c80a1e;
@@ -3640,8 +3688,9 @@ td.productInfo {
 }
 
 
-/**1:1 문의 삭제 **/
-	#inquiry_delete h3 {
+/**1:1 문의, 리뷰 삭제 페이지 **/
+	#inquiry_delete h3, 
+	#review_delete h3 {
 		padding-top: 100px;
 		text-align:center;
 	}
@@ -3650,7 +3699,8 @@ td.productInfo {
 		height:300px;
 		margin-left: 480px;
 	}
-	div.btn_1-1_inquiry_delete{
+	div.btn_1-1_inquiry_delete,
+	div.btn_review_delete{
 		margin-left: 420px;
 		margin-top: 30px;
 		margin-bottom: 50px;

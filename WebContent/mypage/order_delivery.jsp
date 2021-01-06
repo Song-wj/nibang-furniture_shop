@@ -3,6 +3,7 @@
     import="com.sist_project_2.dao.*, com.sist_project_2.vo.*, java.util.*"
     %>
 <%
+	String oid = request.getParameter("oid");
 	SessionVO svo = (SessionVO)session.getAttribute("svo");	
 	String mid ="";
 	if(svo != null){
@@ -96,6 +97,7 @@
 								<th>리뷰작성</th>
 							<tr>
 							<% for(orderVO vo : list) { %>
+
 								<tr>
 									<td><%= vo.getOid() %></td>
 									<td><%= vo.getPname()%></td>

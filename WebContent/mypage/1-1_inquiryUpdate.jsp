@@ -6,16 +6,11 @@
 	
 	String sid = request.getParameter("sid");
 	
-	
 	messageDAO dao = new messageDAO();
 	messageVO vo = dao.getContent(sid);
 	
 	String mid =dao.getId(sid);
-	
 
-
-	
-	
 	int listAll_cnt = dao.getListCountAll(sid);
 	int listProduct_cnt = dao.getListCountProduct(sid);
 	int listOrder_cnt = dao.getListCountOrder(sid);
