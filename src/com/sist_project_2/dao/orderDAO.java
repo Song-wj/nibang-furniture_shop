@@ -92,55 +92,6 @@ public class orderDAO extends DBConn{
 	 * return list; }
 	 */
 	 
-   
-   public ArrayList<orderVO> getOrderList(int period, String mid) {
-		ArrayList<orderVO> list = new ArrayList<>();
-		
-		
-		try {
-			String str="";
-			if(period ==0) {
-				str = "order by o.rdate desc";
-			}else {
-				str = "and rdate>=sysdate-"+period+" order by o.rdate desc";
-			}
-			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(o.rdate, 'yyyy/mm/dd') "
-					+ "from nibangmember m, nibangorder o, product p "
-					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=?"+str ;
-			getPreparedStatement(sql);
-			pstmt.setString(1, "o");
-			pstmt.setString(2, mid);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				orderVO vo = new orderVO(); 
-				vo.setOid(rs.getString(1));
-				vo.setName(rs.getString(2));
-				vo.setRname(rs.getString(3));
-				vo.setRaddrnum(rs.getString(4));
-				vo.setRaddr(rs.getString(5));
-				vo.setHp(rs.getString(6));
-				vo.setRph(rs.getString(7));
-				vo.setSimg(rs.getString(8));
-				vo.setPname(rs.getString(9));
-				vo.setPinfo(rs.getString(10));
-				vo.setColor(rs.getString(11));
-				vo.setPrice(rs.getString(12));
-				vo.setPcnt(rs.getInt(13));
-				vo.setTotal(rs.getString(14));
-				vo.setRdate(rs.getString(15));
-				
-				list.add(vo);
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-
    public ArrayList<orderVO> getCancelList(int period, String mid) {
 	      ArrayList<orderVO> list = new ArrayList<>();
 	      
