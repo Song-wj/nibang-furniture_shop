@@ -69,7 +69,7 @@
 	 			});
 	 			
 	 			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
-	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%=mid%>rpage=' + e.page);
+	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%=mid%>&rpage=' + e.page);
 	 				//location.href('이동페이지'); -> javascript
 	 			}); 
 	 			
