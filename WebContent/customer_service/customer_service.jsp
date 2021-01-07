@@ -15,6 +15,17 @@
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			
+			$("#btn_close").click(function(){
+				
+				$("#inquiryform1").each(function(){
+					this.reset();
+				});
+			});
+		});
+		</script>
 		<style>
 			section.section1{
 		 		width:1100px;;		 				 			 		
@@ -39,9 +50,9 @@
 					<div class="mdiv"><a href="#open"  class="message"><br><span>쪽지문의</span></a></div>					  
 						<div class="white_content" id="open">
 						<div class="inquiry_content"  id="inquiry_content">
-							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="1-1inquiryProc.jsp?id=<%=mid %>" method="post" class="inquiryform1" enctype="multipart/form-data">
+							<a href="#close"><img id="btn_close" src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
+							<h3>문의</h3>
+							<form name="inquiryform1" action="1-1inquiryProc.jsp?id=<%=mid %>" method="post" class="inquiryform1" id="inquiryform1" enctype="multipart/form-data">
 								<input type="hidden" name="mid" value="<%=mid%>">  
 								<ul>
 									<li>
