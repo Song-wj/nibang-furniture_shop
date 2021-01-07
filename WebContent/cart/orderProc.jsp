@@ -21,7 +21,7 @@
 	
 	for(int i =1; i<10; i++){
 		String cpid = request.getParameter("pid"+i);
-
+		System.out.println(cpid);
 		if(cpid != null){
 	     	dao.subWrite(oid,cpid);		
 		}
