@@ -8,6 +8,7 @@
 	String parseMid = "";
 	if(svo != null){
 		 mid = svo.getId();
+		 
 	}
 	if(mid != "") {
 		int idx = mid.indexOf("@");

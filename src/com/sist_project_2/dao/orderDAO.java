@@ -309,6 +309,30 @@ public class orderDAO extends DBConn{
 	      return list;
 	   }
    
+   public ArrayList<subOrderVO> getProductName(String oid) {
+	   ArrayList<subOrderVO> list = new ArrayList<>();
+	   
+	   try {
+		   String sql = "select p.pname "
+		   		+ "from nibangorder o, suborder s, product p "
+		   		+ "where s.oid = o.oid and s.pid = p.pid and s.oid=?";
+		   getPreparedStatement(sql);
+		   pstmt.setString(1, oid);
+		   rs = pstmt.executeQuery();
+		   
+		   while(rs.next()) {
+			   subOrderVO vo = new subOrderVO();
+			   vo.setPname(rs.getString(1));
+			   list.add(vo);
+		   }
+		   
+	   } catch (Exception e) {
+		   e.printStackTrace();
+	   }
+	   
+	   return list;
+   }
+   
    public boolean subWrite(String oid, String pid) {
 	      boolean result = false;
 	      
@@ -317,9 +341,6 @@ public class orderDAO extends DBConn{
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, oid);
 	         pstmt.setString(2, pid);
-	       
-
-	         
 	         int val = pstmt.executeUpdate();
 	         
 	         if(val != 0) result = true;

@@ -1,7 +1,7 @@
 package com.sist_project_2.vo;
 
 public class subOrderVO {
-	String pid;
+	String pid, pname;
 
 	public String getPid() {
 		return pid;
@@ -11,5 +11,13 @@ public class subOrderVO {
 		this.pid = pid;
 	}
 
+	public String getPname() {
+		return pname;
+	}
+
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	
 	
 }
