@@ -104,7 +104,25 @@ div.content {
    
    function deleteCheckedProduct() {
       var pidList = getChecktedProduct();
-      location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList+"&id=<%=mid%>";
+      <%-- location.href = 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?pidList='+pidList+"&id=<%=mid%>"; --%>
+      if(pidList != 0) {
+	      var chk = confirm("해당 상품을 장바구니에서 삭제할까요?");
+	      if(chk) {
+		      $.ajax({
+		    	 url : 'http://localhost:9000/sist_project_2/cart/cartCheckedDeleteProc.jsp?id=<%=mid%>&pidList='+pidList,
+		    	 success : function(result) {
+		    		 if(result) {
+		    			 location.href='cart.jsp?id=<%=mid%>';
+		    		 }
+		    	 }		 
+		      });
+	      } else {
+	    	  alert("취소되었습니다.");
+	      }
+      } else {
+    	  alert("상품을 한개 이상 선택해주세요.");
+      }
+      
    }
    
    
