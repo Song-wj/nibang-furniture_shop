@@ -50,6 +50,11 @@ $(document).ready(function(){
 		changeColor(3);
 		uploadTable(3);
 	})	
+	
+	$("#duration_btn4").click(function(){
+		changeColor(4);
+		uploadTable(4);
+	})
 
 	function cancel(oid){
 			
