@@ -139,7 +139,10 @@
 	.review1 #btn_review:hover {
 		background-color: rgb(160, 14, 43);
 	}	
-	
+	.product_detail table#rtable{
+		
+		
+	}
 	
 </style>
 <script>
@@ -292,12 +295,15 @@
 		
 		$("#product_review_sort").change(function(){
 			var select = $(this).val();
+			
 			$.ajax({
 				url:"product_review_ajax.jsp?pid=<%=pid%>&select="+select,
 				success:function(data){
+					
 					var jdata = JSON.parse(data);
-					var output="<table  id='1line_review'>";
+					var output="<table style='width:1000px;margin-left:80px;text-align:center;' id='rtable'>";
 					output+="<tr>";
+					output+="<th>작성자</th>";
 					output+="<th>이미지</th>";
 					output+="<th>제목</th>";
 					output+="<th>내용</th>";
@@ -306,20 +312,24 @@
 					for(var i in jdata.jlist){
 						
 						output+="<tr>"
+						output+="<td>"+jdata.jlist[i].id+"</td>";
 						if(jdata.jlist[i].img !=null){
-							output+="<td style ='width:10px;'><img src='../upload/"+jdata.jlist[i].img+"' width=120px height=120px;><td>";
+							output+="<td><img src='../upload/"+jdata.jlist[i].img+"' width=120px height=120px;></td>";
 						}else{
-							output+="<td style ='width:10px;'><img src='../images/no_Image.png'><td>";
+							output+="<td><img src='../images/no_Image.png' width=120px height=120px;></td>";
 						 }
-						output+="<td style ='width:10px;'>"+jdata.jlist[i].title+"<td>";
-						output+="<td style ='width:10px;'>"+jdata.jlist[i].content+"<td>";
-						output+="<td style ='width:10px;'>"+jdata.jlist[i].grade+"<td>";
+						output+="<td>"+jdata.jlist[i].title+"</td>";
+						output+="<td>"+jdata.jlist[i].content+"</td>";
+						output+="<td>"+jdata.jlist[i].grade+"</td>";
 						output+="</tr>"
 					}
 				   output+="</table>";
 				
-				   $("#1line_review").remove();
-				   $(".ddd").append(output); 
+				  
+				   $("#rtable").remove();
+				   $(".ddd").append(output);  
+				   
+				   
 				   
 				}
 			})
@@ -607,9 +617,9 @@
 					</select>
 				<hr>
 				<div class ="ddd">
-				<table class="1line_review" id="1line_review">
+				<table class="rtable" id="rtable">
 					<tr>
-						<td>작성된 상품평이 없습니다.</td>
+						<td style="padding: 100px 500px;">작성된 상품평이 없습니다.</td>
 					</tr>
 				</table>
 				</div>
