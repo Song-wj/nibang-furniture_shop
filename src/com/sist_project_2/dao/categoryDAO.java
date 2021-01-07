@@ -62,6 +62,34 @@ public class categoryDAO  extends DBConn{
 		return list;
 	}
 	
+	
+	public ArrayList<productVO> gradeList(String type){
+		ArrayList<productVO> list = new ArrayList<>();
+		try {
+			String sql = "select p.pid, pname, pinfo, pkind ,to_char(price, '9,999,999'), color, simg1, simg2, to_char(pdate,'yy/mm/dd') pdate , nvl(r_satis,0) r_satis from (select o.oid, o.pid , r.r_satis from nibangreview r, suborder o where r.oid = o.oid) c, product p where c.pid(+)=p.pid and pkind=? order by r_satis desc";;
+			getPreparedStatement(sql);
+			pstmt.setString(1, type);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				productVO vo = new productVO();
+				vo.setPid(rs.getString(1));
+				vo.setPname(rs.getString(2));
+				vo.setPinfo(rs.getString(3));
+				vo.setPkind(rs.getString(4));
+				vo.setPprice(rs.getString(5));
+				vo.setColor(rs.getString(6));
+				vo.setSimg1(rs.getString(7));
+				vo.setSimg2(rs.getString(8));
+				vo.setPdate(rs.getString(9));
+				
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 	public ArrayList<productVO> searchList(String keyword){
 		ArrayList<productVO> list = new ArrayList<>();
 		try {

@@ -19,14 +19,10 @@
 
 	
 	
-	/* productVO pvo = pdao.getData(pid); */
 
-	//productVO pvo = pdao.getData(pid); 
 
 	joinVO jvo = ndao.getMemberInfo(mid);
-	/* orderVO ovo = odao.getOrder(); */
-/* 	ArrayList<subOrderVO> slist = odao.getProductName(ovo.getOid()); */
-	//System.out.println("1===="+ovo.getOid());
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -42,7 +38,7 @@
 	    pg : 'inicis',
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
-	    name : 'gd',
+	    name : 'nibang',
 	    amount : 100, //판매 가격은 임시용으로 1000원으로 설정!
 	    buyer_email : '<%= jvo.getEmail()%>',
 	    buyer_name : '<%= jvo.getName()%>',

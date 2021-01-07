@@ -1,14 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
     
-  <%
-    	request.setCharacterEncoding("utf-8");
-    	String keyword = request.getParameter("keyword");
-    	int count = Integer.parseInt(request.getParameter("count"));
-    	categoryDAO dao = new categoryDAO();
-    	ArrayList<productVO> list =dao.priceSearchList(keyword);
-    %>
-    
+  <%	
+  		String type = request.getParameter("type");
+  		categoryDAO dao = new categoryDAO();
+  		ArrayList<productVO> list = dao.gradeList(type);
+  		
+  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,13 +39,12 @@ function mout(pid,simg1){
 	<div class="content">
 		<section class="section1" id="section1_category_bed">
 			<div>
-				<p><span>'<%= keyword %>'</span>의 검색 결과</p>
-				<div class="search_result"><%= count %>개의 상품이 검색되었습니다.</div>
+				<p><%= type %></p>
 				<img class="category_line" src="http://localhost:9000/sist_project_2/images/event_contents_line2.jpg">
 				<div class="category_sort">
-					<a href="search_list.jsp?keyword=<%= keyword %>">인기순</a>
-					<a href="#" style="color:rgb(200,100,30)">가격순</a>
-					<a href="search_list_grade?keyword=<%= keyword %>">상품평순</a>
+					<a href="category_list.jsp?type=<%= type %>" >인기순</a>
+					<a href="category_price_list.jsp?type=<%= type %>" >가격순</a>
+					<a href="#" style="color:rgb(200,100,30)" >상품평순</a>
 				</div>
 				<ul class="category_bed_list1">
 					<% for(productVO vo : list){ %>

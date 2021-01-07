@@ -45,7 +45,7 @@ function mout(pid,simg1){
 				<div class="category_sort">
 					<a href="#" style="color:rgb(200,100,30)">인기순</a>
 					<a href="category_price_list.jsp?type=<%= type %>" >가격순</a>
-					<a href="#">상품평순</a>
+					<a href="category_grade_list.jsp?type=<%= type %>">상품평순</a>
 				</div>
 				<ul class="category_bed_list1">
 					<% for(productVO vo : list){ %>
