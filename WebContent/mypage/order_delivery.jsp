@@ -33,89 +33,89 @@
 <script>
 				
 	
-	$(document).ready(function(){
-		
-		uploadTable(4);
-		
-		$("#duration_btn1").click(function(){
-			changeColor(1);
-			uploadTable(1);
-		})
-		$("#duration_btn2").click(function(){
-			changeColor(2);
-			uploadTable(2);
-			
-		})
-		$("#duration_btn3").click(function(){
-			changeColor(3);
-			uploadTable(3);
-			
-		})
-		$("#duration_btn4").click(function(){
-			changeColor(4);
-			uploadTable(0);
-		})
-		
-		function cancel(oid){
-			
-			alert("정말 취소하시겠습니까?");
-			location.href="search_order_cancelProc.jsp?oid="+oid+"; 
-		}
-		
+$(document).ready(function(){
 	
-		function uploadTable(num){
-			$.ajax({
-				url:"order_deliveryAjax.jsp?mid=<%=mid%>"+"&period="+num,
-				success:function(data){
-					
-					var jdata = JSON.parse(data);
-					var output="";
-					if(jdata.jlist.size == 0){
-						output+="취소내역이 없습니다.";
-					}else{
-					for(var i in jdata.jlist){
-						
-						output+="<tr class='all'>"
-						output+="<td>"+jdata.jlist[i].oid+"</td>";
-						output+="<td>"+jdata.jlist[i].name+"</td>";
-						output+="<td>"+jdata.jlist[i].price+"</td>";
-						output+="<td>"+jdata.jlist[i].date+"</td>";
-						output+="<td><button type='button' id='"+jdata.jlist[i].oid+"' class='cancel'>취소</button></td>";
-						output+="</tr>"
-						
-				   		
-					}
-					}
-					
-					
-					$("table.order_table tbody tr.all").remove();
-					$("table.order_table tr.otable_header").after(output);
-					
-					$("button.cancel").click(function(){
-						   var oid = $(this).attr("id");
-						   cancel(oid);
-						});
-				}
-			
-				
-			})
-		}
-		
-
-		function changeColor(num){
-			$("#duration_btn"+num).css("border","1px solid rgb(200, 10, 30)");
-			if(num ==1){
-				$("#duration_btn2,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
-			}else if(num ==2){			
-				$("#duration_btn1,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
-			}else if(num ==3){
-				$("#duration_btn1,#duration_btn2,#duration_btn4").css("border","1px solid lightgray");
-			}else if(num ==4){
-				$("#duration_btn1,#duration_btn2,#duration_btn3").css("border","1px solid lightgray");
-			}
-		}
+	uploadTable(4);
+	
+	$("#duration_btn1").click(function(){
+		changeColor(1);
+		uploadTable(1);
+	})
+	$("#duration_btn2").click(function(){
+		changeColor(2);
+		uploadTable(2);
 		
 	})
+	$("#duration_btn3").click(function(){
+		changeColor(3);
+		uploadTable(3);
+		
+	})
+	$("#duration_btn4").click(function(){
+		changeColor(4);
+		uploadTable(0);
+	})
+	
+	function cancel(oid){
+		
+		alert("정말 취소하시겠습니까?");
+		location.href="search_order_cancelProc.jsp?oid="+oid+"; 
+	}
+	
+
+	function uploadTable(num){
+		$.ajax({
+			url:"order_deliveryAjax.jsp?mid=<%=mid%>"+"&period="+num,
+			success:function(data){
+				
+				var jdata = JSON.parse(data);
+				var output="";
+				if(jdata.jlist.size == 0){
+					output+="취소내역이 없습니다.";
+				}else{
+				for(var i in jdata.jlist){
+					
+					output+="<tr class='all'>"
+					output+="<td>"+jdata.jlist[i].oid+"</td>";
+					output+="<td>"+jdata.jlist[i].name+"</td>";
+					output+="<td>"+jdata.jlist[i].price+"</td>";
+					output+="<td>"+jdata.jlist[i].date+"</td>";
+					output+="<td><button type='button' id='"+jdata.jlist[i].oid+"' class='cancel'>취소</button></td>";
+					output+="</tr>"
+					
+			   		
+				}
+				}
+				
+				
+				$("table.order_table tbody tr.all").remove();
+				$("table.order_table tr.otable_header").after(output);
+				
+				$("button.cancel").click(function(){
+					   var oid = $(this).attr("id");
+					   cancel(oid);
+					});
+			}
+		
+			
+		})
+	}
+	
+
+	function changeColor(num){
+		$("#duration_btn"+num).css("border","1px solid rgb(200, 10, 30)");
+		if(num ==1){
+			$("#duration_btn2,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+		}else if(num ==2){			
+			$("#duration_btn1,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
+		}else if(num ==3){
+			$("#duration_btn1,#duration_btn2,#duration_btn4").css("border","1px solid lightgray");
+		}else if(num ==4){
+			$("#duration_btn1,#duration_btn2,#duration_btn3").css("border","1px solid lightgray");
+		}
+	}
+	
+})
 </script>
 </head>
 <body>
