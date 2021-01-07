@@ -5,13 +5,8 @@
 	String mid =request.getParameter("mid");
 	int period =Integer.parseInt(request.getParameter("period"));
 	orderDAO dao = new orderDAO();
-	
-	
-	
-	
 		
 	ArrayList<orderVO> list = dao.getOrderList(period, mid);
-	
 	
 	JsonArray jarray = new JsonArray();
 	JsonObject jdata = new JsonObject();

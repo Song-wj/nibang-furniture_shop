@@ -96,8 +96,6 @@ public class orderDAO extends DBConn{
 	 
    public ArrayList<orderVO> getOrderList(int period, String mid) {
 		ArrayList<orderVO> list = new ArrayList<>();
-		
-		
 		try {
 			String str="";
 			if(period ==0) {
@@ -107,7 +105,7 @@ public class orderDAO extends DBConn{
 			}
 			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(o.rdate, 'yyyy/mm/dd') "
 					+ "from nibangmember m, nibangorder o, product p "
-					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=?"+str ;
+					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=? "+str ;
 			getPreparedStatement(sql);
 			pstmt.setString(1, "o");
 			pstmt.setString(2, mid);
@@ -156,9 +154,10 @@ public class orderDAO extends DBConn{
 				}
 	         String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(sysdate, 'yyyy/mm/dd') "
 	               + "from nibangmember m, nibangorder o, product p "
-	               + "where o.mid = m.mid and o.pid = p.pid and order_chk= ?"+str;
+	               + "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=?"+str;
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, "x");
+	         pstmt.setString(2, mid);
 	         rs = pstmt.executeQuery();
 	         
 	         while(rs.next()) {
@@ -192,7 +191,7 @@ public class orderDAO extends DBConn{
    public boolean orderCancel(String oid) {
 		 boolean result =false;
 		 try {
-			String sql = "update nibangorder set order_chk = ? , rdate= sysdate where oid=?";
+			String sql = "update nibangorder set order_chk = ? , rdate= sysdate where oid=? and mid = ?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, "x");
 			pstmt.setString(2, oid);
