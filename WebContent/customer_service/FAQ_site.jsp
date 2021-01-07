@@ -3,7 +3,11 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"
     %>
 <%
-	String mid = request.getParameter("id");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
 	String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
 	int pageTotal = dao.getListCountSite();

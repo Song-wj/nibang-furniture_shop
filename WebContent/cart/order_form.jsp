@@ -6,7 +6,7 @@
 	DecimalFormat formatter = new DecimalFormat("###,###");
 	String cnt = request.getParameter("cnt");
 	String mid = request.getParameter("id");
-	String pid = request.getParameter("pid");
+	String pid = request.getParameter("pid"); 
 
 	
 	int parseCnt = Integer.parseInt(cnt);

@@ -1,13 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import ="com.sist_project_2.dao.*,com.sist_project_2.vo.*,java.util.*"%>
 <%
-	String mid = request.getParameter("id");
-	String username = ""; 
-	if(mid != null) {
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String mid ="";
+	String parseMid = "";
+	if(svo != null){
+		 mid = svo.getId();
+	}
+		
+	if(mid != "") {
 		int idx = mid.indexOf("@");
-		username = mid.substring(0, idx);
-	} 
-	
+		parseMid = mid.substring(0,idx);
+	}
 	productDAO dao = new productDAO();
 	
 	ArrayList<productVO> list = dao.getRecommandList();
@@ -148,7 +152,7 @@
 <script>
 	$(document).ready(function() {
 		$("#openChat").click(function(){
-			<% if(mid != null) { %>
+			<% if(mid != "") { %>
 				$(".modal").removeClass('hidden');
 			<% } else { %>
 				alert("로그인 후 사용 가능합니다.");
@@ -315,7 +319,7 @@
 	var webSocket = connectWebSocket("ws://localhost:9000/sist_project_2/broadsocket", message, openn, close, error);
 	
 	function sendMessage() {
-		var user = "<%= username%>";
+		var user = "<%= parseMid%>";
 		//var idx = user.indexOf("@");
 		//var username = user.substring(0, idx);
 		var message = document.querySelector("#chat");

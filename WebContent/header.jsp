@@ -5,13 +5,15 @@
 	//String id = request.getParameter("id");
 	SessionVO svo = (SessionVO)session.getAttribute("svo");
 	String mid ="";
+	String parseMid = "";
 	if(svo != null){
 		 mid = svo.getId();
 		 
 	}
-
-
-	
+	if(mid != "") {
+		int idx = mid.indexOf("@");
+		parseMid = mid.substring(0,idx);
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -113,7 +115,7 @@
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
-						<li><%=svo.getId()%> 님의 니방
+						<li><%= parseMid%> 님의 니방
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">로그아웃</a>
 						<div></div></li>

@@ -7,15 +7,28 @@
 <jsp:setProperty name="vo" property="*"/>    
     
 <%
+	String oid = request.getParameter("oid");
+	
+	
 	orderDAO dao = new orderDAO();
-	boolean result = dao.orderWrite(vo);
+ 	boolean result = dao.orderWrite(vo); 
+	
+ 	for(int i =1; i<10; i++){
+		String pid = request.getParameter("pid"+i);
+		System.out.println(pid);
+		if(pid != null){
+	     	dao.subWrite(oid,pid);		
+		}
+	}
+	
 		
 	if(result){
+
 		response.sendRedirect("creditPayment.jsp?id="+vo.getMid()+"&pid="+vo.getPid()+"&cnt="+vo.getPcnt());
-		//response.sendRedirect("orderComplete.jsp?id="+vo.getMid()+"&pid="+vo.getPid());
+		//response.sendRedirect("orderComplete.jsp?id="+vo.getMid()+"&oid="+vo.getOid());
 
 	}else{
 		response.sendRedirect("errorPage.jsp");
-	}
+	}  
 
 %>	

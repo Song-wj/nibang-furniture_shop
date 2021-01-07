@@ -5,16 +5,19 @@
 <%
 	
 	String mid = request.getParameter("id");
-	String pid = request.getParameter("pid");
+	 String pid = request.getParameter("pid"); 
 	String cnt = request.getParameter("cnt");
-	String oid = request.getParameter("oid");
+
+	
 	
 	productDAO pdao = new productDAO();
 	nibangDAO ndao = new nibangDAO();
 	orderDAO odao = new orderDAO();
-	
-	productVO pvo = pdao.getData(pid);
+	orderVO vo =odao.getOrder();
+	System.out.println("1===="+vo.getOid());
+	/* productVO pvo = pdao.getData(pid); */
 	joinVO jvo = ndao.getMemberInfo(mid);
+	orderVO ovo = odao.getOrder();
 	
 	
 %>
@@ -32,7 +35,7 @@
 	    pg : 'inicis',
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
-	    name : '주문명: <%= pvo.getPname()%>',
+	    <%-- name : '주문명: <%= pvo.getPname()%>', --%>
 	    amount : 100, //판매 가격은 임시용으로 1000원으로 설정!
 	    buyer_email : '<%= jvo.getEmail()%>',
 	    buyer_name : '<%= jvo.getName()%>',
@@ -46,12 +49,14 @@
 	        msg += '상점 거래ID : ' + rsp.merchant_uid;
 	        msg += '결제 금액 : ' + rsp.paid_amount;
 	        msg += '카드 승인번호 : ' + rsp.apply_num; */
-	        location.href = "orderComplete.jsp?id=<%=mid%>&pid=<%=pid%>";
+
+	        location.href = "orderComplete.jsp?id=<%=mid%>&pid=<%=pid%>&oid=<%=ovo.getOid()%>";
+
 	    } else {
 	        var msg = '결제에 실패하였습니다.';
 	        /* msg += '에러내용 : ' + rsp.error_msg; */
-	        <% odao.orderDelete(oid); %>
-	        location.href = "order_form.jsp?pid=<%=pid%>&id=<%=mid%>&cnt=<%=cnt%>";
+	        <% odao.orderDelete(vo.getOid()); %>
+	       <%--  location.href = "order_form.jsp?pid=<%=pid%>&id=<%=mid%>&cnt=<%=cnt%>"; --%>
 	    }
 	    alert(msg);
 	});
