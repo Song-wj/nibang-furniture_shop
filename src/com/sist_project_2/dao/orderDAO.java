@@ -7,13 +7,15 @@ import com.sist_project_2.vo.orderVO;
 
 public class orderDAO extends DBConn{
    
-   public boolean updateReviewChk(String oid) {
+   public boolean updateReviewChk(String oid , String pid) {
       boolean result = false;
       
       try {
-         String sql = "update nibangorder set review_chk='o' where oid=?";
+         String sql = "update suborder set review_chk ='o' where pid=? and oid=?";
          getPreparedStatement(sql);
-         pstmt.setString(1, oid);
+         pstmt.setString(1, pid);
+         pstmt.setString(2, oid);
+  
          int val = pstmt.executeUpdate();
          if(val != 0) result = true;
          
@@ -28,7 +30,7 @@ public class orderDAO extends DBConn{
       ArrayList<orderVO> list = new ArrayList<>();
       
       try {
-         String sql = "select o.oid,  p.simg1, p.pname, p.pinfo from (select o.oid, s.pid, o.mid, review_chk, order_chk ,rdate from suborder s ,nibangorder o where s.oid = o.oid) o , product p where o.pid=p.pid and review_chk='x' and order_chk ='o' and mid =? order by rdate";
+         String sql = "select o.oid,  p.simg1, p.pname, p.pinfo ,p.pid from (select o.oid, s.pid, o.mid, s.review_chk, order_chk ,rdate from suborder s ,nibangorder o where s.oid = o.oid) o , product p where o.pid=p.pid and review_chk='x' and order_chk ='o' and mid =? order by rdate";
          getPreparedStatement(sql);
          pstmt.setString(1, mid);
          rs = pstmt.executeQuery();
@@ -39,7 +41,7 @@ public class orderDAO extends DBConn{
             vo.setSimg(rs.getString(2));
             vo.setPname(rs.getString(3));
             vo.setPinfo(rs.getString(4));
-          
+            vo.setPid(rs.getString(5));
             
             list.add(vo);
          }

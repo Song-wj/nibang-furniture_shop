@@ -4,6 +4,7 @@
 <%
 	String mid = request.getParameter("id");
 	String oid = request.getParameter("oid");
+	String pid = request.getParameter("pid");
 	reviewVO vo = new reviewVO();
 %>    
 <!DOCTYPE html>
@@ -93,7 +94,7 @@
 		<jsp:include page="../sideMenuBar.jsp"/>
 		  	<div class ="review">
 				<h1>상품평</h1>
-					<form id="reviewform1" name="reviewform1" action="reviewProc.jsp?id=<%=mid %>" method="post" enctype="multipart/form-data">
+					<form id="reviewform1" name="reviewform1" action="reviewProc.jsp?id=<%=mid %>&pid=<%=pid %>" method="post" enctype="multipart/form-data">
 						<input type="hidden" name="oid" value="<%=oid%>"> 
 						<input type="hidden" name="mid" value="<%=mid%>"> 
 							<ul>

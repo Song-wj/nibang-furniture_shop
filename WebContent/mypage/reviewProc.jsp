@@ -13,6 +13,7 @@
 	
 	reviewVO vo = new reviewVO();
 	vo.setMid(multi.getParameter("id"));
+	vo.setPid(multi.getParameter("pid"));
 	vo.setOid(multi.getParameter("oid"));
 	vo.setR_title(multi.getParameter("r_title"));
 	vo.setR_content(multi.getParameter("r_content"));

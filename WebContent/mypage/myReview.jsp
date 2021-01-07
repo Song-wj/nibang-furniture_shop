@@ -66,9 +66,10 @@
 			 	
 			 });
 			  
-			 function reviewUpdate(oid) {
+			 function reviewUpdate(oid , pid) {
+				
 				 $.ajax({
-					url : 'reviewChkUpdateProc.jsp?oid='+oid,
+					url : 'reviewChkUpdateProc.jsp?oid='+oid+"&pid="+pid,
 					success: function(result){
 						if(result) {
 							console.log("reviewChkUpdate success");
@@ -138,7 +139,7 @@
                   <td><img style="width:140px; height:100px;" src ="../upload/<%= vo.getSimg() %>"></td>
                   <td><%= vo.getPname() %></td>
                   <td><%= vo.getPinfo() %></td>
-                  <td><button type=button id="reviewBtn" onclick="location.href='http://localhost:9000/sist_project_2/mypage/review_insert.jsp?oid=<%=vo.getOid()%>&id=<%=mid%>'; reviewUpdate('<%= vo.getOid()%>'); ">리뷰</button></td>              
+                  <td><button type=button id="reviewBtn" onclick="location.href='http://localhost:9000/sist_project_2/mypage/review_insert.jsp?oid=<%=vo.getOid()%>&id=<%=mid%>&pid=<%=vo.getPid() %>'; reviewUpdate('<%= vo.getOid()%>' ,'<%=vo.getPid() %>'); ">리뷰</button></td>              
                 </tr>   
                   <%} %>
                <%} %>
@@ -165,8 +166,8 @@
                <tr>
                   <td><%=vo.getRid() %></td>
                   <td>
-                   <%if(vo.getR_file() !=null) {%>
-                   		<img style="width:140px; height:100px;" src="../upload/<%=vo.getR_file() %>">
+                   <%if(vo.getR_sfile() !=null) {%>
+                   		<img style="width:140px; height:100px;" src="../upload/<%=vo.getR_sfile() %>">
                   <%} else{%>
                    		<img style="width:140px; height:100px;" src ="../images/no_Image.png">
                   <%} %>

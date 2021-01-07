@@ -43,8 +43,7 @@ public class reviewDAO extends DBConn{
 		 ArrayList<reviewVO> list = new ArrayList<reviewVO>();
 	 
 		 try {
-			 String sql = "select rid, r_sfile, r_title, r_content ,r_satis from (select o.oid, s.pid, o.mid, review_chk, order_chk ,rdate  from suborder s ,nibangorder o where s.oid = o.oid) o , nibangreview r  where o.oid=r.oid and review_chk='o' and order_chk ='o' and r.mid= ? order by rdate ";
-	 
+			 String sql = "select rid, r_sfile, r_title, r_content, r_satis from nibangreview where mid=? order by r_date desc";
 			  getPreparedStatement(sql);
 			  pstmt.setString(1, mid);
 			  ResultSet rs = pstmt.executeQuery();

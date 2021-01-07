@@ -4,7 +4,9 @@
     %>
 <%
 	String oid = request.getParameter("oid");
+	String pid = request.getParameter("pid");
+	
 	orderDAO dao = new orderDAO();
-	boolean result = dao.updateReviewChk(oid);
+	boolean result = dao.updateReviewChk(oid,pid);
 	out.write(String.valueOf(result));
 %>
