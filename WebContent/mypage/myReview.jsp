@@ -165,8 +165,8 @@
                <tr>
                   <td><%=vo.getRid() %></td>
                   <td>
-                   <%if(vo.getR_file() !=null) {%>
-                   		<img style="width:140px; height:100px;" src="../upload/<%=vo.getR_file() %>">
+                   <%if(vo.getR_sfile() !=null) {%>
+                   		<img style="width:140px; height:100px;" src="../upload/<%=vo.getR_sfile() %>">
                   <%} else{%>
                    		<img style="width:140px; height:100px;" src ="../images/no_Image.png">
                   <%} %>
