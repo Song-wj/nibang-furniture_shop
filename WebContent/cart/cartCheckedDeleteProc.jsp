@@ -11,12 +11,14 @@
 	String pidListString = request.getParameter("pidList");
 	String[] pidList = pidListString.split(","); 
      
-   cartDAO dao = new cartDAO();
-   boolean result = dao.cartCheckedDelete(pidList);
+    cartDAO dao = new cartDAO();
+    boolean result = dao.cartCheckedDelete(pidList);
    
-  if (result) {
+/*   if (result) {
       response.sendRedirect("cart.jsp?id="+mid);
    } else {
       response.sendRedirect("errorPage.jsp");
-   } 
+   }  */
+  
+  	out.write(String.valueOf(result));
 %>
