@@ -16,6 +16,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 	$(document).ready(function(){
+		
+		$("#btn_close").click(function(){
+			
+			$("#inquiryform1").each(function(){
+				this.reset();
+			});
+		});
+		
 		$("#btn_1-1inquiry").click(function(){
 			if($("#m_div").val() == "선택"){
 				alert("문의 구분을 선택해주세요");
@@ -34,7 +42,9 @@
 			}
 			
 		});
-	});
+		
+});
+	
 </script>
 <title>1:1 문의</title>
 </head>
@@ -63,13 +73,12 @@
 					<div class="mdiv"><a href="#open"  class="message"><br><span>쪽지문의</span></a></div>					  
 						<div class="white_content" id="open">
 						<div class="inquiry_content"  id="inquiry_content">
-							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-							<h3>쪽지 문의</h3>
-							<form id="inquiryform1" name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
+							<a href="#close"><img id="btn_close" src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
+							<h3>문의</h3>
+							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1" id="inquiryform1"  enctype="multipart/form-data">
 								<input type="hidden" name="mid" value="<%=mid%>"> 
 								<ul>
-									<li>
-										<label>문의구분</label>
+									<li><label>문의구분</label>
 										<select name="m_div" id="m_div">
 							  				<option value="선택">선택</option>
 							  				<option value="상품문의">상품문의</option>

@@ -9,6 +9,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	$(document).ready(function(){
+		
+		$("#btn_close").click(function(){
+			alert("a");
+			$("#inquiryform1").each(function(){
+				this.reset();
+			});
+		});
+		
+	});
+</script>
 <style>
 	.white_content {
 		    position: fixed;
@@ -107,8 +119,8 @@
 	<div class="white_content" id="open">
 						<div class="inquiry_content"  id="inquiry_content">
 							<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-							<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1">
+							<h3> 문의</h3>
+							<form name="inquiryform1" id="inquiryform1" action="1-1inquiryProc.jsp" method="post" class="inquiryform1">
 								<input type="hidden" name="mid" value="<%=id%>">  
 								<ul>
 									<li>

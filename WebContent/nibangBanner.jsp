@@ -190,6 +190,14 @@
 				
 			});
 		
+		$("#btn_close").click(function(){
+			
+			 $("#inquiryform1").each(function(){
+				this.reset();
+			}); 
+		});	
+		
+		
 	});//ready
 	
 </script>
@@ -206,9 +214,9 @@
 		<a href="#open"  class="message">쪽지문의</a>
 		<div class="white_content4" id="open">
 			<div class="inquiry_content1"  id="inquiry_content1">
-					<a href="#close"><img src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-						<h3>쪽지 문의</h3>
-							<form name="inquiryform1" action="http://localhost:9000/sist_project_2/customer_service/1-1inquiryProc.jsp" method="post" class="inquiryform1" enctype="multipart/form-data">
+					<a href="#close"><img id="btn_close" src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
+						<h3 style=" margin-left:70px; padding: 6% 20%;">문의</h3>
+							<form name="inquiryform1"  action="http://localhost:9000/sist_project_2/customer_service/1-1inquiryProc.jsp" method="post" id="inquiryform1" class="inquiryform1" enctype="multipart/form-data">
 								<input type="hidden" name="mid" value="<%=mid%>"> 
 								<ul>
 									<li>

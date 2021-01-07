@@ -130,8 +130,16 @@
 			}
 		}
 	
-<%-- $(document).ready(function(){
-		
+	
+ $(document).ready(function(){
+			
+	 $("#btn_close").click(function(){
+			$("#inquiryform1").each(function(){
+				this.reset();
+			});
+		});	
+ });		 
+	 <%--
 		uploadTable(4);
 		
 		$("#duration_btn1").click(function(){
@@ -227,9 +235,40 @@
 									<img 
 									src="http://localhost:9000/sist_project_2/images/1on1.png"
 									style="padding-bottom: 20px; padding-left: 80px;">
-									
 									<span style="padding-left: 80px;">
-										<a href="http://localhost:9000/sist_project_2/customer_service/1-1inquiry.jsp?id=<%=mid%>#open"><button type="button" class="inquiry_btn">1:1문의하기</button></a>
+										<a href="#open"><button type="button" class="inquiry_btn">1:1문의하기</button></a>
+											<div class="white_content" id="open" >
+													<div class="inquiry_content1"  id="inquiry_content1" style="width:50%;">
+															<a href="#close"><img id="btn_close" src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
+																<h2 style=" margin-left:70px; padding: 6% 20%;">문 의</h2>
+																	<form name="inquiryform1" action="http://localhost:9000/sist_project_2/customer_service/1-1inquiryProc.jsp" method="post" id="inquiryform1" class="inquiryform1" enctype="multipart/form-data">
+																		<input type="hidden" name="mid" value="<%=mid%>"> 
+																		<ul>
+																			<li><label style="font-size:14px; margin: 20px 20px 0 0; ">문의구분</label>
+																				<select name="m_div" id="m_div" style="width:250px;height:40px;">
+																	  				<option value="선택">선택</option>
+																	  				<option value="상품문의">상품문의</option>
+																	  				<option value="주문/결제/취소">주문/결제/취소</option>
+																	  				<option value="배송">배송</option>
+																	  				<option value="교환/반품">교환/반품</option>
+																	  				<option value="회원정보">회원정보</option>
+																	  				<option value="사이트이용">사이트이용</option>
+																	  				<option value="이벤트/프로모션">이벤트/프로모션</option>
+																	  				<option value="기타문의">기타문의</option>
+																				</select>
+																			</li>
+																			<li>제목</li>
+																			<li><input type="text" name="m_title" id="m_title"></li>
+																			<li>상세 내용</li>
+																			<li><textarea name="m_content" id="m_content"></textarea></li>
+																			<li><input type="file" name="m_file" id="m_file"></li>
+																			<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
+																		</ul>
+																			<button type="submit" id="a">신청하기</button>
+																	</form>
+																</div>        
+															</div>
+															
 									</span>
 								</td>
 								<td rowspan="3" style="width:110px;"></td>
@@ -275,7 +314,7 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="body1">
+				<!-- <div class="body1">
 					<div class="duration_btn" style="margin-top: 30px;">
 						<button type="button" id="duration_btn1">1일</button>
 						<button type="button" id="duration_btn2">2일</button>
@@ -285,7 +324,7 @@
 					<p style="text-align:center; color: #aaaaaa;
 							 margin:40px;	font-size: 15px;">
 						최대 3년 이내 주문내역만 조회하실 수 있습니다.</p>
-				</div>
+				</div> -->
 				<div class="body2" style="margin-bottom: 100px;">
 					<div>
 						<table  style="width:100%" class="inquiry_table">

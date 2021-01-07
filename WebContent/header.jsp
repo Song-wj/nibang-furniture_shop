@@ -7,7 +7,11 @@
 	String mid ="";
 	if(svo != null){
 		 mid = svo.getId();
+		 
 	}
+
+
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -109,7 +113,7 @@
 					src="http://localhost:9000/sist_project_2/images/nibang_logo.png"></a>
 				<nav class="second">
 					<ul>
-						<li><%= svo.getName()%> 님의 니방
+						<li><%=svo.getId()%> 님의 니방
 						<div></div></li>
 						<li><a href="http://localhost:9000/sist_project_2/login/logout.jsp">로그아웃</a>
 						<div></div></li>
