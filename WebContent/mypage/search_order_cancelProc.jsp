@@ -6,7 +6,7 @@
 	String oid = request.getParameter("oid");
 	String mid = request.getParameter("mid");
 	orderDAO dao = new orderDAO();
-	boolean result = dao.orderCancel(oid);
+	boolean result = dao.orderCancel(oid ,mid);
 	
 	if(result){
 		response.sendRedirect("order_delivery.jsp");
