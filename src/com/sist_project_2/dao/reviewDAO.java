@@ -43,9 +43,7 @@ public class reviewDAO extends DBConn{
 		 ArrayList<reviewVO> list = new ArrayList<reviewVO>();
 	 
 		 try {
-			 String sql = "select r.rid, o.oid, p.simg1, p.pname, p.pinfo, r.r_title, r.r_content, r.r_satis, r.r_date, r.r_file, r.r_sfile "
-					 + "from nibangreview r, nibangorder o, product p "+
-					 "where r.mid = o.mid and r.oid = o.oid and o.pid = p.pid and r.mid=? order by r.r_date desc ";
+			 String sql = "select rid, r_sfile, r_title, r_content ,r_satis from (select o.oid, s.pid, o.mid, review_chk, order_chk ,rdate  from suborder s ,nibangorder o where s.oid = o.oid) o , nibangreview r  where o.oid=r.oid and review_chk='o' and order_chk ='o' and r.mid= ? order by rdate ";
 	 
 			  getPreparedStatement(sql);
 			  pstmt.setString(1, mid);
@@ -54,16 +52,13 @@ public class reviewDAO extends DBConn{
 			  while (rs.next()) {
 				  reviewVO vo = new reviewVO();
 				  vo.setRid(rs.getString(1));
-				  vo.setOid(rs.getString(2));
-				  vo.setSimg1(rs.getString(3));
-				  vo.setPname(rs.getString(4));
-				  vo.setPinfo(rs.getString(5));
-				  vo.setR_title(rs.getString(6));
-				  vo.setR_content(rs.getString(7));
-				  vo.setR_satis(rs.getString(8));
-				  vo.setR_date(rs.getString(9));
-				  vo.setR_file(rs.getString(10));
-				  vo.setR_sfile(rs.getString(11));
+				 
+				  vo.setR_sfile(rs.getString(2));
+				 
+				  vo.setR_title(rs.getString(3));
+				  vo.setR_content(rs.getString(4));
+				  vo.setR_satis(rs.getString(5));
+				 
 			  
 				  list.add(vo); 
 				  }

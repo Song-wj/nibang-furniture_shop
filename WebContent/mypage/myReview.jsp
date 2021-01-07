@@ -47,7 +47,7 @@
 			               $("#change_table2").css("display","block");
 			               $("#change_table1").css("display","none");
 			               $("#btn2").css("border","1px solid rgb(200,10,30)");
-			               $("#btn1").css("border","1px solid black");
+			               $("#btn1").css("border","1px solid black").css("border-right","1px solid rgb(200,10,30)");
 			            }else{
 			               $("#change_table2").css("display","block");
 			               $("#btn2").css("border","1px solid rgb(200,10,30)");
@@ -164,7 +164,13 @@
                <% for(reviewVO vo : list){ %>
                <tr>
                   <td><%=vo.getRid() %></td>
-                  <td><img style="width:140px; height:100px;" src="../upload/<%=vo.getR_file() %>"></td>
+                  <td>
+                   <%if(vo.getR_file() !=null) {%>
+                   		<img style="width:140px; height:100px;" src="../upload/<%=vo.getR_file() %>">
+                  <%} else{%>
+                   		<img style="width:140px; height:100px;" src ="../images/no_Image.png">
+                  <%} %>
+                  </td>
                   <td><%=vo.getR_title() %></td>
                   <td><%=vo.getR_content() %></td>
                   <td><% for(int i=0; i<Integer.parseInt(vo.getR_satis()); i++ ) { out.write(good+" "); }%></td> 
