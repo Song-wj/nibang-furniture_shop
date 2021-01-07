@@ -301,7 +301,7 @@ public class orderDAO extends DBConn{
 	      boolean result = false;
 	      
 	      try {
-	         String sql = "insert into suborder values (?,?)";
+	         String sql = "insert into suborder(oid, pid) values (?,?)";
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, oid);
 	         pstmt.setString(2, pid);
