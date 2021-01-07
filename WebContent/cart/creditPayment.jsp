@@ -5,16 +5,18 @@
 <%
 	
 	String mid = request.getParameter("id");
-	 String pid = request.getParameter("pid"); 
+	String pid = request.getParameter("pid"); 
 	String cnt = request.getParameter("cnt");
+	String oid = request.getParameter("oid");
 
+	System.out.println("2------" +oid);
 	
 	
 	productDAO pdao = new productDAO();
 	nibangDAO ndao = new nibangDAO();
 	orderDAO odao = new orderDAO();
-	orderVO vo =odao.getOrder();
-	System.out.println("1===="+vo.getOid());
+	
+	
 	/* productVO pvo = pdao.getData(pid); */
 	joinVO jvo = ndao.getMemberInfo(mid);
 	orderVO ovo = odao.getOrder();
@@ -50,12 +52,12 @@
 	        msg += '결제 금액 : ' + rsp.paid_amount;
 	        msg += '카드 승인번호 : ' + rsp.apply_num; */
 
-	        location.href = "orderComplete.jsp?id=<%=mid%>&pid=<%=pid%>&oid=<%=ovo.getOid()%>";
+	        location.href = "orderComplete.jsp?id=<%=mid%>&pid=<%=pid%>&oid=<%=oid%>";
 
 	    } else {
 	        var msg = '결제에 실패하였습니다.';
 	        /* msg += '에러내용 : ' + rsp.error_msg; */
-	        <% odao.orderDelete(vo.getOid()); %>
+	      <%--   <% odao.orderDelete(vo.getOid()); %> --%>
 	       <%--  location.href = "order_form.jsp?pid=<%=pid%>&id=<%=mid%>&cnt=<%=cnt%>"; --%>
 	    }
 	    alert(msg);

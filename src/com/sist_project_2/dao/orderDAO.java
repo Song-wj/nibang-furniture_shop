@@ -253,6 +253,7 @@ public class orderDAO extends DBConn{
          pstmt.setString(12, vo.getOrder_chk());
 
          
+         
          int val = pstmt.executeUpdate();
          
          if(val != 0) result = true;
