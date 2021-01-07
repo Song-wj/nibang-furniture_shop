@@ -2789,13 +2789,13 @@
 		padding-right: 30px;
 	}
 	
-	.section1 div.customer_service div:nth-child(2) div:first-child {
+	/* .section1 div.customer_service div:nth-child(2) div:first-child {
 		margin-left: 50px;
 		margin-right: 20px;
-	}	
+	}	 */
 	.section1 div.customer_service>div#third_div {
 		display: inline-block;
-		margin-top: 30px;
+		margin-top: -90px;
 		margin-left: 33%;
 		width: 567px;
 		border-bottom: 1px solid rgb(170, 170, 170);

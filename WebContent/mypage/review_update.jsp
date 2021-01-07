@@ -71,7 +71,7 @@
 		background-color:white;
 		padding:2px 0 0 2px;
 	}
-</style>s
+</style>
 </head>
 <script>
 	 $(document).ready(function(){
