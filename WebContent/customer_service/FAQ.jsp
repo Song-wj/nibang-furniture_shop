@@ -3,7 +3,11 @@
     import="com.sist_project_2.vo.*, com.sist_project_2.dao.*, java.util.*"
     %>
 <%
-	String mid = request.getParameter("id");
+	SessionVO svo = (SessionVO)session.getAttribute("svo");
+	String mid ="";
+	if(svo != null){
+		 mid = svo.getId();
+	}
 	//String fid = request.getParameter("fid");
 	faqDAO dao = new faqDAO();
 	int pageTotal = dao.getListCount();
@@ -65,7 +69,7 @@
 	 			});
 	 			
 	 			jQuery("#ampaginationsm").on('am.pagination.change', function(e){
-	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%=mid%>&rpage=' + e.page);
+	 				$(location).attr('href','http://localhost:9000/sist_project_2/customer_service/FAQ.jsp?id=<%=mid%>rpage=' + e.page);
 	 				//location.href('이동페이지'); -> javascript
 	 			}); 
 	 			
