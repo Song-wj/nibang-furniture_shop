@@ -61,9 +61,9 @@ public class orderDAO extends DBConn{
 		try {
 			String str="";
 			if(period ==0) {
-				str = "order by oid desc";
+				str = "order by rdate desc";
 			}else {
-				str = "and rdate>=sysdate-"+period+" order by oid desc";
+				str = "and rdate>=sysdate-"+period+" order by rdate desc";
 			}
 			String sql = "select oid, pname, to_char(price, '9,999,999'), rdate  from (select o.oid,mid, order_chk, s.pid, to_char(rdate, 'yyyy/mm/dd') rdate from nibangorder o, suborder s where o.oid=s.oid) s, product p where s.pid=p.pid and order_chk= ? and mid=? "+str ;
 			getPreparedStatement(sql);
@@ -97,9 +97,9 @@ public class orderDAO extends DBConn{
 	      try {
 	    	  String str="";
 				if(period ==0) {
-					str = "order by oid desc";
+					str = "order by rdate desc";
 				}else {
-					str = "and rdate>=sysdate-"+period+" order by oid desc";
+					str = "and rdate>=sysdate-"+period+" order by rdate desc";
 				}
 	         String sql = "select oid, pname, to_char(price, '9,999,999'), rdate  from (select o.oid,mid, order_chk, s.pid, to_char(rdate, 'yyyy/mm/dd') rdate from nibangorder o, suborder s where o.oid=s.oid) s, product p where s.pid=p.pid and order_chk= ? and mid=? "+str ;
 	         getPreparedStatement(sql);
