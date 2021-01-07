@@ -66,46 +66,18 @@ public class orderDAO extends DBConn{
    }
 	
 	
-	/*
-	 * public ArrayList<orderVO> getOrderList(String mid) { ArrayList<orderVO> list
-	 * = new ArrayList<>();
-	 * 
-	 * try { String sql =
-	 * "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(o.rdate, 'yyyy/mm/dd'), o.mid, o.pid "
-	 * + "from nibangmember m, nibangorder o, product p " +
-	 * "where o.mid = m.mid and o.pid = p.pid and o.mid = ? and order_chk =?" ;
-	 * getPreparedStatement(sql); pstmt.setString(1, mid); pstmt.setString(2, "o");
-	 * rs = pstmt.executeQuery();
-	 * 
-	 * while(rs.next()) { orderVO vo = new orderVO(); vo.setOid(rs.getString(1));
-	 * vo.setName(rs.getString(2)); vo.setRname(rs.getString(3));
-	 * vo.setRaddrnum(rs.getString(4)); vo.setRaddr(rs.getString(5));
-	 * vo.setHp(rs.getString(6)); vo.setRph(rs.getString(7));
-	 * vo.setSimg(rs.getString(8)); vo.setPname(rs.getString(9));
-	 * vo.setPinfo(rs.getString(10)); vo.setColor(rs.getString(11));
-	 * vo.setPrice(rs.getString(12)); vo.setPcnt(rs.getInt(13));
-	 * vo.setTotal(rs.getString(14)); vo.setRdate(rs.getString(15));
-	 * vo.setMid(rs.getString(16)); vo.setPid(rs.getString(17));
-	 * 
-	 * list.add(vo); }
-	 * 
-	 * }catch (Exception e) { e.printStackTrace(); }
-	 * 
-	 * return list; }
-	 */
+	
 	 
    public ArrayList<orderVO> getOrderList(int period, String mid) {
 		ArrayList<orderVO> list = new ArrayList<>();
 		try {
 			String str="";
 			if(period ==0) {
-				str = "order by o.rdate desc";
+				str = "order by oid desc";
 			}else {
-				str = "and rdate>=sysdate-"+period+" order by o.rdate desc";
+				str = "and rdate>=sysdate-"+period+" order by oid desc";
 			}
-			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(o.rdate, 'yyyy/mm/dd') "
-					+ "from nibangmember m, nibangorder o, product p "
-					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=? "+str ;
+			String sql = "select oid, pname, to_char(price, '9,999,999'), rdate  from (select o.oid,mid, order_chk, s.pid, to_char(rdate, 'yyyy/mm/dd') rdate from nibangorder o, suborder s where o.oid=s.oid) s, product p where s.pid=p.pid and order_chk= ? and mid=? "+str ;
 			getPreparedStatement(sql);
 			pstmt.setString(1, "o");
 			pstmt.setString(2, mid);
@@ -115,20 +87,9 @@ public class orderDAO extends DBConn{
 			while(rs.next()) {
 				orderVO vo = new orderVO(); 
 				vo.setOid(rs.getString(1));
-				vo.setName(rs.getString(2));
-				vo.setRname(rs.getString(3));
-				vo.setRaddrnum(rs.getString(4));
-				vo.setRaddr(rs.getString(5));
-				vo.setHp(rs.getString(6));
-				vo.setRph(rs.getString(7));
-				vo.setSimg(rs.getString(8));
-				vo.setPname(rs.getString(9));
-				vo.setPinfo(rs.getString(10));
-				vo.setColor(rs.getString(11));
-				vo.setPrice(rs.getString(12));
-				vo.setPcnt(rs.getInt(13));
-				vo.setTotal(rs.getString(14));
-				vo.setRdate(rs.getString(15));
+				vo.setPname(rs.getString(2));
+				vo.setPrice(rs.getString(3));
+				vo.setRdate(rs.getString(4));
 				
 				list.add(vo);
 			}
@@ -148,13 +109,11 @@ public class orderDAO extends DBConn{
 	      try {
 	    	  String str="";
 				if(period ==0) {
-					str = "order by o.rdate desc";
+					str = "order by oid desc";
 				}else {
-					str = "and rdate>=sysdate-"+period+" order by o.rdate desc";
+					str = "and rdate>=sysdate-"+period+" order by oid desc";
 				}
-	         String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(sysdate, 'yyyy/mm/dd') "
-	               + "from nibangmember m, nibangorder o, product p "
-	               + "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=?"+str;
+	         String sql = "select oid, pname, to_char(price, '9,999,999'), rdate  from (select o.oid,mid, order_chk, s.pid, to_char(rdate, 'yyyy/mm/dd') rdate from nibangorder o, suborder s where o.oid=s.oid) s, product p where s.pid=p.pid and order_chk= ? and mid=? "+str ;
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, "x");
 	         pstmt.setString(2, mid);
@@ -163,20 +122,9 @@ public class orderDAO extends DBConn{
 	         while(rs.next()) {
 	            orderVO vo = new orderVO(); 
 	            vo.setOid(rs.getString(1));
-	            vo.setName(rs.getString(2));
-	            vo.setRname(rs.getString(3));
-	            vo.setRaddrnum(rs.getString(4));
-	            vo.setRaddr(rs.getString(5));
-	            vo.setHp(rs.getString(6));
-	            vo.setRph(rs.getString(7));
-	            vo.setSimg(rs.getString(8));
-	            vo.setPname(rs.getString(9));
-	            vo.setPinfo(rs.getString(10));
-	            vo.setColor(rs.getString(11));
-	            vo.setPrice(rs.getString(12));
-	            vo.setPcnt(rs.getInt(13));
-	            vo.setTotal(rs.getString(14));
-	            vo.setRdate(rs.getString(15));
+				vo.setPname(rs.getString(2));
+				vo.setPrice(rs.getString(3));
+				vo.setRdate(rs.getString(4));
 	            
 	            list.add(vo);
 	         }
@@ -188,13 +136,14 @@ public class orderDAO extends DBConn{
 	      return list;
 	   }
 
-   public boolean orderCancel(String oid) {
+   public boolean orderCancel(String oid , String mid) {
 		 boolean result =false;
 		 try {
 			String sql = "update nibangorder set order_chk = ? , rdate= sysdate where oid=? and mid = ?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, "x");
 			pstmt.setString(2, oid);
+			pstmt.setString(3, mid);
 			
 			int count = pstmt.executeUpdate();
 			if(count != 0) result = true;
@@ -358,23 +307,7 @@ public class orderDAO extends DBConn{
 	      return list;
 	   }
    
-		/*
-		 * public ArrayList<subOrderVO> getProductName(String oid) {
-		 * ArrayList<subOrderVO> list = new ArrayList<>();
-		 * 
-		 * try { String sql = "select p.pname " +
-		 * "from nibangorder o, suborder s, product p " +
-		 * "where s.oid = o.oid and s.pid = p.pid and s.oid=?";
-		 * getPreparedStatement(sql); pstmt.setString(1, oid); rs =
-		 * pstmt.executeQuery();
-		 * 
-		 * while(rs.next()) { subOrderVO vo = new subOrderVO();
-		 * vo.setPname(rs.getString(1)); list.add(vo); }
-		 * 
-		 * } catch (Exception e) { e.printStackTrace(); }
-		 * 
-		 * return list; }
-		 */
+		
    
    public boolean subWrite(String oid, String pid) {
 	      boolean result = false;
