@@ -13,16 +13,17 @@ public class reviewDAO extends DBConn{
 		boolean result = false;
 
 		try {
-			String sql = "insert into nibangreview values('r_'||SQE_NIBANG_REVIEW.nextval,?,?,?,?,?,?,?,sysdate)";
+			String sql = "insert into nibangreview values('r_'||SQE_NIBANG_REVIEW.nextval,?,?,?,?,?,?,?,?,sysdate)";
 			getPreparedStatement(sql);
 
 			pstmt.setString(1, vo.getMid());
 			pstmt.setString(2, vo.getOid());
-			pstmt.setString(3, vo.getR_title());
-			pstmt.setString(4, vo.getR_content());
-			pstmt.setString(5, vo.getR_satis());
-			pstmt.setString(6, vo.getR_file());
-			pstmt.setString(7, vo.getR_sfile());
+			pstmt.setString(3, vo.getPid());
+			pstmt.setString(4, vo.getR_title());
+			pstmt.setString(5, vo.getR_content());
+			pstmt.setString(6, vo.getR_satis());
+			pstmt.setString(7, vo.getR_file());
+			pstmt.setString(8, vo.getR_sfile());
 
 			int val = pstmt.executeUpdate();
 			if (val != 0)
@@ -154,7 +155,40 @@ public class reviewDAO extends DBConn{
 	  }
 		
 	  
-	  
+	  public ArrayList<reviewVO> getProductReview(String pid ,String select) {
+			 ArrayList<reviewVO> list = new ArrayList<reviewVO>();
+		 
+			 try {
+				 String str="order by r_date desc";
+				if(select == "최근 리뷰순") {
+					str= "order by r_date desc";
+				}else if(select == "평점 낮은순"){
+					str= "order by r_satis ";
+				}else if(select == "평점 높은순") {
+					str= "order by r_satis desc";
+				}
+				 String sql = "select  r_sfile, r_title, r_content, r_satis from nibangreview where pid=? "+str;
+				  getPreparedStatement(sql);
+				  pstmt.setString(1, pid);
+				  ResultSet rs = pstmt.executeQuery();
+				  
+				  while (rs.next()) {
+					  reviewVO vo = new reviewVO();
+					 
+					  vo.setR_sfile(rs.getString(1));					 
+					  vo.setR_title(rs.getString(2));
+					  vo.setR_content(rs.getString(3));
+					  vo.setR_satis(rs.getString(4));
+					 
+				  
+					  list.add(vo); 
+					  }
+				  } catch (Exception e) {
+					  e.printStackTrace();
+					}
+				  
+			 return list;
+		  }
 
 	
 	

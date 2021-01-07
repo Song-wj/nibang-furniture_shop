@@ -290,6 +290,41 @@
 			});
 		});	
 		
+		$("#product_review_sort").change(function(){
+			var select = $(this).val();
+			$.ajax({
+				url:"product_review_ajax.jsp?pid=<%=pid%>&select="+select,
+				success:function(data){
+					var jdata = JSON.parse(data);
+					var output="<table  id='1line_review'>";
+					output+="<tr>";
+					output+="<th>이미지</th>";
+					output+="<th>제목</th>";
+					output+="<th>내용</th>";
+					output+="<th>점수</th>";
+					output+="</tr>";
+					for(var i in jdata.jlist){
+						
+						output+="<tr>"
+						if(jdata.jlist[i].img !=null){
+							output+="<td style ='width:10px;'><img src='../upload/"+jdata.jlist[i].img+"' width=120px height=120px;><td>";
+						}else{
+							output+="<td style ='width:10px;'><img src='../images/no_Image.png'><td>";
+						 }
+						output+="<td style ='width:10px;'>"+jdata.jlist[i].title+"<td>";
+						output+="<td style ='width:10px;'>"+jdata.jlist[i].content+"<td>";
+						output+="<td style ='width:10px;'>"+jdata.jlist[i].grade+"<td>";
+						output+="</tr>"
+					}
+				   output+="</table>";
+				
+				   $("#1line_review").remove();
+				   $(".ddd").append(output); 
+				   
+				}
+			})
+		})
+		
 		
 	}); // ready
 	function triggerChange(){
@@ -564,21 +599,23 @@
 									</div>		
 							</div>
 						 --%>
+				</label>
 					<select name="product_review_sort" id="product_review_sort">
 						<option value="최근 리뷰순"> 최근 리뷰순</option>
 						<option value="평점 높은순"> 평점 높은순</option>
 						<option value="평점 낮은순"> 평점 낮은순</option>
 					</select>
-				</label>
 				<hr>
+				<div class ="ddd">
 				<table class="1line_review" id="1line_review">
 					<tr>
 						<td>작성된 상품평이 없습니다.</td>
 					</tr>
 				</table>
+				</div>
 				<hr>
 				
-				<label>상품 Q&A <span class="qna">상품에 관한 문의가 아닌 경우 고객센터를 이용해주세요.</span>
+				<label>상품 Q&A <span class="qna">상품에 관한 문의가 아닌 경우 고객센터를 이용해주세요.</span></label>
 						<a href="#open"><button type="button">문의하기</button></a>
 						<div class="white_content4" id="open">
 							<div class="inquiry_content1"  id="inquiry_content1">
@@ -612,7 +649,7 @@
 										</div>        
 									</div>
 						<a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp"><button type="button">고객센터</button></a>
-				</label>
+				
 				
 				<hr>
 				<table class="product_Q&A" id="product_Q&A">
