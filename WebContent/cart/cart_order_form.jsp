@@ -313,6 +313,7 @@ div.content {
                   <input type="hidden" name="review_chk" value="x">
 				  <input type="hidden" name="order_chk" value="o">
 				  <%count++; %>
+
                <% } %>
                   <p class="delivery_info_title">배송지 정보</p>
                   <label>받는사람</label>

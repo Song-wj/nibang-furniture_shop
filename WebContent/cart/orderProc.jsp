@@ -23,9 +23,10 @@
 	
 		
 	if(result){
-		response.sendRedirect("creditPayment.jsp?id="+vo.getMid()+"&pid="+vo.getPid()+"&cnt="+vo.getPcnt());  
-/* 		response.sendRedirect("orderComplete.jsp?id="+vo.getMid()+"&oid="+vo.getOid());  
- */
+
+		response.sendRedirect("creditPayment.jsp?id="+vo.getMid()+"&pid="+vo.getPid()+"&cnt="+vo.getPcnt());
+		//response.sendRedirect("orderComplete.jsp?id="+vo.getMid()+"&oid="+vo.getOid());
+
 	}else{
 		response.sendRedirect("errorPage.jsp");
 	}  
