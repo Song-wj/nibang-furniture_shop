@@ -21,7 +21,8 @@
 	
 	for(reviewVO vo: list){
 		JsonObject jobj = new JsonObject();
-		System.out.println(vo.getR_sfile());
+		
+		jobj.addProperty("id",vo.getMid());
 		jobj.addProperty("img",vo.getR_sfile());
 		jobj.addProperty("title",vo.getR_title());	
 		jobj.addProperty("content",vo.getR_content());

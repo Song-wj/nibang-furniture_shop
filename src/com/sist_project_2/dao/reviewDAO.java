@@ -160,25 +160,25 @@ public class reviewDAO extends DBConn{
 		 
 			 try {
 				 String str="order by r_date desc";
-				if(select == "최근 리뷰순") {
+				if(select.equals("최근 리뷰순")) {
 					str= "order by r_date desc";
-				}else if(select == "평점 낮은순"){
+				}else if(select.equals("평점 낮은순")){
 					str= "order by r_satis ";
-				}else if(select == "평점 높은순") {
+				}else if(select.equals("평점 높은순")){
 					str= "order by r_satis desc";
 				}
-				 String sql = "select  r_sfile, r_title, r_content, r_satis from nibangreview where pid=? "+str;
+				 String sql = "select mid, r_sfile, r_title, r_content, r_satis from nibangreview where pid=? "+str;
 				  getPreparedStatement(sql);
 				  pstmt.setString(1, pid);
 				  ResultSet rs = pstmt.executeQuery();
 				  
 				  while (rs.next()) {
 					  reviewVO vo = new reviewVO();
-					 
-					  vo.setR_sfile(rs.getString(1));					 
-					  vo.setR_title(rs.getString(2));
-					  vo.setR_content(rs.getString(3));
-					  vo.setR_satis(rs.getString(4));
+					  vo.setMid(rs.getString(1));
+					  vo.setR_sfile(rs.getString(2));					 
+					  vo.setR_title(rs.getString(3));
+					  vo.setR_content(rs.getString(4));
+					  vo.setR_satis(rs.getString(5));
 					 
 				  
 					  list.add(vo); 
