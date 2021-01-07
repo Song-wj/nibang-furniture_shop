@@ -49,7 +49,7 @@ $(document).ready(function(){
 	$("#duration_btn3").click(function(){
 		changeColor(3);
 		uploadTable(3);
-		
+	})	
 
 	function cancel(oid){
 			
@@ -110,7 +110,7 @@ $(document).ready(function(){
 		}
 	}
 	
-})
+});
 </script>
 </head>
 <body>
