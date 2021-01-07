@@ -7,7 +7,6 @@
 	String oid = request.getParameter("oid");
 	System.out.println("2-------"+oid);
 	
-	
 	orderDAO odao = new orderDAO();
 	ArrayList<orderVO> list = odao.getPid(oid);
 	orderVO vo = odao.getOrder(oid); 
