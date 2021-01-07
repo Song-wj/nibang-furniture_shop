@@ -50,17 +50,12 @@ $(document).ready(function(){
 		changeColor(3);
 		uploadTable(3);
 		
-	})
-	$("#duration_btn4").click(function(){
-		changeColor(4);
-		uploadTable(0);
-	})
-	
+
 	function cancel(oid){
-		
-		alert("정말 취소하시겠습니까?");
-		location.href="search_order_cancelProc.jsp?oid="+oid+"; 
-	}
+			
+			alert("정말 취소하시겠습니까?");
+			location.href="search_order_cancelProc.jsp?oid="+oid ;
+		}
 	
 
 	function uploadTable(num){
