@@ -97,7 +97,7 @@
 				success:function(answer){
 					var output="";
 					output+= "<p style='text-align:left;padding-left:95px;'>"
-					output += answer;
+					output +="<span style='color:rgb(200,100,30)'>RE:</span>"+ answer;
 					output += "</p>"
 					$("#1-1answer").text("");
 					$("#1-1answer").append(output);
@@ -139,85 +139,7 @@
 			});
 		});	
  });		 
-	 <%--
-		uploadTable(4);
-		
-		$("#duration_btn1").click(function(){
-			changeColor(1);
-			uploadTable(1);
-		})
-		$("#duration_btn2").click(function(){
-			changeColor(2);
-			uploadTable(2);
-			
-		})
-		$("#duration_btn3").click(function(){
-			changeColor(3);
-			uploadTable(3);
-			
-		})
-		$("#duration_btn4").click(function(){
-			changeColor(4);
-			uploadTable(0);
-		})
-		
 	
-		function uploadTable(num){
-			$.ajax({
-				url:"1-1inquiry_ajax.jsp?mid=<%=mid%>"+"&period="+num,
-				success:function(data){
-					
-					var jdata = JSON.parse(data);
-					var output="";
-					if(jdata.jlist.size==0){
-						output+="<tr><td colspna='4'>";
-						output+="문의내역이 없습니다.";
-						output+="</td></tr>"
-					}else{
-					for(var i in jdata.jlist){
-						
-						output+="<tr class='abc' id='"+jdata.jlist[i].sid+"'>"
-						output+="<td>"+jdata.jlist[i].sid+"</td>";
-						output+="<td>"+jdata.jlist[i].div+"</td>";
-						output+="<td>"+jdata.jlist[i].title+"</td>";
-						output+="<td>"+jdata.jlist[i].date+"</td>";
-						output+="</tr>"
-						
-				   		
-					}
-					}
-					
-					
-				    $("table.inquiry_table tbody tr.abc").remove();
-					$("table.inquiry_table tr.noto").after(output); 
-					
-					$(".abc").click(function (){
-						var sid = $(".abc").attr("id");
-						slideDown(sid);
-					})
-					
-				}
-			
-				
-			})
-		}
-		
-
-		
-		function changeColor(num){
-			$("#duration_btn"+num).css("border","1px solid rgb(200, 10, 30)");
-			if(num ==1){
-				$("#duration_btn2,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
-			}else if(num ==2){			
-				$("#duration_btn1,#duration_btn3,#duration_btn4").css("border","1px solid lightgray");
-			}else if(num ==3){
-				$("#duration_btn1,#duration_btn2,#duration_btn4").css("border","1px solid lightgray");
-			}else if(num ==4){
-				$("#duration_btn1,#duration_btn2,#duration_btn3").css("border","1px solid lightgray");
-			}
-		}
-		
-	}) --%>
 </script>
 </head>
 <body>
@@ -235,7 +157,7 @@
 									<img 
 									src="http://localhost:9000/sist_project_2/images/1on1.png"
 									style="padding-bottom: 20px; padding-left: 80px;">
-									<span style="padding-left: 80px;">
+									<span style="padding-left: 80px;"></span>
 										<a href="#open"><button type="button" class="inquiry_btn">1:1문의하기</button></a>
 											<div class="white_content" id="open" >
 													<div class="inquiry_content1"  id="inquiry_content1" style="width:50%;">
@@ -269,7 +191,7 @@
 																</div>        
 															</div>
 															
-									</span>
+									
 								</td>
 								<td rowspan="3" style="width:110px;"></td>
 								<td class="all" onclick="">전체내역</td>
@@ -349,7 +271,9 @@
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:652px;">수정</button></a>
 	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button>
 					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
-					    					<p id="1-1answer"></p>								
+					    					<hr>		
+					    							    					
+					    					<p id="1-1answer">RE:</p>								
 										</div>
 									</td>
 					    		</tr>
