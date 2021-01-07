@@ -3712,6 +3712,49 @@ td.productInfo {
     color: #c80a1e;
 }
 
+/** 리뷰 인서트 페이지 **/
+	.review h1 {
+		display: inline-block;
+		margin: 10% 30% 3% 30%;
+	}	 	
+	.review form ul {
+		list-style:none;
+	}
+	.review form ul li:first-child,
+	.review form ul li:nth-child(3),
+	.review form ul li:nth-child(5){
+		font-size: 18px;
+		margin:20px 0 10px 230px;
+		text-align:center;
+		display:inline-block;
+	}
+	.review form ul li:nth-child(6){
+		margin:20px 0 30px 350px;
+	}
+	.review form ul li input[type="text"],
+	.review form ul li textarea {
+		width: 400px;
+		height: 40px;
+		margin: 0 230px;
+	}
+	.review form ul li textarea {
+		height: 150px;
+		margin: 0 230px;
+	}
+	.review #btn_review {
+		margin: 5px 0 0 450px;
+		background-color: rgb(200, 10, 30);
+		border: 1px solid rgb(200, 10, 30);
+		color: white;
+		width: 200px;
+		height: 50px;
+	}
+	.review #btn_review:hover {
+		background-color: rgb(160, 14, 43);
+	}	
+
+
+
 
 /**1:1 문의, 리뷰 삭제 페이지 **/
 	#inquiry_delete h3, 

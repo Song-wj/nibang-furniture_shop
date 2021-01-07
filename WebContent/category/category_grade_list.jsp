@@ -4,7 +4,7 @@
   <%	
   		String type = request.getParameter("type");
   		categoryDAO dao = new categoryDAO();
-  		ArrayList<productVO> list = dao.gradeList(type);
+		ArrayList<productVO> list = dao.gradeList(type);
   		
   %>
 <!DOCTYPE html>
