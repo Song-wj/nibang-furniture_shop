@@ -251,7 +251,7 @@
 								<td style="width:53px">
 									<span class="cNum"><%=listDelivery_cnt %></span>
 								</td>
-								<td class="">교환/반품/환불</td>
+								<td class="">교환/반품</td>
 								<td style="width:53px">
 									<span class="cNum"><%=listExchange_cnt %></span>
 								</td>
@@ -308,7 +308,7 @@
 					    			<td colspan="4" id="faq_content">
 										<div style="display: none;" id="btn_inquiry_upde">
 											<a href="http://localhost:9000/sist_project_2/mypage/1-1_inquiryUpdate.jsp?sid=<%=vo.getSid()%>"><button type="button" style="margin-left:652px;">수정</button></a>
-	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button></a>
+	                           				<button type="button" onclick="deleteReview('<%=vo.getSid()%>')" style="margin-left:-10px;">삭제</button>
 					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
 					    					<p id="1-1answer"></p>								
 										</div>

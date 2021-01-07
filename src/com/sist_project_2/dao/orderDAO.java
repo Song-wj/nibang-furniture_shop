@@ -305,7 +305,13 @@ public class orderDAO extends DBConn{
          pstmt.setString(9, vo.getRph());
          pstmt.setString(10, vo.getRrequest());
          pstmt.setString(11, vo.getReview_chk());
-         pstmt.setString(11, vo.getOrder_chk());
+         pstmt.setString(12, vo.getOrder_chk());
+<<<<<<< HEAD
+
+ 
+
+=======
+>>>>>>> bfd60c731233ae8325426b83bca67da566c71852
          
          int val = pstmt.executeUpdate();
          
