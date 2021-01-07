@@ -150,7 +150,7 @@
             <table   class="review_table2" id="review_table2">
                <tr>
                   <td>번호</td>
-                  <td>상품</td>
+                  <td>상품 이미지</td>
                   <td>제목</td>
                   <td>내용</td>
                   <td>만족도</td>
@@ -164,7 +164,7 @@
                <% for(reviewVO vo : list){ %>
                <tr>
                   <td><%=vo.getRid() %></td>
-                  <td><img style="width:140px; height:100px;" src="../upload/<%=vo.getSimg1() %>"></td>
+                  <td><img style="width:140px; height:100px;" src="../upload/<%=vo.getR_file() %>"></td>
                   <td><%=vo.getR_title() %></td>
                   <td><%=vo.getR_content() %></td>
                   <td><% for(int i=0; i<Integer.parseInt(vo.getR_satis()); i++ ) { out.write(good+" "); }%></td> 

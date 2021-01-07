@@ -43,7 +43,7 @@ public class reviewDAO extends DBConn{
 		 ArrayList<reviewVO> list = new ArrayList<reviewVO>();
 	 
 		 try {
-			 String sql = "select r.rid, o.oid, p.simg1, p.pname, p.pinfo, r.r_title, r.r_content, r.r_satis, r.r_date "
+			 String sql = "select r.rid, o.oid, p.simg1, p.pname, p.pinfo, r.r_title, r.r_content, r.r_satis, r.r_date, r.r_file, r.r_sfile "
 					 + "from nibangreview r, nibangorder o, product p "+
 					 "where r.mid = o.mid and r.oid = o.oid and o.pid = p.pid and r.mid=? order by r.r_date desc ";
 	 
@@ -62,6 +62,8 @@ public class reviewDAO extends DBConn{
 				  vo.setR_content(rs.getString(7));
 				  vo.setR_satis(rs.getString(8));
 				  vo.setR_date(rs.getString(9));
+				  vo.setR_file(rs.getString(10));
+				  vo.setR_sfile(rs.getString(11));
 			  
 				  list.add(vo); 
 				  }
@@ -112,7 +114,7 @@ public class reviewDAO extends DBConn{
 		  boolean result = false;
 	  
 		  try { 
-			  String sql ="update nibangreview set r_title=?, r_content=? , r_satis=? " +
+			  String sql ="update nibangreview set r_title=?, r_content=? , r_satis=?, " +
 					  		" r_file=?, r_sfile=? where rid=?";
 			  
 			  	  getPreparedStatement(sql);
