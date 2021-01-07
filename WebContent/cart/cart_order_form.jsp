@@ -16,7 +16,7 @@
       
    Random rd = new Random();
    String oid = "NIB" + rd.nextInt(100000);
-   
+   int count =1;
     
    if(type.equals("all")){
          displayedCartList = cartList;
@@ -304,13 +304,15 @@ div.content {
                </div>   
                <div id="delivery_info_R">
                <% for (cartVO vo : displayedCartList) {%>
+               	
                   <input type="hidden" name="oid" value="<%= oid%>">
                   <input type="hidden" name="mid" value="<%= jvo.getEmail()%>">
-                  <input type="hidden" name="pid" value="<%= vo.getPid()%>">
+                  <input type="hidden" name="pid<%=count %>" value="<%= vo.getPid()%>">
                   <input type="hidden" name="pcnt" value="<%= vo.getC_qty()%>">
                   <input type="hidden" name="total" value="<%= parseTotal %>">
                   <input type="hidden" name="review_chk" value="x">
-
+				  <input type="hidden" name="order_chk" value="o">
+				  <%count++; %>
                <% } %>
                   <p class="delivery_info_title">배송지 정보</p>
                   <label>받는사람</label>

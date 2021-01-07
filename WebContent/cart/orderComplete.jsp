@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*,  java.text.DecimalFormat"
-    %>
+    import="com.sist_project_2.vo.*, com.sist_project_2.dao.*,  java.text.DecimalFormat ,java.util.*"%>
 <%
-	String pid = request.getParameter("pid");
+	/* String pid = request.getParameter("pid"); */
 	DecimalFormat formatter = new DecimalFormat("###,###");
-	//String oid = request.getParameter("oid");
+	String oid = request.getParameter("oid");
+	System.out.println("2-------"+oid);
+	
+	
 	orderDAO odao = new orderDAO();
-	orderVO vo = odao.getOrder(pid);
+	ArrayList<orderVO> list = odao.getPid(oid);
+	orderVO vo = odao.getOrder(oid); 
 %>
 <!DOCTYPE html>
 <html>
@@ -45,7 +48,7 @@ div.content {
 				<div class="title_2">주문 상품 및 내용을 확인해주세요..</div>
 				<p>구매해주셔서 감사합니다.</p>
 				<span class="order_num" style="margin:0px 10px 0px 510px ;">주문번호</span>
-				<span class="order_num"><%= vo.getOid() %></span>
+				<span class="order_num"><%= oid %></span>
 				<div class="event_img">
 					<hr>
 					<a href="http://localhost:9000/sist_project_2/event/event_main.jsp">
@@ -78,16 +81,17 @@ div.content {
 						<th class="w130">상품금액</th>			
 						<th class="w100">배송형태</th>			
 					</tr>
+					<%for(orderVO svo : list) {%>
 					<tr class="mainProduct">
 						<td>
-							<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%=vo.getPid()%>&mid=<%=vo.getMid()%>">
-								<img class="product_img" src="http://localhost:9000/sist_project_2/upload/<%=vo.getSimg()%>" width='200px' height='200px'>
+							<a href="http://localhost:9000/sist_project_2/product_detail/product_detail.jsp?pid=<%=svo.getPid()%>&mid=<%=svo.getMid()%>">
+								<img class="product_img" src="http://localhost:9000/sist_project_2/upload/<%=svo.getSimg()%>" width='200px' height='200px'>
 							</a>
 						</td>
 						<td class="productInfo">
-							<span class="f_bold"><%= vo.getPname() %></span>
+							<span class="f_bold"><%= svo.getPname() %></span>
 							<br>
-							<span><%=vo.getPinfo() %></span>
+							<span><%=svo.getPinfo() %></span>
 							<br>
 							<br>
 							<br>
@@ -96,14 +100,15 @@ div.content {
 							<span style="vertical-align: bottom;">
 								<b>[필수] &nbsp; &nbsp;</b>
 								색상 : 
-								<span><%=vo.getColor() %></span>
+								<span><%=svo.getColor() %></span>
 							</span>
 						</td>
-						<td class="mainPrice"><%=formatter.format(Integer.parseInt(vo.getPrice())) %></td>
-						<td class="mainQty"><%=vo.getPcnt() %></td>
-						<td class="groupPrice"><%=vo.getTotal() %></td>
+						<td class="mainPrice"><%=formatter.format(Integer.parseInt(svo.getPrice())) %></td>
+						<td class="mainQty"><%=svo.getPcnt() %></td>
+						<td class="groupPrice"><%=svo.getTotal() %></td>
 						<td>-</td>
 					</tr>
+					<%} %>
 				</table>
 				<div style="padding:70px 70px;">
 					<span>*상품 구매 시, 별도의 배송비가 발생하지 않습니다.</span>
