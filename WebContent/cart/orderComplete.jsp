@@ -7,7 +7,6 @@
 	String oid = request.getParameter("oid");
 	System.out.println("2-------"+oid);
 	
-	
 	orderDAO odao = new orderDAO();
 	ArrayList<orderVO> list = odao.getPid(oid);
 	orderVO vo = odao.getOrder(oid); 
@@ -105,7 +104,7 @@ div.content {
 						</td>
 						<td class="mainPrice"><%=formatter.format(Integer.parseInt(svo.getPrice())) %></td>
 						<td class="mainQty"><%=svo.getPcnt() %></td>
-						<td class="groupPrice"><%=svo.getTotal() %></td>
+						<td class="groupPrice"><%= formatter.format(Integer.parseInt(svo.getPrice()) * svo.getPcnt()) %></td>
 						<td>-</td>
 					</tr>
 					<%} %>

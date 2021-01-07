@@ -3,7 +3,7 @@ package com.sist_project_2.dao;
 import java.util.ArrayList;
 
 import com.sist_project_2.vo.orderVO;
-import com.sist_project_2.vo.subOrderVO;
+
 
 public class orderDAO extends DBConn{
    
@@ -65,6 +65,7 @@ public class orderDAO extends DBConn{
       return list;
    }
 	
+	
 	/*
 	 * public ArrayList<orderVO> getOrderList(String mid) { ArrayList<orderVO> list
 	 * = new ArrayList<>();
@@ -93,6 +94,53 @@ public class orderDAO extends DBConn{
 	 * return list; }
 	 */
 	 
+   public ArrayList<orderVO> getOrderList(int period, String mid) {
+		ArrayList<orderVO> list = new ArrayList<>();
+		try {
+			String str="";
+			if(period ==0) {
+				str = "order by o.rdate desc";
+			}else {
+				str = "and rdate>=sysdate-"+period+" order by o.rdate desc";
+			}
+			String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(o.rdate, 'yyyy/mm/dd') "
+					+ "from nibangmember m, nibangorder o, product p "
+					+ "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=? "+str ;
+			getPreparedStatement(sql);
+			pstmt.setString(1, "o");
+			pstmt.setString(2, mid);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				orderVO vo = new orderVO(); 
+				vo.setOid(rs.getString(1));
+				vo.setName(rs.getString(2));
+				vo.setRname(rs.getString(3));
+				vo.setRaddrnum(rs.getString(4));
+				vo.setRaddr(rs.getString(5));
+				vo.setHp(rs.getString(6));
+				vo.setRph(rs.getString(7));
+				vo.setSimg(rs.getString(8));
+				vo.setPname(rs.getString(9));
+				vo.setPinfo(rs.getString(10));
+				vo.setColor(rs.getString(11));
+				vo.setPrice(rs.getString(12));
+				vo.setPcnt(rs.getInt(13));
+				vo.setTotal(rs.getString(14));
+				vo.setRdate(rs.getString(15));
+				
+				list.add(vo);
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	 
    public ArrayList<orderVO> getCancelList(int period, String mid) {
 	      ArrayList<orderVO> list = new ArrayList<>();
 	      
@@ -106,9 +154,10 @@ public class orderDAO extends DBConn{
 				}
 	         String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total, to_char(sysdate, 'yyyy/mm/dd') "
 	               + "from nibangmember m, nibangorder o, product p "
-	               + "where o.mid = m.mid and o.pid = p.pid and order_chk= ?"+str;
+	               + "where o.mid = m.mid and o.pid = p.pid and order_chk= ? and o.mid=?"+str;
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, "x");
+	         pstmt.setString(2, mid);
 	         rs = pstmt.executeQuery();
 	         
 	         while(rs.next()) {
@@ -142,7 +191,7 @@ public class orderDAO extends DBConn{
    public boolean orderCancel(String oid) {
 		 boolean result =false;
 		 try {
-			String sql = "update nibangorder set order_chk = ? , rdate= sysdate where oid=?";
+			String sql = "update nibangorder set order_chk = ? , rdate= sysdate where oid=? and mid = ?";
 			getPreparedStatement(sql);
 			pstmt.setString(1, "x");
 			pstmt.setString(2, oid);
@@ -253,6 +302,7 @@ public class orderDAO extends DBConn{
          pstmt.setString(12, vo.getOrder_chk());
 
          
+         
          int val = pstmt.executeUpdate();
          
          if(val != 0) result = true;
@@ -308,6 +358,24 @@ public class orderDAO extends DBConn{
 	      return list;
 	   }
    
+		/*
+		 * public ArrayList<subOrderVO> getProductName(String oid) {
+		 * ArrayList<subOrderVO> list = new ArrayList<>();
+		 * 
+		 * try { String sql = "select p.pname " +
+		 * "from nibangorder o, suborder s, product p " +
+		 * "where s.oid = o.oid and s.pid = p.pid and s.oid=?";
+		 * getPreparedStatement(sql); pstmt.setString(1, oid); rs =
+		 * pstmt.executeQuery();
+		 * 
+		 * while(rs.next()) { subOrderVO vo = new subOrderVO();
+		 * vo.setPname(rs.getString(1)); list.add(vo); }
+		 * 
+		 * } catch (Exception e) { e.printStackTrace(); }
+		 * 
+		 * return list; }
+		 */
+   
    public boolean subWrite(String oid, String pid) {
 	      boolean result = false;
 	      
@@ -316,9 +384,6 @@ public class orderDAO extends DBConn{
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, oid);
 	         pstmt.setString(2, pid);
-	       
-
-	         
 	         int val = pstmt.executeUpdate();
 	         
 	         if(val != 0) result = true;

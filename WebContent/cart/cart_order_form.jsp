@@ -231,7 +231,7 @@ div.content {
             <span>03 주문완료</span>
          </div>
          <div id="order_form_content">
-         <form name="orderForm" action="orderProc.jsp" method="get" class="order_form">
+         <form id="orderForm" name="orderForm" action="orderProc.jsp" method="get" class="order_form">
             <div id="order_form_title" style=" border-bottom: 1px solid white; ">주문서 작성</div>
             <div class="title_2">배송/결제 정보를 정확히 입력해주세요.</div>
             <div class="order_form_sub_title">주문 상품 정보</div>

@@ -4,9 +4,9 @@
     %>
 <%
 	String oid = request.getParameter("oid");
+	String mid = request.getParameter("mid");
 	orderDAO dao = new orderDAO();
 	boolean result = dao.orderCancel(oid);
-	
 	
 	if(result){
 		response.sendRedirect("order_delivery.jsp");
