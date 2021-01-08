@@ -95,12 +95,18 @@
 			$.ajax({
 				url:"1-1answerProc.jsp?sid="+sid,
 				success:function(answer){
+					if(answer!=""){
 					var output="";
-					output+= "<p style='text-align:left;padding-left:95px;'>"
+					output+= "<p style='text-align:left;padding-left:50px;'>"
 					output +="<span style='color:rgb(200,100,30)'>RE:</span>"+ answer;
 					output += "</p>"
-					$("#1-1answer").text("");
-					$("#1-1answer").append(output);
+					}else{
+						output+= "<p style='text-align:left;padding-left:50px;'>"
+						output +="<span style='color:rgb(200,100,30)'>RE:</span>";
+						output += "</p>"
+					}
+					$(".1-1answer").text("");
+					$(".1-1answer").append(output);
 				}
 			})
 		} else {
@@ -273,7 +279,7 @@
 					    					<p id="faq_content_detail"><%= vo.getM_content().replace("\r\n", "<br><br>") %></p>		
 					    					<hr>		
 					    							    					
-					    					<p id="1-1answer">RE:</p>								
+					    					<p class="1-1answer"></p>								
 										</div>
 									</td>
 					    		</tr>
