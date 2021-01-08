@@ -23,10 +23,11 @@
 <link rel="stylesheet" href ="http://localhost:9000/sist_project_2/css/am-pagination.css">
 <style>
 	table.notice_table{
-		width:500px;
-		margin-left:360px;;
+		width:600px;
+		margin-left:330px;;
 		margin-top:50px;
 	}
+	
 </style>
 <script>
 	
@@ -42,6 +43,7 @@
 							<table class="notice_table">
 								<tr class="table_header">
 									<th>NO</th>
+									<th>회원 아이디</th>
 									<th>제목</th>
 									<th>구분</th>
 									<th>등록일</th>
@@ -50,6 +52,7 @@
 								<% for(messageVO vo : list) {%>
 								<tr>
 									<td><%=vo.getRno() %></td>
+									<td><%=vo.getMid() %>
 									<td><a href="1-1inquiry_content.jsp?sid=<%=vo.getSid() %>"><%=vo.getM_title() %></a></td>
 					    			<td><%=vo.getM_div() %></td>
 					    			<td><%=vo.getM_date() %></td>
