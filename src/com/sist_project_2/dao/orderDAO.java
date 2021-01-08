@@ -233,11 +233,7 @@ public class orderDAO extends DBConn{
 	  	  
 		  ArrayList<orderVO> list = new ArrayList<>();
 		  try { 
-			  String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total  \r\n"
-							 + " from nibangmember m, product p , ( select s.oid, s.pid , o.mid ,o.rname, o.raddrnum ,o.pcnt, o.total ,o.rph ,o.raddr\r\n"
-							  + "                                    from  nibangorder o, suborder s"
-							  + "                                     where o.oid = s.oid) o" +
-							 "	   where o.mid = m.mid and o.pid = p.pid  and o.oid=?";
+			  String sql = "select simg1 , pinfo , color, pname,price,pcnt from  product p , ( select s.pcnt ,s.pid ,s.oid from  nibangorder o, suborder s  where o.oid = s.oid) o where  o.pid =p.pid and oid=?" ;
 	  getPreparedStatement(sql); pstmt.setString(1, oid);
 	  
 	  
@@ -246,20 +242,13 @@ public class orderDAO extends DBConn{
 	  
 	  while(rs.next()){ 
 		  orderVO vo = new orderVO(); 
-		  vo.setOid(rs.getString(1));
-		  vo.setName(rs.getString(2)); 
-		  vo.setRname(rs.getString(3));
-		  vo.setRaddrnum(rs.getString(4)); 
-		  vo.setRaddr(rs.getString(5));
-		  vo.setHp(rs.getString(6)); 
-		  vo.setRph(rs.getString(7));
-		  vo.setSimg(rs.getString(8)); 
-		  vo.setPname(rs.getString(9));
-		  vo.setPinfo(rs.getString(10)); 
-		  vo.setColor(rs.getString(11));
-		  vo.setPrice(rs.getString(12)); 
-		  vo.setPcnt(rs.getInt(13));
-		  vo.setTotal(rs.getString(14));
+		  vo.setSimg(rs.getString(1));
+		  vo.setPinfo(rs.getString(2)); 
+		  vo.setColor(rs.getString(3)); 
+		  vo.setPname(rs.getString(4));
+		  vo.setPrice(rs.getString(5)); 
+		  vo.setPcnt(Integer.parseInt(rs.getString(6)));
+		  
 	 
 	  list.add(vo); }
 	  
@@ -270,14 +259,15 @@ public class orderDAO extends DBConn{
    
 		
    
-   public boolean subWrite(String oid, String pid) {
+   public boolean subWrite(String oid, String pid ,String cnt) {
 	      boolean result = false;
 	      
 	      try {
-	         String sql = "insert into suborder(oid, pid) values (?,?)";
+	         String sql = "insert into suborder(oid, pid , pcnt) values (?,?,?)";
 	         getPreparedStatement(sql);
 	         pstmt.setString(1, oid);
 	         pstmt.setString(2, pid);
+	         pstmt.setString(3, cnt);
 	         int val = pstmt.executeUpdate();
 	         
 	         if(val != 0) result = true;

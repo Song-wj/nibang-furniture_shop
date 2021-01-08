@@ -10,21 +10,24 @@
 
 	String oid = vo.getOid();
 	String ppid= vo.getPid();
-	
+	String pcnt = String.valueOf(vo.getPcnt());
 	
 	orderDAO dao = new orderDAO();
  	boolean result = dao.orderWrite(vo); 
 	System.out.println("1---------"+oid);
 	
- 	if(ppid != null ){
- 		dao.subWrite(oid,ppid);	
+ 	if(ppid != null ){ 
+ 		dao.subWrite(oid,ppid,pcnt);	
  	}
 	
 	for(int i =1; i<10; i++){
 		String cpid = request.getParameter("pid"+i);
+		String cnt = request.getParameter("pcnt"+i);
 		
-		if(cpid != null){
-	     	dao.subWrite(oid,cpid);		
+		if(cpid != null ){
+			System.out.println(cpid);
+			System.out.println(cnt);
+	     	dao.subWrite(oid,cpid,cnt);		
 		}
 	}
 		

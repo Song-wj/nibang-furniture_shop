@@ -308,7 +308,7 @@ div.content {
                   <input type="hidden" name="oid" value="<%= oid%>">
                   <input type="hidden" name="mid" value="<%= jvo.getEmail()%>">
                   <input type="hidden" name="pid<%=count %>" value="<%= vo.getPid()%>">
-                  <input type="hidden" name="pcnt" value="<%= vo.getC_qty()%>">
+                  <input type="hidden" name="pcnt<%=count %>" value="<%= vo.getC_qty()%>">
                   <input type="hidden" name="total" value="<%= parseTotal %>">
                   <input type="hidden" name="review_chk" value="x">
 				  <input type="hidden" name="order_chk" value="o">
