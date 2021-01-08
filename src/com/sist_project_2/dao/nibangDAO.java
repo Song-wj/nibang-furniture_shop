@@ -66,7 +66,7 @@ public class nibangDAO extends DBConn {
 		ArrayList<joinVO> list = new ArrayList<>();
 		
 		try {
-			String sql = "select mid, name, birth, gender, hp, addrnum, addr, to_char(mdate,'yyyy/mm/dd') from nibangmember";
+			String sql = "select mid, name, birth, gender, hp, addrnum, addr, to_char(mdate,'yyyy/mm/dd') from nibangmember order by mdate desc";
 			getPreparedStatement(sql);
 			rs = pstmt.executeQuery();
 			

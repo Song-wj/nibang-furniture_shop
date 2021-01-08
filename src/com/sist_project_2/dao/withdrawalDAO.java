@@ -10,7 +10,7 @@ public class withdrawalDAO extends DBConn{
 		ArrayList<withdrawalVO> list = new ArrayList<withdrawalVO>();
 		
 		try {
-			String sql = "select did, d_content, d_reason, to_char(d_date,'yyyy/mm/dd') from withdrawal";
+			String sql = "select did, d_content, d_reason, to_char(d_date,'yyyy/mm/dd') from withdrawal order by d_date desc";
 			getPreparedStatement(sql);
 			rs = pstmt.executeQuery();
 			
