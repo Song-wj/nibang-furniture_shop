@@ -2,12 +2,20 @@ package com.sist_project_2.vo;
 
 public class orderVO {
    String oid, mid, pid, rname, raddrnum, raddr, raddr2, raddr3, rph, rph1, rph2, rph3, rrequest, review_chk, total, rdate, order_chk;
-int pcnt;
+  int pcnt,pprice;
 
    String name, hp, simg, pname, pinfo, color, price;
 
       
-   public String getOrder_chk() {
+   public int getPprice() {
+	return pprice;
+	}
+	
+	public void setPprice(int pprice) {
+		this.pprice = pprice;
+	}
+
+	public String getOrder_chk() {
 	   return order_chk;
    }
    

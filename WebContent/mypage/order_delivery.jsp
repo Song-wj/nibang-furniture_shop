@@ -80,6 +80,7 @@ $(document).ready(function(){
 					output+="<tr class='all'>"
 					output+="<td>"+jdata.jlist[i].oid+"</td>";
 					output+="<td>"+jdata.jlist[i].name+"</td>";
+					output+="<td>"+jdata.jlist[i].cnt+"</td>";
 					output+="<td>"+jdata.jlist[i].price+"</td>";
 					output+="<td>"+jdata.jlist[i].date+"</td>";
 					output+="<td><button type='button' id='"+jdata.jlist[i].oid+"' class='cancel'>취소</button></td>";
@@ -173,6 +174,7 @@ $(document).ready(function(){
 							<tr class="otable_header">
 								<th>주문번호</th>
 								<th>상품명</th>
+								<th>개수</th>
 								<th>총 가격</th>
 								<th>주문날짜</th>
 								<th>주문취소</th>

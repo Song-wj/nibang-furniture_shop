@@ -30,7 +30,7 @@ public class orderDAO extends DBConn{
       ArrayList<orderVO> list = new ArrayList<>();
       
       try {
-         String sql = "select o.oid,  p.simg1, p.pname, p.pinfo ,p.pid from (select o.oid, s.pid, o.mid, s.review_chk, order_chk ,rdate from suborder s ,nibangorder o where s.oid = o.oid) o , product p where o.pid=p.pid and review_chk='x' and order_chk ='o' and mid =? order by rdate";
+         String sql = "select o.oid,  p.simg1, p.pname, p.pinfo ,p.pid from (select o.oid, s.pid, o.mid, s.review_chk, order_chk ,rdate from suborder s ,nibangorder o where s.oid = o.oid) o , product p where o.pid=p.pid and review_chk='x' and order_chk ='o' and mid =? order by rdate desc";
          getPreparedStatement(sql);
          pstmt.setString(1, mid);
          rs = pstmt.executeQuery();
@@ -65,7 +65,7 @@ public class orderDAO extends DBConn{
 			}else {
 				str = "and rdate>=sysdate-"+period+" order by rdate desc";
 			}
-			String sql = "select oid, pname, to_char(price, '9,999,999'), rdate  from (select o.oid,mid, order_chk, s.pid, to_char(rdate, 'yyyy/mm/dd') rdate from nibangorder o, suborder s where o.oid=s.oid) s, product p where s.pid=p.pid and order_chk= ? and mid=? "+str ;
+			String sql = "select oid, pname,pcnt, price , rdate  from (select o.oid,mid, order_chk, s.pid, s.pcnt, to_char(rdate, 'yyyy/mm/dd') rdate from nibangorder o, suborder s where o.oid=s.oid) s, product p where s.pid=p.pid and order_chk= ? and mid=? "+str ;
 			getPreparedStatement(sql);
 			pstmt.setString(1, "o");
 			pstmt.setString(2, mid);
@@ -76,8 +76,9 @@ public class orderDAO extends DBConn{
 				orderVO vo = new orderVO(); 
 				vo.setOid(rs.getString(1));
 				vo.setPname(rs.getString(2));
-				vo.setPrice(rs.getString(3));
-				vo.setRdate(rs.getString(4));
+				vo.setPcnt(Integer.parseInt(rs.getString(3)));
+				vo.setPprice(rs.getInt(4));
+				vo.setRdate(rs.getString(5));
 				
 				list.add(vo);
 			}

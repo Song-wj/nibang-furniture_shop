@@ -13,10 +13,12 @@
 	Gson gson = new Gson();
 	
 	for(orderVO vo: list){
+		
 		JsonObject jobj = new JsonObject();
 		jobj.addProperty("oid",vo.getOid());
 		jobj.addProperty("name",vo.getPname());	
-		jobj.addProperty("price",vo.getPrice());
+		jobj.addProperty("cnt",vo.getPcnt());	
+		jobj.addProperty("price",vo.getPprice()*vo.getPcnt());
 		jobj.addProperty("date",vo.getRdate());
 		
 		
