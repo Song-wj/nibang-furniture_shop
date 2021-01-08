@@ -14,8 +14,8 @@ public class messageAnswerDAO extends DBConn{
 		ArrayList<messageVO> list = new ArrayList<messageVO>();
 	 
 		try { 
-			String sql = " select rownum rno ,sid, m_div, m_title, m_content, m_file," +
-					" to_char(m_date,'yyyy.mm.dd') from (select * from message order by m_date desc)"  ;
+			String sql = " select rownum rno ,sid, m_div, m_title, m_content, m_file, " +
+					" to_char(m_date,'yyyy.mm.dd'), mid from (select * from message order by m_date desc)"  ;
 	  
 			getStatement(); rs = stmt.executeQuery(sql);
 	  
@@ -28,6 +28,7 @@ public class messageAnswerDAO extends DBConn{
 			  vo.setM_content(rs.getString(5));
 			  vo.setM_file(rs.getString(6)); 
 			  vo.setM_date(rs.getString(7));
+			  vo.setMid(rs.getString(8));
 	  
 			  list.add(vo); 
 			  } 

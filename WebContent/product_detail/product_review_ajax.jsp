@@ -32,9 +32,8 @@
 		jobj.addProperty("content",vo.getR_content());
 		jobj.addProperty("grade",good);
 		
-		
-	
 		jarray.add(jobj);
+		good = "";
 	}
 	
 	jdata.add("jlist",jarray);
