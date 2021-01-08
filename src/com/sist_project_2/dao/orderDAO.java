@@ -142,31 +142,8 @@ public class orderDAO extends DBConn{
 	 }
 	   
    
-   
-		
-		  public orderVO getOrder() { orderVO vo = new orderVO();
+  
 		  
-		  try {
-			  
-			  String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total  \r\n" + 
-		         		"	   from nibangmember m, product p , ( select s.oid, s.pid , o.mid ,o.rname, o.raddrnum ,o.pcnt, o.total ,o.rph ,o.raddr, o.rdate\r\n" + 
-		         		"                                         from  nibangorder o, suborder s" + 
-		         		"                                          where o.oid = s.oid) o" + 
-		         		"	   where o.mid = m.mid and o.pid = p.pid order by o.rdate desc"; getPreparedStatement(sql); rs =
-		  pstmt.executeQuery();
-		  
-		  if(rs.next()) { vo.setOid(rs.getString(1)); vo.setName(rs.getString(2));
-		  vo.setRname(rs.getString(3)); vo.setRaddrnum(rs.getString(4));
-		  vo.setRaddr(rs.getString(5)); vo.setHp(rs.getString(6));
-		 vo.setRph(rs.getString(7)); vo.setSimg(rs.getString(8));
-		 vo.setPname(rs.getString(9)); vo.setPinfo(rs.getString(10));
-		  vo.setColor(rs.getString(11)); vo.setPrice(rs.getString(12));
-		  vo.setPcnt(rs.getInt(13)); vo.setTotal(rs.getString(14)); }
-		  
-		  } catch (Exception e) { e.printStackTrace(); }
-		  
-		  return vo; }
-		
    
    public orderVO getOrder(String oid) {
 	      orderVO vo = new orderVO(); 
@@ -251,49 +228,45 @@ public class orderDAO extends DBConn{
       return result;
    }
    
-   public ArrayList<orderVO> getPid(String oid) {
-	     
-	     
-	      ArrayList<orderVO> list = new ArrayList<>();
-	      try {
-	         String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total  \r\n" + 
-	         		"	   from nibangmember m, product p , ( select s.oid, s.pid , o.mid ,o.rname, o.raddrnum ,o.pcnt, o.total ,o.rph ,o.raddr\r\n" + 
-	         		"                                         from  nibangorder o, suborder s" + 
-	         		"                                          where o.oid = s.oid) o" + 
-	         		"	   where o.mid = m.mid and o.pid = p.pid  and o.oid=?";
-	         getPreparedStatement(sql);
-	         pstmt.setString(1, oid);
-	        
-
-	         
-	         rs= pstmt.executeQuery();
-	         
-	        while(rs.next()){
-	        	orderVO vo = new orderVO(); 
-	        	vo.setOid(rs.getString(1));
-	            vo.setName(rs.getString(2));
-	            vo.setRname(rs.getString(3));
-	            vo.setRaddrnum(rs.getString(4));
-	            vo.setRaddr(rs.getString(5));
-	            vo.setHp(rs.getString(6));
-	            vo.setRph(rs.getString(7));
-	            vo.setSimg(rs.getString(8));
-	            vo.setPname(rs.getString(9));
-	            vo.setPinfo(rs.getString(10));
-	            vo.setColor(rs.getString(11));
-	            vo.setPrice(rs.getString(12));
-	            vo.setPcnt(rs.getInt(13));
-	            vo.setTotal(rs.getString(14));
-	            
-	            list.add(vo);
-	        }
-	         
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	      }
-	      
-	      return list;
-	   }
+	
+	  public ArrayList<orderVO> getPid(String oid) {
+	  	  
+		  ArrayList<orderVO> list = new ArrayList<>();
+		  try { 
+			  String sql = "select o.oid, m.name, o.rname, o.raddrnum, o.raddr, m.hp, o.rph, p.simg1, p.pname, p.pinfo, p.color, p.price, o.pcnt, o.total  \r\n"
+							 + " from nibangmember m, product p , ( select s.oid, s.pid , o.mid ,o.rname, o.raddrnum ,o.pcnt, o.total ,o.rph ,o.raddr\r\n"
+							  + "                                    from  nibangorder o, suborder s"
+							  + "                                     where o.oid = s.oid) o" +
+							 "	   where o.mid = m.mid and o.pid = p.pid  and o.oid=?";
+	  getPreparedStatement(sql); pstmt.setString(1, oid);
+	  
+	  
+	  
+	  rs= pstmt.executeQuery();
+	  
+	  while(rs.next()){ 
+		  orderVO vo = new orderVO(); 
+		  vo.setOid(rs.getString(1));
+		  vo.setName(rs.getString(2)); 
+		  vo.setRname(rs.getString(3));
+		  vo.setRaddrnum(rs.getString(4)); 
+		  vo.setRaddr(rs.getString(5));
+		  vo.setHp(rs.getString(6)); 
+		  vo.setRph(rs.getString(7));
+		  vo.setSimg(rs.getString(8)); 
+		  vo.setPname(rs.getString(9));
+		  vo.setPinfo(rs.getString(10)); 
+		  vo.setColor(rs.getString(11));
+		  vo.setPrice(rs.getString(12)); 
+		  vo.setPcnt(rs.getInt(13));
+		  vo.setTotal(rs.getString(14));
+	 
+	  list.add(vo); }
+	  
+	  } catch (Exception e) { e.printStackTrace(); }
+	 
+	  return list; }
+	
    
 		
    

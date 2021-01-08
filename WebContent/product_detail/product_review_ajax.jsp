@@ -6,8 +6,8 @@
 	String select =request.getParameter("select");
 	
 	
-	
-	
+	String icon = "👍";
+	String good="";
 	
 	reviewDAO dao = new reviewDAO();
 	ArrayList<reviewVO> list = dao.getProductReview(pid ,select);
@@ -21,12 +21,15 @@
 	
 	for(reviewVO vo: list){
 		JsonObject jobj = new JsonObject();
+		for(int i=0; i<Integer.parseInt(vo.getR_satis()); i++ ) { 
+			good+=icon;
+		}
 		
 		jobj.addProperty("id",vo.getMid());
 		jobj.addProperty("img",vo.getR_sfile());
 		jobj.addProperty("title",vo.getR_title());	
 		jobj.addProperty("content",vo.getR_content());
-		jobj.addProperty("grade",vo.getR_satis());
+		jobj.addProperty("grade",good);
 		
 		
 	

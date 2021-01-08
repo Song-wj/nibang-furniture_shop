@@ -158,7 +158,7 @@
 	
 	
 	$(document).ready(function(){
-		
+		loadReview('최근 리뷰순');
 		
 		$("#product_colors").change(function(){		
 			var price = "<%= vo.getPprice()%>";	
@@ -295,13 +295,18 @@
 		
 		$("#product_review_sort").change(function(){
 			var select = $(this).val();
-			
+			loadReview(select);
+		
+		})
+		
+		function loadReview(select){
 			$.ajax({
 				url:"product_review_ajax.jsp?pid=<%=pid%>&select="+select,
 				success:function(data){
 					
 					var jdata = JSON.parse(data);
-					var output="<table style='width:1000px;margin-left:80px;text-align:center;' id='rtable'>";
+					
+					var output="<table  style='width:1150px;margin-left:50px;text-align:center;' id='rtable'>";
 					output+="<tr>";
 					output+="<th>작성자</th>";
 					output+="<th>이미지</th>";
@@ -312,28 +317,27 @@
 					for(var i in jdata.jlist){
 						
 						output+="<tr>"
-						output+="<td>"+jdata.jlist[i].id+"</td>";
+						output+="<td style='width:150px;'>"+jdata.jlist[i].id+"</td>";
 						if(jdata.jlist[i].img !=null){
-							output+="<td><img src='../upload/"+jdata.jlist[i].img+"' width=120px height=120px;></td>";
+							output+="<td style='width:150px;'><img src='../upload/"+jdata.jlist[i].img+"' width=120px height=120px;></td>";
 						}else{
-							output+="<td><img src='../images/no_Image.png' width=120px height=120px;></td>";
+							output+="<td style='width:150px;'><img src='../images/no_Image.png' width=120px height=120px;></td>";
 						 }
-						output+="<td>"+jdata.jlist[i].title+"</td>";
+						output+="<td style='width:200px;'>"+jdata.jlist[i].title+"</td>";
 						output+="<td>"+jdata.jlist[i].content+"</td>";
-						output+="<td>"+jdata.jlist[i].grade+"</td>";
+						output+="<td style='width:150px;'>"+jdata.jlist[i].grade+"</td>";
 						output+="</tr>"
 					}
 				   output+="</table>";
-				
+					
+				 
 				  
 				   $("#rtable").remove();
 				   $(".ddd").append(output);  
-				   
-				   
-				   
+   
 				}
 			})
-		})
+		}
 		
 		
 	}); // ready

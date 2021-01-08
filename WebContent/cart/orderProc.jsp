@@ -11,16 +11,18 @@
 	String oid = vo.getOid();
 	String ppid= vo.getPid();
 	
+	
 	orderDAO dao = new orderDAO();
  	boolean result = dao.orderWrite(vo); 
 	System.out.println("1---------"+oid);
 	
- 	if(ppid != null){
+ 	if(ppid != null ){
  		dao.subWrite(oid,ppid);	
  	}
 	
 	for(int i =1; i<10; i++){
 		String cpid = request.getParameter("pid"+i);
+		
 		if(cpid != null){
 	     	dao.subWrite(oid,cpid);		
 		}
