@@ -594,38 +594,7 @@
 			<div class="product_review_QnA" id="product_review_QnA">
 				<label>포토 상품평</label>
 				<label class="btnNselect">
-					<%-- <a href="#open"><button type="button">리뷰등록</button></a>
-						<div class="white_content" id="open">
-							<div class ="review1" style="width:45%;">
-								<a href="#close"><img id="btn_close" src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-								<h1>상품평</h1>
-									<form id="reviewform1" name="reviewform1" action="reviewProc.jsp?id=<%=svo.getId() %>" method="post" enctype="multipart/form-data">
-										<input type="text" name="pid" value="<%=pid%>"> 
-										<input type="text" name="mid" value="<%=svo.getId()%>"> 
-											<ul>
-												<li>제목</li>
-												<li><input type="text" name="r_title" id="r_title"></li>
-												<li>내용을 작성해주세요</li>
-												<li><textarea name="r_content" id="r_content"></textarea></li>
-												<li>만족도
-													<select name="r_satis" id="r_satis" style="margin-left:30px;">
-														<option value="선택">선택</option>
-														<option value="1">👍</option>
-														<option value="2">👍👍</option>
-														<option value="3">👍👍👍</option>
-														<option value="4">👍👍👍👍</option>
-														<option value="5">👍👍👍👍👍</option>
-													</select>
-												</li>
-												<li><input type="file" name="r_file" id="r_file"></li>
-												<li>
-													<button type="submit" id="btn_review">작성 완료</button>
-												</li>
-											</ul>
-										</form>
-									</div>		
-							</div>
-						 --%>
+					
 				</label>
 					<select name="product_review_sort" id="product_review_sort">
 						<option value="최근 리뷰순"> 최근 리뷰순</option>
@@ -642,49 +611,9 @@
 				</div>
 				<hr>
 				
-				<label>상품 Q&A <span class="qna">상품에 관한 문의가 아닌 경우 고객센터를 이용해주세요.</span></label>
-						<a href="#open"><button type="button">문의하기</button></a>
-						<div class="white_content4" id="open">
-							<div class="inquiry_content1"  id="inquiry_content1">
-									<a href="#close"><img id="btn_close" src="http://localhost:9000/sist_project_2/images/option_delete.png"></a>
-										<h2 style=" margin-left:70px; padding: 6% 20%;">문 의</h2>
-											<form name="inquiryform1" action="http://localhost:9000/sist_project_2/customer_service/1-1inquiryProc.jsp" method="post" id="inquiryform1" class="inquiryform1" enctype="multipart/form-data">
-												<input type="hidden" name="mid" value="<%=mid%>"> 
-												<ul>
-													<li><label style="font-size:14px; margin: 20px 20px 0 0; ">문의구분</label>
-														<select name="m_div" id="m_div" style="width:250px;height:40px;">
-											  				<option value="선택">선택</option>
-											  				<option value="상품문의">상품문의</option>
-											  				<option value="주문/결제/취소">주문/결제/취소</option>
-											  				<option value="배송">배송</option>
-											  				<option value="교환/반품">교환/반품</option>
-											  				<option value="회원정보">회원정보</option>
-											  				<option value="사이트이용">사이트이용</option>
-											  				<option value="이벤트/프로모션">이벤트/프로모션</option>
-											  				<option value="기타문의">기타문의</option>
-														</select>
-													</li>
-													<li>제목</li>
-													<li><input type="text" name="m_title" id="m_title"></li>
-													<li>상세 내용</li>
-													<li><textarea name="m_content" id="m_content"></textarea></li>
-													<li><input type="file" name="m_file" id="m_file"></li>
-													<li>제품 전체 이미지, 부분(파손부위) 이미지를 함께 첨부 바랍니다.<br></li>
-												</ul>
-													<button type="submit" id="a">신청하기</button>
-											</form>
-										</div>        
-									</div>
-						<a href="http://localhost:9000/sist_project_2/customer_service/customer_service.jsp"><button type="button">고객센터</button></a>
 				
 				
-				<hr>
-				<table class="product_Q&A" id="product_Q&A">
-					<tr>
-						<td>상품 Q&A 내역이 없습니다.</td>
-					</tr>
-				</table>
-				<hr>
+			
 			</div>
 			<div class="product_img_notice" id="product_img_notice">
 				<label>제품 사진 관련 안내</label>
