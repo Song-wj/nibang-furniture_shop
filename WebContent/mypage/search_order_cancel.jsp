@@ -81,8 +81,10 @@
 							
 							var jdata = JSON.parse(data);
 							var output="";
-							if(jdata.jlist.size == 0){
-								output+="취소내역이 없습니다.";
+							if(jdata.jlist == ""){
+								$("table.order_table tr.otable_header").remove();
+								output+="<tr class='all'><td colspan='5' >취소내역이 없습니다.</td></tr>";
+								$("table.order_table tbody").after(output);
 							}else{
 							for(var i in jdata.jlist){
 								
@@ -94,11 +96,11 @@
 								output+="</tr>"							
 						   		
 							}
+							$("table.order_table tbody tr.all").remove();
+							$("table.order_table tr.otable_header").after(output);
 							}
 							
 							
-							$("table.order_table tbody tr.all").remove();
-							$("table.order_table tr.otable_header").after(output);
 							
 							
 						}
@@ -147,7 +149,7 @@
 			<button type="button" id="duration_btn3">7일</button>
 			<button type="button" id="duration_btn4">전체</button>
 			<table class="order_table">
-					<tbody>
+					<tbody >
  						
 							<tr class="otable_header">
 								<th>주문번호</th>

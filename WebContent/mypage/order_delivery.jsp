@@ -70,8 +70,10 @@ $(document).ready(function(){
 				
 				var jdata = JSON.parse(data);
 				var output="";
-				if(jdata.jlist.size == 0){
-					output+="취소내역이 없습니다.";
+				if(jdata.jlist == ""){
+					$("table.order_table tr.otable_header").remove();
+					output+="<tr class='all'><td colspan='5' >주문내역이 없습니다.</td></tr>";
+					$("table.order_table tbody").after(output);
 				}else{
 				for(var i in jdata.jlist){
 					
@@ -85,11 +87,12 @@ $(document).ready(function(){
 					
 			   		
 				}
-				}
-				
 				
 				$("table.order_table tbody tr.all").remove();
 				$("table.order_table tr.otable_header").after(output);
+				}
+				
+				
 				
 				$("button.cancel").click(function(){
 					   var oid = $(this).attr("id");
