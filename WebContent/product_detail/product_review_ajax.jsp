@@ -19,6 +19,7 @@
 	JsonObject jdata = new JsonObject();
 	Gson gson = new Gson();
 	
+	
 	for(reviewVO vo: list){
 		JsonObject jobj = new JsonObject();
 		for(int i=0; i<Integer.parseInt(vo.getR_satis()); i++ ) { 
@@ -35,8 +36,17 @@
 	
 		jarray.add(jobj);
 	}
+	
 	jdata.add("jlist",jarray);
 	out.write(gson.toJson(jdata));
+	
+	
+	
+	
+	
+	
+	
+	
 	
 %>
  

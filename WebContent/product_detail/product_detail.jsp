@@ -300,13 +300,20 @@
 		})
 		
 		function loadReview(select){
+
+				
+			
 			$.ajax({
 				url:"product_review_ajax.jsp?pid=<%=pid%>&select="+select,
+				async: false,
 				success:function(data){
-					
 					var jdata = JSON.parse(data);
+					var output ="";
 					
-					var output="<table  style='width:1150px;margin-left:50px;text-align:center;' id='rtable'>";
+					if(jdata.jlist!=""){
+						
+				
+					output="<table  style='width:1150px;margin-left:50px;text-align:center;' id='rtable'>";
 					output+="<tr>";
 					output+="<th>작성자</th>";
 					output+="<th>이미지</th>";
@@ -328,9 +335,15 @@
 						output+="<td style='width:150px;'>"+jdata.jlist[i].grade+"</td>";
 						output+="</tr>"
 					}
-				   output+="</table>";
+			 	}else{
 					
-				 
+					output="<table  id='rtable'>";
+					output+="<tr>";
+					output+="<td style='padding: 100px 500px;'>작성된 상품평이 없습니다.</td>"
+					output+="</tr>";
+				}  
+									 
+				   output+="</table>";
 				  
 				   $("#rtable").remove();
 				   $(".ddd").append(output);  
