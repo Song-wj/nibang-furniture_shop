@@ -1,7 +1,7 @@
 
 
 # Nibang 
-<img src="https://user-images.githubusercontent.com/74236645/114270550-f644ed80-9a47-11eb-8df1-59d1aa009d04.jpg" alt="nibang_icon" width=100 height=150>
+<img src="https://user-images.githubusercontent.com/74236645/114270550-f644ed80-9a47-11eb-8df1-59d1aa009d04.jpg" alt="nibang_icon" width=200 height=150>
 
 __코로나19로 인한 언택트 시대에 고객들이 자택에서 가구를 쉽고 편리하게 구매할 수 있도록 만든 동적 웹페이지입니다.__
 
